@@ -1,0 +1,511 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<!-- Mirrored from www.nas-partak-obytnak.cz/technika/nastavba/01_06_2021---jak-myjete-sve-auto-vy-_ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Sep 2024 12:24:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+
+<base  />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="../../userFiles/favicon.ico" rel="shortcut icon" type="image/ico" />
+<meta property="og:image" content="../../userFiles/system/mazlikfcbk.jpg" />
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript" src="../../file3d83.php?f=js/jquery.ui.js.php"></script>
+<script type="text/javascript" src="../../file3ec2.php?f=plugins/thickbox/thickbox.js.php"></script>
+<script type="text/javascript" src="../../js/init.js"></script>
+<link rel="stylesheet" type="text/css" href="../../plugins/datetimepicker/build/jquery.datetimepicker.min.css" media="all" />
+<script type="text/javascript" src="../../plugins/datetimepicker/build/jquery.datetimepicker.full.js"></script>
+<script type="text/javascript" src="../../js/s.js"></script>
+<script type="text/javascript" src="../../js/jquery.roundblock.js"></script>
+<link href="../../plugins/nanogallery2-3.0.5/dist/css/nanogallery2.min.css" rel="stylesheet" type="text/css">
+<script  type="text/javascript" src="../../plugins/nanogallery2-3.0.5/dist/jquery.nanogallery2.min.js"></script>
+<link rel="stylesheet" href="../../plugins/bootstrap_modalonly/css/bootstrap.css">
+<script src="../../plugins/bootstrap_modalonly/js/bootstrap.js"></script>    
+<script type="text/javascript" src="../../js/jquery.cookie.js"></script>
+
+<!--[if lte IE 6]>
+<script type="text/javascript" src="js/jquery.ifixpng.js"></script>
+<script type="text/javascript"> $.ifixpng("admin/transparent.gif"); $(function(){ $("div").ifixpng(); }); </script>
+<![endif]-->
+
+<meta name="basepathlng" content="./" />
+<meta http-equiv="content-language" content="cs" />
+<!-- UH -->
+<link href="https://fonts.googleapis.com/css?family=Rajdhani:300,400,500,600,700" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700&amp;subset=latin-ext" rel="stylesheet">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<script type="text/javascript">
+$(function(){
+
+if (window.isFrontpage)
+  {
+   $('body').addClass('uvod');
+}
+
+if ($(window).width() < 1001) {
+   $('body').addClass('resp');
+}
+
+$("#sidebar>ul>li>ul>li>ul>li>ul>li.current").parent().parent().addClass('current aktivni');
+$("#sidebar>ul>li>ul>li>ul>li.current").parent().parent().addClass('current aktivni');
+$("#sidebar>ul>li>ul>li.current").parent().parent().addClass('current aktivni');
+$("#sidebar>ul>li.current").addClass('aktivni');
+
+$(".uvod .post .fotogalerie").parent().parent().addClass('blok-foto');
+
+$("#menu").appendTo("#header");
+
+$("body").prepend("<div id=max-slide></div>");
+
+$("#header").wrap("<div id=max-header></div>");
+$("#max-header").prependTo("body");
+/*$(".formular").appendTo(".theme-default .nivoSlider");*/
+
+$(".slider-wrapper").appendTo("#max-slide");
+
+$('input.button').val('odeslat');
+
+$("#locales").insertAfter("#slogan");
+
+$("#wrap").append("<hr>");
+
+$("body>#max-slide>.slider-wrapper").parent().parent().addClass('akt-slide');
+$("#sidebar>ul>li.aktivni").parent().parent().parent().addClass('split');
+
+$("#rightbar").prependTo("#footer");
+$("#main>h1").wrap("<p class=post-center></p>");
+
+$(".paticka_banan a:first-child").text("Webové stránky");
+$('.paticka_banan a:first-child').attr('title', 'Webové stránky od BANAN.CZ');
+
+$("body.resp #sidebar").insertAfter("#main");
+
+$("#menu>ul").clone().appendTo("#menu-bott");
+$("#info").appendTo("#wrap");
+
+})
+
+//responzivni menu
+
+$(function() {
+$('#menu').prepend('<div id="pull" onclick="return false;"></div>');
+var $pull = ('#pull');
+var $menu = $('#menu > ul');
+
+$(pull).on('click', function(e) {
+	e.preventDefault();
+	if(!$menu.data('show')){
+           $menu.height('initial').height($(document).height() - $("#menu > ul").offset().top);
+           $menu.stop(true, true).data({show: true}).animate({'margin-left': '0'});
+        }else
+           $menu.stop(true, true).data({show: false}).animate({'margin-left': -$menu.width()}, function(){
+               var height = $(this).height();
+               $(this).removeAttr("style").height(height);
+           });
+
+});
+
+$(document).bind('click', function(e) {
+if($menu.data('show')){
+  if(!$(e.target).is('#menu *')) {
+    $menu.stop(true, true).data({show: false}).animate({'margin-left': -$menu.width()}, function(){
+               var height = $(this).height();
+               $(this).removeAttr("style").height(height);
+           });
+  }
+}
+});
+$(window).resize(function(){
+   CheckMenu($menu);
+});
+CheckMenu($menu);
+
+function CheckMenu($menu){
+   var w = window.innerWidth;
+   if(w > 1000) {
+       $menu.removeAttr('style');
+       $menu.find('.menu_add_row').remove();
+       $menu.height('initial');
+       $menu.data('show', false);
+   } else {
+     $menu.find('.menu_add_row').remove();
+     $menu.find('li').each(function(){
+        var $ull = $(this).find('ul');
+        if($ull.length){
+           $(this).append($('<div class="menu_add_row '+ ($ull.data('active')?'active':'') +'"></div>').data('$ul', $ull).click(function(){
+                   if(!$(this).data('$ul').data('active'))
+                     $(this).addClass('active').data('$ul').data('active', true).addClass('menu_add_show').parents('li:first').addClass('menu_add_active');
+                   else
+                     $(this).removeClass('active').data('$ul').data('active', false).removeClass('menu_add_show').parents('li:first').removeClass('menu_add_active');
+           }));
+
+        }
+      })
+     $menu.height('initial').height($(document).height() - $("#menu > ul").offset().top);
+     }
+   }
+});
+
+</script>
+
+<!--[if gte IE 9]>
+  <style type="text/css">
+    body, .mimg, .rsslink, #menu>ul>li>ul, .more, .button, #menu>ul>li>a:hover, #menu>ul>li.current>a,  #menu>ul>li:hover>a, .button:hover, .more:hover, #menu>ul>li>a {
+       filter: none !important;
+    }
+  </style>
+<![endif]-->
+<!--[if IE ]>
+  <style type="text/css">
+    .addthis_container {
+
+}
+  </style>
+<![endif]-->
+<!-- /UH -->
+<meta name="description" content="Uznávám, že skoro na začátku léta a tedy v plné sezóně psát o důkladném čištění obytného auta, je už asi trochu pozdě. Ale..." />
+<meta name="keywords" content="" />
+<title>01.06.2021 - Jak myjete své auto vy ? | Náš parťák obytňák</title>
+<meta property="og:title"  content= "Náš parťák obytňák" />
+<meta property="og:description"  content= "Uznávám, že skoro na začátku léta a tedy v plné sezóně psát o důkladném čištění obytného auta, je už asi trochu pozdě. Ale..." />
+<!-- Page Head -->
+
+<!-- /Page Head -->
+
+<link rel="stylesheet" href="../../css.css" type="text/css" media="screen,print" />
+
+<style> .paticka_vzhled {display:inline!important;  } </style>
+<!--[if IE]> <link rel="stylesheet" type="text/css" href="ie.css" /> <![endif]-->
+<!--[if lte IE 7]> <link rel="stylesheet" type="text/css" href="ie7.css" /> <![endif]-->
+<script type="text/javascript">
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : "486735741442178",
+      channelUrl : "//www.nas-partak-obytnak.cz/file.php?f=plugins/facebook/channel.js.php&l=cs_CZ",
+      status     : true,
+      xfbml      : true
+    });
+  };
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "../../../connect.facebook.net/cs_CZ/all.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, "script", "facebook-jssdk"));
+
+</script>
+
+</head>
+
+<body>
+<div id="wrap"><!-- wrap starts here -->
+
+	<div id="header">
+
+				<h1 id="logo"><a href="../../index.html" title="">Náš parťák obytňák</a></h1>		<h2 id="slogan">Náš parťák obytňák</h2>
+	</div>
+
+	<div id="menu">
+
+		<ul><li><a href="../../index.html">Úvod</a></li><li><a href="../../svet-nomadu.html">Svět nomádů</a><ul><li><a href="../../svet-nomadu/2024.html">2024</a><ul><li><a href="../../svet-nomadu/2024/predstaveni-pilote-atlas-a656d-2024.html">Představení Pilote Atlas A656D 2024</a></li></ul></li><li><a href="../../svet-nomadu/2022.html">2022</a><ul><li><a href="../../svet-nomadu/2022/01_02_2022---clark-cortez---neznama-legenda.html">01.02.2022 - Clark Cortez - neznámá legenda</a></li></ul></li><li><a href="../../svet-nomadu/2021.html">2021</a><ul><li><a href="../../svet-nomadu/2021/17_07_2021---novy-fiat-ducato-uz-oficialne.html">17.07.2021 - Nový Fiat Ducato už oficiálně</a></li><li><a href="../../svet-nomadu/2021/30_05_2021---amik-s-evropskym-srdcem.html">30.05.2021 - Amík s evropským srdcem</a></li><li><a href="../../svet-nomadu/2021/11_04_2021---nejkrasnejsi-osklivky-70_let.html">11.04.2021 - Nejkrásnější ošklivky 70.let</a></li><li><a href="../../svet-nomadu/2021/28_03_2021---kdo-se-prvni-v-obytnaku-sprchoval_.html">28.03.2021 - Kdo se první v obytňáku sprchoval?</a></li><li><a href="../../svet-nomadu/2021/02_03_2021---joo_-holt-ta-cina_.html">02.03.2021 - Jóó, holt ta Čína!</a></li><li><a href="../../svet-nomadu/2021/21_02_2021---facelift-fiatu-ducato-2022.html">21.02.2021 - Facelift Fiatu Ducato 2022</a></li><li><a href="../../svet-nomadu/2021/14_02_2021---obytnak-pro-krizove-obdobi.html">14.02.2021 - Obytňák pro krizové období</a></li><li><a href="../../svet-nomadu/2021/05_01_2021---krasna-silenost_-z-triton.html">05.01.2021 - Krásná šílenost: Z-Triton</a></li><li><a href="../../svet-nomadu/2021/01_01_2021---kraska-ultra-van.html">01.01.2021 - Kráska ULTRA VAN</a></li></ul></li><li><a href="../../svet-nomadu/2019.html">2019</a><ul><li><a href="../../svet-nomadu/2019/11_11_2019---tourne_-prvni-van-do-zimy_.html">11.11.2019 - Tourne. První van do zimy!</a></li><li><a href="../../svet-nomadu/2019/05_07_2018---kral-pop-kultury.html">05.07.2018 - Král pop kultury</a></li><li><a href="../../svet-nomadu/2019/12_03_2019---ktera-znacka-je-nejstarsi-_.html">12.03.2019 - Která značka je nejstarší ?</a></li><li><a href="../../svet-nomadu/2019/09_03_2019---quo-vadis_-ceske-vystavy_.html">09.03.2019 - Quo Vadis, české výstavy?</a></li><li><a href="../../svet-nomadu/2019/28_02_2019---nejrychlejsi-obytne-auto-na-zemi.html">28.02.2019 - Nejrychlejší obytné auto na Zemi</a></li><li><a href="../../svet-nomadu/2019/24_02_2019---ikonicky-obytnak-ze-sedmdesatek_-gmc.html">24.02.2019 - Ikonický obytňák ze sedmdesátek: GMC</a></li><li><a href="../../svet-nomadu/2019/05_02_2019---prvni-ciste-elektricky-obytnak-_.html">05.02.2019 - První čistě elektrický obytňák !</a></li></ul></li><li><a href="../../svet-nomadu/2018.html">2018</a><ul><li><a href="../../svet-nomadu/2018/23_12_2018---vykradli-zdenka-a-bobesku-_.html">23.12.2018 - Vykradli Zdeňka a Bobešku !</a></li><li><a href="../../svet-nomadu/2018/25_11_2018---fiat-ducato-po-australsku.html">25.11.2018 - Fiat Ducato po australsku</a></li><li><a href="../../svet-nomadu/2018/11_11_2018---polointegovany-nebo-intergrovany-model_.html">11.11.2018 - Polointegovaný nebo intergrovaný model?</a></li><li><a href="../../svet-nomadu/2018/09_10_2018---fantomasuv-obytnak.html">09.10.2018 - Fantomasův obytňák</a></li><li><a href="../../svet-nomadu/2018/33_09_2018---obytnak-s-terasou-_.html">33.09.2018 - Obytňák s terasou !</a></li><li><a href="../../svet-nomadu/2018/29_08_2018---modely-pilote-pro-rok-2019.html">29.08.2018 - Modely PILOTE pro rok 2019</a></li><li><a href="../../svet-nomadu/2018/30_06_2018---trocha-karavanistickeho-steampunku.html">30.06.2018 - Trocha karavanistického steampunku</a></li><li><a href="../../svet-nomadu/2018/30_05_2018---evropske-vystavy-2018_19.html">30.05.2018 - Evropské výstavy 2018/19</a></li><li><a href="../../svet-nomadu/2018/23_05_2018---80-let-stary-obytnak-kpt_dunna.html">23.05.2018 - 80 let starý obytňák kpt.Dunna</a></li><li><a href="../../svet-nomadu/2018/15_03_2018-vyrobci-vybavy-a-doplnku.html">15.03.2018 Výrobci výbavy a doplňků</a></li><li><a href="../../svet-nomadu/2018/12_03_2018-for-caravan-2018_-praha.html">12.03.2018 FOR CARAVAN 2018, Praha</a></li><li><a href="../../svet-nomadu/2018/06_02_2018-evropske-znacky-obytnych-vozu.html">06.02.2018 Evropské značky obytných vozů</a></li><li><a href="../../svet-nomadu/2018/01_02_2018-jak-nakupovat-na-italskych-webshopech-_.html">01.02.2018 Jak nakupovat na italských webshopech ?</a></li><li><a href="../../svet-nomadu/2018/21_01_2018-dost-mista-na-vareni-_.html">21.01.2018 Dost místa na vaření ?</a></li></ul></li><li><a href="../../svet-nomadu/2017.html">2017</a><ul><li><a href="../../svet-nomadu/2017/09_11_2017-caravaning-brno-2017.html">09.11.2017 Caravaning Brno 2017</a></li><li><a href="../../svet-nomadu/2017/13_10_2018-retro-stroje_-usvit-obytnych-aut.html">13.10.2018 Retro stroje, úsvit obytných aut</a></li><li><a href="../../svet-nomadu/2017/15_09_2017-evropsky-caravaning-ocima-americanu.html">15.09.2017 Evropský caravaning očima Američanů</a></li><li><a href="../../svet-nomadu/2017/12_09_2017-retro-stroje-brooks-stevens.html">12.09.2017 Retro stroje Brooks Stevens</a></li><li><a href="../../svet-nomadu/2017/09_09_2017-janackovi-a-jejich-flicek.html">09.09.2017 Janáčkovi a jejich Flíček</a></li><li><a href="../../svet-nomadu/2017/03_09_2017-caravan-salon-2017.html">03.09.2017 Caravan Salon 2017</a></li></ul></li><li><a href="../../svet-nomadu/archiv-aktualit-dne.html">Archiv aktualit dne</a></li></ul></li><li><a href="../../technika.html">Technika</a><ul><li><a href="../motor-a-podvozek.html">Motor a Podvozek</a><ul><li><a href="../motor-a-podvozek/11_4_2022---na-kolik-vlastne-hustit-mechy_.html">11.4.2022 - Na kolik vlastně hustit měchy?</a></li><li><a href="../motor-a-podvozek/14_03_2022---nova-pneumatika-michelin-crossclimate-camping.html">14.03.2022 - nová pneumatika Michelin CrossClimate Camping</a></li><li><a href="../motor-a-podvozek/03_11_2019---dva-roky-z-robotickou-prevodovkou.html">03.11.2019 - Dva roky z robotickou převodovkou</a></li><li><a href="../motor-a-podvozek/04_08_2019---jak-pomahaji-mechy-s-vyskou_.html">04.08.2019 - Jak pomáhají měchy s výškou?</a></li><li><a href="../motor-a-podvozek/09_02_2019---spravne-husteni-pneumatik-_.html">09.02.2019 - Správné huštění pneumatik ?</a></li><li><a href="../motor-a-podvozek/28_10_2017---prevodovka-automatika-nebo-manual-_.html">28.10.2017 - Převodovka automatika nebo manuál ?</a></li></ul></li><li><a href="../nastavba.html">Nástavba</a><ul><li class="current"><a href="01_06_2021---jak-myjete-sve-auto-vy-_.html">01.06.2021 - Jak myjete své auto vy ?</a></li></ul></li><li><a href="../elektrina.html">Elektřina</a><ul><li><a href="../elektrina/20_01_2022---dame-tam-solar-_.html">20.01.2022 - Dáme tam solár !</a></li><li><a href="../elektrina/26_03_2018---jak-to-delaji-pri-vyrobe-_.html">26.03.2018 - Jak to dělají při výrobě ?</a></li><li><a href="../elektrina/20_01_2018---moderni-laska-ma-jmeno_-lifepo.html">20.01.2018 - Moderní láska má jméno: LiFePo</a></li><li><a href="../elektrina/28_12_2017---baterie_-baterie_-baterie.html">28.12.2017 - Baterie, baterie, baterie</a></li></ul></li><li><a href="../av-a-elektronika.html">AV a elektronika</a><ul><li><a href="../av-a-elektronika/10_04_2021---zkusenost-s-av-jednotkou-xzent-x-227.html">10.04.2021 - Zkušenost s AV jednotkou XZent X-227</a></li><li><a href="../av-a-elektronika/02_08_2019---rok-s-navigaci-garmin-camper-770t-d.html">02.08.2019 - Rok s navigací Garmin Camper 770T-D</a></li><li><a href="../av-a-elektronika/03_02_2019---digitalni-rozhlas-v-cr-pro-rok-2019-a-dal.html">03.02.2019 - Digitální rozhlas v ČR pro rok 2019 a dál</a></li><li><a href="../av-a-elektronika/04_03_2018---nastava-soumrak-satelitnich-anten-_.html">04.03.2018 - Nastává soumrak satelitních antén ?</a></li><li><a href="../av-a-elektronika/05_02_2018---360__omnivue_-draha-ale-super-hracka.html">05.02.2018 - 360°Omnivue: drahá ale super hračka</a></li><li><a href="../av-a-elektronika/26_01_2018---dvb-t_t2-antena-na-strechu.html">26.01.2018 - DVB-T/T2 anténa na střechu</a></li><li><a href="../av-a-elektronika/07_09_2017---jak-je-to-s-cenou-sw-navigace-sygic-truck-_.html">07.09.2017 - Jak je to s cenou sw navigace Sygic Truck ?</a></li><li><a href="../av-a-elektronika/04_09_2017---jakou-navigaci-si-vybrat-_.html">04.09.2017 - Jakou navigaci si vybrat ?</a></li></ul></li><li><a href="../voda-a-to-dalsi.html">Voda a to další</a><ul><li><a href="../voda-a-to-dalsi/20_02_2021---nas-obytnak-smrdi-_.html">20.02.2021 - Náš obytňák smrdí !</a></li><li><a href="../voda-a-to-dalsi/29_12_2019-co-je-vlastne-kompostovaci-zachod_.html">29.12.2019 Co je vlastně kompostovací záchod?</a></li><li><a href="../voda-a-to-dalsi/16_02_2019---udrzba-wc-kazety-dometic-rady-ct.html">16.02.2019 - Údržba WC kazety DOMETIC řady CT</a></li><li><a href="../voda-a-to-dalsi/chemicke-wc_-a-co-dal_.html">Chemické WC. A co dál?</a></li></ul></li><li><a href="../plyn-a-topeni.html">Plyn a topení</a><ul><li><a href="../plyn-a-topeni/27_12_2020---jak-je-to-se-spotrebou-plynu-_.html">27.12.2020 - Jak je to se spotřebou plynu ?</a></li><li><a href="../plyn-a-topeni/31_01_2019---menit-bomby-nebo-napevno_.html">31.01.2019 - Měnit bomby nebo napevno?</a></li><li><a href="../plyn-a-topeni/26_10_2018---i-tehdy-rekl-buh_-budiz-plyn_.html">26.10.2018 - I tehdy řekl Bůh: Budiž plyn!</a></li><li><a href="../plyn-a-topeni/10_6_2018---nastava-propojeni-dvou-svetu_.html">10.6.2018 - nastává propojení dvou světů!</a></li></ul></li><li><a href="../volna-vybava.html">Volná výbava</a><ul><li><a href="../volna-vybava/10_10_2018---znate-stul-tailgater_.html">10.10.2018 - Znáte stůl Tailgater?</a></li><li><a href="../volna-vybava/13_05_2018---caj-a-kava-na-palube-dodika.html">13.05.2018 - Čaj a káva na palubě Dodíka</a></li><li><a href="../volna-vybava/05_04_2018---what3words_-navigace-budoucnosti_.html">05.04.2018 - What3Words: navigace budoucnosti?</a></li><li><a href="../volna-vybava/23_09_2017---vybirame-nadobi_.html">23.09.2017 - Vybíráme nádobí.</a></li></ul></li></ul></li><li><a href="../../blog.html">Blog</a><ul><li><a href="../../blog/2022.html">2022</a><ul><li><a href="../../blog/2022/12_08_2022---at-nas-neceka-osud-vodaku-_.html">12.08.2022 - Ať nás nečeká osud vodáků !</a></li><li><a href="../../blog/2022/01_06_2022---kempari-a-divocaci.html">01.06.2022 - Kempaři a divočáci</a></li><li><a href="../../blog/2022/22_01_2022---s-karavanem-po-cesku.html">22.01.2022 - S karavanem po Česku</a></li></ul></li><li><a href="../../blog/2021.html">2021</a><ul><li><a href="../../blog/2021/28_03_2021---odchazeni-_.html">28.03.2021 - Odcházení ?</a></li></ul></li><li><a href="../../blog/2020.html">2020</a><ul><li><a href="../../blog/2020/8_12_2020---krize-psani-aneb-prokleti-trirocaka.html">8.12.2020 - Krize psaní aneb prokletí tříročáka</a></li><li><a href="../../blog/2020/19_04_2020-narod-nomadi-v-dobe-covidove.html">19.04.2020 Národ nomádí v době Covidové</a></li><li><a href="../../blog/2020/22_03_2020---kolik-opravdu-stoji-obytnak_.html">22.03.2020 - Kolik opravdu stojí obytňák?</a></li></ul></li><li><a href="../../blog/2019.html">2019</a><ul><li><a href="../../blog/2019/01_12_2019---pri-vyberu-srovnavejme-srovnatelne-2.html">01.12.2019 - Při výběru srovnávejme srovnatelné 2</a></li><li><a href="../../blog/2019/24_11_2019---pri-vyberu-srovnavejme-srovnatelne-1.html">24.11.2019 - Při výběru srovnávejme srovnatelné 1</a></li><li><a href="../../blog/2019/01_09_2019---jaky-si-vlastne-poridit-obytnak_.html">01.09.2019 - Jaký si vlastně pořídit obytňák?</a></li><li><a href="../../blog/2019/29_03_2019---udrzba-po-zimnim-spanku.html">29.03.2019 - Údržba po zimním spánku</a></li><li><a href="../../blog/2019/13_03_2019---10-pravidel-kempovani-nadivoko.html">13.03.2019 - 10 pravidel kempování nadivoko</a></li></ul></li><li><a href="../../blog/2018.html">2018</a><ul><li><a href="../../blog/2018/05_12_2018---na-vahu-_.html">05.12.2018 - Na váhu !</a></li><li><a href="../../blog/2018/26_9_2018---vychytavame-detaily-v-kabine.html">26.9.2018 - Vychytáváme detaily v kabině</a></li><li><a href="../../blog/2018/20_05_2018---hodnoceni-po-prvnich-5000-km_.html">20.05.2018 - Hodnocení po prvních 5000 km.</a></li><li><a href="../../blog/2018/27_04_2018---kdyz-se-vybira-nazev-aneb-demokracie-v-praxi_.html">27.04.2018 - Když se vybírá název aneb demokracie v praxi.</a></li><li><a href="../../blog/2018/16_04_2018---kdyz-chce-clovek-bezhlave-usetrit_.html">16.04.2018 - Když chce člověk bezhlavě ušetřit.</a></li><li><a href="../../blog/2018/17_03_2018-a-uz-je-uuuplne-nas-_.html">17.03.2018 A už je úúúplně náš !</a></li><li><a href="../../blog/2018/10_03_2018-vystavujeme-na-for-caravan.html">10.03.2018 Vystavujeme na FOR CARAVAN</a></li><li><a href="../../blog/2018/08_02_2018-jste-skveli-ctenari-_.html">08.02.2018 Jste skvělí čtenáři !</a></li><li><a href="../../blog/2018/29_01_2018-financovani-a-pojisteni-mazlika.html">29.01.2018 Financování a pojištění Mazlíka</a></li></ul></li><li><a href="../../blog/2017.html">2017</a><ul><li><a href="../../blog/2017/04_11_2017-co-s-uloznym-prostorem-_.html">04.11.2017 Co s úložným prostorem ?</a></li><li><a href="../../blog/2017/19_09_2017-casopisy-aneb-zaplava-informaci.html">19.09.2017 Časopisy aneb záplava informací</a></li></ul></li><li><a href="../../blog/in-vino-veritas.html">In Vino Veritas</a></li></ul></li><li><a href="../../nas-dodo.html">Náš Dodo</a><ul><li><a href="../../nas-dodo/2023.html">2023</a><ul><li><a href="../../nas-dodo/2023/01_11_2023---nabijecka-trochu-jinak.html">01.11.2023 - Nabíječka trochu jinak</a></li></ul></li><li><a href="../../nas-dodo/2022.html">2022</a><ul><li><a href="../../nas-dodo/2022/20_3_2022---jedna-zasuvka-v-salonu-svepomoci.html">20.3.2022 - Jedna zásuvka v salónu svépomocí</a></li><li><a href="../../nas-dodo/2022/02_03_2023---nova-lifepo4-baterie-je-na-palube_.html">02.03.2023 - Nová LiFePO4 baterie je na palubě!</a></li></ul></li><li><a href="../../nas-dodo/2021.html">2021</a><ul><li><a href="../../nas-dodo/2021/teplota-pod-kontrolou.html">Teplota pod kontrolou</a></li><li><a href="../../nas-dodo/2021/vodovaha-na-ocich.html">Vodováha na očích</a></li><li><a href="../../nas-dodo/2021/poradek-na-nocnim-stolku.html">Pořádek na nočním stolku</a></li></ul></li><li><a href="../../nas-dodo/2019.html">2019</a><ul><li><a href="../../nas-dodo/2019/27_02_2019---nase-palubni-knihovna-hotova_.html">27.02.2019 - Naše palubní knihovna hotova.</a></li><li><a href="../../nas-dodo/2019/22_02_2019---skret-mi-znovu-zautocil-na-alarm-_.html">22.02.2019 - Skřet mi znovu zaútočil na alarm !</a></li><li><a href="../../nas-dodo/2019/13_02_2019---koberec-po-celem-aute.html">13.02.2019 - Koberec po celém autě</a></li><li><a href="../../nas-dodo/2019/04_02_2019---nove-uchyceni-nabytku-v-garazi.html">04.02.2019 - Nové uchycení nábytku v garáži</a></li></ul></li><li><a href="../../nas-dodo/2018.html">2018</a><ul><li><a href="../../nas-dodo/2018/01_09_2018---uprava-botniku.html">01.09.2018 - Úprava botníku</a></li><li><a href="../../nas-dodo/2018/28_08_2018---vymena-sezeni-v-salonu.html">28.08.2018 - Výměna sezení v salónu</a></li><li><a href="../../nas-dodo/2018/07_06_2018---obsiti-volantu-kuzi.html">07.06.2018 - Obšití volantu kůží</a></li><li><a href="../../nas-dodo/2018/12_05_2018---kontrolni-panel-boosteru.html">12.05.2018 - Kontrolní panel boosteru</a></li><li><a href="../../nas-dodo/2018/28_04_2018---mechove-odpruzeni.html">28.04.2018 - Měchové odpružení</a></li><li><a href="../../nas-dodo/2018/04_04_2018---posileni-elektro-systemu.html">04.04.2018 - Posílení elektro systému</a></li><li><a href="../../nas-dodo/2018/28_03_2018---ulozny-system-do-garaze.html">28.03.2018 - Úložný systém do garáže</a></li><li><a href="../../nas-dodo/2018/14_03_2018-trable-s-plynem.html">14.03.2018 Trable s plynem</a></li><li><a href="../../nas-dodo/2018/06_03_2018-odvetravaci-system-sog.html">06.03.2018 Odvětrávací systém SOG</a></li><li><a href="../../nas-dodo/2018/05_03_2018-palubni-televizor-a-dvb-t-antena.html">05.03.2018 Palubní televizor a DVB-T anténa</a></li><li><a href="../../nas-dodo/2018/23_02_2018-koupelnovy-set-ravak.html">23.02.2018 Koupelnový set RAVAK</a></li><li><a href="../../nas-dodo/2018/09_02_2018-prvni-prohlidka-noveho-auta-_.html">09.02.2018 První prohlídka nového auta !</a></li><li><a href="../../nas-dodo/2018/07_02_2018-tak-uz-je-konecne-tady-___.html">07.02.2018 Tak už je konečně tady !!!</a></li><li><a href="../../nas-dodo/2018/06_02_2018-antena-teleco-wing-22.html">06.02.2018 anténa Teleco Wing 22</a></li><li><a href="../../nas-dodo/2018/04_02_2018-on-board-kamera-vybirana-_a-zakoupena_.html">04.02.2018 On-board kamera vybírána (a zakoupena)</a></li><li><a href="../../nas-dodo/2018/30_01_2018-jak-plnit-nadrz-na-vodu-_.html">30.01.2018 Jak plnit nádrž na vodu ?</a></li><li><a href="../../nas-dodo/2018/15_01_2018-trezor-na-palube.html">15.01.2018 Trezor na palubě</a></li><li><a href="../../nas-dodo/2018/06_01_2018-vybirame-venkovni-sezeni.html">06.01.2018 Vybíráme venkovní sezení</a></li></ul></li><li><a href="../../nas-dodo/2017.html">2017</a><ul><li><a href="../../nas-dodo/2017/10_11_2017-ktere-sezeni-v-salonu-je-lepsi_-podruhe.html">10.11.2017 Které sezení v salonu je lepší, PODRUHÉ</a></li><li><a href="../../nas-dodo/2017/04_10_2017-posledni-doobjednavky-prislusenstvi.html">04.10.2017 Poslední doobjednávky příslušenství</a></li><li><a href="../../nas-dodo/2017/10_10_2017-dvojcata-pilote-a-bavaria-746c.html">10.10.2017 Dvojčata Pilote a Bavaria 746C</a></li><li><a href="../../nas-dodo/2017/09_09_2017--ktere-sezeni-v-salonu-je-nejlepsi-_.html">09.09.2017  Které sezení v salonu je nejlepší ?</a></li><li><a href="../../nas-dodo/2017/09_09_2017-nasel-jsem-video-predstaveni-mazlika.html">09.09.2017 Našel jsem video představení Mazlíka</a></li><li><a href="../../nas-dodo/2017/25_08_2017-objednavame-si-nove-auto-___.html">25.08.2017 Objednáváme si nové auto !!!</a></li></ul></li></ul></li><li><a href="../../trasy.html">Trasy</a><ul><li><a href="../../trasy/vikendove-cesty.html">Víkendové cesty</a><ul><li><a href="../../trasy/vikendove-cesty/2022.html">2022</a><ul><li><a href="../../trasy/vikendove-cesty/2022/25_02_2022---plzenskem-bez-proudu.html">25.02.2022 - Plzeňskem bez proudu</a></li></ul></li><li><a href="../../trasy/vikendove-cesty/2021.html">2021</a><ul><li><a href="../../trasy/vikendove-cesty/2021/11_-13_06_2021---slavkovsky-les-podruhe.html">11.-13.06.2021 - Slavkovský les podruhé</a></li><li><a href="../../trasy/vikendove-cesty/2021/8_-9_5_2021---sazava-naslepo.html">8.-9.5.2021 - Sázava naslepo</a></li></ul></li><li><a href="../../trasy/vikendove-cesty/2019.html">2019</a><ul><li><a href="../../trasy/vikendove-cesty/2019/12_-13_10_2019---toulovcovy-mastale.html">12.-13.10.2019 - Toulovcovy maštale</a></li><li><a href="../../trasy/vikendove-cesty/2019/13_-15_9_2019---podel-divoke-orlice.html">13.-15.9.2019 - Podél Divoké Orlice</a></li><li><a href="../../trasy/vikendove-cesty/2019/28_-30_6_2019---usteckym-krajem.html">28.-30.6.2019 - Ústeckým krajem</a></li><li><a href="../../trasy/vikendove-cesty/2019/30_-31_3_2019---povodim-ploucnice.html">30.-31.3.2019 - Povodím Ploučnice</a></li><li><a href="../../trasy/vikendove-cesty/2019/23_-24_3_2019---predjari-v-jiznich-cechach.html">23.-24.3.2019 - Předjaří v Jižních Čechách</a></li></ul></li><li><a href="../../trasy/vikendove-cesty/2018.html">2018</a><ul><li><a href="../../trasy/vikendove-cesty/2018/19_-21_10_2018---vylov-tovacovskeho-rybnika.html">19.-21.10.2018 - Výlov Tovačovského rybníka</a></li><li><a href="../../trasy/vikendove-cesty/2018/7_-9_9_2018---na-jih-od-kutne-hory.html">7.-9.9.2018 - Na jih od Kutné hory</a></li><li><a href="../../trasy/vikendove-cesty/2018/20_-22_4_2018---okolim-havlickova-brodu.html">20.-22.4.2018 - Okolím Havlíčkova Brodu</a></li><li><a href="../../trasy/vikendove-cesty/2018/7_-8_3_2018---slavkovsky-les.html">7.-8.3.2018 - Slavkovský les</a></li></ul></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy.html">Prodloužené víkendy</a><ul><li><a href="../../trasy/prodlouzene-vikendy/2024.html">2024</a><ul><li><a href="../../trasy/prodlouzene-vikendy/2024/28_3_-1_4_2024-velikonoce-v-severnich-cechach.html">28.3.-1.4.2024 Velikonoce v Severních Čechách</a></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy/2023.html">2023</a></li><li><a href="../../trasy/prodlouzene-vikendy/2022.html">2022</a><ul><li><a href="../../trasy/prodlouzene-vikendy/2022/6_-12_3_2022---alsaske-predjari.html">6.-12.3.2022 - Alsaské předjaří</a></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy/2021.html">2021</a><ul><li><a href="../../trasy/prodlouzene-vikendy/2021/4_-9_7_2021---na-hitlerovo-orli-hnizdo.html">4.-9.7.2021 - Na Hitlerovo Orlí hnízdo</a></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy/2019.html">2019</a><ul><li><a href="../../trasy/prodlouzene-vikendy/2019/04_-07_07_2019-za-krasami-sumavy_.html">04.-07.07.2019 Za krásami Šumavy.</a></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy/2018.html">2018</a><ul><li><a href="../../trasy/prodlouzene-vikendy/2018/povanocni-bavorsko.html">Povánoční Bavorsko</a></li><li><a href="../../trasy/prodlouzene-vikendy/2018/sasko-na-konci-zari.html">Sasko na konci září</a></li><li><a href="../../trasy/prodlouzene-vikendy/2018/na-svatbu-do-ase.html">Na svatbu do Aše</a></li><li><a href="../../trasy/prodlouzene-vikendy/2018/za-vinem-na-jih-moravy-a-slovenska.html">Za vínem na Jih Moravy a Slovenska</a></li><li><a href="../../trasy/prodlouzene-vikendy/2018/velikonoce-v-holandsku.html">Velikonoce v Holandsku</a></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy/2017.html">2017</a><ul><li><a href="../../trasy/prodlouzene-vikendy/2017/velikonoce-v-italii.html">Velikonoce v Itálii</a></li></ul></li></ul></li><li><a href="../../trasy/jedeme-na-dovolenou.html">Jedeme na dovolenou</a><ul><li><a href="../../trasy/jedeme-na-dovolenou/2022---nemecko-a-sumava-podruhe.html">2022 - Německo a Šumava podruhé</a></li><li><a href="../../trasy/jedeme-na-dovolenou/2021---nemecko-_a-trochu-sumava_.html">2021 - Německo (a trochu Šumava)</a></li><li><a href="../../trasy/jedeme-na-dovolenou/2020---jeseniky-a-cast-moravy.html">2020 - Jeseníky a část Moravy</a></li><li><a href="../../trasy/jedeme-na-dovolenou/2019---jizni-cechy.html">2019 - Jižní Čechy</a></li><li><a href="../../trasy/jedeme-na-dovolenou/2018---litva_-lotyssko_-estonsko.html">2018 - Litva, Lotyšsko, Estonsko</a></li></ul></li></ul></li><li><a href="../../trochu-z-historie.html">Trochu z historie</a><ul><li><a href="../../trochu-z-historie/jak-to-vsechno-zacalo.html">Jak to všechno začalo</a></li><li><a href="../../trochu-z-historie/dodo-dnes.html">Dodo dnes</a></li><li><a href="../../trochu-z-historie/historie-znacky-pilote.html">Historie značky PILOTE</a></li></ul></li><li><a href="../../fotogalerie-.html">Fotogalerie</a><ul><li><a href="../../fotogalerie-/priroda.html">Příroda</a></li><li><a href="../../fotogalerie-/stavby-a-mesta.html">Stavby a města</a></li><li><a href="../../fotogalerie-/nase-auto.html">Naše auto</a></li><li><a href="../../fotogalerie-/pilote-club-v-cr.html">Pilote Club v ČR</a></li></ul></li><li><a href="../../pokec.html">Pokec</a></li></ul>
+	</div>
+
+	<div id="sidebar">
+
+		<input type=hidden name=formularzeleny><div class="boxed ">
+
+
+<h2>uživatelský panel -- vždy jako první článek - NEMAZAT!!!</h2>
+<div class="content2">
+
+<h2>---slider---</h2>
+<p><div id="slider3" class="slider-wrapper theme-default">
+            <div class="nivoSlider">
+                <img src="../../userFiles/system/mazlik01.jpg" data-thumb="userFiles/system/mazlik01.jpg.tn.jpg" alt="slider" title="#slider3x7" />
+<img src="../../userFiles/system/mazlik16.jpg" data-thumb="userFiles/system/mazlik16.jpg.tn.jpg" alt="slider" title="#slider3x11" />
+<img src="../../userFiles/system/mazlik15.jpg" data-thumb="userFiles/system/mazlik15.jpg.tn.jpg" alt="slider" title="#slider3x12" />
+<img src="../../userFiles/system/mazlik12.jpg" data-thumb="userFiles/system/mazlik12.jpg.tn.jpg" alt="slider" title="#slider3x8" />
+<img src="../../userFiles/system/mazlik18.jpg" data-thumb="userFiles/system/mazlik18.jpg.tn.jpg" alt="slider" title="#slider3x13" />
+<img src="../../userFiles/system/mazlik22.jpg" data-thumb="userFiles/system/mazlik22.jpg.tn.jpg" alt="slider" title="#slider3x9" />
+<img src="../../userFiles/system/mazlik17.jpg" data-thumb="userFiles/system/mazlik17.jpg.tn.jpg" alt="slider" title="#slider3x14" />
+<img src="../../userFiles/system/back3.jpg" data-thumb="userFiles/system/back3.jpg.tn.jpg" alt="slider" title="#slider3x10" />
+<img src="../../userFiles/system/mazlik24.jpg" data-thumb="userFiles/system/mazlik24.jpg.tn.jpg" alt="slider" title="#slider3x15" />
+<img src="../../userFiles/system/mazlik05.jpg" data-thumb="userFiles/system/mazlik05.jpg.tn.jpg" alt="slider" title="#slider3x17" />
+<img src="../../userFiles/system/mazlik11a.jpg" data-thumb="userFiles/system/mazlik11a.jpg.tn.jpg" alt="slider" title="#slider3x16" />
+<img src="../../userFiles/system/mazlik37.jpg" data-thumb="userFiles/system/mazlik37.jpg.tn.jpg" alt="slider" title="#slider3x18" />
+<img src="../../userFiles/system/mazlik31.jpg" data-thumb="userFiles/system/mazlik31.jpg.tn.jpg" alt="slider" title="#slider3x19" />
+<img src="../../userFiles/system/mazlik14.jpg" data-thumb="userFiles/system/mazlik14.jpg.tn.jpg" alt="slider" title="#slider3x21" />
+<img src="../../userFiles/system/mazlik13.jpg" data-thumb="userFiles/system/mazlik13.jpg.tn.jpg" alt="slider" title="#slider3x20" />
+<img src="../../userFiles/system/mazlik19a.jpg" data-thumb="userFiles/system/mazlik19a.jpg.tn.jpg" alt="slider" title="#slider3x22" />
+<img src="../../userFiles/system/mazlik20.jpg" data-thumb="userFiles/system/mazlik20.jpg.tn.jpg" alt="slider" title="#slider3x23" />
+<img src="../../userFiles/system/mazlik21.jpg" data-thumb="userFiles/system/mazlik21.jpg.tn.jpg" alt="slider" title="#slider3x24" />
+<img src="../../userFiles/system/mazlik23.jpg" data-thumb="userFiles/system/mazlik23.jpg.tn.jpg" alt="slider" title="#slider3x25" />
+<img src="../../userFiles/system/mazlik25.jpg" data-thumb="userFiles/system/mazlik25.jpg.tn.jpg" alt="slider" title="#slider3x26" />
+<img src="../../userFiles/system/mazlik26.jpg" data-thumb="userFiles/system/mazlik26.jpg.tn.jpg" alt="slider" title="#slider3x27" />
+<img src="../../userFiles/system/mazlik52.jpg" data-thumb="userFiles/system/mazlik52.jpg.tn.jpg" alt="slider" title="#slider3x28" />
+<img src="../../userFiles/system/mazlik28.jpg" data-thumb="userFiles/system/mazlik28.jpg.tn.jpg" alt="slider" title="#slider3x29" />
+<img src="../../userFiles/system/mazlik29.jpg" data-thumb="userFiles/system/mazlik29.jpg.tn.jpg" alt="slider" title="#slider3x30" />
+<img src="../../userFiles/system/mazlik30.jpg" data-thumb="userFiles/system/mazlik30.jpg.tn.jpg" alt="slider" title="#slider3x31" />
+<img src="../../userFiles/system/mazlik32.jpg" data-thumb="userFiles/system/mazlik32.jpg.tn.jpg" alt="slider" title="#slider3x32" />
+<img src="../../userFiles/system/mazlik33.jpg" data-thumb="userFiles/system/mazlik33.jpg.tn.jpg" alt="slider" title="#slider3x33" />
+<img src="../../userFiles/system/mazlik35.jpg" data-thumb="userFiles/system/mazlik35.jpg.tn.jpg" alt="slider" title="#slider3x34" />
+<img src="../../userFiles/system/mazlik34.jpg" data-thumb="userFiles/system/mazlik34.jpg.tn.jpg" alt="slider" title="#slider3x35" />
+<img src="../../userFiles/system/mazlik02a.jpg" data-thumb="userFiles/system/mazlik02a.jpg.tn.jpg" alt="slider" title="#slider3x36" />
+<img src="../../userFiles/system/mazlik03a.jpg" data-thumb="userFiles/system/mazlik03a.jpg.tn.jpg" alt="slider" title="#slider3x37" />
+<img src="../../userFiles/system/mazlik38.jpg" data-thumb="userFiles/system/mazlik38.jpg.tn.jpg" alt="slider" title="#slider3x38" />
+<img src="../../userFiles/system/mazlik50.jpg" data-thumb="userFiles/system/mazlik50.jpg.tn.jpg" alt="slider" title="#slider3x39" />
+<img src="../../userFiles/system/mazlik51.jpg" data-thumb="userFiles/system/mazlik51.jpg.tn.jpg" alt="slider" title="#slider3x40" />
+<img src="../../userFiles/system/mazlik53.jpg" data-thumb="userFiles/system/mazlik53.jpg.tn.jpg" alt="slider" title="#slider3x41" />
+<img src="../../userFiles/system/mazlik54.jpg" data-thumb="userFiles/system/mazlik54.jpg.tn.jpg" alt="slider" title="#slider3x42" />
+<img src="../../userFiles/system/mazlik55.jpg" data-thumb="userFiles/system/mazlik55.jpg.tn.jpg" alt="slider" title="#slider3x43" />
+<img src="../../userFiles/system/mazlik56.jpg" data-thumb="userFiles/system/mazlik56.jpg.tn.jpg" alt="slider" title="#slider3x44" />
+            </div>
+            <div id="slider3x7" class="nivo-html-caption"></div>
+<div id="slider3x11" class="nivo-html-caption"></div>
+<div id="slider3x12" class="nivo-html-caption"></div>
+<div id="slider3x8" class="nivo-html-caption"></div>
+<div id="slider3x13" class="nivo-html-caption"></div>
+<div id="slider3x9" class="nivo-html-caption"></div>
+<div id="slider3x14" class="nivo-html-caption"></div>
+<div id="slider3x10" class="nivo-html-caption"></div>
+<div id="slider3x15" class="nivo-html-caption"></div>
+<div id="slider3x17" class="nivo-html-caption"></div>
+<div id="slider3x16" class="nivo-html-caption"></div>
+<div id="slider3x18" class="nivo-html-caption"></div>
+<div id="slider3x19" class="nivo-html-caption"></div>
+<div id="slider3x21" class="nivo-html-caption"></div>
+<div id="slider3x20" class="nivo-html-caption"></div>
+<div id="slider3x22" class="nivo-html-caption"></div>
+<div id="slider3x23" class="nivo-html-caption"></div>
+<div id="slider3x24" class="nivo-html-caption"></div>
+<div id="slider3x25" class="nivo-html-caption"></div>
+<div id="slider3x26" class="nivo-html-caption"></div>
+<div id="slider3x27" class="nivo-html-caption"></div>
+<div id="slider3x28" class="nivo-html-caption"></div>
+<div id="slider3x29" class="nivo-html-caption"></div>
+<div id="slider3x30" class="nivo-html-caption"></div>
+<div id="slider3x31" class="nivo-html-caption"></div>
+<div id="slider3x32" class="nivo-html-caption"></div>
+<div id="slider3x33" class="nivo-html-caption"></div>
+<div id="slider3x34" class="nivo-html-caption"></div>
+<div id="slider3x35" class="nivo-html-caption"></div>
+<div id="slider3x36" class="nivo-html-caption"></div>
+<div id="slider3x37" class="nivo-html-caption"></div>
+<div id="slider3x38" class="nivo-html-caption"></div>
+<div id="slider3x39" class="nivo-html-caption"></div>
+<div id="slider3x40" class="nivo-html-caption"></div>
+<div id="slider3x41" class="nivo-html-caption"></div>
+<div id="slider3x42" class="nivo-html-caption"></div>
+<div id="slider3x43" class="nivo-html-caption"></div>
+<div id="slider3x44" class="nivo-html-caption"></div>
+        </div>
+		<script type="text/javascript" src="../../plugins/slider/nivo-slider/nivo-slider.js"></script>
+		<script type="text/javascript">
+		$(function(){
+		  $("#slider3>.nivoSlider").nivoSlider({
+	    prevText: "P\u0159edchoz\u00ed",
+	    nextText: "Dal\u0161\u00ed",
+        effect: "fade",
+        pauseOnHover: false,
+        animSpeed: 400,
+        pauseTime: 5000,
+        randomStart: true,
+        directionNav: false,
+        controlNav: false,
+        controlNavThumbs: false,
+        manualAdvance: false,
+        captionOpacity: 1
+	    });
+          });
+		</script>
+		</p>
+<div class="formular">
+<p>
+		<form action="http://www.nas-partak-obytnak.cz/technika/nastavba/01_06_2021---jak-myjete-sve-auto-vy-_" method="post" enctype="multipart/form-data">
+		</p>
+<h3>Poptávka náhradních dílů</h3>
+<table style="width: 65%; float: right;" border="0">
+<tbody>
+<tr>
+<td width="40%">Jméno</td>
+<td><input class="query full" type="text" name="jmeno" /></td>
+</tr>
+<tr>
+<td>E-mail a telefon</td>
+<td><input class="query full" type="text" name="jmeno" /></td>
+</tr>
+<tr>
+<td>Číslo/název dílu</td>
+<td><input class="query full" type="text" name="jmeno" /></td>
+</tr>
+</tbody>
+</table>
+<p>
+        <table width="100%" border="0">
+		
+		<tr><td colspan="2" align="center">
+		<br />
+              <input type="hidden" name="formular_zakladni_id" value="">
+	    <input type="submit" class="button" value="OK" />
+		</td></tr></table>
+
+    <script type="text/javascript">
+     document.write('<input type="hidden" name="tajne" value="čž' + 'řůž">');
+    </script>
+		</form>
+		</p>
+</div></div></div>
+
+		<h2></h2>
+
+		<ul class="sidemenu"><li><a href="../../svet-nomadu.html">Svět nomádů</a><ul class="sidemenu"><li><a href="../../svet-nomadu/2024.html">2024</a></li><li><a href="../../svet-nomadu/2022.html">2022</a></li><li><a href="../../svet-nomadu/2021.html">2021</a></li><li><a href="../../svet-nomadu/2019.html">2019</a></li><li><a href="../../svet-nomadu/2018.html">2018</a></li><li><a href="../../svet-nomadu/2017.html">2017</a></li><li><a href="../../svet-nomadu/archiv-aktualit-dne.html">Archiv aktualit dne</a></li></ul></li><li><a href="../../technika.html">Technika</a><ul class="sidemenu"><li><a href="../motor-a-podvozek.html">Motor a Podvozek</a></li><li><a href="../nastavba.html">Nástavba</a></li><li><a href="../elektrina.html">Elektřina</a></li><li><a href="../av-a-elektronika.html">AV a elektronika</a></li><li><a href="../voda-a-to-dalsi.html">Voda a to další</a></li><li><a href="../plyn-a-topeni.html">Plyn a topení</a></li><li><a href="../volna-vybava.html">Volná výbava</a></li></ul></li><li><a href="../../blog.html">Blog</a><ul class="sidemenu"><li><a href="../../blog/2022.html">2022</a></li><li><a href="../../blog/2021.html">2021</a></li><li><a href="../../blog/2020.html">2020</a></li><li><a href="../../blog/2019.html">2019</a></li><li><a href="../../blog/2018.html">2018</a></li><li><a href="../../blog/2017.html">2017</a></li><li><a href="../../blog/in-vino-veritas.html">In Vino Veritas</a></li></ul></li><li><a href="../../nas-dodo.html">Náš Dodo</a><ul class="sidemenu"><li><a href="../../nas-dodo/2023.html">2023</a></li><li><a href="../../nas-dodo/2022.html">2022</a></li><li><a href="../../nas-dodo/2021.html">2021</a></li><li><a href="../../nas-dodo/2019.html">2019</a></li><li><a href="../../nas-dodo/2018.html">2018</a></li><li><a href="../../nas-dodo/2017.html">2017</a></li></ul></li><li><a href="../../trasy.html">Trasy</a><ul class="sidemenu"><li><a href="../../trasy/vikendove-cesty.html">Víkendové cesty</a></li><li><a href="../../trasy/prodlouzene-vikendy.html">Prodloužené víkendy</a><ul class="sidemenu"><li><a href="../../trasy/prodlouzene-vikendy/2024.html">2024</a><ul class="sidemenu"><li><a href="../../trasy/prodlouzene-vikendy/2024/28_3_-1_4_2024-velikonoce-v-severnich-cechach.html">28.3.-1.4.2024 Velikonoce v Severních Čechách</a></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy/2023.html">2023</a><ul class="sidemenu"><li><a href="../../trasy/prodlouzene-vikendy/2023/2_-5_10_2023---poprve-vylet-samotare.html">2.-5.10.2023 - Poprvé výlet samotáře</a></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy/2022.html">2022</a><ul class="sidemenu"><li><a href="../../trasy/prodlouzene-vikendy/2022/6_-12_3_2022---alsaske-predjari.html">6.-12.3.2022 - Alsaské předjaří</a></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy/2021.html">2021</a><ul class="sidemenu"><li><a href="../../trasy/prodlouzene-vikendy/2021/4_-9_7_2021---na-hitlerovo-orli-hnizdo.html">4.-9.7.2021 - Na Hitlerovo Orlí hnízdo</a></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy/2019.html">2019</a><ul class="sidemenu"><li><a href="../../trasy/prodlouzene-vikendy/2019/04_-07_07_2019-za-krasami-sumavy_.html">04.-07.07.2019 Za krásami Šumavy.</a></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy/2018.html">2018</a><ul class="sidemenu"><li><a href="../../trasy/prodlouzene-vikendy/2018/povanocni-bavorsko.html">Povánoční Bavorsko</a></li><li><a href="../../trasy/prodlouzene-vikendy/2018/sasko-na-konci-zari.html">Sasko na konci září</a></li><li><a href="../../trasy/prodlouzene-vikendy/2018/na-svatbu-do-ase.html">Na svatbu do Aše</a></li><li><a href="../../trasy/prodlouzene-vikendy/2018/za-vinem-na-jih-moravy-a-slovenska.html">Za vínem na Jih Moravy a Slovenska</a></li><li><a href="../../trasy/prodlouzene-vikendy/2018/velikonoce-v-holandsku.html">Velikonoce v Holandsku</a></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy/2017.html">2017</a><ul class="sidemenu"><li><a href="../../trasy/prodlouzene-vikendy/2017/velikonoce-v-italii.html">Velikonoce v Itálii</a></li></ul></li></ul></li><li><a href="../../trasy/jedeme-na-dovolenou.html">Jedeme na dovolenou</a><ul class="sidemenu"><li><a href="../../trasy/jedeme-na-dovolenou/2022---nemecko-a-sumava-podruhe.html">2022 - Německo a Šumava podruhé</a></li><li><a href="../../trasy/jedeme-na-dovolenou/2021---nemecko-_a-trochu-sumava_.html">2021 - Německo (a trochu Šumava)</a></li><li><a href="../../trasy/jedeme-na-dovolenou/2020---jeseniky-a-cast-moravy.html">2020 - Jeseníky a část Moravy</a></li><li><a href="../../trasy/jedeme-na-dovolenou/2019---jizni-cechy.html">2019 - Jižní Čechy</a></li><li><a href="../../trasy/jedeme-na-dovolenou/2018---litva_-lotyssko_-estonsko.html">2018 - Litva, Lotyšsko, Estonsko</a></li></ul></li></ul></li><li><a href="../../trochu-z-historie.html">Trochu z historie</a><ul class="sidemenu"><li><a href="../../trochu-z-historie/jak-to-vsechno-zacalo.html">Jak to všechno začalo</a></li><li><a href="../../trochu-z-historie/dodo-dnes.html">Dodo dnes</a></li><li><a href="../../trochu-z-historie/historie-znacky-pilote.html">Historie značky PILOTE</a></li></ul></li><li><a href="../../pokec.html">Pokec</a></li></ul>
+		
+		
+	</div>
+
+	<div id="main">
+	
+	
+	<div class="post ">
+	
+	<div class="post_top">
+	<div class="post_title">
+	<h1>01.06.2021 - Jak myjete své auto vy ?</h1>
+	</div></div>
+	<div class="post_body">
+	<p style="text-align: justify;">Uznávám, že skoro na začátku léta a tedy v plné sezóně psát o důkladném čištění obytného auta, je už asi trochu pozdě. Ale vlastně docela náhodou jsem na anglických karavanistických stránkách objevil tři, myslím že zajímavé články na toto téma. A tak jejich hlavní myšlenky předkládám přeložené a doplněné o úpravu na naše podmínky v ČR. Díky počasí v poměrně chladném jaru mnoho z nás vyjíždí až nyní a tak třeba ještě není na toto téma pozdě.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/3-technika/nastavba/2021/myti-01.jpg"><img class="roundblock" title="Myti-01" src="../../userFiles/3-technika/nastavba/2021/myti-01.jpg" alt="Myti-01" width="400" /></a></p>
+<p style="text-align: justify;">Co si budeme povídat, zejména po zimní sezóně, kdy auto může být s větší či menší snahou o ochranu někde odstaveno, na jaře nemusí vypadat zcela v kondici. Nebo je to také důležitá otázka u starších aut, na nichž je již mnoho absolvovaných sezón docela znát. Prostě, v životě každého majitele obytného auta přijde dříve či později okamžik, kdy se rozhodne pro opravdu důkladnou očistu vnější schránky svého mazlíka. A malým návodem i rádcem by mu mohl být právě tento článek. Sluší se podotknout, že v tomto případě jen překládám rady ze zmíněných článků, protože vlastní praxe zatím chybí. Náš Dodo je stále relativně nové auto a tak na nějaké "hloubkové čištění" letitého vozu mám ještě chvilku čas.</p>
+<p style="text-align: justify;">Nicméně by se nic nemělo nechal dlouho zanedbávat. Ten obrázek výše je docela extrémním příkladem špinavého obytného vozu, ale i to se může stát. Třeba dlouhodobé parkování ve stínu pod stromy podporuje tvorbu mechu, různých řas, tedy obecně nežádoucího "biofilmu", což je perfektní příležitost časem změnit zařivou bílou barvu vašeho obytného auta na takovou tu zašle zelenou. Pokud jste si koupili ojetý obytný vůz a jeho majitel ho po nějakou dobu nevyčistil, může skutečně vypadat nějak tak, jako na obrázku výše. Pokud tomu tak je, jeho první řádné vyčištění k odstranění všech zelených a souvisejících černých pruhů vám pravděpodobně bude trvat pár dní místo několika hodin. Bohužel platí dost škodolibé pravidlo, že "špína přitahuje špínu". Čím déle jsou řasy a mechy ponechány na obytném automobilu, tím těžší je jejich odstranění. A to hlavně v místech, které můžeme ne až tak často kontrolovat, typicky tedy na střeše. Slunce postupně vypaluje obrysy nečistot na povrch panelů, do struktury laku či skelných vláken a plastových dílů. Takže abyste se vyhnuli velkému a náročnému úklidu, který vám jednoho dne zabere opravdu hodně času, vyplatí se čistit lehčejí, ale častěji. Opravdu hodně se vyplatí si minimálně jednou ročně vyhradit den pro řádnou očistu vašeho mazlíka.</p>
+<p style="text-align: justify;"><strong>Nultý krok - Řádná příprava</strong></p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/3-technika/nastavba/2021/myti-14.jpg"><img class="roundblock" title="Myti-14" src="../../userFiles/3-technika/nastavba/2021/myti-14.jpg" alt="Myti-14" width="600" /></a></p>
+<p style="text-align: justify;"><span>Nejprve se na pořádné umytí našeho miláčka musíme dobře připravit. O</span>bytný vůz by měl být umístěn tak, aby šel pohodlně volně obcházet po celém svém obvodu. V ideálním případě by měla být přední část auta o něco níže než zadní, aby mohla voda lépe odtékat ze střechy a netvořila na ní "kaluže". Samozřejmě přívod vody v hadici je velkou výhodou, skoro bych řekl, že nezbytností. Obsloužit průměrně velké obytné auto jen s kbelíkem, případně zahradním postřikovačem navlečeným na záda, opravdu nepřinese kýžený komfort.  K dispozici bychom měli být dobrý a pevný žebřík nebo ještě lépe zvýšenou plošinu tak, abychom se pohodlně dostali na úroveň střechy. Zde opravdu platí: bezpečnost především!</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/3-technika/nastavba/2021/myti-03a.jpg"><img class="roundblock" style="float: left;" title="Myti-03a" src="../../userFiles/3-technika/nastavba/2021/myti-03a.jpg" alt="Myti-03a" width="300" /></a> <strong>Vysokotlaký čistič ?</strong> Docela překvapením pro mne bylo, že žádný ze tří článku nedoporučuje použití vysokotlakých čističů. Resp. těch modelů, u kterých nelze regulovat tlak vystřikované vody. <span>Příliš vysoký tlak vody totiž může vcelku velmi efektivně odstranit např. silikonové těsnění z oblastí, jako je základna TV antény nebo solárních panelů nebo může docela masivně poškodit těsnění oken (zejména těch u starších obytňáků) a tím dobře přispět k budoucímu vnikání vody. A vůbec ne nebavím o pasece, kterou může vysokotlaká voda napáchat pří neopatrném zacházení pod vnějšími větracími mřížkami chladničky či mrazáku. Po odklopení mřížek můžete vidět, že i citlivé části nemají žádnou speciální ochranu proti tlakové vodě. Ideální je tedy zmíněná obyčejná zahradní hadice s přívodem vody.</span></p>
+<p style="text-align: justify;">Pokud máte hadici s přívodem vody, je asi nejefektivnější použít sady pro mytí aut, s pevnou nebo teleskopickou tyčí. Článek doporučuje Rolson 61010, s teleskopickou tyčí až 2m (<a href="https://amzn.to/319IkW5" rel="noreferrer noopener nofollow" target="_blank">Amazon.co.uk</a>), našich podmínkách docela vyhoví set od Gardeny na mytí aut (<a href="https://www.gardena.com/cz/produkty/zavlaha/cleansystem/sada-na-myti-aut/901091801/">Gardena</a>). Stojí pod jeden tisíc Kč Gardena nabízí spoustu propojek, nástavců, ventilů, atd. Také všechny prodejny s vybavením pro karavanisty nabízejí různé nářadí tohoto druhu. No a pochopitelně lze použít i cokoliv jiného bez přívodu vody, jen ať je čistící hlavice měkká, ideálně molitan apod.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/3-technika/nastavba/2021/myti-04.jpg"><img class="roundblock" title="Myti-04" src="../../userFiles/3-technika/nastavba/2021/myti-04.jpg" alt="Myti-04" width="600" /></a></p>
+<p style="text-align: justify;">Samozřejmě, logika věci velí začít shora dolů, tedy od střechy. Což je díky minimální možnost časté optické kontroly i místo, kde se s největší pravděpodobností hromadí listy i další špína a mohou se tam klidně pomalu začít vyskytovat nežádoucí řasy a jiné potvornosti. </p>
+<p><strong>1.krok - střecha </strong></p>
+<p style="text-align: justify;">V článcích se souhrnně mluví také o tom, že po střeše se nemá chodit a to hned ze dvou důvodů: z důvodu poškození přílišným zatížením a z důvodu bezpečnostních, tedy uklouznutí a pád ze střechy na zem není nic zdraví prospěšného. S obojím souhlasím.... ale nedodržuji to. Za prvé Pilote má střechu pochozí ale to si každý musí zjistit u výrobce a za druhé po ní nechodím ale lezu po čtyřech. S kýblem, houbou a hadrem. Mám za to, že jen tak mohu přímo pozorovat případné mini-změny ve struktuře střešních panelů a případně okamžitě reagovat. Zatím jsem v pohodě, auto je skoro nové ale dříve či později ta chvíle příjde. Takže střechu vlastně vytírám jako zaneřáděnou podlahu. Navlhčit teplou vodou, rozrušit šmíru, co se různě usadila, s trochou běžného saponátu (např. kuchyňský Jar) špínu rozpustit a pak odstranit a vytřít skoro do sucha. Nezapomeňte si vždy otevřít všechna střešní okna. Pod nimi, poblíž rámů, je vždy spousta svinstva. Když chci být hodně pečlivý, tak střechu pak vezmu nějakou dobrou konzervační emulzí na karosérie. Na trhu je jich spousta, já jsem si někde sehnal "Ride Out" - Quick Detailer Emulsion. Nano technologiím fandím, půl litru stojí asi 300Kč a jednou za rok se to myslím docela hodí.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/3-technika/nastavba/2021/myti-05.jpg"><img class="roundblock" title="Myti-05" src="../../userFiles/3-technika/nastavba/2021/myti-05.jpg" alt="Myti-05" width="600" /></a></p>
+<p style="text-align: justify;">U střechy mám po práci vždy dobrý pocit, protože rozdíl je sakra patrný i na novém autě, které jen rok jezdilo.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/3-technika/nastavba/2021/myti-06.jpg"><img class="roundblock" title="Myti-06" src="../../userFiles/3-technika/nastavba/2021/myti-06.jpg" alt="Myti-06" width="600" /></a></p>
+<p style="text-align: justify;">Pochopitelně, pokud máte střechu nepochozí nebo se vám už nechce lézt vysoko na střeše, chce to holt buďto ty štafle nebo plošinu, výše zmíněnou houbu na tyči a vzít to z boku. Otázkou je, jestli práce skoro tři metry vysoko na žebříku, je o tolik bezpečnější. Každopádně na údržbu střechy opravdu nezapomínejte, i když to svádí. Protože co oči nevidí...</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/3-technika/nastavba/2021/myti-07.jpg"><img class="roundblock" style="float: left;" title="Myti-07" src="../../userFiles/3-technika/nastavba/2021/myti-07.jpg" alt="Myti-07" width="250" /></a>Čím dál tím více obytňáků je vybaveno solárními panely a ty také vyžadují pečlivou údržbu, dokonce výrazně častěji, nežli jednou za rok. Samozřejmě není to ani tak o jejich trvanlivosti, jako o účinnosti. Čistý panel prostě funguje pochopitelně daleko lépe a tak čím častěji ho s nějakým přípravkem na okna umyjeme od zbytků posledního deště (přinášejícího prach, pyly, popílky a průmyslové exhalace), tím efektivnější produkci elektrické energie nám pak panel dodá. Je proto výhodou, když je panel na střeše poblíž nějakého většího střešního okna, aby častější údržba nevyžadovala až tak velké přípravy. Měli byste zároveň provést i rychlou kontrolu uchycení panelu ke střeše (většinou přilepené držáky) a také stav přívodního kabelu a průchodek. Zvláště u nekvalitních domácích montáží (a že jich u nás je), můžete předejít situaci, kdy se vám při rychlé jízdě po dálnici panel vznese a ladně přistane do čelního skla auta jedoucího za vámi.</p>
+<p style="text-align: justify;"> </p>
+<p style="text-align: justify;"><strong>2.krok - boky</strong></p>
+<p style="text-align: justify;"><strong><a class="thickbox" title="" href="../../userFiles/3-technika/nastavba/2021/myti-02.jpg"><img class="roundblock" title="mytí" src="../../userFiles/3-technika/nastavba/2021/myti-02.jpg" alt="mytí" width="600" /></a> </strong></p>
+<p style="text-align: justify;">Oproti běžným osobním automobilům mají obytňáky jednu nepříjemnou vlastnost, za kterou může použitý materiál: stékající voda má poměrně brzy tendenci zanechávat na (většinou) bílém povrchu nehezké šedé pruhy.</p>
+<p><a class="thickbox" href="../../userFiles/3-technika/nastavba/2021/myti-08.jpg"><img class="roundblock" title="Myti-08" src="../../userFiles/3-technika/nastavba/2021/myti-08.jpg" alt="Myti-08" width="600" /></a></p>
+<p style="text-align: justify;">Obvykle najdete tyto šedé nebo až černé pruhy pod a kolem dveří, oken a větracích otvorů. A při pokusu o běžné mytí, nějakým autošamponem nebo v myčce úporně odolávají. Není to totiž klasické znečištění např. prachem ale jedná se o jakýsi „biofilm“, což je hodně zjednodušený termín, který popisuje soubor různých řas, mechů, bakterií a mikroorganismů. A tak si s ním běžné čistící přípravky, které vlastně svým složením pomáhají při mytí primárně změkčovat vodu a odmašťovat povrchy, moc neporadí. Mimochodem, ty tmavé pruhy jsou už vlastně důsledkem toho, co se v mnohem větší míře může dít za a hlavně nad rámy oken, mřížek, dveřních "okapů" apod. Tam to může být daleko horší.</p>
+<p><span><a class="thickbox" href="../../userFiles/3-technika/nastavba/2021/myti-09.jpg"><img class="roundblock" title="Myti-09" src="../../userFiles/3-technika/nastavba/2021/myti-09.jpg" alt="Myti-09" width="600" /></a></span></p>
+<p style="text-align: justify;">Při čištění těchto usazenim a hlavně těch ošklivých pruhů na bocích se tedy neobejdeme bez speciálních přípravků. Opět (abych nedělal reklamu konkrétním obchodům) odkazuji na jejich nabídku. Tady se nedá moc sáhnout vedle, přípravků je na trhu docela slušný sortiment, firmy vyrábějící tyto přípravky nabízejí např. i specializovaná provedení zvlášť pro obytná auta a zvlášť pro karavany, apod. <span> Jsou to vesměs koncentráty, které se ředí ve výrobcem doporučeném poměru.</span></p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/3-technika/nastavba/2021/myti-10.jpg"><img class="roundblock" title="Myti-10" src="../../userFiles/3-technika/nastavba/2021/myti-10.jpg" alt="Myti-10" width="600" /></a></p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/3-technika/nastavba/2021/myti-11.jpg"><img class="roundblock" style="float: left;" title="Myti-11" src="../../userFiles/3-technika/nastavba/2021/myti-11.jpg" alt="Myti-11" width="250" /></a> Takže doporučení je nejprve boky umýt běžným způsobem, tedy autošamponem, s využitím nějakého toho kartáče na tyči a tak se zbavit prachů, pylů a dalších normálních nečistot. Pak si připravit výše zmíněný roztok, znovu boky auta pečlivě obejít a aplikovat ho na všechna místa, kde najdete ty šedé pruhy. Pouští to skoro hned a tak je to vlastně radostná práce. Po odstranění pruhu je dobré boky ještě opláchnout čistou vodou. Pokud máte co dočinění s opravdu odolnou špínou, existují i koncentrované přípravky ve spreji, aplikovatelné na konkrétní místo. Zde v článku se ale bavíme o pravidelné údržbě a u ní by měl tento standardní postup stačit. Ti pečlivější z nás mohou pak aplikovat i nějaký speciální ochranný vosk, které se pro karavany/obytňáky vyrábějí. <span>Vosk umí dodat ochranný povlak, který pak c</span><span>hrání proti slunci, soli, kyselému dešti, plísním, rzi atd.  Taky trochu zvyšuje lesk. Postup je jednoduchý: n</span><span>alije se asi jedno víčko přípravku do 5l čisté studené vody.</span><span> Já to pak přeleji do obyčejného zahradního ručního postřikovače (takový ten dvoulitrový s pumpičkou pro vytvoření tlaku), snadno tak nanesu na boky a pak celý povrch přeleštím jelenicí.</span></p>
+<p style="text-align: justify;">Ti bohatší z nás mohou mohou v prvním kroku zmíněný nano přípravek použít nejen na střechu ale právě i na boky ale údržba pak vyjde o poznání dráž. U Dodíka to tedy z úsporných důvodů řeším takto. Kvalitativně rozdíl nepatrný, cenově citelný.</p>
+<p style="text-align: justify;"><strong>POZOR NA OKNA</strong></p>
+<p style="text-align: justify;">Pokud si chcete co nejdéle uchovat plastová okna čirá a bez mléčného "zákalu", <strong>zcela se jim při mytí boků vyhněte</strong>. To samé platí i o střešních oknech. Zejména pokud používáte právě nějaký druh kartáče na tyči. I když se to na první pohled nezdá, zanechává nešetrné mytí v akrylátovém povrchu oken mikrovrásky. Každé zrníčko prachu, přitlačené kartáčem na okno, v něm vyryje drobnou brázdu. No a časem ji už je takové množství, že okno zmatní. Také chemické přípravky zmíněné výše, nedělají svým chemickým složením oknům dobře. Proto je lepší se bočním i střešním oknům pak věnovat zcela separátně.</p>
+<p style="text-align: justify;"> </p>
+<p><strong>3.krok - okna</strong></p>
+<p style="text-align: justify;"><a class="thickbox" title="" href="../../userFiles/4-blog/2019/jaro-04.jpg"><img class="roundblock" style="float: left;" title="okno" src="../../userFiles/4-blog/2019/jaro-04.jpg" alt="okno" width="250" /></a> Takže teď nastal ten správný čas na údržbu oken. Všechny si je pozotvírejte a začneme s rámy a gumovým těsněním. Kýbl, hadřík a jemný kartáček zbaví zákoutí rámů a těsnění veškerých schovaných nečistot. Pak přijde čas na údržbu gumových těsnění. Trochu je oživte pomocí speciálního spreje na těsnění, většinou na bázi silikonu. Však si během zimních mrazů a letních sálajících veder užily své. V této fázi neškodí si překontrolovat i bezvadnou funkčnost zámečků oken. Trochu je vyčistit a trochu promazat. Pečlivě překontrolujte zejména těsnění dveří garáže. To kromě přírodních vlivů ve zvýšené míře může trpět i nešetrným zacházením s nákladem, který do garáže dáváme. Mechanicky natrhnout, tedy poškodit těsnění není nic složitého a výsledkem je pak zatékání vody do garáže. A tomu se fakt chceme vyhnout.</p>
+<p style="text-align: justify;">Ohledně umytí přímo skel nástavby - zapoměňte na přípravky, které jsou určeny na okna z minerálního skla a opatřete si speciální přípravek na akrylátová skla. Vyhněte se také přípravkům na "čištění akrylátu", což jsou typicky akrylátové vany, tedy neprůhledný plast. My hledáme opravdu něco na čištění akrylátových <span style="text-decoration: underline;">skel</span>. Na trhu je jich dost, od renomovaných výrobců, takže stači si jen vybrat podle osobních preferencí. <span>Speciálně na čistění oken v obytňáku si opatřete vhodnou jemnou utěrku. Ideálně novou, která nebyla předtím použita na nic jiného. </span></p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/3-technika/nastavba/2021/myti-12.jpg"><img class="roundblock" title="Myti-12" src="../../userFiles/3-technika/nastavba/2021/myti-12.jpg" alt="Myti-12" width="600" /></a></p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/3-technika/nastavba/2021/myti-13a.jpg"><img class="roundblock" style="float: left;" title="Myti-13a" src="../../userFiles/3-technika/nastavba/2021/myti-13a.jpg" alt="Myti-13a" width="250" /></a>Pokud už na oknech máme škrábance, které nám vadí, dá se (do určité míry) s tím něco dělat použitím speciálních odstraňovačů škrábanců na akrylátových sklech. Jsou to různé pasty které nanesete do škrábanců, někdy před tím přebrousíte a pak přeleštíte. Pozor si dávejte, pokud máte skla zatmavená - ty vyžadují speciální přípravky. </p>
+<p style="text-align: justify;">Obecně lze říct, že v případě zahlazování škrábanců je přeci jen trochu sofistikovanější práce a v případě zbrklosti se dá hodně poničit. Chce to si počínat trochu odborně a ideálně podle dobrého návodu. V nevyčerpatelné studnici videí na Youtube je samozřejmě mnoho návodů, jak se zbavit škrábanců na oknech. Jeden velmi názorný sem přidávám. I bez komentáře se podle něj dá docela dobře postupovat. Video má i titulky, takže pokud bojujete s angličtinou, stačí titulky zapnout a zvolit automatický překlad do češtiny. </p>
+<p style="text-align: justify;"> </p>
+<p style="text-align: justify;"> </p>
+<p><iframe width="640" height="360" src="https://www.youtube.com/embed/y0gLNCy8wvM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></p>
+<p style="text-align: justify;"><strong>4.krok - kola a podvozek</strong></p>
+<p style="text-align: justify;"><a class="thickbox" title="" href="../../userFiles/4-blog/2019/jaro-01.jpg"><img class="roundblock" style="float: left;" title="listy" src="../../userFiles/4-blog/2019/jaro-01.jpg" alt="listy" width="244" /></a>Tady už jen stručně protože údržba podvozku, resp. kabiny řidiče se nijak výrazně neliší od běžného osobního vozu a tu drtivá většina čtenářů jistě ovládá. Vyčištění podběhů, disků kol, ze spáry pod čelním sklem vylovit všechny napadané listy a větvičky, které pak brání řádnému odtoku dešťové vody. Vycídit čelní a boční skla, zpětná zrcátka, vnitřní části a těsnění dveří, atd. Nezapomeňte ani na chladič a odstraňte z něj vrstvy nalítaného hmyzu. Odvděčí se vám lepší účinností, což zrovna v létě, při jízdě s težkým obytňákem v kopcích se bude jistě hodit. Nakoukněte i pod vnější větrací mřížky chladničky. Možná budete překvapeni, kolik špíny a prachu se tam dostane. </p>
+<p style="text-align: justify;">Samostatnou kapitolou je jistě i vyčištění markýzy ale tady se musím omluvit. Markýzu na Dodíkovi nemáme a tak se necítím být dostatečně kompetentní něco psát. Snad jen, že i na tuto část vybavení obytňáku existuje speciální čistící chemie, takže asi nebude špatné ji použít.</p>
+<p style="text-align: justify;"><a class="thickbox" title="" href="../../userFiles/4-blog/2019/jaro-11.jpg"><img class="roundblock" style="float: left;" title="hrdlo" src="../../userFiles/4-blog/2019/jaro-11.jpg" alt="hrdlo" width="250" /></a></p>
+<p style="text-align: justify;"><strong>Závěrečná třešnička na dortu</strong>. Alespoň tedy pro mě. Poslední činností "velkého" mytí Dodíka je speciální čištění prostoru okolo víčka nádrže na pitnou vodu. VŽDY tam najdu hromadu prachu, různého zateklého svinstva (i z té chemie použité při mytí vozu). Ideálním nástrojem je již vyřazený zubní kartáček, vyvařený v horké vodě. Prostor vyčistím vodou s trochou Sava, samozřejmě včetně vlastního víčka a mohu se zase o trochu více spolehnout, že při příštím zavádení hadice do nádrže si "neštrejchnu" koncem hadice někde okolo hrdla a pak si do nádrže nezavedu jakoukoliv nečistotu či dokonce bakterie.</p>
+<p style="text-align: justify;"> </p>
+<p style="text-align: justify;"> </p>
+<p style="text-align: justify;">No a máme hotovo! Je jasné, že kompletní velké vyčištění obytného auta zabere celý den, pokud ho chcete udělat opravdu pořádně. Musím také zmínit jistou finanční náročnost, minimálně na začátku, kdy se musí veškeré potřebné vybavení, čistící a ošetřovací chemie opatřit. Ale to co si budeme povídat, to k tomuhle koníčku patří velmi často. </p>
+<p style="text-align: justify;">Takže si rezervujte jeden pěkný den, všechno si připravte, přistavte svého mazlíka a s chutí do toho!</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/3-technika/nastavba/2021/myti-15.jpg"><img class="roundblock" title="Myti-15" src="../../userFiles/3-technika/nastavba/2021/myti-15.jpg" alt="Myti-15" width="600" /></a></p>
+<p style="text-align: justify;"> </p>
+</div>
+</div>
+
+	</div>
+
+	<div id="rightbar">
+	
+	    <div class="boxed ">
+
+
+<h2>Co vás zajímá?</h2>
+<div class="content2">
+
+<div id="menu-bott"></div></div></div>
+<div class="boxed ">
+
+
+<h2>Kontakty na nás</h2>
+<div class="content2">
+
+<h3><img style="margin: 10px 0px !important;" src="../../userFiles/system/logo.jpg" alt="" /></h3>
+<h3>Náš parťák obytňák</h3>
+<p>Jirka a Jana<br />Praha</p>
+<p><a href="mailto:jiri.pm@seznam.cz">jiri.pm@seznam.cz</a></p>
+<p></p></div></div>
+<div class="boxed ">
+
+
+<h2>Návštěvy na těchto stránkách...</h2>
+<div class="content2">
+
+<p><a href="https://www.toplist.cz/">
+<script language="JavaScript" type="text/javascript">// <![CDATA[
+document.write('<img src="https://toplist.cz/count.asp?id=1782081&amp;logo=mc&amp;http='+
+escape(document.referrer)+'&amp;t='+escape(document.title)+
+'&amp;wi='+escape(window.screen.width)+'&amp;he='+escape(window.screen.height)+'&amp;cd='+
+escape(window.screen.colorDepth)+'" width="88" height="60" border=0 alt="TOPlist" />');
+// ]]></script>
+</a></p>
+<noscript><img src="https://toplist.cz/count.asp?id=1782081&amp;logo=mc" border="0"
+alt="TOPlist" width="88" height="60" /></noscript></div></div>
+
+	</div>
+
+</div><!-- wrap ends here -->
+
+<!-- footer starts here -->
+	<div id="footer">
+		<div id="footer-content">
+		<div id="footer-right">
+			<p class="paticka" style=""><span id=p1 class=ostravski><a href=http://www.ostravski.cz/?levny-webdesign target=:"_blank" >
+Ostravski Webdesign
+</a>
+ |
+ <a href="http://www.banan.cz/produkty/webove-stranky-zdarma?web-zdarma" title="Webové stránky zdarma" target="_blank">
+ Webové stránky zdarma</a>
+ od <a href="http://www.banan.cz/?webhosting-banan" title="webhosting a domény" target="_blank">BANAN.CZ</a>
+ </span>
+
+<span class="paticka_user"> | <a href="http://www.nas-partak-obytnak.cz/admin/">přihlásit se</a></span>
+
+
+</p>
+
+<!-- banan=rs -->		</div>
+
+		<div id="footer-left">
+            <p>
+						            </p>
+		</div>
+		</div>
+	</div>
+<!-- footer ends here -->
+
+</body>
+
+<!-- Mirrored from www.nas-partak-obytnak.cz/technika/nastavba/01_06_2021---jak-myjete-sve-auto-vy-_ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Sep 2024 12:27:37 GMT -->
+</html>
+<!--SQL: 0 | cas: 0.020058155059814 | pamet: 622248-->

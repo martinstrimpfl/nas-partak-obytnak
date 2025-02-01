@@ -1,0 +1,519 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<!-- Mirrored from www.nas-partak-obytnak.cz/blog/2018/20_05_2018---hodnoceni-po-prvnich-5000-km_ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Sep 2024 13:11:16 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+
+<base  />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="../../userFiles/favicon.ico" rel="shortcut icon" type="image/ico" />
+<meta property="og:image" content="../../userFiles/system/mazlikfcbk.jpg" />
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript" src="../../file3d83.php?f=js/jquery.ui.js.php"></script>
+<script type="text/javascript" src="../../file3ec2.php?f=plugins/thickbox/thickbox.js.php"></script>
+<script type="text/javascript" src="../../js/init.js"></script>
+<link rel="stylesheet" type="text/css" href="../../plugins/datetimepicker/build/jquery.datetimepicker.min.css" media="all" />
+<script type="text/javascript" src="../../plugins/datetimepicker/build/jquery.datetimepicker.full.js"></script>
+<script type="text/javascript" src="../../js/s.js"></script>
+<script type="text/javascript" src="../../js/jquery.roundblock.js"></script>
+<link href="../../plugins/nanogallery2-3.0.5/dist/css/nanogallery2.min.css" rel="stylesheet" type="text/css">
+<script  type="text/javascript" src="../../plugins/nanogallery2-3.0.5/dist/jquery.nanogallery2.min.js"></script>
+<link rel="stylesheet" href="../../plugins/bootstrap_modalonly/css/bootstrap.css">
+<script src="../../plugins/bootstrap_modalonly/js/bootstrap.js"></script>    
+<script type="text/javascript" src="../../js/jquery.cookie.js"></script>
+
+<!--[if lte IE 6]>
+<script type="text/javascript" src="js/jquery.ifixpng.js"></script>
+<script type="text/javascript"> $.ifixpng("admin/transparent.gif"); $(function(){ $("div").ifixpng(); }); </script>
+<![endif]-->
+
+<meta name="basepathlng" content="./" />
+<meta http-equiv="content-language" content="cs" />
+<!-- UH -->
+<link href="https://fonts.googleapis.com/css?family=Rajdhani:300,400,500,600,700" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700&amp;subset=latin-ext" rel="stylesheet">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<script type="text/javascript">
+$(function(){
+
+if (window.isFrontpage)
+  {
+   $('body').addClass('uvod');
+}
+
+if ($(window).width() < 1001) {
+   $('body').addClass('resp');
+}
+
+$("#sidebar>ul>li>ul>li>ul>li>ul>li.current").parent().parent().addClass('current aktivni');
+$("#sidebar>ul>li>ul>li>ul>li.current").parent().parent().addClass('current aktivni');
+$("#sidebar>ul>li>ul>li.current").parent().parent().addClass('current aktivni');
+$("#sidebar>ul>li.current").addClass('aktivni');
+
+$(".uvod .post .fotogalerie").parent().parent().addClass('blok-foto');
+
+$("#menu").appendTo("#header");
+
+$("body").prepend("<div id=max-slide></div>");
+
+$("#header").wrap("<div id=max-header></div>");
+$("#max-header").prependTo("body");
+/*$(".formular").appendTo(".theme-default .nivoSlider");*/
+
+$(".slider-wrapper").appendTo("#max-slide");
+
+$('input.button').val('odeslat');
+
+$("#locales").insertAfter("#slogan");
+
+$("#wrap").append("<hr>");
+
+$("body>#max-slide>.slider-wrapper").parent().parent().addClass('akt-slide');
+$("#sidebar>ul>li.aktivni").parent().parent().parent().addClass('split');
+
+$("#rightbar").prependTo("#footer");
+$("#main>h1").wrap("<p class=post-center></p>");
+
+$(".paticka_banan a:first-child").text("Webové stránky");
+$('.paticka_banan a:first-child').attr('title', 'Webové stránky od BANAN.CZ');
+
+$("body.resp #sidebar").insertAfter("#main");
+
+$("#menu>ul").clone().appendTo("#menu-bott");
+$("#info").appendTo("#wrap");
+
+})
+
+//responzivni menu
+
+$(function() {
+$('#menu').prepend('<div id="pull" onclick="return false;"></div>');
+var $pull = ('#pull');
+var $menu = $('#menu > ul');
+
+$(pull).on('click', function(e) {
+	e.preventDefault();
+	if(!$menu.data('show')){
+           $menu.height('initial').height($(document).height() - $("#menu > ul").offset().top);
+           $menu.stop(true, true).data({show: true}).animate({'margin-left': '0'});
+        }else
+           $menu.stop(true, true).data({show: false}).animate({'margin-left': -$menu.width()}, function(){
+               var height = $(this).height();
+               $(this).removeAttr("style").height(height);
+           });
+
+});
+
+$(document).bind('click', function(e) {
+if($menu.data('show')){
+  if(!$(e.target).is('#menu *')) {
+    $menu.stop(true, true).data({show: false}).animate({'margin-left': -$menu.width()}, function(){
+               var height = $(this).height();
+               $(this).removeAttr("style").height(height);
+           });
+  }
+}
+});
+$(window).resize(function(){
+   CheckMenu($menu);
+});
+CheckMenu($menu);
+
+function CheckMenu($menu){
+   var w = window.innerWidth;
+   if(w > 1000) {
+       $menu.removeAttr('style');
+       $menu.find('.menu_add_row').remove();
+       $menu.height('initial');
+       $menu.data('show', false);
+   } else {
+     $menu.find('.menu_add_row').remove();
+     $menu.find('li').each(function(){
+        var $ull = $(this).find('ul');
+        if($ull.length){
+           $(this).append($('<div class="menu_add_row '+ ($ull.data('active')?'active':'') +'"></div>').data('$ul', $ull).click(function(){
+                   if(!$(this).data('$ul').data('active'))
+                     $(this).addClass('active').data('$ul').data('active', true).addClass('menu_add_show').parents('li:first').addClass('menu_add_active');
+                   else
+                     $(this).removeClass('active').data('$ul').data('active', false).removeClass('menu_add_show').parents('li:first').removeClass('menu_add_active');
+           }));
+
+        }
+      })
+     $menu.height('initial').height($(document).height() - $("#menu > ul").offset().top);
+     }
+   }
+});
+
+</script>
+
+<!--[if gte IE 9]>
+  <style type="text/css">
+    body, .mimg, .rsslink, #menu>ul>li>ul, .more, .button, #menu>ul>li>a:hover, #menu>ul>li.current>a,  #menu>ul>li:hover>a, .button:hover, .more:hover, #menu>ul>li>a {
+       filter: none !important;
+    }
+  </style>
+<![endif]-->
+<!--[if IE ]>
+  <style type="text/css">
+    .addthis_container {
+
+}
+  </style>
+<![endif]-->
+<!-- /UH -->
+<meta name="description" content="Před třemi dny tomu byly přesně 2 měsíce, kdy jsme si Dodíka (tehdy ještě Mazlíka) odvezli domů. Bylo to fungl nové holátko..." />
+<meta name="keywords" content="" />
+<title>20.05.2018 - Hodnocení po prvních 5000 km. | Náš parťák obytňák</title>
+<meta property="og:title"  content= "Náš parťák obytňák" />
+<meta property="og:description"  content= "Před třemi dny tomu byly přesně 2 měsíce, kdy jsme si Dodíka (tehdy ještě Mazlíka) odvezli domů. Bylo to fungl nové holátko..." />
+<!-- Page Head -->
+
+<!-- /Page Head -->
+
+<link rel="stylesheet" href="../../css.css" type="text/css" media="screen,print" />
+
+<style> .paticka_vzhled {display:inline!important;  } </style>
+<!--[if IE]> <link rel="stylesheet" type="text/css" href="ie.css" /> <![endif]-->
+<!--[if lte IE 7]> <link rel="stylesheet" type="text/css" href="ie7.css" /> <![endif]-->
+<script type="text/javascript">
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : "486735741442178",
+      channelUrl : "//www.nas-partak-obytnak.cz/file.php?f=plugins/facebook/channel.js.php&l=cs_CZ",
+      status     : true,
+      xfbml      : true
+    });
+  };
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "../../../connect.facebook.net/cs_CZ/all.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, "script", "facebook-jssdk"));
+
+</script>
+
+</head>
+
+<body>
+<div id="wrap"><!-- wrap starts here -->
+
+	<div id="header">
+
+				<h1 id="logo"><a href="../../index.html" title="">Náš parťák obytňák</a></h1>		<h2 id="slogan">Náš parťák obytňák</h2>
+	</div>
+
+	<div id="menu">
+
+		<ul><li><a href="../../index.html">Úvod</a></li><li><a href="../../svet-nomadu.html">Svět nomádů</a><ul><li><a href="../../svet-nomadu/2024.html">2024</a><ul><li><a href="../../svet-nomadu/2024/predstaveni-pilote-atlas-a656d-2024.html">Představení Pilote Atlas A656D 2024</a></li></ul></li><li><a href="../../svet-nomadu/2022.html">2022</a><ul><li><a href="../../svet-nomadu/2022/01_02_2022---clark-cortez---neznama-legenda.html">01.02.2022 - Clark Cortez - neznámá legenda</a></li></ul></li><li><a href="../../svet-nomadu/2021.html">2021</a><ul><li><a href="../../svet-nomadu/2021/17_07_2021---novy-fiat-ducato-uz-oficialne.html">17.07.2021 - Nový Fiat Ducato už oficiálně</a></li><li><a href="../../svet-nomadu/2021/30_05_2021---amik-s-evropskym-srdcem.html">30.05.2021 - Amík s evropským srdcem</a></li><li><a href="../../svet-nomadu/2021/11_04_2021---nejkrasnejsi-osklivky-70_let.html">11.04.2021 - Nejkrásnější ošklivky 70.let</a></li><li><a href="../../svet-nomadu/2021/28_03_2021---kdo-se-prvni-v-obytnaku-sprchoval_.html">28.03.2021 - Kdo se první v obytňáku sprchoval?</a></li><li><a href="../../svet-nomadu/2021/02_03_2021---joo_-holt-ta-cina_.html">02.03.2021 - Jóó, holt ta Čína!</a></li><li><a href="../../svet-nomadu/2021/21_02_2021---facelift-fiatu-ducato-2022.html">21.02.2021 - Facelift Fiatu Ducato 2022</a></li><li><a href="../../svet-nomadu/2021/14_02_2021---obytnak-pro-krizove-obdobi.html">14.02.2021 - Obytňák pro krizové období</a></li><li><a href="../../svet-nomadu/2021/05_01_2021---krasna-silenost_-z-triton.html">05.01.2021 - Krásná šílenost: Z-Triton</a></li><li><a href="../../svet-nomadu/2021/01_01_2021---kraska-ultra-van.html">01.01.2021 - Kráska ULTRA VAN</a></li></ul></li><li><a href="../../svet-nomadu/2019.html">2019</a><ul><li><a href="../../svet-nomadu/2019/11_11_2019---tourne_-prvni-van-do-zimy_.html">11.11.2019 - Tourne. První van do zimy!</a></li><li><a href="../../svet-nomadu/2019/05_07_2018---kral-pop-kultury.html">05.07.2018 - Král pop kultury</a></li><li><a href="../../svet-nomadu/2019/12_03_2019---ktera-znacka-je-nejstarsi-_.html">12.03.2019 - Která značka je nejstarší ?</a></li><li><a href="../../svet-nomadu/2019/09_03_2019---quo-vadis_-ceske-vystavy_.html">09.03.2019 - Quo Vadis, české výstavy?</a></li><li><a href="../../svet-nomadu/2019/28_02_2019---nejrychlejsi-obytne-auto-na-zemi.html">28.02.2019 - Nejrychlejší obytné auto na Zemi</a></li><li><a href="../../svet-nomadu/2019/24_02_2019---ikonicky-obytnak-ze-sedmdesatek_-gmc.html">24.02.2019 - Ikonický obytňák ze sedmdesátek: GMC</a></li><li><a href="../../svet-nomadu/2019/05_02_2019---prvni-ciste-elektricky-obytnak-_.html">05.02.2019 - První čistě elektrický obytňák !</a></li></ul></li><li><a href="../../svet-nomadu/2018.html">2018</a><ul><li><a href="../../svet-nomadu/2018/23_12_2018---vykradli-zdenka-a-bobesku-_.html">23.12.2018 - Vykradli Zdeňka a Bobešku !</a></li><li><a href="../../svet-nomadu/2018/25_11_2018---fiat-ducato-po-australsku.html">25.11.2018 - Fiat Ducato po australsku</a></li><li><a href="../../svet-nomadu/2018/11_11_2018---polointegovany-nebo-intergrovany-model_.html">11.11.2018 - Polointegovaný nebo intergrovaný model?</a></li><li><a href="../../svet-nomadu/2018/09_10_2018---fantomasuv-obytnak.html">09.10.2018 - Fantomasův obytňák</a></li><li><a href="../../svet-nomadu/2018/33_09_2018---obytnak-s-terasou-_.html">33.09.2018 - Obytňák s terasou !</a></li><li><a href="../../svet-nomadu/2018/29_08_2018---modely-pilote-pro-rok-2019.html">29.08.2018 - Modely PILOTE pro rok 2019</a></li><li><a href="../../svet-nomadu/2018/30_06_2018---trocha-karavanistickeho-steampunku.html">30.06.2018 - Trocha karavanistického steampunku</a></li><li><a href="../../svet-nomadu/2018/30_05_2018---evropske-vystavy-2018_19.html">30.05.2018 - Evropské výstavy 2018/19</a></li><li><a href="../../svet-nomadu/2018/23_05_2018---80-let-stary-obytnak-kpt_dunna.html">23.05.2018 - 80 let starý obytňák kpt.Dunna</a></li><li><a href="../../svet-nomadu/2018/15_03_2018-vyrobci-vybavy-a-doplnku.html">15.03.2018 Výrobci výbavy a doplňků</a></li><li><a href="../../svet-nomadu/2018/12_03_2018-for-caravan-2018_-praha.html">12.03.2018 FOR CARAVAN 2018, Praha</a></li><li><a href="../../svet-nomadu/2018/06_02_2018-evropske-znacky-obytnych-vozu.html">06.02.2018 Evropské značky obytných vozů</a></li><li><a href="../../svet-nomadu/2018/01_02_2018-jak-nakupovat-na-italskych-webshopech-_.html">01.02.2018 Jak nakupovat na italských webshopech ?</a></li><li><a href="../../svet-nomadu/2018/21_01_2018-dost-mista-na-vareni-_.html">21.01.2018 Dost místa na vaření ?</a></li></ul></li><li><a href="../../svet-nomadu/2017.html">2017</a><ul><li><a href="../../svet-nomadu/2017/09_11_2017-caravaning-brno-2017.html">09.11.2017 Caravaning Brno 2017</a></li><li><a href="../../svet-nomadu/2017/13_10_2018-retro-stroje_-usvit-obytnych-aut.html">13.10.2018 Retro stroje, úsvit obytných aut</a></li><li><a href="../../svet-nomadu/2017/15_09_2017-evropsky-caravaning-ocima-americanu.html">15.09.2017 Evropský caravaning očima Američanů</a></li><li><a href="../../svet-nomadu/2017/12_09_2017-retro-stroje-brooks-stevens.html">12.09.2017 Retro stroje Brooks Stevens</a></li><li><a href="../../svet-nomadu/2017/09_09_2017-janackovi-a-jejich-flicek.html">09.09.2017 Janáčkovi a jejich Flíček</a></li><li><a href="../../svet-nomadu/2017/03_09_2017-caravan-salon-2017.html">03.09.2017 Caravan Salon 2017</a></li></ul></li><li><a href="../../svet-nomadu/archiv-aktualit-dne.html">Archiv aktualit dne</a></li></ul></li><li><a href="../../technika.html">Technika</a><ul><li><a href="../../technika/motor-a-podvozek.html">Motor a Podvozek</a><ul><li><a href="../../technika/motor-a-podvozek/11_4_2022---na-kolik-vlastne-hustit-mechy_.html">11.4.2022 - Na kolik vlastně hustit měchy?</a></li><li><a href="../../technika/motor-a-podvozek/14_03_2022---nova-pneumatika-michelin-crossclimate-camping.html">14.03.2022 - nová pneumatika Michelin CrossClimate Camping</a></li><li><a href="../../technika/motor-a-podvozek/03_11_2019---dva-roky-z-robotickou-prevodovkou.html">03.11.2019 - Dva roky z robotickou převodovkou</a></li><li><a href="../../technika/motor-a-podvozek/04_08_2019---jak-pomahaji-mechy-s-vyskou_.html">04.08.2019 - Jak pomáhají měchy s výškou?</a></li><li><a href="../../technika/motor-a-podvozek/09_02_2019---spravne-husteni-pneumatik-_.html">09.02.2019 - Správné huštění pneumatik ?</a></li><li><a href="../../technika/motor-a-podvozek/28_10_2017---prevodovka-automatika-nebo-manual-_.html">28.10.2017 - Převodovka automatika nebo manuál ?</a></li></ul></li><li><a href="../../technika/nastavba.html">Nástavba</a><ul><li><a href="../../technika/nastavba/01_06_2021---jak-myjete-sve-auto-vy-_.html">01.06.2021 - Jak myjete své auto vy ?</a></li></ul></li><li><a href="../../technika/elektrina.html">Elektřina</a><ul><li><a href="../../technika/elektrina/20_01_2022---dame-tam-solar-_.html">20.01.2022 - Dáme tam solár !</a></li><li><a href="../../technika/elektrina/26_03_2018---jak-to-delaji-pri-vyrobe-_.html">26.03.2018 - Jak to dělají při výrobě ?</a></li><li><a href="../../technika/elektrina/20_01_2018---moderni-laska-ma-jmeno_-lifepo.html">20.01.2018 - Moderní láska má jméno: LiFePo</a></li><li><a href="../../technika/elektrina/28_12_2017---baterie_-baterie_-baterie.html">28.12.2017 - Baterie, baterie, baterie</a></li></ul></li><li><a href="../../technika/av-a-elektronika.html">AV a elektronika</a><ul><li><a href="../../technika/av-a-elektronika/10_04_2021---zkusenost-s-av-jednotkou-xzent-x-227.html">10.04.2021 - Zkušenost s AV jednotkou XZent X-227</a></li><li><a href="../../technika/av-a-elektronika/02_08_2019---rok-s-navigaci-garmin-camper-770t-d.html">02.08.2019 - Rok s navigací Garmin Camper 770T-D</a></li><li><a href="../../technika/av-a-elektronika/03_02_2019---digitalni-rozhlas-v-cr-pro-rok-2019-a-dal.html">03.02.2019 - Digitální rozhlas v ČR pro rok 2019 a dál</a></li><li><a href="../../technika/av-a-elektronika/04_03_2018---nastava-soumrak-satelitnich-anten-_.html">04.03.2018 - Nastává soumrak satelitních antén ?</a></li><li><a href="../../technika/av-a-elektronika/05_02_2018---360__omnivue_-draha-ale-super-hracka.html">05.02.2018 - 360°Omnivue: drahá ale super hračka</a></li><li><a href="../../technika/av-a-elektronika/26_01_2018---dvb-t_t2-antena-na-strechu.html">26.01.2018 - DVB-T/T2 anténa na střechu</a></li><li><a href="../../technika/av-a-elektronika/07_09_2017---jak-je-to-s-cenou-sw-navigace-sygic-truck-_.html">07.09.2017 - Jak je to s cenou sw navigace Sygic Truck ?</a></li><li><a href="../../technika/av-a-elektronika/04_09_2017---jakou-navigaci-si-vybrat-_.html">04.09.2017 - Jakou navigaci si vybrat ?</a></li></ul></li><li><a href="../../technika/voda-a-to-dalsi.html">Voda a to další</a><ul><li><a href="../../technika/voda-a-to-dalsi/20_02_2021---nas-obytnak-smrdi-_.html">20.02.2021 - Náš obytňák smrdí !</a></li><li><a href="../../technika/voda-a-to-dalsi/29_12_2019-co-je-vlastne-kompostovaci-zachod_.html">29.12.2019 Co je vlastně kompostovací záchod?</a></li><li><a href="../../technika/voda-a-to-dalsi/16_02_2019---udrzba-wc-kazety-dometic-rady-ct.html">16.02.2019 - Údržba WC kazety DOMETIC řady CT</a></li><li><a href="../../technika/voda-a-to-dalsi/chemicke-wc_-a-co-dal_.html">Chemické WC. A co dál?</a></li></ul></li><li><a href="../../technika/plyn-a-topeni.html">Plyn a topení</a><ul><li><a href="../../technika/plyn-a-topeni/27_12_2020---jak-je-to-se-spotrebou-plynu-_.html">27.12.2020 - Jak je to se spotřebou plynu ?</a></li><li><a href="../../technika/plyn-a-topeni/31_01_2019---menit-bomby-nebo-napevno_.html">31.01.2019 - Měnit bomby nebo napevno?</a></li><li><a href="../../technika/plyn-a-topeni/26_10_2018---i-tehdy-rekl-buh_-budiz-plyn_.html">26.10.2018 - I tehdy řekl Bůh: Budiž plyn!</a></li><li><a href="../../technika/plyn-a-topeni/10_6_2018---nastava-propojeni-dvou-svetu_.html">10.6.2018 - nastává propojení dvou světů!</a></li></ul></li><li><a href="../../technika/volna-vybava.html">Volná výbava</a><ul><li><a href="../../technika/volna-vybava/10_10_2018---znate-stul-tailgater_.html">10.10.2018 - Znáte stůl Tailgater?</a></li><li><a href="../../technika/volna-vybava/13_05_2018---caj-a-kava-na-palube-dodika.html">13.05.2018 - Čaj a káva na palubě Dodíka</a></li><li><a href="../../technika/volna-vybava/05_04_2018---what3words_-navigace-budoucnosti_.html">05.04.2018 - What3Words: navigace budoucnosti?</a></li><li><a href="../../technika/volna-vybava/23_09_2017---vybirame-nadobi_.html">23.09.2017 - Vybíráme nádobí.</a></li></ul></li></ul></li><li><a href="../../blog.html">Blog</a><ul><li><a href="../2022.html">2022</a><ul><li><a href="../2022/12_08_2022---at-nas-neceka-osud-vodaku-_.html">12.08.2022 - Ať nás nečeká osud vodáků !</a></li><li><a href="../2022/01_06_2022---kempari-a-divocaci.html">01.06.2022 - Kempaři a divočáci</a></li><li><a href="../2022/22_01_2022---s-karavanem-po-cesku.html">22.01.2022 - S karavanem po Česku</a></li></ul></li><li><a href="../2021.html">2021</a><ul><li><a href="../2021/28_03_2021---odchazeni-_.html">28.03.2021 - Odcházení ?</a></li></ul></li><li><a href="../2020.html">2020</a><ul><li><a href="../2020/8_12_2020---krize-psani-aneb-prokleti-trirocaka.html">8.12.2020 - Krize psaní aneb prokletí tříročáka</a></li><li><a href="../2020/19_04_2020-narod-nomadi-v-dobe-covidove.html">19.04.2020 Národ nomádí v době Covidové</a></li><li><a href="../2020/22_03_2020---kolik-opravdu-stoji-obytnak_.html">22.03.2020 - Kolik opravdu stojí obytňák?</a></li></ul></li><li><a href="../2019.html">2019</a><ul><li><a href="../2019/01_12_2019---pri-vyberu-srovnavejme-srovnatelne-2.html">01.12.2019 - Při výběru srovnávejme srovnatelné 2</a></li><li><a href="../2019/24_11_2019---pri-vyberu-srovnavejme-srovnatelne-1.html">24.11.2019 - Při výběru srovnávejme srovnatelné 1</a></li><li><a href="../2019/01_09_2019---jaky-si-vlastne-poridit-obytnak_.html">01.09.2019 - Jaký si vlastně pořídit obytňák?</a></li><li><a href="../2019/29_03_2019---udrzba-po-zimnim-spanku.html">29.03.2019 - Údržba po zimním spánku</a></li><li><a href="../2019/13_03_2019---10-pravidel-kempovani-nadivoko.html">13.03.2019 - 10 pravidel kempování nadivoko</a></li></ul></li><li><a href="../2018.html">2018</a><ul><li><a href="05_12_2018---na-vahu-_.html">05.12.2018 - Na váhu !</a></li><li><a href="26_9_2018---vychytavame-detaily-v-kabine.html">26.9.2018 - Vychytáváme detaily v kabině</a></li><li class="current"><a href="20_05_2018---hodnoceni-po-prvnich-5000-km_.html">20.05.2018 - Hodnocení po prvních 5000 km.</a></li><li><a href="27_04_2018---kdyz-se-vybira-nazev-aneb-demokracie-v-praxi_.html">27.04.2018 - Když se vybírá název aneb demokracie v praxi.</a></li><li><a href="16_04_2018---kdyz-chce-clovek-bezhlave-usetrit_.html">16.04.2018 - Když chce člověk bezhlavě ušetřit.</a></li><li><a href="17_03_2018-a-uz-je-uuuplne-nas-_.html">17.03.2018 A už je úúúplně náš !</a></li><li><a href="10_03_2018-vystavujeme-na-for-caravan.html">10.03.2018 Vystavujeme na FOR CARAVAN</a></li><li><a href="08_02_2018-jste-skveli-ctenari-_.html">08.02.2018 Jste skvělí čtenáři !</a></li><li><a href="29_01_2018-financovani-a-pojisteni-mazlika.html">29.01.2018 Financování a pojištění Mazlíka</a></li></ul></li><li><a href="../2017.html">2017</a><ul><li><a href="../2017/04_11_2017-co-s-uloznym-prostorem-_.html">04.11.2017 Co s úložným prostorem ?</a></li><li><a href="../2017/19_09_2017-casopisy-aneb-zaplava-informaci.html">19.09.2017 Časopisy aneb záplava informací</a></li></ul></li><li><a href="../in-vino-veritas.html">In Vino Veritas</a></li></ul></li><li><a href="../../nas-dodo.html">Náš Dodo</a><ul><li><a href="../../nas-dodo/2023.html">2023</a><ul><li><a href="../../nas-dodo/2023/01_11_2023---nabijecka-trochu-jinak.html">01.11.2023 - Nabíječka trochu jinak</a></li></ul></li><li><a href="../../nas-dodo/2022.html">2022</a><ul><li><a href="../../nas-dodo/2022/20_3_2022---jedna-zasuvka-v-salonu-svepomoci.html">20.3.2022 - Jedna zásuvka v salónu svépomocí</a></li><li><a href="../../nas-dodo/2022/02_03_2023---nova-lifepo4-baterie-je-na-palube_.html">02.03.2023 - Nová LiFePO4 baterie je na palubě!</a></li></ul></li><li><a href="../../nas-dodo/2021.html">2021</a><ul><li><a href="../../nas-dodo/2021/teplota-pod-kontrolou.html">Teplota pod kontrolou</a></li><li><a href="../../nas-dodo/2021/vodovaha-na-ocich.html">Vodováha na očích</a></li><li><a href="../../nas-dodo/2021/poradek-na-nocnim-stolku.html">Pořádek na nočním stolku</a></li></ul></li><li><a href="../../nas-dodo/2019.html">2019</a><ul><li><a href="../../nas-dodo/2019/27_02_2019---nase-palubni-knihovna-hotova_.html">27.02.2019 - Naše palubní knihovna hotova.</a></li><li><a href="../../nas-dodo/2019/22_02_2019---skret-mi-znovu-zautocil-na-alarm-_.html">22.02.2019 - Skřet mi znovu zaútočil na alarm !</a></li><li><a href="../../nas-dodo/2019/13_02_2019---koberec-po-celem-aute.html">13.02.2019 - Koberec po celém autě</a></li><li><a href="../../nas-dodo/2019/04_02_2019---nove-uchyceni-nabytku-v-garazi.html">04.02.2019 - Nové uchycení nábytku v garáži</a></li></ul></li><li><a href="../../nas-dodo/2018.html">2018</a><ul><li><a href="../../nas-dodo/2018/01_09_2018---uprava-botniku.html">01.09.2018 - Úprava botníku</a></li><li><a href="../../nas-dodo/2018/28_08_2018---vymena-sezeni-v-salonu.html">28.08.2018 - Výměna sezení v salónu</a></li><li><a href="../../nas-dodo/2018/07_06_2018---obsiti-volantu-kuzi.html">07.06.2018 - Obšití volantu kůží</a></li><li><a href="../../nas-dodo/2018/12_05_2018---kontrolni-panel-boosteru.html">12.05.2018 - Kontrolní panel boosteru</a></li><li><a href="../../nas-dodo/2018/28_04_2018---mechove-odpruzeni.html">28.04.2018 - Měchové odpružení</a></li><li><a href="../../nas-dodo/2018/04_04_2018---posileni-elektro-systemu.html">04.04.2018 - Posílení elektro systému</a></li><li><a href="../../nas-dodo/2018/28_03_2018---ulozny-system-do-garaze.html">28.03.2018 - Úložný systém do garáže</a></li><li><a href="../../nas-dodo/2018/14_03_2018-trable-s-plynem.html">14.03.2018 Trable s plynem</a></li><li><a href="../../nas-dodo/2018/06_03_2018-odvetravaci-system-sog.html">06.03.2018 Odvětrávací systém SOG</a></li><li><a href="../../nas-dodo/2018/05_03_2018-palubni-televizor-a-dvb-t-antena.html">05.03.2018 Palubní televizor a DVB-T anténa</a></li><li><a href="../../nas-dodo/2018/23_02_2018-koupelnovy-set-ravak.html">23.02.2018 Koupelnový set RAVAK</a></li><li><a href="../../nas-dodo/2018/09_02_2018-prvni-prohlidka-noveho-auta-_.html">09.02.2018 První prohlídka nového auta !</a></li><li><a href="../../nas-dodo/2018/07_02_2018-tak-uz-je-konecne-tady-___.html">07.02.2018 Tak už je konečně tady !!!</a></li><li><a href="../../nas-dodo/2018/06_02_2018-antena-teleco-wing-22.html">06.02.2018 anténa Teleco Wing 22</a></li><li><a href="../../nas-dodo/2018/04_02_2018-on-board-kamera-vybirana-_a-zakoupena_.html">04.02.2018 On-board kamera vybírána (a zakoupena)</a></li><li><a href="../../nas-dodo/2018/30_01_2018-jak-plnit-nadrz-na-vodu-_.html">30.01.2018 Jak plnit nádrž na vodu ?</a></li><li><a href="../../nas-dodo/2018/15_01_2018-trezor-na-palube.html">15.01.2018 Trezor na palubě</a></li><li><a href="../../nas-dodo/2018/06_01_2018-vybirame-venkovni-sezeni.html">06.01.2018 Vybíráme venkovní sezení</a></li></ul></li><li><a href="../../nas-dodo/2017.html">2017</a><ul><li><a href="../../nas-dodo/2017/10_11_2017-ktere-sezeni-v-salonu-je-lepsi_-podruhe.html">10.11.2017 Které sezení v salonu je lepší, PODRUHÉ</a></li><li><a href="../../nas-dodo/2017/04_10_2017-posledni-doobjednavky-prislusenstvi.html">04.10.2017 Poslední doobjednávky příslušenství</a></li><li><a href="../../nas-dodo/2017/10_10_2017-dvojcata-pilote-a-bavaria-746c.html">10.10.2017 Dvojčata Pilote a Bavaria 746C</a></li><li><a href="../../nas-dodo/2017/09_09_2017--ktere-sezeni-v-salonu-je-nejlepsi-_.html">09.09.2017  Které sezení v salonu je nejlepší ?</a></li><li><a href="../../nas-dodo/2017/09_09_2017-nasel-jsem-video-predstaveni-mazlika.html">09.09.2017 Našel jsem video představení Mazlíka</a></li><li><a href="../../nas-dodo/2017/25_08_2017-objednavame-si-nove-auto-___.html">25.08.2017 Objednáváme si nové auto !!!</a></li></ul></li></ul></li><li><a href="../../trasy.html">Trasy</a><ul><li><a href="../../trasy/vikendove-cesty.html">Víkendové cesty</a><ul><li><a href="../../trasy/vikendove-cesty/2022.html">2022</a><ul><li><a href="../../trasy/vikendove-cesty/2022/25_02_2022---plzenskem-bez-proudu.html">25.02.2022 - Plzeňskem bez proudu</a></li></ul></li><li><a href="../../trasy/vikendove-cesty/2021.html">2021</a><ul><li><a href="../../trasy/vikendove-cesty/2021/11_-13_06_2021---slavkovsky-les-podruhe.html">11.-13.06.2021 - Slavkovský les podruhé</a></li><li><a href="../../trasy/vikendove-cesty/2021/8_-9_5_2021---sazava-naslepo.html">8.-9.5.2021 - Sázava naslepo</a></li></ul></li><li><a href="../../trasy/vikendove-cesty/2019.html">2019</a><ul><li><a href="../../trasy/vikendove-cesty/2019/12_-13_10_2019---toulovcovy-mastale.html">12.-13.10.2019 - Toulovcovy maštale</a></li><li><a href="../../trasy/vikendove-cesty/2019/13_-15_9_2019---podel-divoke-orlice.html">13.-15.9.2019 - Podél Divoké Orlice</a></li><li><a href="../../trasy/vikendove-cesty/2019/28_-30_6_2019---usteckym-krajem.html">28.-30.6.2019 - Ústeckým krajem</a></li><li><a href="../../trasy/vikendove-cesty/2019/30_-31_3_2019---povodim-ploucnice.html">30.-31.3.2019 - Povodím Ploučnice</a></li><li><a href="../../trasy/vikendove-cesty/2019/23_-24_3_2019---predjari-v-jiznich-cechach.html">23.-24.3.2019 - Předjaří v Jižních Čechách</a></li></ul></li><li><a href="../../trasy/vikendove-cesty/2018.html">2018</a><ul><li><a href="../../trasy/vikendove-cesty/2018/19_-21_10_2018---vylov-tovacovskeho-rybnika.html">19.-21.10.2018 - Výlov Tovačovského rybníka</a></li><li><a href="../../trasy/vikendove-cesty/2018/7_-9_9_2018---na-jih-od-kutne-hory.html">7.-9.9.2018 - Na jih od Kutné hory</a></li><li><a href="../../trasy/vikendove-cesty/2018/20_-22_4_2018---okolim-havlickova-brodu.html">20.-22.4.2018 - Okolím Havlíčkova Brodu</a></li><li><a href="../../trasy/vikendove-cesty/2018/7_-8_3_2018---slavkovsky-les.html">7.-8.3.2018 - Slavkovský les</a></li></ul></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy.html">Prodloužené víkendy</a><ul><li><a href="../../trasy/prodlouzene-vikendy/2024.html">2024</a><ul><li><a href="../../trasy/prodlouzene-vikendy/2024/28_3_-1_4_2024-velikonoce-v-severnich-cechach.html">28.3.-1.4.2024 Velikonoce v Severních Čechách</a></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy/2023.html">2023</a></li><li><a href="../../trasy/prodlouzene-vikendy/2022.html">2022</a><ul><li><a href="../../trasy/prodlouzene-vikendy/2022/6_-12_3_2022---alsaske-predjari.html">6.-12.3.2022 - Alsaské předjaří</a></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy/2021.html">2021</a><ul><li><a href="../../trasy/prodlouzene-vikendy/2021/4_-9_7_2021---na-hitlerovo-orli-hnizdo.html">4.-9.7.2021 - Na Hitlerovo Orlí hnízdo</a></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy/2019.html">2019</a><ul><li><a href="../../trasy/prodlouzene-vikendy/2019/04_-07_07_2019-za-krasami-sumavy_.html">04.-07.07.2019 Za krásami Šumavy.</a></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy/2018.html">2018</a><ul><li><a href="../../trasy/prodlouzene-vikendy/2018/povanocni-bavorsko.html">Povánoční Bavorsko</a></li><li><a href="../../trasy/prodlouzene-vikendy/2018/sasko-na-konci-zari.html">Sasko na konci září</a></li><li><a href="../../trasy/prodlouzene-vikendy/2018/na-svatbu-do-ase.html">Na svatbu do Aše</a></li><li><a href="../../trasy/prodlouzene-vikendy/2018/za-vinem-na-jih-moravy-a-slovenska.html">Za vínem na Jih Moravy a Slovenska</a></li><li><a href="../../trasy/prodlouzene-vikendy/2018/velikonoce-v-holandsku.html">Velikonoce v Holandsku</a></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy/2017.html">2017</a><ul><li><a href="../../trasy/prodlouzene-vikendy/2017/velikonoce-v-italii.html">Velikonoce v Itálii</a></li></ul></li></ul></li><li><a href="../../trasy/jedeme-na-dovolenou.html">Jedeme na dovolenou</a><ul><li><a href="../../trasy/jedeme-na-dovolenou/2022---nemecko-a-sumava-podruhe.html">2022 - Německo a Šumava podruhé</a></li><li><a href="../../trasy/jedeme-na-dovolenou/2021---nemecko-_a-trochu-sumava_.html">2021 - Německo (a trochu Šumava)</a></li><li><a href="../../trasy/jedeme-na-dovolenou/2020---jeseniky-a-cast-moravy.html">2020 - Jeseníky a část Moravy</a></li><li><a href="../../trasy/jedeme-na-dovolenou/2019---jizni-cechy.html">2019 - Jižní Čechy</a></li><li><a href="../../trasy/jedeme-na-dovolenou/2018---litva_-lotyssko_-estonsko.html">2018 - Litva, Lotyšsko, Estonsko</a></li></ul></li></ul></li><li><a href="../../trochu-z-historie.html">Trochu z historie</a><ul><li><a href="../../trochu-z-historie/jak-to-vsechno-zacalo.html">Jak to všechno začalo</a></li><li><a href="../../trochu-z-historie/dodo-dnes.html">Dodo dnes</a></li><li><a href="../../trochu-z-historie/historie-znacky-pilote.html">Historie značky PILOTE</a></li></ul></li><li><a href="../../fotogalerie-.html">Fotogalerie</a><ul><li><a href="../../fotogalerie-/priroda.html">Příroda</a></li><li><a href="../../fotogalerie-/stavby-a-mesta.html">Stavby a města</a></li><li><a href="../../fotogalerie-/nase-auto.html">Naše auto</a></li><li><a href="../../fotogalerie-/pilote-club-v-cr.html">Pilote Club v ČR</a></li></ul></li><li><a href="../../pokec.html">Pokec</a></li></ul>
+	</div>
+
+	<div id="sidebar">
+
+		<input type=hidden name=formularzeleny><div class="boxed ">
+
+
+<h2>uživatelský panel -- vždy jako první článek - NEMAZAT!!!</h2>
+<div class="content2">
+
+<h2>---slider---</h2>
+<p><div id="slider3" class="slider-wrapper theme-default">
+            <div class="nivoSlider">
+                <img src="../../userFiles/system/mazlik01.jpg" data-thumb="userFiles/system/mazlik01.jpg.tn.jpg" alt="slider" title="#slider3x7" />
+<img src="../../userFiles/system/mazlik16.jpg" data-thumb="userFiles/system/mazlik16.jpg.tn.jpg" alt="slider" title="#slider3x11" />
+<img src="../../userFiles/system/mazlik15.jpg" data-thumb="userFiles/system/mazlik15.jpg.tn.jpg" alt="slider" title="#slider3x12" />
+<img src="../../userFiles/system/mazlik12.jpg" data-thumb="userFiles/system/mazlik12.jpg.tn.jpg" alt="slider" title="#slider3x8" />
+<img src="../../userFiles/system/mazlik18.jpg" data-thumb="userFiles/system/mazlik18.jpg.tn.jpg" alt="slider" title="#slider3x13" />
+<img src="../../userFiles/system/mazlik22.jpg" data-thumb="userFiles/system/mazlik22.jpg.tn.jpg" alt="slider" title="#slider3x9" />
+<img src="../../userFiles/system/mazlik17.jpg" data-thumb="userFiles/system/mazlik17.jpg.tn.jpg" alt="slider" title="#slider3x14" />
+<img src="../../userFiles/system/back3.jpg" data-thumb="userFiles/system/back3.jpg.tn.jpg" alt="slider" title="#slider3x10" />
+<img src="../../userFiles/system/mazlik24.jpg" data-thumb="userFiles/system/mazlik24.jpg.tn.jpg" alt="slider" title="#slider3x15" />
+<img src="../../userFiles/system/mazlik05.jpg" data-thumb="userFiles/system/mazlik05.jpg.tn.jpg" alt="slider" title="#slider3x17" />
+<img src="../../userFiles/system/mazlik11a.jpg" data-thumb="userFiles/system/mazlik11a.jpg.tn.jpg" alt="slider" title="#slider3x16" />
+<img src="../../userFiles/system/mazlik37.jpg" data-thumb="userFiles/system/mazlik37.jpg.tn.jpg" alt="slider" title="#slider3x18" />
+<img src="../../userFiles/system/mazlik31.jpg" data-thumb="userFiles/system/mazlik31.jpg.tn.jpg" alt="slider" title="#slider3x19" />
+<img src="../../userFiles/system/mazlik14.jpg" data-thumb="userFiles/system/mazlik14.jpg.tn.jpg" alt="slider" title="#slider3x21" />
+<img src="../../userFiles/system/mazlik13.jpg" data-thumb="userFiles/system/mazlik13.jpg.tn.jpg" alt="slider" title="#slider3x20" />
+<img src="../../userFiles/system/mazlik19a.jpg" data-thumb="userFiles/system/mazlik19a.jpg.tn.jpg" alt="slider" title="#slider3x22" />
+<img src="../../userFiles/system/mazlik20.jpg" data-thumb="userFiles/system/mazlik20.jpg.tn.jpg" alt="slider" title="#slider3x23" />
+<img src="../../userFiles/system/mazlik21.jpg" data-thumb="userFiles/system/mazlik21.jpg.tn.jpg" alt="slider" title="#slider3x24" />
+<img src="../../userFiles/system/mazlik23.jpg" data-thumb="userFiles/system/mazlik23.jpg.tn.jpg" alt="slider" title="#slider3x25" />
+<img src="../../userFiles/system/mazlik25.jpg" data-thumb="userFiles/system/mazlik25.jpg.tn.jpg" alt="slider" title="#slider3x26" />
+<img src="../../userFiles/system/mazlik26.jpg" data-thumb="userFiles/system/mazlik26.jpg.tn.jpg" alt="slider" title="#slider3x27" />
+<img src="../../userFiles/system/mazlik52.jpg" data-thumb="userFiles/system/mazlik52.jpg.tn.jpg" alt="slider" title="#slider3x28" />
+<img src="../../userFiles/system/mazlik28.jpg" data-thumb="userFiles/system/mazlik28.jpg.tn.jpg" alt="slider" title="#slider3x29" />
+<img src="../../userFiles/system/mazlik29.jpg" data-thumb="userFiles/system/mazlik29.jpg.tn.jpg" alt="slider" title="#slider3x30" />
+<img src="../../userFiles/system/mazlik30.jpg" data-thumb="userFiles/system/mazlik30.jpg.tn.jpg" alt="slider" title="#slider3x31" />
+<img src="../../userFiles/system/mazlik32.jpg" data-thumb="userFiles/system/mazlik32.jpg.tn.jpg" alt="slider" title="#slider3x32" />
+<img src="../../userFiles/system/mazlik33.jpg" data-thumb="userFiles/system/mazlik33.jpg.tn.jpg" alt="slider" title="#slider3x33" />
+<img src="../../userFiles/system/mazlik35.jpg" data-thumb="userFiles/system/mazlik35.jpg.tn.jpg" alt="slider" title="#slider3x34" />
+<img src="../../userFiles/system/mazlik34.jpg" data-thumb="userFiles/system/mazlik34.jpg.tn.jpg" alt="slider" title="#slider3x35" />
+<img src="../../userFiles/system/mazlik02a.jpg" data-thumb="userFiles/system/mazlik02a.jpg.tn.jpg" alt="slider" title="#slider3x36" />
+<img src="../../userFiles/system/mazlik03a.jpg" data-thumb="userFiles/system/mazlik03a.jpg.tn.jpg" alt="slider" title="#slider3x37" />
+<img src="../../userFiles/system/mazlik38.jpg" data-thumb="userFiles/system/mazlik38.jpg.tn.jpg" alt="slider" title="#slider3x38" />
+<img src="../../userFiles/system/mazlik50.jpg" data-thumb="userFiles/system/mazlik50.jpg.tn.jpg" alt="slider" title="#slider3x39" />
+<img src="../../userFiles/system/mazlik51.jpg" data-thumb="userFiles/system/mazlik51.jpg.tn.jpg" alt="slider" title="#slider3x40" />
+<img src="../../userFiles/system/mazlik53.jpg" data-thumb="userFiles/system/mazlik53.jpg.tn.jpg" alt="slider" title="#slider3x41" />
+<img src="../../userFiles/system/mazlik54.jpg" data-thumb="userFiles/system/mazlik54.jpg.tn.jpg" alt="slider" title="#slider3x42" />
+<img src="../../userFiles/system/mazlik55.jpg" data-thumb="userFiles/system/mazlik55.jpg.tn.jpg" alt="slider" title="#slider3x43" />
+<img src="../../userFiles/system/mazlik56.jpg" data-thumb="userFiles/system/mazlik56.jpg.tn.jpg" alt="slider" title="#slider3x44" />
+            </div>
+            <div id="slider3x7" class="nivo-html-caption"></div>
+<div id="slider3x11" class="nivo-html-caption"></div>
+<div id="slider3x12" class="nivo-html-caption"></div>
+<div id="slider3x8" class="nivo-html-caption"></div>
+<div id="slider3x13" class="nivo-html-caption"></div>
+<div id="slider3x9" class="nivo-html-caption"></div>
+<div id="slider3x14" class="nivo-html-caption"></div>
+<div id="slider3x10" class="nivo-html-caption"></div>
+<div id="slider3x15" class="nivo-html-caption"></div>
+<div id="slider3x17" class="nivo-html-caption"></div>
+<div id="slider3x16" class="nivo-html-caption"></div>
+<div id="slider3x18" class="nivo-html-caption"></div>
+<div id="slider3x19" class="nivo-html-caption"></div>
+<div id="slider3x21" class="nivo-html-caption"></div>
+<div id="slider3x20" class="nivo-html-caption"></div>
+<div id="slider3x22" class="nivo-html-caption"></div>
+<div id="slider3x23" class="nivo-html-caption"></div>
+<div id="slider3x24" class="nivo-html-caption"></div>
+<div id="slider3x25" class="nivo-html-caption"></div>
+<div id="slider3x26" class="nivo-html-caption"></div>
+<div id="slider3x27" class="nivo-html-caption"></div>
+<div id="slider3x28" class="nivo-html-caption"></div>
+<div id="slider3x29" class="nivo-html-caption"></div>
+<div id="slider3x30" class="nivo-html-caption"></div>
+<div id="slider3x31" class="nivo-html-caption"></div>
+<div id="slider3x32" class="nivo-html-caption"></div>
+<div id="slider3x33" class="nivo-html-caption"></div>
+<div id="slider3x34" class="nivo-html-caption"></div>
+<div id="slider3x35" class="nivo-html-caption"></div>
+<div id="slider3x36" class="nivo-html-caption"></div>
+<div id="slider3x37" class="nivo-html-caption"></div>
+<div id="slider3x38" class="nivo-html-caption"></div>
+<div id="slider3x39" class="nivo-html-caption"></div>
+<div id="slider3x40" class="nivo-html-caption"></div>
+<div id="slider3x41" class="nivo-html-caption"></div>
+<div id="slider3x42" class="nivo-html-caption"></div>
+<div id="slider3x43" class="nivo-html-caption"></div>
+<div id="slider3x44" class="nivo-html-caption"></div>
+        </div>
+		<script type="text/javascript" src="../../plugins/slider/nivo-slider/nivo-slider.js"></script>
+		<script type="text/javascript">
+		$(function(){
+		  $("#slider3>.nivoSlider").nivoSlider({
+	    prevText: "P\u0159edchoz\u00ed",
+	    nextText: "Dal\u0161\u00ed",
+        effect: "fade",
+        pauseOnHover: false,
+        animSpeed: 400,
+        pauseTime: 5000,
+        randomStart: true,
+        directionNav: false,
+        controlNav: false,
+        controlNavThumbs: false,
+        manualAdvance: false,
+        captionOpacity: 1
+	    });
+          });
+		</script>
+		</p>
+<div class="formular">
+<p>
+		<form action="http://www.nas-partak-obytnak.cz/blog/2018/20_05_2018---hodnoceni-po-prvnich-5000-km_" method="post" enctype="multipart/form-data">
+		</p>
+<h3>Poptávka náhradních dílů</h3>
+<table style="width: 65%; float: right;" border="0">
+<tbody>
+<tr>
+<td width="40%">Jméno</td>
+<td><input class="query full" type="text" name="jmeno" /></td>
+</tr>
+<tr>
+<td>E-mail a telefon</td>
+<td><input class="query full" type="text" name="jmeno" /></td>
+</tr>
+<tr>
+<td>Číslo/název dílu</td>
+<td><input class="query full" type="text" name="jmeno" /></td>
+</tr>
+</tbody>
+</table>
+<p>
+        <table width="100%" border="0">
+		
+		<tr><td colspan="2" align="center">
+		<br />
+              <input type="hidden" name="formular_zakladni_id" value="">
+	    <input type="submit" class="button" value="OK" />
+		</td></tr></table>
+
+    <script type="text/javascript">
+     document.write('<input type="hidden" name="tajne" value="čž' + 'řůž">');
+    </script>
+		</form>
+		</p>
+</div></div></div>
+
+		<h2></h2>
+
+		<ul class="sidemenu"><li><a href="../../svet-nomadu.html">Svět nomádů</a><ul class="sidemenu"><li><a href="../../svet-nomadu/2024.html">2024</a></li><li><a href="../../svet-nomadu/2022.html">2022</a></li><li><a href="../../svet-nomadu/2021.html">2021</a></li><li><a href="../../svet-nomadu/2019.html">2019</a></li><li><a href="../../svet-nomadu/2018.html">2018</a></li><li><a href="../../svet-nomadu/2017.html">2017</a></li><li><a href="../../svet-nomadu/archiv-aktualit-dne.html">Archiv aktualit dne</a></li></ul></li><li><a href="../../technika.html">Technika</a><ul class="sidemenu"><li><a href="../../technika/motor-a-podvozek.html">Motor a Podvozek</a></li><li><a href="../../technika/nastavba.html">Nástavba</a></li><li><a href="../../technika/elektrina.html">Elektřina</a></li><li><a href="../../technika/av-a-elektronika.html">AV a elektronika</a></li><li><a href="../../technika/voda-a-to-dalsi.html">Voda a to další</a></li><li><a href="../../technika/plyn-a-topeni.html">Plyn a topení</a></li><li><a href="../../technika/volna-vybava.html">Volná výbava</a></li></ul></li><li><a href="../../blog.html">Blog</a><ul class="sidemenu"><li><a href="../2022.html">2022</a></li><li><a href="../2021.html">2021</a></li><li><a href="../2020.html">2020</a></li><li><a href="../2019.html">2019</a></li><li><a href="../2018.html">2018</a></li><li><a href="../2017.html">2017</a></li><li><a href="../in-vino-veritas.html">In Vino Veritas</a></li></ul></li><li><a href="../../nas-dodo.html">Náš Dodo</a><ul class="sidemenu"><li><a href="../../nas-dodo/2023.html">2023</a></li><li><a href="../../nas-dodo/2022.html">2022</a></li><li><a href="../../nas-dodo/2021.html">2021</a></li><li><a href="../../nas-dodo/2019.html">2019</a></li><li><a href="../../nas-dodo/2018.html">2018</a></li><li><a href="../../nas-dodo/2017.html">2017</a></li></ul></li><li><a href="../../trasy.html">Trasy</a><ul class="sidemenu"><li><a href="../../trasy/vikendove-cesty.html">Víkendové cesty</a></li><li><a href="../../trasy/prodlouzene-vikendy.html">Prodloužené víkendy</a><ul class="sidemenu"><li><a href="../../trasy/prodlouzene-vikendy/2024.html">2024</a><ul class="sidemenu"><li><a href="../../trasy/prodlouzene-vikendy/2024/28_3_-1_4_2024-velikonoce-v-severnich-cechach.html">28.3.-1.4.2024 Velikonoce v Severních Čechách</a></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy/2023.html">2023</a><ul class="sidemenu"><li><a href="../../trasy/prodlouzene-vikendy/2023/2_-5_10_2023---poprve-vylet-samotare.html">2.-5.10.2023 - Poprvé výlet samotáře</a></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy/2022.html">2022</a><ul class="sidemenu"><li><a href="../../trasy/prodlouzene-vikendy/2022/6_-12_3_2022---alsaske-predjari.html">6.-12.3.2022 - Alsaské předjaří</a></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy/2021.html">2021</a><ul class="sidemenu"><li><a href="../../trasy/prodlouzene-vikendy/2021/4_-9_7_2021---na-hitlerovo-orli-hnizdo.html">4.-9.7.2021 - Na Hitlerovo Orlí hnízdo</a></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy/2019.html">2019</a><ul class="sidemenu"><li><a href="../../trasy/prodlouzene-vikendy/2019/04_-07_07_2019-za-krasami-sumavy_.html">04.-07.07.2019 Za krásami Šumavy.</a></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy/2018.html">2018</a><ul class="sidemenu"><li><a href="../../trasy/prodlouzene-vikendy/2018/povanocni-bavorsko.html">Povánoční Bavorsko</a></li><li><a href="../../trasy/prodlouzene-vikendy/2018/sasko-na-konci-zari.html">Sasko na konci září</a></li><li><a href="../../trasy/prodlouzene-vikendy/2018/na-svatbu-do-ase.html">Na svatbu do Aše</a></li><li><a href="../../trasy/prodlouzene-vikendy/2018/za-vinem-na-jih-moravy-a-slovenska.html">Za vínem na Jih Moravy a Slovenska</a></li><li><a href="../../trasy/prodlouzene-vikendy/2018/velikonoce-v-holandsku.html">Velikonoce v Holandsku</a></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy/2017.html">2017</a><ul class="sidemenu"><li><a href="../../trasy/prodlouzene-vikendy/2017/velikonoce-v-italii.html">Velikonoce v Itálii</a></li></ul></li></ul></li><li><a href="../../trasy/jedeme-na-dovolenou.html">Jedeme na dovolenou</a><ul class="sidemenu"><li><a href="../../trasy/jedeme-na-dovolenou/2022---nemecko-a-sumava-podruhe.html">2022 - Německo a Šumava podruhé</a></li><li><a href="../../trasy/jedeme-na-dovolenou/2021---nemecko-_a-trochu-sumava_.html">2021 - Německo (a trochu Šumava)</a></li><li><a href="../../trasy/jedeme-na-dovolenou/2020---jeseniky-a-cast-moravy.html">2020 - Jeseníky a část Moravy</a></li><li><a href="../../trasy/jedeme-na-dovolenou/2019---jizni-cechy.html">2019 - Jižní Čechy</a></li><li><a href="../../trasy/jedeme-na-dovolenou/2018---litva_-lotyssko_-estonsko.html">2018 - Litva, Lotyšsko, Estonsko</a></li></ul></li></ul></li><li><a href="../../trochu-z-historie.html">Trochu z historie</a><ul class="sidemenu"><li><a href="../../trochu-z-historie/jak-to-vsechno-zacalo.html">Jak to všechno začalo</a></li><li><a href="../../trochu-z-historie/dodo-dnes.html">Dodo dnes</a></li><li><a href="../../trochu-z-historie/historie-znacky-pilote.html">Historie značky PILOTE</a></li></ul></li><li><a href="../../pokec.html">Pokec</a></li></ul>
+		
+		
+	</div>
+
+	<div id="main">
+	
+	
+	<div class="post ">
+	
+	<div class="post_top">
+	<div class="post_title">
+	<h1>20.05.2018 - Hodnocení po prvních 5000 km.</h1>
+	</div></div>
+	<div class="post_body">
+	<p style="text-align: justify;">Před třemi dny tomu byly přesně 2 měsíce, kdy jsme si Dodíka (tehdy ještě Mazlíka) odvezli domů. Bylo to fungl nové holátko, přímo z výroby. Hned následující víkend jsme jeli do Holandska, Belgie a Německa a pak v podstatě každý víkend jezdíme na různé výlety. No a najednou máme na tachometru prvních 5000 km. A tak jsem si řekl, že je možná první dobrá příležitost trochu Dodíka představit, okomentovat, co nám která jeho součást připravila za překvapení (dobré či méně dobré), co jak řešíme a co ještě plánujeme. A budu to brát postupně odpředu, od kabiny řidiče směrem dozadu.</p>
+<p style="text-align: justify;"><strong>Robotizovaná převodovka</strong> - každou jízdu, každý kilometr, jsem šťastný za rozhodnutí si ji objednat. Komukoliv, kdo stojí před tímto dilematem, mohu jen říct: pokud je alespoň trochu finančně možné do toho jít, udělejte to. I kdybych měl oželet zatím něco, co se dá dodělat potom. Pokud je pro někoho cestování obytňákem synonymem pro pohodovou jízdu, není naprosto co řešit. Při rozjíždění do kopce lepší než s manuálem, při jízdě z prudkého kopce hezky brzdí motorem, zpoždění při přeřazení není nic hrozného a za těch 5000km jsem se postupně dostal na spotřebu okolo 10l/100km. Spíš i pod ní.</p>
+<p style="text-align: justify;"> <a class="thickbox" href="../../userFiles/4-blog/2018/5000km-03.jpg"><img class="roundblock" title="5000km-03" src="../../userFiles/4-blog/2018/5000km-03.jpg" alt="5000km-03" /></a></p>
+<p style="text-align: justify;">Bez stále spuštěné zpětné kamery na levém displeji bych asi už nechtěl být. Je to opravdu plnohodnotná náhrada zpětného zrcátka. Volant: počítám už dny do chvíle, kdy mi obšijí volant kůží. Tenhle plasťák, který v základu auto mělo, je prostě hrůza. </p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/4-blog/2018/5000km-04.jpg"><img class="roundblock" title="5000km-04" src="../../userFiles/4-blog/2018/5000km-04.jpg" alt="5000km-04" /></a></p>
+<p style="text-align: justify;">Navigace Garmin Camper 770 je přemístěna z okna, kde byla původně "přicucnuta", na palubku. Je tak lépe v dosahu. Jak navigace, tak čelní on-board kamerka, mají skrytě proveden přívod napájení. Nemám moc rád všude se válející kabely. Večer jen sejmu magneticky přichycenou čelní kamerku a můžu zatáhnout žaluzie. Nic jejich pohybu nepřekáží. Původně jsem používal i Fiatem montovaný středový vyklápěcí panel na uchychení 10" tabletu. Docela to fungovalo a je to rozhodně řešení, které má logiku. Nicméně časem mi začalo vadit, že v zorném poli mám takovou velkou "pyramidu". A tak jsem to zrušil. jako náhrada č<span>asem přibude i 2DIN autorádio. To originálně dodané rádio Pioneer není rozhodně špatné ale možnost pustit si film je pro mě důležitým faktorem. Hlavně na dlouhé jízdy. Mimochodem, nabíjení přes USB na palubní desce je zoufale pomalé. Tam by to chtělo nabíječku s větším nabíjecím proudem.</span></p>
+<p style="text-align: justify;"><strong>Koberec v přední kabině</strong> - Určitým vývojem prošlo i rozdělení auta. Které prostory budou jako že "špinavé" a může se tam v botách, no a které budou "čisté", tedy na bosou nohu a domácí pantofle. Samozřejmě je to hodně o zvyklostech té které cestující rodiny a taky o možnostech. Tak jak jsme si to zavedli teď my, by bylo ještě před pár lety (kdy jsme jezdili s našimi dcerami coby malými dětmi) naprosto nemyslitelné. </p>
+<p style="text-align: justify;">Nejdříve jsme tedy používali oboje přední dveře, jako v běžném autě. Bylo to hned na začátku našeho cestování, kdy byla ještě zima, bláto, občas sníh a tak nutně to vpředu vypadalo jako v běžném autě. Časem jsme zjistili, že chceme mít "doma" přeci jen čisto a není dost dobře možné, aby to "čisto" začínalo někde uprostřed obytného prostoru. A tak bylo celé auto vyhlášeno za čistou zónu a jediné "špinavé" místo je první schod vstupních dveří do obytné části. A aby to bylo naprosto jasné, koberec, který máme teď v přední kabině (i v ložnici a bude postupně všude), je hodně světlý.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/4-blog/2018/5000km-05.jpg"><img class="roundblock" title="5000km-05" src="../../userFiles/4-blog/2018/5000km-05.jpg" alt="5000km-05" /></a></p>
+<p style="text-align: justify;">Dveře přední kabiny už vůbec nepoužíváme a časem na ně namontuji vnitřní zámky Heosafe, které krásně pasují do dveří, bez nějakých zvláštních úprav. Pedály plynu a brzdy jsou naprosto čisté, myl jsem je i lihem :-) a tak někdy řídím bos, někdy v pantoflích. A když zastavím a musím ven, jdu dozadu, nakopnu venkovní boty a žádné velké zdržení nebo komplikaci to nepřináší. No a pří jízdě máme spíš pocit, že jsme v obýváku a ne v autě. Navíc večer, když sedím na otočené sedačce řidiče, je měkký koberec pod nohama velmi příjemná záležitost.</p>
+<p style="text-align: justify;"><strong>Sezení v obytné části -</strong> tady jen jedna fotka, jak nyní vypadá. Stále čekáme, až z Fracie dorazí původně objednané sezení do L, se středovým posuvným stolem. A tak tohle "účkové" provedení u nás nebude navěky. Nicméně současné zkušenosti z Účkem hovoří jasně - toto je ideální sezení pro čtveřici cestovatelů, zvláště, když dva z nich jsou děti.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/4-blog/2018/5000km-06.jpg"><img class="roundblock" title="5000km-06" src="../../userFiles/4-blog/2018/5000km-06.jpg" alt="5000km-06" /></a></p>
+<p style="text-align: justify;">Stůl přimontovaný ke zdi určitě nabídne víc prostoru pro případné hry za jízdy a jeho upevnění na třech bodech přináší i větší stabilitu. Když ale vysunete rozšiřující díl, tak už se nikdo nikam nepohne. Díl hodně překáží vlastně v jakékoliv své poloze. Dalšího místa na stole ale poskytne opravdu o poznání víc, to ano. Takže se opět vracíme k výhodám pro vícečlennou posádku. My dva nomádi  se ale už těšíme, až nám z J.M.Trade zavolají, že "naše" sezení je tady. Rádi přijedeme na výměnu. Na téma rozdílné sezení do "U" a do "L" jsem už napsal dva články, ten novější je třeba <a href="../../nas-dodo/2017/10_11_2017-ktere-sezeni-v-salonu-je-lepsi_-podruhe.html">ZDE</a>.</p>
+<p style="text-align: justify;"><strong>Umístění televizoru -</strong> opět jen slova chvály: umístění na zeď naproti sedacímu koutu je výborné. Odevšad je krásně vidět, televizor je docela velký (24"), je pevný, bez pazvuků za jízdy a nezabírá víc místa, než je nezbytně nutné. První týdny jsme pořád někde ztráceli dálkový ovladač. Dali jsme ho vždy na jiné místo, aby za jízdy nespadl a pak nikdo nevěděl, kam ho ten druhý dal. Věc vyřešilo textilní pouzdro na zahradní nůžky, prodávané v OBI. Přirouboval jsem ho do poličky nad sedadlo spolujedce a od té doby pohoda.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/4-blog/2018/5000km-07.jpg"><img class="roundblock" title="5000km-07" src="../../userFiles/4-blog/2018/5000km-07.jpg" alt="5000km-07" /></a></p>
+<p style="text-align: justify;"><span>Finlux 24FDM5660 je slušný stroj, který funguje, jak má. Z připojeného pevného disku přehraje drtivou většinu formátů (vč.Full HD) a po připojení na internet přes telefon a jeho hotspot, se třeba na zprávy mohu podívat kdekoliv v EU.  Jediné co vadí je, že když je dole horní postel, tak TV na stěně vyčuhuje asi 15cm nad matraci. Nocležník by ji tedy mohl nohama prokopnout a tak by musel ležet obráceně. A čtecí lampičky jsou ale samozřejmě na druhé straně. Ale pro nás to problém zatím není, my jezdíme ve dvou.</span></p>
+<p style="text-align: justify;"><span><strong>Botník</strong> - co se konstruktérům od Pilote fakt povedlo, je botník. tvoří ho vlastně celý spodek sedačky vedle dveří a tak je nejenom skvěle umístěn ale je i hodně, ale fakt hodně velký. Proto jsme mohli celé auto vyhlásit za čistou zónu: otevřu dveře, vystoupím na schůdek Thule nebo na první schod auta, zuji se, boty dám do botníku bočními dvířky, udělám další krok a jsem "doma". Do botníku je navíc i výborný přístup shora po odklopení sedačky. Úklid prostoru je tedy hračka. Navíc do něj ústí i horkovzdušné topení. Mokré boty v botníku rychle vyschnou - ověřeno. Přihrádka ve dveřích je asi koncipována na umístění pantoflí. Jako daleko praktičtější se nám ale jeví tam zastrčit smětáček s lopatkou. Udržet vstupní část do auta čistou je pak dílem vteřiny a to kdykoliv.</span></p>
+<p style="text-align: justify;"> <a class="thickbox" href="../../userFiles/4-blog/2018/5000km-08.jpg"><img class="roundblock" title="5000km-08" src="../../userFiles/4-blog/2018/5000km-08.jpg" alt="5000km-08" /></a></p>
+<p style="text-align: justify;">Pozn.: asi to bude u všech aut stejné ale velmi si ceníme jedné funkce elektricky výsuvného schůdku Thule: když nastartuji motor a on je vysunut, automaticky zajede zpět. Kolikrát já už bych na něj při odjezdu zapomněl !</p>
+<p style="text-align: justify;"><strong>Kuchyňský kout</strong> - Kuchyně Pilote je velmi dobře řešená a nemáme k ní žádných připomínek. Pracovní deska je (znovu opakuji) asi největší na trhu, zásuvek je dost, jsou hluboké a mají funkci měkkého dovírání, dřez je dostatečně velký a hluboký. Klasický tříplotýnkový vařič Dometic je vzadu a nijak nepřekáží při běžných činnostech. Původně jsme objednávali i digestoř. Jak kvůli odsávání par, tak kvůli přímému osvětlení kuchyňské desky. Objednávka se tehdy "ztratila" ale vlastně nám vůbec nechybí. Nevaříme tolik, abychom nějak bojovali s párou a osvětlení kuchyně je i tak více než dostatečné. Takže odsavač par už chtít nebudeme.</p>
+<p style="text-align: justify;">Největší zásuvka, která je koncipována na odpadkový koš, nám krásně rozměrově sedla pro dva běžné koše z Ikea. Sedí tam napevno a nebylo je třeba nijak fixovat.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/4-blog/2018/5000km-10.jpg"><img class="roundblock" title="5000 km-10" src="../../userFiles/4-blog/2018/5000km-10.jpg" alt="5000 km-10" /></a>   </p>
+<p style="text-align: justify;">Původně jsme chtěli jeden na běžné odpadky a druhý na plasty ale teď je druhý koš vyhrazen na úklidové prostředky. Takže asi koupíme ještě třetí, stejně tam máme jednu čtvrtinu zásuvky volnou.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/4-blog/2018/5000km-09.jpg"><img class="roundblock" title="5000km-09" src="../../userFiles/4-blog/2018/5000km-09.jpg" alt="5000km-09" /></a></p>
+<p style="text-align: justify;">O umístění konve a kávovaru jsem psal v <a href="../../technika/volna-vybava/13_05_2018---caj-a-kava-na-palube-dodika.html">minulém článku</a>. Na levé stěně kuchyňského koutu se našlo místo na 4 vinné sklenky (tedy 2x 2druhy). Plastové úchytky jsou perfektní. Drží velmi dobře, skleničky se ani nehnou a to máme poctivé sklo. Myslím, že na víno používat ty plastové, co se dají v karavan obchodech sehnat, to je něco mezi barbarstvím a svatokrádeží. Takže sklo. Zatím bez problémů. Malá polička na stěně perfektně a natěsno pojmě 4 kovové čajové krabičky firmy Twinings. Cukr a čaje tak máme hned po ruce, nechrastí za jízdy a docela i dobře vypadají.</p>
+<p style="text-align: justify;">Kávovar u Krupsů snad museli vyvíjet ve spolupráci s Pilote pro potřeby obytných aut. Když spustíme hormí postel do nejnižší polohy, sedí to takto:</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/4-blog/2018/5000km-11.jpg"><img class="roundblock" title="5000 km-11" src="../../userFiles/4-blog/2018/5000km-11.jpg" alt="5000 km-11" /></a>  </p>
+<p style="text-align: justify;">Tedy naprosto přesně. Zbývá tam asi 1,5cm místa. </p>
+<p style="text-align: justify;"><strong>Nádobí a kuchyňská výbava</strong> - loni v září jsem psal <a href="../../technika/volna-vybava/23_09_2017---vybirame-nadobi_.html">článek o melaminovém nádobí</a>. Protože jsme v autě většinově jen dva, můžeme si hmotnostně dovolit používat běžné porcelánové talíře, hrnky, skleničky, apod. A to jsou věci těžší ale hlavně rozbitné a při dotyku mezi sebou zvuky vydávající. To mi bylo jasné ještě dříve, než auto dorazilo a tak jsem předem kupoval textilní oddělovací podložky, měkké obaly na lahve a hrnky, koupil jsem i takovou tu ukládací podložku na hrnky a sklenice. No a co říká praxe?</p>
+<p style="text-align: justify;">Třeba právě ten držák sklenic za 370kč na fotkách ve webových prodejnách vypadal výborně a prakticky. Proto jsem ho koupil. První poznatek: rozměrově perfektně sedí do většiny šuplíků i skříněk. Druhý poznatek - je k ničemu. Tedy nám. Asi by byl funkční, kdybyste koupili přesně ty sklenice a hrnky z obrázku. My jsme doma uspořádali logistické cvičení s cílem najít takové hrnky a skleničky, které by těch 3x5 děr co nejlépe zaplnily. Tak nějak se to povedlo, díry byly plné a přišel čas celým setem trochu zatřást - jéžiši to byly hrozné zvuky! Ty díry jsou prostě blízko u sebe a tak na sklo a porcelán je držák nepoužitelný. A vkládat mezi jednotlivé kusy ještě nějaké měkké pásky, no to je zbytečná pakárna. A navíc, pro umístění do šuplíku je držák nepoužitelný - skoro všechny hrnky a skleničky jsou vyšší nežli šuplík sám. A tak jsme ho dali do horní skříňky, používám každou druhou díru. Nic moc za 370 Kč. Jo to dělící textilní podložky/oddělovačky, tak ty se nám osvědčily jako velmi univerzální a skvělé. Už ani nevím, kolik jich máme ale používáme je mezi talíře, mezi hrnce, misky, prostě všude. </p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/4-blog/2018/5000km-12.jpg"><img class="roundblock" title="5000 km-12" src="../../userFiles/4-blog/2018/5000km-12.jpg" alt="5000 km-12" /></a></p>
+<p style="text-align: justify;">Porcelánové hrnky nakonec ukládáme do šuplíku, do obyčejné plastové mísy, vždy s nataženou ochranou punčochou, které se dají také běžně koupit a jsou docela dobré. Dlouho tedy nevydrží, postupně je budete trhat víc a víc ale nestojí moc a pro třeba stojící lahve do chladničky nebo právě pro ochranu uložených hrníčků, jsou dobré.</p>
+<p style="text-align: justify;"><strong>Bar a vinotéka</strong> - <a href="../../nas-dodo/2018/05_03_2018-palubni-televizor-a-dvb-t-antena.html">V článku o instalaci televizoru</a> jsem psal o prostoru, který výrobce původně navrhnul pro televizor a proč jsme ho nevyužili. Udělali jsme dobře nejenom proto, že televizor je teď na lepším místě, ale i proto, že jsme získali bar a vinotéku zároveň. Prostor se po demontáži TV držáku stal ideálním místem pro uložení pár lahviček něčeho dobrého.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/4-blog/2018/5000km-13.jpg"><img class="roundblock" title="5000 km-13" src="../../userFiles/4-blog/2018/5000km-13.jpg" alt="5000 km-13" /></a></p>
+<p style="text-align: justify;">Je dost široký, hluboký i vysoký, aby pojmul tak 8-10 lahví postavených na výšku. Zatím jsem tam provizorně z kartonů slepil krabici na 6 oddělených lahví a testuji. Skříňka nad mrazákem je ideální na uložení  potravin a tak ještě vymýšlím, jak prostor skříňky využít co nejlépe. Určitě ale přidám ještě poličku nad láhve - toho prostoru je škoda. Kdo by ale chtěl na stejné místo dávat velké PETky, tak prostor je v pohodě pojme. Balení 6x 1,5l vod nebo minerálek tam pasuje skvěle. My tam ale necháme vína a destiláty. Jen vyrobím pevnější box, který využije celou hloubku poličky. Místo pro tak 10 lahví tedy máme :-).</p>
+<p style="text-align: justify;"><strong>Koupelna -</strong> s velkou dávkou hrdosti píši "koupelna" a ne "sprcha" a "WC". Dva samostatné prostory na levé a pravé straně auta, ulička mezi a dvoje dveře, které celý prostor mohou spojit a oddělit od ostatního, dává právo mluvit o koupelně. Je to praktické uspořádání, které využíváme každý den. Tedy, není to kvůli studu ale kvůli vlhkosti. Zasouvací dveře do ložnice v případě sprchování znemožní, aby se pára dostala tam, kde ji nechce mít, tedy do ložnice a hromady textilií.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/4-blog/2018/5000km-14.jpg"><img class="roundblock" title="5000 km-14" src="../../userFiles/4-blog/2018/5000km-14.jpg" alt="5000 km-14" /></a></p>
+<p style="text-align: justify;">Samotné prostory sprchy a WC s umyvadlem jsou bez připomínek. Jednokřídlé dveře do sprchy fungují výborně, ven nikdy nic nevyteče. Odkládacích prostor i věšáků je dost. Umyvadlo je docela obstojně velké. Velmi se nám osvědčily <a href="../../nas-dodo/2018/23_02_2018-koupelnovy-set-ravak.html">instalované držáky na mýdlo a kartáčky</a> na zuby. Velká, ale snad napravitelná chyba je, že odtok pod umyvadlem má dva ohyby, s úhly 90st nebo možná i méně. Zřejmě nedbalost při výrobě znamená, že nám voda z umyvadla odtéká zoooooufale pomalu. Takže až pojedu na výměnu sedačky, nechám odtok vytvarovat s větším sklonem, který teď nemá. Pak nás také zpočátku štvalo, že jsme všude stále nacházeli plastové kryty spojů. Takové ty kulaté záslepky, co schovávají šrouby a další spoje panelů stěn a nábytku. Při jízdě prostě odevšad vypadávaly. Postupně jsem je vždy kapkou lepidla přichytil a teď už je to v pořádku. A poslední drobností je držák toaletníko papíru. Toto provedení sice vypadá dobře ale pokud není role plná a nepřiléhá proto na stěnu, tak se při jízdě otáčí a po zastavení nakouknete do koupelny, a na zemi leží 2m vytočeného papíru. </p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/4-blog/2018/5000km-15.jpg"><img class="roundblock" title="5000 km-15" src="../../userFiles/4-blog/2018/5000km-15.jpg" alt="5000 km-15" /></a></p>
+<p style="text-align: justify;">Ohledně chemického záchodu jeden poznatek: karavanisti se dělí do dvou skupin: na ty, co už <a href="../../nas-dodo/2018/06_03_2018-odvetravaci-system-sog.html">mají instalovaný SOG</a> a na ty, kteří si ho teprve pořídí. Nikdo jiný není. S tímto poměrně novým zařízením prostě máme jen ty nejlepší zkušenosti. A zbývá podotknout, že záchod využíváme "naplno" a stejně nevíme, co je zápach.</p>
+<p style="text-align: justify;">Zní to sice blbě ale "z koupelny se jde i do sklepa". Prostě v uličce je dekl do úložného prostoru pod podlahou. Ten je docela velký a tak pojmul jak zabudovaný trezor, tak poskytuje i slušný prostor pro lahve s pitím. A nebudete věřit, jak je to umístěno vlastně pod autem, stále ve stínu, tak se jedná o nejchladnější místo v obytňáku. Prostě sklep. Na 10 PET lahví a 6 krabic džusů.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/4-blog/2018/5000km-16.jpg"><img class="roundblock" title="5000 km-16" src="../../userFiles/4-blog/2018/5000km-16.jpg" alt="5000 km-16" /></a></p>
+<p style="text-align: justify;"><strong>Ložnice -</strong> Dodo je první auto, které jsme měli možnost vyzkoušet se středovou postelí ("queensbed"). Ta půjčená z předchozích cest měla většinou klasiku vzadu napříč, nebo "francouzskou", po jedné straně a vedle ní koupelnu. Samozřejmě chápu, že se tímto layoutem zmenšuje prostor garáže ale proboha - vždyť pak už jsou jenom samé výhody! Tak proč se tak málo prodávají ? Ale asi je to hlavně tím, že v autě s menší délkou než je našich 7,5m ,se prostě ztratí ta výhoda možnosti obcházet postel z obou stran. A středová postel v provedení francouzský PILOTE byl dalším z hlavních důvodů, proč jsme se při koupi Dodíka rozhodli právě pro tohoto, u nás ne moc rozšířeného, výrobce. Je jím i úložný prostor pod postelí. Začnu ale ložnicí jako takovou.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/4-blog/2018/5000km-17.jpg"><img class="roundblock" title="5000km-17" src="../../userFiles/4-blog/2018/5000km-17.jpg" alt="5000km-17" /></a></p>
+<p style="text-align: justify;">Středové uspořádání se nám prostě jeví nejenom jako pěkné, ale pro naše potřeby i praktické. Postel je nízko, nelezu do ní jak na posed, když jeden v noci nebo ráno vstává, nemusí přelézat toho druhého, každý máme svůj "noční stolek" na drobnosti. Je to prostě plnohodnotná ložnice, i když nevelká. Postel má velmi slušné rozměry 190x150cm a tak se oba pohodlně vyspíme. Přední rohy lůžka jsou zakulaceny. Toho jsem se trochu obával, v noci by tak mohla sklouzávat peřina ale je to v pohodě. Roh deky si prostě ohnu pod sebe a spím jak mimino. Do ložnice jsme nechali udělat koberec, stejný jako je v přední kabině. Janáčkovi (<a href="http://www.bydlikemevropou.com/">www.bydlikemevropou.com</a>) nám říkali, že dříve či později oceníme výhody koberce v obytňáku. Měli samozřejmě pravdu.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/4-blog/2018/5000km-18.jpg"><img class="roundblock" title="5000 km-18" src="../../userFiles/4-blog/2018/5000km-18.jpg" alt="5000 km-18" /></a></p>
+<p style="text-align: justify;">Skříňky po straně postele i nad ní jsou dost prostorné pro obleční dvou lidí. Trochu jsme bojovali s ramínky - za jízdy nám padaly ze šatní tyče. Ale vyměnili jsme typ ramínek, dáváme je tam zásadně hákem dozadu a už je všechno v pořádku. Vlastní postel má v čele dvě docela velké zásuvky, tedy s rychlým přístupem. Postel má bytelný kovový rám, s lamelovými rošty a matrací. Celé je to na plynových výsuvech, takže zvednout celou postel i s peřinami zvládne i moje žena a to jednou rukou.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/4-blog/2018/5000km-19.jpg"><img class="roundblock" title="5000 km-19" src="../../userFiles/4-blog/2018/5000km-19.jpg" alt="5000 km-19" /></a></p>
+<p style="text-align: justify;">Prostor pod postelí je rozdělen na takových 5 částí. Vzadu je velká plocha, vysoká tak 10cm. Vejde se tam hromada plochých věcí (vyfouknuté čluny, deky, atd.). Před ní je 150cm široký a dost hluboký prostor, kryjící nádrž na vodu. Šikovné jsou oba trojúhelníkové prostory po stranách. Jsou dost hluboké a tak pojmou všechno možné. My máme v jednom batohy a kabely, do druhého dáváme špinavé prádlo. Prostoru pod postelí je tedy opravdu hodně.</p>
+<p style="text-align: justify;">No a tím se dostávám k největší slabině našeho Doda, který nese tovární označení PILOTE P746C a tím je přístup k nádrži na čistou vodu. Máme k dispozici nádrž na 130 litrů ale je umístěna pod podlahu naší ložnice. Mimochodem, všechny nádrže jsou vyhřívané takže v zimě problém není. Ten je s přístupem pro případné čištění nádrže.</p>
+<p style="text-align: justify;"> <a class="thickbox" href="../../userFiles/4-blog/2018/5000km-20.jpg"><img class="roundblock" title="5000 km-20" src="../../userFiles/4-blog/2018/5000km-20.jpg" alt="5000 km-20" /></a></p>
+<p style="text-align: justify;">Když odklopím a vyjmu dno toho podélného prostoru, tak mohu vídět, že k podlaze je ještě tak 20cm (vedou tam rozvody tepla) a až pak je díra a pod ní nádrž. Na fotografii je ostraněn šroubovací kryt, takže je vidět až do nádrže a ta světlá tečka je otevřená výpusť. Prostě - nemáte šanci se dostat k nádrži a nějakým mechanickým způsobem ji zevnitř vyčistit. Jsem tedy do budoucna odkázán jen na chemické čištění, jiný způsob mě zatím nenapadá.  Jsme zaměstnaní lidé a tak jezdíme hlavně o víkendech. Postupně jsem si zavedl takový rituál. Když se vracíme z výletu k domovu, otevřu odtok odpadní nádrže (musí být prázdná - její obsah vypouštím na těch správných místech), pak za jízdy pustím vodu do dřezu v kuchyni i do umyvadla v koupelně. Tak se zbavím přebytečné vody a  zároveň čistou vodou proplachuji odpadní trubky i nádrž. Doma zapnu vodní čerpadlo, resp. aktivuji protimrazovou pojistku a čerpadlo vyžene vodu z trubek a ostatních částí. Pak otevřu kryt nádrže na obrázku, vyndám houbičku aktivního stříbra a vytáhnu špunt na dně nádrže. Vyteče posledních pár kapek. A takto otevřené to nechám do dalšího výletu. Většinou nádrž zcela vyschne a tak se v ní netvoří žádné potvornosti. V pátek před napuštěním jen otvorem do nádrže vytříkám trochou čisté vody, někdy s kapkou Sava, všechno zavřu a natankuji pitnou vodu. Její kvalita je zatím velmi dobrá, i když ji samozřejmě přímo z kohoutku už pro jistotu nepijeme. V případě krize si ale myslím, že bychom stále mohli. Tak to je z našeho pohledu jediný vážnější konstrukční nedostatek našeho auta.</p>
+<p style="text-align: justify;"><span style="font-size: 1.17em;"><strong>Garáž</strong> - </span>Hned po převzetí jsem na stranu řidiče do garáže namontoval úložný systém (<a href="../../nas-dodo/2018/28_03_2018---ulozny-system-do-garaze.html">článek z 28.3.</a>) a stále nás toto řešení přesvědčuje o svých výhodách. Ve skříňce jsou naházeny kabely, redukce, mám tam najížďěcí klíny, hadici od kompresoru měchů, atd. atd. Původně jsem myslel, že elektrický kabel budu tahat každý večer a že umístění do skříňky je proto až moc vzadu ale stali se z nás skoro 100% divočáci, v kempu jsme byli na 2 noci a o moc víc jich zřejmě nebude. Kabel tedy tahám jen mimořádně, takže jeho umístění ve skříňce je v pohodě.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/4-blog/2018/5000km-01.jpg"><img class="roundblock" title="5000km-01" src="../../userFiles/4-blog/2018/5000km-01.jpg" alt="5000km-01" /></a>  </p>
+<p style="text-align: justify;">Tři šuplíky naopak používám dost často. Ve spodním je nářadí, v prostředním "materiál" (lepicí pásky, suché zipy, drátky, gumy, atd.). Třetí šuplík vidíte na fotce a je jasné, co v něm vozíme. Původní závlačky, kterými jsem zásuvky fixoval proti otevření jsem už zahodil. Furt jsem je někde hledal. Nakonec asi nechám jednoduché, provizorní ale vysoce funkční řešení: obyčejný měděný drát v bužírce, který vede zeshora dolů dírkami po závlačkách. Jeden pohyb a vše je zablokované proti otevření. Hadice na vodu (<a href="../../nas-dodo/2018/30_01_2018-jak-plnit-nadrz-na-vodu-_.html">článek 30.1.</a>) v plastové potravinářské přepravce je taky v pohodě. Natankuji vodu do nádrže auta, hadici stočím, hodím do přepravky, přetáhnu jedním krátkým gumicukem a hotovo. Pár kapek, co z hadice vyteče, přepravka zadrží a nikde tak nemám mokro. Ještě musím někam upevnit konev na vodu a kbelík, které mám stále doma. Do prázdninové velké cesty do Pobaltí to snad stihnu.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/1-uvod/2018/5000km-02.jpg"><img class="roundblock" title="5000km-02" src="../../userFiles/1-uvod/2018/5000km-02.jpg" alt="5000km-02" /></a></p>
+<p style="text-align: justify;">Druhá strana zatím hotová není. Kempingový nábytek vozíme naházený na podlaze, podložený kusem koberce a zafixovaný gumicuky.  Není to prostorově optimální řešení a tak je v plánu křesla a stolky postavit (otočit od 90st) a uchytit to celé za levou stěnu. Vznikne spousta prostoru na bágáž, zásoby a skládací kola. Růžici sprchy v garáži jsem podložil měkkou podložkou, přilepenou na zeď. Nebudete věřit ale před tím bylo ťukání růžice o stěnu slyšet při jízdě až dopředu do kabiny. </p>
+<p style="text-align: justify;"><strong><a class="thickbox" href="../../userFiles/4-blog/2018/5000km-21.jpg"><img class="roundblock" title="5000km-21" src="../../userFiles/4-blog/2018/5000km-21.jpg" alt="5000km-21" /></a></strong></p>
+<p style="text-align: justify;">A to už je snad opravdu vše. Monentálně se zabývám tím, že postupně "vychytávám" všechny zvuky a pazvuky, které auto při jízdě vydává. Třeba přední postel pod stropem vydávala za jízdy nepříjemné vrzání a klepání.  Ale už to ani zdaleka není takové, jako to bylo na začátku, když jsme do Dodíka nanosili všechny věci, jen tak nahodile je uložili a vyjeli. Auto samo o sobě je vcelku v pohodě ale ta výbava ! To byl (a asi ještě chvilku bude) běh na delší trať, však to znáte.</p>
+<p style="text-align: justify;">A moje závěrečné hodnocení - zatím jsme velmi spokojeni. S firmou Pilote, s modelem P746C ale hlavně s naším rozhodnutím si koupit nové auto. Vývoj kráčí mílovými kroky a proti těm obytňákům, co jsme poznali z půčoven, jsme někde zcela jinde. A díky pečlivému výběru (však to také trvalo!) jsme zvolili i provedení a velikost, které pro naše podmínky perfektně sedí. </p>
+</div>
+</div>
+
+	</div>
+
+	<div id="rightbar">
+	
+	    <div class="boxed ">
+
+
+<h2>Co vás zajímá?</h2>
+<div class="content2">
+
+<div id="menu-bott"></div></div></div>
+<div class="boxed ">
+
+
+<h2>Kontakty na nás</h2>
+<div class="content2">
+
+<h3><img style="margin: 10px 0px !important;" src="../../userFiles/system/logo.jpg" alt="" /></h3>
+<h3>Náš parťák obytňák</h3>
+<p>Jirka a Jana<br />Praha</p>
+<p><a href="mailto:jiri.pm@seznam.cz">jiri.pm@seznam.cz</a></p>
+<p></p></div></div>
+<div class="boxed ">
+
+
+<h2>Návštěvy na těchto stránkách...</h2>
+<div class="content2">
+
+<p><a href="https://www.toplist.cz/">
+<script language="JavaScript" type="text/javascript">// <![CDATA[
+document.write('<img src="https://toplist.cz/count.asp?id=1782081&amp;logo=mc&amp;http='+
+escape(document.referrer)+'&amp;t='+escape(document.title)+
+'&amp;wi='+escape(window.screen.width)+'&amp;he='+escape(window.screen.height)+'&amp;cd='+
+escape(window.screen.colorDepth)+'" width="88" height="60" border=0 alt="TOPlist" />');
+// ]]></script>
+</a></p>
+<noscript><img src="https://toplist.cz/count.asp?id=1782081&amp;logo=mc" border="0"
+alt="TOPlist" width="88" height="60" /></noscript></div></div>
+
+	</div>
+
+</div><!-- wrap ends here -->
+
+<!-- footer starts here -->
+	<div id="footer">
+		<div id="footer-content">
+		<div id="footer-right">
+			<p class="paticka" style=""><span id=p1 class=ostravski><a href=http://www.ostravski.cz/?levny-webdesign target=:"_blank" >
+Ostravski Webdesign
+</a>
+ |
+ <a href="http://www.banan.cz/produkty/webove-stranky-zdarma?web-zdarma" title="Webové stránky zdarma" target="_blank">
+ Webové stránky zdarma</a>
+ od <a href="http://www.banan.cz/?webhosting-banan" title="webhosting a domény" target="_blank">BANAN.CZ</a>
+ </span>
+
+<span class="paticka_user"> | <a href="http://www.nas-partak-obytnak.cz/admin/">přihlásit se</a></span>
+
+
+</p>
+
+<!-- banan=rs -->		</div>
+
+		<div id="footer-left">
+            <p>
+						            </p>
+		</div>
+		</div>
+	</div>
+<!-- footer ends here -->
+
+</body>
+
+<!-- Mirrored from www.nas-partak-obytnak.cz/blog/2018/20_05_2018---hodnoceni-po-prvnich-5000-km_ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Sep 2024 13:12:53 GMT -->
+</html>
+<!--SQL: 0 | cas: 0.019840955734253 | pamet: 637048-->

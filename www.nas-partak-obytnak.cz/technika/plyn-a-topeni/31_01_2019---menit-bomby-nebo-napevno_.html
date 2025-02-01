@@ -1,0 +1,573 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<!-- Mirrored from www.nas-partak-obytnak.cz/technika/plyn-a-topeni/31_01_2019---menit-bomby-nebo-napevno_ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Sep 2024 12:42:08 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+
+<base  />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="../../userFiles/favicon.ico" rel="shortcut icon" type="image/ico" />
+<meta property="og:image" content="../../userFiles/system/mazlikfcbk.jpg" />
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript" src="../../file3d83.php?f=js/jquery.ui.js.php"></script>
+<script type="text/javascript" src="../../file3ec2.php?f=plugins/thickbox/thickbox.js.php"></script>
+<script type="text/javascript" src="../../js/init.js"></script>
+<link rel="stylesheet" type="text/css" href="../../plugins/datetimepicker/build/jquery.datetimepicker.min.css" media="all" />
+<script type="text/javascript" src="../../plugins/datetimepicker/build/jquery.datetimepicker.full.js"></script>
+<script type="text/javascript" src="../../js/s.js"></script>
+<script type="text/javascript" src="../../js/jquery.roundblock.js"></script>
+<link href="../../plugins/nanogallery2-3.0.5/dist/css/nanogallery2.min.css" rel="stylesheet" type="text/css">
+<script  type="text/javascript" src="../../plugins/nanogallery2-3.0.5/dist/jquery.nanogallery2.min.js"></script>
+<link rel="stylesheet" href="../../plugins/bootstrap_modalonly/css/bootstrap.css">
+<script src="../../plugins/bootstrap_modalonly/js/bootstrap.js"></script>    
+<script type="text/javascript" src="../../js/jquery.cookie.js"></script>
+
+<!--[if lte IE 6]>
+<script type="text/javascript" src="js/jquery.ifixpng.js"></script>
+<script type="text/javascript"> $.ifixpng("admin/transparent.gif"); $(function(){ $("div").ifixpng(); }); </script>
+<![endif]-->
+
+<meta name="basepathlng" content="./" />
+<meta http-equiv="content-language" content="cs" />
+<!-- UH -->
+<link href="https://fonts.googleapis.com/css?family=Rajdhani:300,400,500,600,700" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700&amp;subset=latin-ext" rel="stylesheet">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<script type="text/javascript">
+$(function(){
+
+if (window.isFrontpage)
+  {
+   $('body').addClass('uvod');
+}
+
+if ($(window).width() < 1001) {
+   $('body').addClass('resp');
+}
+
+$("#sidebar>ul>li>ul>li>ul>li>ul>li.current").parent().parent().addClass('current aktivni');
+$("#sidebar>ul>li>ul>li>ul>li.current").parent().parent().addClass('current aktivni');
+$("#sidebar>ul>li>ul>li.current").parent().parent().addClass('current aktivni');
+$("#sidebar>ul>li.current").addClass('aktivni');
+
+$(".uvod .post .fotogalerie").parent().parent().addClass('blok-foto');
+
+$("#menu").appendTo("#header");
+
+$("body").prepend("<div id=max-slide></div>");
+
+$("#header").wrap("<div id=max-header></div>");
+$("#max-header").prependTo("body");
+/*$(".formular").appendTo(".theme-default .nivoSlider");*/
+
+$(".slider-wrapper").appendTo("#max-slide");
+
+$('input.button').val('odeslat');
+
+$("#locales").insertAfter("#slogan");
+
+$("#wrap").append("<hr>");
+
+$("body>#max-slide>.slider-wrapper").parent().parent().addClass('akt-slide');
+$("#sidebar>ul>li.aktivni").parent().parent().parent().addClass('split');
+
+$("#rightbar").prependTo("#footer");
+$("#main>h1").wrap("<p class=post-center></p>");
+
+$(".paticka_banan a:first-child").text("Webové stránky");
+$('.paticka_banan a:first-child').attr('title', 'Webové stránky od BANAN.CZ');
+
+$("body.resp #sidebar").insertAfter("#main");
+
+$("#menu>ul").clone().appendTo("#menu-bott");
+$("#info").appendTo("#wrap");
+
+})
+
+//responzivni menu
+
+$(function() {
+$('#menu').prepend('<div id="pull" onclick="return false;"></div>');
+var $pull = ('#pull');
+var $menu = $('#menu > ul');
+
+$(pull).on('click', function(e) {
+	e.preventDefault();
+	if(!$menu.data('show')){
+           $menu.height('initial').height($(document).height() - $("#menu > ul").offset().top);
+           $menu.stop(true, true).data({show: true}).animate({'margin-left': '0'});
+        }else
+           $menu.stop(true, true).data({show: false}).animate({'margin-left': -$menu.width()}, function(){
+               var height = $(this).height();
+               $(this).removeAttr("style").height(height);
+           });
+
+});
+
+$(document).bind('click', function(e) {
+if($menu.data('show')){
+  if(!$(e.target).is('#menu *')) {
+    $menu.stop(true, true).data({show: false}).animate({'margin-left': -$menu.width()}, function(){
+               var height = $(this).height();
+               $(this).removeAttr("style").height(height);
+           });
+  }
+}
+});
+$(window).resize(function(){
+   CheckMenu($menu);
+});
+CheckMenu($menu);
+
+function CheckMenu($menu){
+   var w = window.innerWidth;
+   if(w > 1000) {
+       $menu.removeAttr('style');
+       $menu.find('.menu_add_row').remove();
+       $menu.height('initial');
+       $menu.data('show', false);
+   } else {
+     $menu.find('.menu_add_row').remove();
+     $menu.find('li').each(function(){
+        var $ull = $(this).find('ul');
+        if($ull.length){
+           $(this).append($('<div class="menu_add_row '+ ($ull.data('active')?'active':'') +'"></div>').data('$ul', $ull).click(function(){
+                   if(!$(this).data('$ul').data('active'))
+                     $(this).addClass('active').data('$ul').data('active', true).addClass('menu_add_show').parents('li:first').addClass('menu_add_active');
+                   else
+                     $(this).removeClass('active').data('$ul').data('active', false).removeClass('menu_add_show').parents('li:first').removeClass('menu_add_active');
+           }));
+
+        }
+      })
+     $menu.height('initial').height($(document).height() - $("#menu > ul").offset().top);
+     }
+   }
+});
+
+</script>
+
+<!--[if gte IE 9]>
+  <style type="text/css">
+    body, .mimg, .rsslink, #menu>ul>li>ul, .more, .button, #menu>ul>li>a:hover, #menu>ul>li.current>a,  #menu>ul>li:hover>a, .button:hover, .more:hover, #menu>ul>li>a {
+       filter: none !important;
+    }
+  </style>
+<![endif]-->
+<!--[if IE ]>
+  <style type="text/css">
+    .addthis_container {
+
+}
+  </style>
+<![endif]-->
+<!-- /UH -->
+<meta name="description" content="V říjnu loňského roku jsem tu zveřejnil článek, vlastně to byla něco jako první, úvodní část úvahy na téma plyn v autě (I..." />
+<meta name="keywords" content="" />
+<title>31.01.2019 - Měnit bomby nebo napevno? | Náš parťák obytňák</title>
+<meta property="og:title"  content= "Náš parťák obytňák" />
+<meta property="og:description"  content= "V říjnu loňského roku jsem tu zveřejnil článek, vlastně to byla něco jako první, úvodní část úvahy na téma plyn v autě (I..." />
+<!-- Page Head -->
+
+<!-- /Page Head -->
+
+<link rel="stylesheet" href="../../css.css" type="text/css" media="screen,print" />
+
+<style> .paticka_vzhled {display:inline!important;  } </style>
+<!--[if IE]> <link rel="stylesheet" type="text/css" href="ie.css" /> <![endif]-->
+<!--[if lte IE 7]> <link rel="stylesheet" type="text/css" href="ie7.css" /> <![endif]-->
+<script type="text/javascript">
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : "486735741442178",
+      channelUrl : "//www.nas-partak-obytnak.cz/file.php?f=plugins/facebook/channel.js.php&l=cs_CZ",
+      status     : true,
+      xfbml      : true
+    });
+  };
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "../../../connect.facebook.net/cs_CZ/all.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, "script", "facebook-jssdk"));
+
+</script>
+
+</head>
+
+<body>
+<div id="wrap"><!-- wrap starts here -->
+
+	<div id="header">
+
+				<h1 id="logo"><a href="../../index.html" title="">Náš parťák obytňák</a></h1>		<h2 id="slogan">Náš parťák obytňák</h2>
+	</div>
+
+	<div id="menu">
+
+		<ul><li><a href="../../index.html">Úvod</a></li><li><a href="../../svet-nomadu.html">Svět nomádů</a><ul><li><a href="../../svet-nomadu/2024.html">2024</a><ul><li><a href="../../svet-nomadu/2024/predstaveni-pilote-atlas-a656d-2024.html">Představení Pilote Atlas A656D 2024</a></li></ul></li><li><a href="../../svet-nomadu/2022.html">2022</a><ul><li><a href="../../svet-nomadu/2022/01_02_2022---clark-cortez---neznama-legenda.html">01.02.2022 - Clark Cortez - neznámá legenda</a></li></ul></li><li><a href="../../svet-nomadu/2021.html">2021</a><ul><li><a href="../../svet-nomadu/2021/17_07_2021---novy-fiat-ducato-uz-oficialne.html">17.07.2021 - Nový Fiat Ducato už oficiálně</a></li><li><a href="../../svet-nomadu/2021/30_05_2021---amik-s-evropskym-srdcem.html">30.05.2021 - Amík s evropským srdcem</a></li><li><a href="../../svet-nomadu/2021/11_04_2021---nejkrasnejsi-osklivky-70_let.html">11.04.2021 - Nejkrásnější ošklivky 70.let</a></li><li><a href="../../svet-nomadu/2021/28_03_2021---kdo-se-prvni-v-obytnaku-sprchoval_.html">28.03.2021 - Kdo se první v obytňáku sprchoval?</a></li><li><a href="../../svet-nomadu/2021/02_03_2021---joo_-holt-ta-cina_.html">02.03.2021 - Jóó, holt ta Čína!</a></li><li><a href="../../svet-nomadu/2021/21_02_2021---facelift-fiatu-ducato-2022.html">21.02.2021 - Facelift Fiatu Ducato 2022</a></li><li><a href="../../svet-nomadu/2021/14_02_2021---obytnak-pro-krizove-obdobi.html">14.02.2021 - Obytňák pro krizové období</a></li><li><a href="../../svet-nomadu/2021/05_01_2021---krasna-silenost_-z-triton.html">05.01.2021 - Krásná šílenost: Z-Triton</a></li><li><a href="../../svet-nomadu/2021/01_01_2021---kraska-ultra-van.html">01.01.2021 - Kráska ULTRA VAN</a></li></ul></li><li><a href="../../svet-nomadu/2019.html">2019</a><ul><li><a href="../../svet-nomadu/2019/11_11_2019---tourne_-prvni-van-do-zimy_.html">11.11.2019 - Tourne. První van do zimy!</a></li><li><a href="../../svet-nomadu/2019/05_07_2018---kral-pop-kultury.html">05.07.2018 - Král pop kultury</a></li><li><a href="../../svet-nomadu/2019/12_03_2019---ktera-znacka-je-nejstarsi-_.html">12.03.2019 - Která značka je nejstarší ?</a></li><li><a href="../../svet-nomadu/2019/09_03_2019---quo-vadis_-ceske-vystavy_.html">09.03.2019 - Quo Vadis, české výstavy?</a></li><li><a href="../../svet-nomadu/2019/28_02_2019---nejrychlejsi-obytne-auto-na-zemi.html">28.02.2019 - Nejrychlejší obytné auto na Zemi</a></li><li><a href="../../svet-nomadu/2019/24_02_2019---ikonicky-obytnak-ze-sedmdesatek_-gmc.html">24.02.2019 - Ikonický obytňák ze sedmdesátek: GMC</a></li><li><a href="../../svet-nomadu/2019/05_02_2019---prvni-ciste-elektricky-obytnak-_.html">05.02.2019 - První čistě elektrický obytňák !</a></li></ul></li><li><a href="../../svet-nomadu/2018.html">2018</a><ul><li><a href="../../svet-nomadu/2018/23_12_2018---vykradli-zdenka-a-bobesku-_.html">23.12.2018 - Vykradli Zdeňka a Bobešku !</a></li><li><a href="../../svet-nomadu/2018/25_11_2018---fiat-ducato-po-australsku.html">25.11.2018 - Fiat Ducato po australsku</a></li><li><a href="../../svet-nomadu/2018/11_11_2018---polointegovany-nebo-intergrovany-model_.html">11.11.2018 - Polointegovaný nebo intergrovaný model?</a></li><li><a href="../../svet-nomadu/2018/09_10_2018---fantomasuv-obytnak.html">09.10.2018 - Fantomasův obytňák</a></li><li><a href="../../svet-nomadu/2018/33_09_2018---obytnak-s-terasou-_.html">33.09.2018 - Obytňák s terasou !</a></li><li><a href="../../svet-nomadu/2018/29_08_2018---modely-pilote-pro-rok-2019.html">29.08.2018 - Modely PILOTE pro rok 2019</a></li><li><a href="../../svet-nomadu/2018/30_06_2018---trocha-karavanistickeho-steampunku.html">30.06.2018 - Trocha karavanistického steampunku</a></li><li><a href="../../svet-nomadu/2018/30_05_2018---evropske-vystavy-2018_19.html">30.05.2018 - Evropské výstavy 2018/19</a></li><li><a href="../../svet-nomadu/2018/23_05_2018---80-let-stary-obytnak-kpt_dunna.html">23.05.2018 - 80 let starý obytňák kpt.Dunna</a></li><li><a href="../../svet-nomadu/2018/15_03_2018-vyrobci-vybavy-a-doplnku.html">15.03.2018 Výrobci výbavy a doplňků</a></li><li><a href="../../svet-nomadu/2018/12_03_2018-for-caravan-2018_-praha.html">12.03.2018 FOR CARAVAN 2018, Praha</a></li><li><a href="../../svet-nomadu/2018/06_02_2018-evropske-znacky-obytnych-vozu.html">06.02.2018 Evropské značky obytných vozů</a></li><li><a href="../../svet-nomadu/2018/01_02_2018-jak-nakupovat-na-italskych-webshopech-_.html">01.02.2018 Jak nakupovat na italských webshopech ?</a></li><li><a href="../../svet-nomadu/2018/21_01_2018-dost-mista-na-vareni-_.html">21.01.2018 Dost místa na vaření ?</a></li></ul></li><li><a href="../../svet-nomadu/2017.html">2017</a><ul><li><a href="../../svet-nomadu/2017/09_11_2017-caravaning-brno-2017.html">09.11.2017 Caravaning Brno 2017</a></li><li><a href="../../svet-nomadu/2017/13_10_2018-retro-stroje_-usvit-obytnych-aut.html">13.10.2018 Retro stroje, úsvit obytných aut</a></li><li><a href="../../svet-nomadu/2017/15_09_2017-evropsky-caravaning-ocima-americanu.html">15.09.2017 Evropský caravaning očima Američanů</a></li><li><a href="../../svet-nomadu/2017/12_09_2017-retro-stroje-brooks-stevens.html">12.09.2017 Retro stroje Brooks Stevens</a></li><li><a href="../../svet-nomadu/2017/09_09_2017-janackovi-a-jejich-flicek.html">09.09.2017 Janáčkovi a jejich Flíček</a></li><li><a href="../../svet-nomadu/2017/03_09_2017-caravan-salon-2017.html">03.09.2017 Caravan Salon 2017</a></li></ul></li><li><a href="../../svet-nomadu/archiv-aktualit-dne.html">Archiv aktualit dne</a></li></ul></li><li><a href="../../technika.html">Technika</a><ul><li><a href="../motor-a-podvozek.html">Motor a Podvozek</a><ul><li><a href="../motor-a-podvozek/11_4_2022---na-kolik-vlastne-hustit-mechy_.html">11.4.2022 - Na kolik vlastně hustit měchy?</a></li><li><a href="../motor-a-podvozek/14_03_2022---nova-pneumatika-michelin-crossclimate-camping.html">14.03.2022 - nová pneumatika Michelin CrossClimate Camping</a></li><li><a href="../motor-a-podvozek/03_11_2019---dva-roky-z-robotickou-prevodovkou.html">03.11.2019 - Dva roky z robotickou převodovkou</a></li><li><a href="../motor-a-podvozek/04_08_2019---jak-pomahaji-mechy-s-vyskou_.html">04.08.2019 - Jak pomáhají měchy s výškou?</a></li><li><a href="../motor-a-podvozek/09_02_2019---spravne-husteni-pneumatik-_.html">09.02.2019 - Správné huštění pneumatik ?</a></li><li><a href="../motor-a-podvozek/28_10_2017---prevodovka-automatika-nebo-manual-_.html">28.10.2017 - Převodovka automatika nebo manuál ?</a></li></ul></li><li><a href="../nastavba.html">Nástavba</a><ul><li><a href="../nastavba/01_06_2021---jak-myjete-sve-auto-vy-_.html">01.06.2021 - Jak myjete své auto vy ?</a></li></ul></li><li><a href="../elektrina.html">Elektřina</a><ul><li><a href="../elektrina/20_01_2022---dame-tam-solar-_.html">20.01.2022 - Dáme tam solár !</a></li><li><a href="../elektrina/26_03_2018---jak-to-delaji-pri-vyrobe-_.html">26.03.2018 - Jak to dělají při výrobě ?</a></li><li><a href="../elektrina/20_01_2018---moderni-laska-ma-jmeno_-lifepo.html">20.01.2018 - Moderní láska má jméno: LiFePo</a></li><li><a href="../elektrina/28_12_2017---baterie_-baterie_-baterie.html">28.12.2017 - Baterie, baterie, baterie</a></li></ul></li><li><a href="../av-a-elektronika.html">AV a elektronika</a><ul><li><a href="../av-a-elektronika/10_04_2021---zkusenost-s-av-jednotkou-xzent-x-227.html">10.04.2021 - Zkušenost s AV jednotkou XZent X-227</a></li><li><a href="../av-a-elektronika/02_08_2019---rok-s-navigaci-garmin-camper-770t-d.html">02.08.2019 - Rok s navigací Garmin Camper 770T-D</a></li><li><a href="../av-a-elektronika/03_02_2019---digitalni-rozhlas-v-cr-pro-rok-2019-a-dal.html">03.02.2019 - Digitální rozhlas v ČR pro rok 2019 a dál</a></li><li><a href="../av-a-elektronika/04_03_2018---nastava-soumrak-satelitnich-anten-_.html">04.03.2018 - Nastává soumrak satelitních antén ?</a></li><li><a href="../av-a-elektronika/05_02_2018---360__omnivue_-draha-ale-super-hracka.html">05.02.2018 - 360°Omnivue: drahá ale super hračka</a></li><li><a href="../av-a-elektronika/26_01_2018---dvb-t_t2-antena-na-strechu.html">26.01.2018 - DVB-T/T2 anténa na střechu</a></li><li><a href="../av-a-elektronika/07_09_2017---jak-je-to-s-cenou-sw-navigace-sygic-truck-_.html">07.09.2017 - Jak je to s cenou sw navigace Sygic Truck ?</a></li><li><a href="../av-a-elektronika/04_09_2017---jakou-navigaci-si-vybrat-_.html">04.09.2017 - Jakou navigaci si vybrat ?</a></li></ul></li><li><a href="../voda-a-to-dalsi.html">Voda a to další</a><ul><li><a href="../voda-a-to-dalsi/20_02_2021---nas-obytnak-smrdi-_.html">20.02.2021 - Náš obytňák smrdí !</a></li><li><a href="../voda-a-to-dalsi/29_12_2019-co-je-vlastne-kompostovaci-zachod_.html">29.12.2019 Co je vlastně kompostovací záchod?</a></li><li><a href="../voda-a-to-dalsi/16_02_2019---udrzba-wc-kazety-dometic-rady-ct.html">16.02.2019 - Údržba WC kazety DOMETIC řady CT</a></li><li><a href="../voda-a-to-dalsi/chemicke-wc_-a-co-dal_.html">Chemické WC. A co dál?</a></li></ul></li><li><a href="../plyn-a-topeni.html">Plyn a topení</a><ul><li><a href="27_12_2020---jak-je-to-se-spotrebou-plynu-_.html">27.12.2020 - Jak je to se spotřebou plynu ?</a></li><li class="current"><a href="31_01_2019---menit-bomby-nebo-napevno_.html">31.01.2019 - Měnit bomby nebo napevno?</a></li><li><a href="26_10_2018---i-tehdy-rekl-buh_-budiz-plyn_.html">26.10.2018 - I tehdy řekl Bůh: Budiž plyn!</a></li><li><a href="10_6_2018---nastava-propojeni-dvou-svetu_.html">10.6.2018 - nastává propojení dvou světů!</a></li></ul></li><li><a href="../volna-vybava.html">Volná výbava</a><ul><li><a href="../volna-vybava/10_10_2018---znate-stul-tailgater_.html">10.10.2018 - Znáte stůl Tailgater?</a></li><li><a href="../volna-vybava/13_05_2018---caj-a-kava-na-palube-dodika.html">13.05.2018 - Čaj a káva na palubě Dodíka</a></li><li><a href="../volna-vybava/05_04_2018---what3words_-navigace-budoucnosti_.html">05.04.2018 - What3Words: navigace budoucnosti?</a></li><li><a href="../volna-vybava/23_09_2017---vybirame-nadobi_.html">23.09.2017 - Vybíráme nádobí.</a></li></ul></li></ul></li><li><a href="../../blog.html">Blog</a><ul><li><a href="../../blog/2022.html">2022</a><ul><li><a href="../../blog/2022/12_08_2022---at-nas-neceka-osud-vodaku-_.html">12.08.2022 - Ať nás nečeká osud vodáků !</a></li><li><a href="../../blog/2022/01_06_2022---kempari-a-divocaci.html">01.06.2022 - Kempaři a divočáci</a></li><li><a href="../../blog/2022/22_01_2022---s-karavanem-po-cesku.html">22.01.2022 - S karavanem po Česku</a></li></ul></li><li><a href="../../blog/2021.html">2021</a><ul><li><a href="../../blog/2021/28_03_2021---odchazeni-_.html">28.03.2021 - Odcházení ?</a></li></ul></li><li><a href="../../blog/2020.html">2020</a><ul><li><a href="../../blog/2020/8_12_2020---krize-psani-aneb-prokleti-trirocaka.html">8.12.2020 - Krize psaní aneb prokletí tříročáka</a></li><li><a href="../../blog/2020/19_04_2020-narod-nomadi-v-dobe-covidove.html">19.04.2020 Národ nomádí v době Covidové</a></li><li><a href="../../blog/2020/22_03_2020---kolik-opravdu-stoji-obytnak_.html">22.03.2020 - Kolik opravdu stojí obytňák?</a></li></ul></li><li><a href="../../blog/2019.html">2019</a><ul><li><a href="../../blog/2019/01_12_2019---pri-vyberu-srovnavejme-srovnatelne-2.html">01.12.2019 - Při výběru srovnávejme srovnatelné 2</a></li><li><a href="../../blog/2019/24_11_2019---pri-vyberu-srovnavejme-srovnatelne-1.html">24.11.2019 - Při výběru srovnávejme srovnatelné 1</a></li><li><a href="../../blog/2019/01_09_2019---jaky-si-vlastne-poridit-obytnak_.html">01.09.2019 - Jaký si vlastně pořídit obytňák?</a></li><li><a href="../../blog/2019/29_03_2019---udrzba-po-zimnim-spanku.html">29.03.2019 - Údržba po zimním spánku</a></li><li><a href="../../blog/2019/13_03_2019---10-pravidel-kempovani-nadivoko.html">13.03.2019 - 10 pravidel kempování nadivoko</a></li></ul></li><li><a href="../../blog/2018.html">2018</a><ul><li><a href="../../blog/2018/05_12_2018---na-vahu-_.html">05.12.2018 - Na váhu !</a></li><li><a href="../../blog/2018/26_9_2018---vychytavame-detaily-v-kabine.html">26.9.2018 - Vychytáváme detaily v kabině</a></li><li><a href="../../blog/2018/20_05_2018---hodnoceni-po-prvnich-5000-km_.html">20.05.2018 - Hodnocení po prvních 5000 km.</a></li><li><a href="../../blog/2018/27_04_2018---kdyz-se-vybira-nazev-aneb-demokracie-v-praxi_.html">27.04.2018 - Když se vybírá název aneb demokracie v praxi.</a></li><li><a href="../../blog/2018/16_04_2018---kdyz-chce-clovek-bezhlave-usetrit_.html">16.04.2018 - Když chce člověk bezhlavě ušetřit.</a></li><li><a href="../../blog/2018/17_03_2018-a-uz-je-uuuplne-nas-_.html">17.03.2018 A už je úúúplně náš !</a></li><li><a href="../../blog/2018/10_03_2018-vystavujeme-na-for-caravan.html">10.03.2018 Vystavujeme na FOR CARAVAN</a></li><li><a href="../../blog/2018/08_02_2018-jste-skveli-ctenari-_.html">08.02.2018 Jste skvělí čtenáři !</a></li><li><a href="../../blog/2018/29_01_2018-financovani-a-pojisteni-mazlika.html">29.01.2018 Financování a pojištění Mazlíka</a></li></ul></li><li><a href="../../blog/2017.html">2017</a><ul><li><a href="../../blog/2017/04_11_2017-co-s-uloznym-prostorem-_.html">04.11.2017 Co s úložným prostorem ?</a></li><li><a href="../../blog/2017/19_09_2017-casopisy-aneb-zaplava-informaci.html">19.09.2017 Časopisy aneb záplava informací</a></li></ul></li><li><a href="../../blog/in-vino-veritas.html">In Vino Veritas</a></li></ul></li><li><a href="../../nas-dodo.html">Náš Dodo</a><ul><li><a href="../../nas-dodo/2023.html">2023</a><ul><li><a href="../../nas-dodo/2023/01_11_2023---nabijecka-trochu-jinak.html">01.11.2023 - Nabíječka trochu jinak</a></li></ul></li><li><a href="../../nas-dodo/2022.html">2022</a><ul><li><a href="../../nas-dodo/2022/20_3_2022---jedna-zasuvka-v-salonu-svepomoci.html">20.3.2022 - Jedna zásuvka v salónu svépomocí</a></li><li><a href="../../nas-dodo/2022/02_03_2023---nova-lifepo4-baterie-je-na-palube_.html">02.03.2023 - Nová LiFePO4 baterie je na palubě!</a></li></ul></li><li><a href="../../nas-dodo/2021.html">2021</a><ul><li><a href="../../nas-dodo/2021/teplota-pod-kontrolou.html">Teplota pod kontrolou</a></li><li><a href="../../nas-dodo/2021/vodovaha-na-ocich.html">Vodováha na očích</a></li><li><a href="../../nas-dodo/2021/poradek-na-nocnim-stolku.html">Pořádek na nočním stolku</a></li></ul></li><li><a href="../../nas-dodo/2019.html">2019</a><ul><li><a href="../../nas-dodo/2019/27_02_2019---nase-palubni-knihovna-hotova_.html">27.02.2019 - Naše palubní knihovna hotova.</a></li><li><a href="../../nas-dodo/2019/22_02_2019---skret-mi-znovu-zautocil-na-alarm-_.html">22.02.2019 - Skřet mi znovu zaútočil na alarm !</a></li><li><a href="../../nas-dodo/2019/13_02_2019---koberec-po-celem-aute.html">13.02.2019 - Koberec po celém autě</a></li><li><a href="../../nas-dodo/2019/04_02_2019---nove-uchyceni-nabytku-v-garazi.html">04.02.2019 - Nové uchycení nábytku v garáži</a></li></ul></li><li><a href="../../nas-dodo/2018.html">2018</a><ul><li><a href="../../nas-dodo/2018/01_09_2018---uprava-botniku.html">01.09.2018 - Úprava botníku</a></li><li><a href="../../nas-dodo/2018/28_08_2018---vymena-sezeni-v-salonu.html">28.08.2018 - Výměna sezení v salónu</a></li><li><a href="../../nas-dodo/2018/07_06_2018---obsiti-volantu-kuzi.html">07.06.2018 - Obšití volantu kůží</a></li><li><a href="../../nas-dodo/2018/12_05_2018---kontrolni-panel-boosteru.html">12.05.2018 - Kontrolní panel boosteru</a></li><li><a href="../../nas-dodo/2018/28_04_2018---mechove-odpruzeni.html">28.04.2018 - Měchové odpružení</a></li><li><a href="../../nas-dodo/2018/04_04_2018---posileni-elektro-systemu.html">04.04.2018 - Posílení elektro systému</a></li><li><a href="../../nas-dodo/2018/28_03_2018---ulozny-system-do-garaze.html">28.03.2018 - Úložný systém do garáže</a></li><li><a href="../../nas-dodo/2018/14_03_2018-trable-s-plynem.html">14.03.2018 Trable s plynem</a></li><li><a href="../../nas-dodo/2018/06_03_2018-odvetravaci-system-sog.html">06.03.2018 Odvětrávací systém SOG</a></li><li><a href="../../nas-dodo/2018/05_03_2018-palubni-televizor-a-dvb-t-antena.html">05.03.2018 Palubní televizor a DVB-T anténa</a></li><li><a href="../../nas-dodo/2018/23_02_2018-koupelnovy-set-ravak.html">23.02.2018 Koupelnový set RAVAK</a></li><li><a href="../../nas-dodo/2018/09_02_2018-prvni-prohlidka-noveho-auta-_.html">09.02.2018 První prohlídka nového auta !</a></li><li><a href="../../nas-dodo/2018/07_02_2018-tak-uz-je-konecne-tady-___.html">07.02.2018 Tak už je konečně tady !!!</a></li><li><a href="../../nas-dodo/2018/06_02_2018-antena-teleco-wing-22.html">06.02.2018 anténa Teleco Wing 22</a></li><li><a href="../../nas-dodo/2018/04_02_2018-on-board-kamera-vybirana-_a-zakoupena_.html">04.02.2018 On-board kamera vybírána (a zakoupena)</a></li><li><a href="../../nas-dodo/2018/30_01_2018-jak-plnit-nadrz-na-vodu-_.html">30.01.2018 Jak plnit nádrž na vodu ?</a></li><li><a href="../../nas-dodo/2018/15_01_2018-trezor-na-palube.html">15.01.2018 Trezor na palubě</a></li><li><a href="../../nas-dodo/2018/06_01_2018-vybirame-venkovni-sezeni.html">06.01.2018 Vybíráme venkovní sezení</a></li></ul></li><li><a href="../../nas-dodo/2017.html">2017</a><ul><li><a href="../../nas-dodo/2017/10_11_2017-ktere-sezeni-v-salonu-je-lepsi_-podruhe.html">10.11.2017 Které sezení v salonu je lepší, PODRUHÉ</a></li><li><a href="../../nas-dodo/2017/04_10_2017-posledni-doobjednavky-prislusenstvi.html">04.10.2017 Poslední doobjednávky příslušenství</a></li><li><a href="../../nas-dodo/2017/10_10_2017-dvojcata-pilote-a-bavaria-746c.html">10.10.2017 Dvojčata Pilote a Bavaria 746C</a></li><li><a href="../../nas-dodo/2017/09_09_2017--ktere-sezeni-v-salonu-je-nejlepsi-_.html">09.09.2017  Které sezení v salonu je nejlepší ?</a></li><li><a href="../../nas-dodo/2017/09_09_2017-nasel-jsem-video-predstaveni-mazlika.html">09.09.2017 Našel jsem video představení Mazlíka</a></li><li><a href="../../nas-dodo/2017/25_08_2017-objednavame-si-nove-auto-___.html">25.08.2017 Objednáváme si nové auto !!!</a></li></ul></li></ul></li><li><a href="../../trasy.html">Trasy</a><ul><li><a href="../../trasy/vikendove-cesty.html">Víkendové cesty</a><ul><li><a href="../../trasy/vikendove-cesty/2022.html">2022</a><ul><li><a href="../../trasy/vikendove-cesty/2022/25_02_2022---plzenskem-bez-proudu.html">25.02.2022 - Plzeňskem bez proudu</a></li></ul></li><li><a href="../../trasy/vikendove-cesty/2021.html">2021</a><ul><li><a href="../../trasy/vikendove-cesty/2021/11_-13_06_2021---slavkovsky-les-podruhe.html">11.-13.06.2021 - Slavkovský les podruhé</a></li><li><a href="../../trasy/vikendove-cesty/2021/8_-9_5_2021---sazava-naslepo.html">8.-9.5.2021 - Sázava naslepo</a></li></ul></li><li><a href="../../trasy/vikendove-cesty/2019.html">2019</a><ul><li><a href="../../trasy/vikendove-cesty/2019/12_-13_10_2019---toulovcovy-mastale.html">12.-13.10.2019 - Toulovcovy maštale</a></li><li><a href="../../trasy/vikendove-cesty/2019/13_-15_9_2019---podel-divoke-orlice.html">13.-15.9.2019 - Podél Divoké Orlice</a></li><li><a href="../../trasy/vikendove-cesty/2019/28_-30_6_2019---usteckym-krajem.html">28.-30.6.2019 - Ústeckým krajem</a></li><li><a href="../../trasy/vikendove-cesty/2019/30_-31_3_2019---povodim-ploucnice.html">30.-31.3.2019 - Povodím Ploučnice</a></li><li><a href="../../trasy/vikendove-cesty/2019/23_-24_3_2019---predjari-v-jiznich-cechach.html">23.-24.3.2019 - Předjaří v Jižních Čechách</a></li></ul></li><li><a href="../../trasy/vikendove-cesty/2018.html">2018</a><ul><li><a href="../../trasy/vikendove-cesty/2018/19_-21_10_2018---vylov-tovacovskeho-rybnika.html">19.-21.10.2018 - Výlov Tovačovského rybníka</a></li><li><a href="../../trasy/vikendove-cesty/2018/7_-9_9_2018---na-jih-od-kutne-hory.html">7.-9.9.2018 - Na jih od Kutné hory</a></li><li><a href="../../trasy/vikendove-cesty/2018/20_-22_4_2018---okolim-havlickova-brodu.html">20.-22.4.2018 - Okolím Havlíčkova Brodu</a></li><li><a href="../../trasy/vikendove-cesty/2018/7_-8_3_2018---slavkovsky-les.html">7.-8.3.2018 - Slavkovský les</a></li></ul></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy.html">Prodloužené víkendy</a><ul><li><a href="../../trasy/prodlouzene-vikendy/2024.html">2024</a><ul><li><a href="../../trasy/prodlouzene-vikendy/2024/28_3_-1_4_2024-velikonoce-v-severnich-cechach.html">28.3.-1.4.2024 Velikonoce v Severních Čechách</a></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy/2023.html">2023</a></li><li><a href="../../trasy/prodlouzene-vikendy/2022.html">2022</a><ul><li><a href="../../trasy/prodlouzene-vikendy/2022/6_-12_3_2022---alsaske-predjari.html">6.-12.3.2022 - Alsaské předjaří</a></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy/2021.html">2021</a><ul><li><a href="../../trasy/prodlouzene-vikendy/2021/4_-9_7_2021---na-hitlerovo-orli-hnizdo.html">4.-9.7.2021 - Na Hitlerovo Orlí hnízdo</a></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy/2019.html">2019</a><ul><li><a href="../../trasy/prodlouzene-vikendy/2019/04_-07_07_2019-za-krasami-sumavy_.html">04.-07.07.2019 Za krásami Šumavy.</a></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy/2018.html">2018</a><ul><li><a href="../../trasy/prodlouzene-vikendy/2018/povanocni-bavorsko.html">Povánoční Bavorsko</a></li><li><a href="../../trasy/prodlouzene-vikendy/2018/sasko-na-konci-zari.html">Sasko na konci září</a></li><li><a href="../../trasy/prodlouzene-vikendy/2018/na-svatbu-do-ase.html">Na svatbu do Aše</a></li><li><a href="../../trasy/prodlouzene-vikendy/2018/za-vinem-na-jih-moravy-a-slovenska.html">Za vínem na Jih Moravy a Slovenska</a></li><li><a href="../../trasy/prodlouzene-vikendy/2018/velikonoce-v-holandsku.html">Velikonoce v Holandsku</a></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy/2017.html">2017</a><ul><li><a href="../../trasy/prodlouzene-vikendy/2017/velikonoce-v-italii.html">Velikonoce v Itálii</a></li></ul></li></ul></li><li><a href="../../trasy/jedeme-na-dovolenou.html">Jedeme na dovolenou</a><ul><li><a href="../../trasy/jedeme-na-dovolenou/2022---nemecko-a-sumava-podruhe.html">2022 - Německo a Šumava podruhé</a></li><li><a href="../../trasy/jedeme-na-dovolenou/2021---nemecko-_a-trochu-sumava_.html">2021 - Německo (a trochu Šumava)</a></li><li><a href="../../trasy/jedeme-na-dovolenou/2020---jeseniky-a-cast-moravy.html">2020 - Jeseníky a část Moravy</a></li><li><a href="../../trasy/jedeme-na-dovolenou/2019---jizni-cechy.html">2019 - Jižní Čechy</a></li><li><a href="../../trasy/jedeme-na-dovolenou/2018---litva_-lotyssko_-estonsko.html">2018 - Litva, Lotyšsko, Estonsko</a></li></ul></li></ul></li><li><a href="../../trochu-z-historie.html">Trochu z historie</a><ul><li><a href="../../trochu-z-historie/jak-to-vsechno-zacalo.html">Jak to všechno začalo</a></li><li><a href="../../trochu-z-historie/dodo-dnes.html">Dodo dnes</a></li><li><a href="../../trochu-z-historie/historie-znacky-pilote.html">Historie značky PILOTE</a></li></ul></li><li><a href="../../fotogalerie-.html">Fotogalerie</a><ul><li><a href="../../fotogalerie-/priroda.html">Příroda</a></li><li><a href="../../fotogalerie-/stavby-a-mesta.html">Stavby a města</a></li><li><a href="../../fotogalerie-/nase-auto.html">Naše auto</a></li><li><a href="../../fotogalerie-/pilote-club-v-cr.html">Pilote Club v ČR</a></li></ul></li><li><a href="../../pokec.html">Pokec</a></li></ul>
+	</div>
+
+	<div id="sidebar">
+
+		<input type=hidden name=formularzeleny><div class="boxed ">
+
+
+<h2>uživatelský panel -- vždy jako první článek - NEMAZAT!!!</h2>
+<div class="content2">
+
+<h2>---slider---</h2>
+<p><div id="slider3" class="slider-wrapper theme-default">
+            <div class="nivoSlider">
+                <img src="../../userFiles/system/mazlik01.jpg" data-thumb="userFiles/system/mazlik01.jpg.tn.jpg" alt="slider" title="#slider3x7" />
+<img src="../../userFiles/system/mazlik16.jpg" data-thumb="userFiles/system/mazlik16.jpg.tn.jpg" alt="slider" title="#slider3x11" />
+<img src="../../userFiles/system/mazlik15.jpg" data-thumb="userFiles/system/mazlik15.jpg.tn.jpg" alt="slider" title="#slider3x12" />
+<img src="../../userFiles/system/mazlik12.jpg" data-thumb="userFiles/system/mazlik12.jpg.tn.jpg" alt="slider" title="#slider3x8" />
+<img src="../../userFiles/system/mazlik18.jpg" data-thumb="userFiles/system/mazlik18.jpg.tn.jpg" alt="slider" title="#slider3x13" />
+<img src="../../userFiles/system/mazlik22.jpg" data-thumb="userFiles/system/mazlik22.jpg.tn.jpg" alt="slider" title="#slider3x9" />
+<img src="../../userFiles/system/mazlik17.jpg" data-thumb="userFiles/system/mazlik17.jpg.tn.jpg" alt="slider" title="#slider3x14" />
+<img src="../../userFiles/system/back3.jpg" data-thumb="userFiles/system/back3.jpg.tn.jpg" alt="slider" title="#slider3x10" />
+<img src="../../userFiles/system/mazlik24.jpg" data-thumb="userFiles/system/mazlik24.jpg.tn.jpg" alt="slider" title="#slider3x15" />
+<img src="../../userFiles/system/mazlik05.jpg" data-thumb="userFiles/system/mazlik05.jpg.tn.jpg" alt="slider" title="#slider3x17" />
+<img src="../../userFiles/system/mazlik11a.jpg" data-thumb="userFiles/system/mazlik11a.jpg.tn.jpg" alt="slider" title="#slider3x16" />
+<img src="../../userFiles/system/mazlik37.jpg" data-thumb="userFiles/system/mazlik37.jpg.tn.jpg" alt="slider" title="#slider3x18" />
+<img src="../../userFiles/system/mazlik31.jpg" data-thumb="userFiles/system/mazlik31.jpg.tn.jpg" alt="slider" title="#slider3x19" />
+<img src="../../userFiles/system/mazlik14.jpg" data-thumb="userFiles/system/mazlik14.jpg.tn.jpg" alt="slider" title="#slider3x21" />
+<img src="../../userFiles/system/mazlik13.jpg" data-thumb="userFiles/system/mazlik13.jpg.tn.jpg" alt="slider" title="#slider3x20" />
+<img src="../../userFiles/system/mazlik19a.jpg" data-thumb="userFiles/system/mazlik19a.jpg.tn.jpg" alt="slider" title="#slider3x22" />
+<img src="../../userFiles/system/mazlik20.jpg" data-thumb="userFiles/system/mazlik20.jpg.tn.jpg" alt="slider" title="#slider3x23" />
+<img src="../../userFiles/system/mazlik21.jpg" data-thumb="userFiles/system/mazlik21.jpg.tn.jpg" alt="slider" title="#slider3x24" />
+<img src="../../userFiles/system/mazlik23.jpg" data-thumb="userFiles/system/mazlik23.jpg.tn.jpg" alt="slider" title="#slider3x25" />
+<img src="../../userFiles/system/mazlik25.jpg" data-thumb="userFiles/system/mazlik25.jpg.tn.jpg" alt="slider" title="#slider3x26" />
+<img src="../../userFiles/system/mazlik26.jpg" data-thumb="userFiles/system/mazlik26.jpg.tn.jpg" alt="slider" title="#slider3x27" />
+<img src="../../userFiles/system/mazlik52.jpg" data-thumb="userFiles/system/mazlik52.jpg.tn.jpg" alt="slider" title="#slider3x28" />
+<img src="../../userFiles/system/mazlik28.jpg" data-thumb="userFiles/system/mazlik28.jpg.tn.jpg" alt="slider" title="#slider3x29" />
+<img src="../../userFiles/system/mazlik29.jpg" data-thumb="userFiles/system/mazlik29.jpg.tn.jpg" alt="slider" title="#slider3x30" />
+<img src="../../userFiles/system/mazlik30.jpg" data-thumb="userFiles/system/mazlik30.jpg.tn.jpg" alt="slider" title="#slider3x31" />
+<img src="../../userFiles/system/mazlik32.jpg" data-thumb="userFiles/system/mazlik32.jpg.tn.jpg" alt="slider" title="#slider3x32" />
+<img src="../../userFiles/system/mazlik33.jpg" data-thumb="userFiles/system/mazlik33.jpg.tn.jpg" alt="slider" title="#slider3x33" />
+<img src="../../userFiles/system/mazlik35.jpg" data-thumb="userFiles/system/mazlik35.jpg.tn.jpg" alt="slider" title="#slider3x34" />
+<img src="../../userFiles/system/mazlik34.jpg" data-thumb="userFiles/system/mazlik34.jpg.tn.jpg" alt="slider" title="#slider3x35" />
+<img src="../../userFiles/system/mazlik02a.jpg" data-thumb="userFiles/system/mazlik02a.jpg.tn.jpg" alt="slider" title="#slider3x36" />
+<img src="../../userFiles/system/mazlik03a.jpg" data-thumb="userFiles/system/mazlik03a.jpg.tn.jpg" alt="slider" title="#slider3x37" />
+<img src="../../userFiles/system/mazlik38.jpg" data-thumb="userFiles/system/mazlik38.jpg.tn.jpg" alt="slider" title="#slider3x38" />
+<img src="../../userFiles/system/mazlik50.jpg" data-thumb="userFiles/system/mazlik50.jpg.tn.jpg" alt="slider" title="#slider3x39" />
+<img src="../../userFiles/system/mazlik51.jpg" data-thumb="userFiles/system/mazlik51.jpg.tn.jpg" alt="slider" title="#slider3x40" />
+<img src="../../userFiles/system/mazlik53.jpg" data-thumb="userFiles/system/mazlik53.jpg.tn.jpg" alt="slider" title="#slider3x41" />
+<img src="../../userFiles/system/mazlik54.jpg" data-thumb="userFiles/system/mazlik54.jpg.tn.jpg" alt="slider" title="#slider3x42" />
+<img src="../../userFiles/system/mazlik55.jpg" data-thumb="userFiles/system/mazlik55.jpg.tn.jpg" alt="slider" title="#slider3x43" />
+<img src="../../userFiles/system/mazlik56.jpg" data-thumb="userFiles/system/mazlik56.jpg.tn.jpg" alt="slider" title="#slider3x44" />
+            </div>
+            <div id="slider3x7" class="nivo-html-caption"></div>
+<div id="slider3x11" class="nivo-html-caption"></div>
+<div id="slider3x12" class="nivo-html-caption"></div>
+<div id="slider3x8" class="nivo-html-caption"></div>
+<div id="slider3x13" class="nivo-html-caption"></div>
+<div id="slider3x9" class="nivo-html-caption"></div>
+<div id="slider3x14" class="nivo-html-caption"></div>
+<div id="slider3x10" class="nivo-html-caption"></div>
+<div id="slider3x15" class="nivo-html-caption"></div>
+<div id="slider3x17" class="nivo-html-caption"></div>
+<div id="slider3x16" class="nivo-html-caption"></div>
+<div id="slider3x18" class="nivo-html-caption"></div>
+<div id="slider3x19" class="nivo-html-caption"></div>
+<div id="slider3x21" class="nivo-html-caption"></div>
+<div id="slider3x20" class="nivo-html-caption"></div>
+<div id="slider3x22" class="nivo-html-caption"></div>
+<div id="slider3x23" class="nivo-html-caption"></div>
+<div id="slider3x24" class="nivo-html-caption"></div>
+<div id="slider3x25" class="nivo-html-caption"></div>
+<div id="slider3x26" class="nivo-html-caption"></div>
+<div id="slider3x27" class="nivo-html-caption"></div>
+<div id="slider3x28" class="nivo-html-caption"></div>
+<div id="slider3x29" class="nivo-html-caption"></div>
+<div id="slider3x30" class="nivo-html-caption"></div>
+<div id="slider3x31" class="nivo-html-caption"></div>
+<div id="slider3x32" class="nivo-html-caption"></div>
+<div id="slider3x33" class="nivo-html-caption"></div>
+<div id="slider3x34" class="nivo-html-caption"></div>
+<div id="slider3x35" class="nivo-html-caption"></div>
+<div id="slider3x36" class="nivo-html-caption"></div>
+<div id="slider3x37" class="nivo-html-caption"></div>
+<div id="slider3x38" class="nivo-html-caption"></div>
+<div id="slider3x39" class="nivo-html-caption"></div>
+<div id="slider3x40" class="nivo-html-caption"></div>
+<div id="slider3x41" class="nivo-html-caption"></div>
+<div id="slider3x42" class="nivo-html-caption"></div>
+<div id="slider3x43" class="nivo-html-caption"></div>
+<div id="slider3x44" class="nivo-html-caption"></div>
+        </div>
+		<script type="text/javascript" src="../../plugins/slider/nivo-slider/nivo-slider.js"></script>
+		<script type="text/javascript">
+		$(function(){
+		  $("#slider3>.nivoSlider").nivoSlider({
+	    prevText: "P\u0159edchoz\u00ed",
+	    nextText: "Dal\u0161\u00ed",
+        effect: "fade",
+        pauseOnHover: false,
+        animSpeed: 400,
+        pauseTime: 5000,
+        randomStart: true,
+        directionNav: false,
+        controlNav: false,
+        controlNavThumbs: false,
+        manualAdvance: false,
+        captionOpacity: 1
+	    });
+          });
+		</script>
+		</p>
+<div class="formular">
+<p>
+		<form action="http://www.nas-partak-obytnak.cz/technika/plyn-a-topeni/31_01_2019---menit-bomby-nebo-napevno_" method="post" enctype="multipart/form-data">
+		</p>
+<h3>Poptávka náhradních dílů</h3>
+<table style="width: 65%; float: right;" border="0">
+<tbody>
+<tr>
+<td width="40%">Jméno</td>
+<td><input class="query full" type="text" name="jmeno" /></td>
+</tr>
+<tr>
+<td>E-mail a telefon</td>
+<td><input class="query full" type="text" name="jmeno" /></td>
+</tr>
+<tr>
+<td>Číslo/název dílu</td>
+<td><input class="query full" type="text" name="jmeno" /></td>
+</tr>
+</tbody>
+</table>
+<p>
+        <table width="100%" border="0">
+		
+		<tr><td colspan="2" align="center">
+		<br />
+              <input type="hidden" name="formular_zakladni_id" value="">
+	    <input type="submit" class="button" value="OK" />
+		</td></tr></table>
+
+    <script type="text/javascript">
+     document.write('<input type="hidden" name="tajne" value="čž' + 'řůž">');
+    </script>
+		</form>
+		</p>
+</div></div></div>
+
+		<h2></h2>
+
+		<ul class="sidemenu"><li><a href="../../svet-nomadu.html">Svět nomádů</a><ul class="sidemenu"><li><a href="../../svet-nomadu/2024.html">2024</a></li><li><a href="../../svet-nomadu/2022.html">2022</a></li><li><a href="../../svet-nomadu/2021.html">2021</a></li><li><a href="../../svet-nomadu/2019.html">2019</a></li><li><a href="../../svet-nomadu/2018.html">2018</a></li><li><a href="../../svet-nomadu/2017.html">2017</a></li><li><a href="../../svet-nomadu/archiv-aktualit-dne.html">Archiv aktualit dne</a></li></ul></li><li><a href="../../technika.html">Technika</a><ul class="sidemenu"><li><a href="../motor-a-podvozek.html">Motor a Podvozek</a></li><li><a href="../nastavba.html">Nástavba</a></li><li><a href="../elektrina.html">Elektřina</a></li><li><a href="../av-a-elektronika.html">AV a elektronika</a></li><li><a href="../voda-a-to-dalsi.html">Voda a to další</a></li><li><a href="../plyn-a-topeni.html">Plyn a topení</a></li><li><a href="../volna-vybava.html">Volná výbava</a></li></ul></li><li><a href="../../blog.html">Blog</a><ul class="sidemenu"><li><a href="../../blog/2022.html">2022</a></li><li><a href="../../blog/2021.html">2021</a></li><li><a href="../../blog/2020.html">2020</a></li><li><a href="../../blog/2019.html">2019</a></li><li><a href="../../blog/2018.html">2018</a></li><li><a href="../../blog/2017.html">2017</a></li><li><a href="../../blog/in-vino-veritas.html">In Vino Veritas</a></li></ul></li><li><a href="../../nas-dodo.html">Náš Dodo</a><ul class="sidemenu"><li><a href="../../nas-dodo/2023.html">2023</a></li><li><a href="../../nas-dodo/2022.html">2022</a></li><li><a href="../../nas-dodo/2021.html">2021</a></li><li><a href="../../nas-dodo/2019.html">2019</a></li><li><a href="../../nas-dodo/2018.html">2018</a></li><li><a href="../../nas-dodo/2017.html">2017</a></li></ul></li><li><a href="../../trasy.html">Trasy</a><ul class="sidemenu"><li><a href="../../trasy/vikendove-cesty.html">Víkendové cesty</a></li><li><a href="../../trasy/prodlouzene-vikendy.html">Prodloužené víkendy</a><ul class="sidemenu"><li><a href="../../trasy/prodlouzene-vikendy/2024.html">2024</a><ul class="sidemenu"><li><a href="../../trasy/prodlouzene-vikendy/2024/28_3_-1_4_2024-velikonoce-v-severnich-cechach.html">28.3.-1.4.2024 Velikonoce v Severních Čechách</a></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy/2023.html">2023</a><ul class="sidemenu"><li><a href="../../trasy/prodlouzene-vikendy/2023/2_-5_10_2023---poprve-vylet-samotare.html">2.-5.10.2023 - Poprvé výlet samotáře</a></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy/2022.html">2022</a><ul class="sidemenu"><li><a href="../../trasy/prodlouzene-vikendy/2022/6_-12_3_2022---alsaske-predjari.html">6.-12.3.2022 - Alsaské předjaří</a></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy/2021.html">2021</a><ul class="sidemenu"><li><a href="../../trasy/prodlouzene-vikendy/2021/4_-9_7_2021---na-hitlerovo-orli-hnizdo.html">4.-9.7.2021 - Na Hitlerovo Orlí hnízdo</a></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy/2019.html">2019</a><ul class="sidemenu"><li><a href="../../trasy/prodlouzene-vikendy/2019/04_-07_07_2019-za-krasami-sumavy_.html">04.-07.07.2019 Za krásami Šumavy.</a></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy/2018.html">2018</a><ul class="sidemenu"><li><a href="../../trasy/prodlouzene-vikendy/2018/povanocni-bavorsko.html">Povánoční Bavorsko</a></li><li><a href="../../trasy/prodlouzene-vikendy/2018/sasko-na-konci-zari.html">Sasko na konci září</a></li><li><a href="../../trasy/prodlouzene-vikendy/2018/na-svatbu-do-ase.html">Na svatbu do Aše</a></li><li><a href="../../trasy/prodlouzene-vikendy/2018/za-vinem-na-jih-moravy-a-slovenska.html">Za vínem na Jih Moravy a Slovenska</a></li><li><a href="../../trasy/prodlouzene-vikendy/2018/velikonoce-v-holandsku.html">Velikonoce v Holandsku</a></li></ul></li><li><a href="../../trasy/prodlouzene-vikendy/2017.html">2017</a><ul class="sidemenu"><li><a href="../../trasy/prodlouzene-vikendy/2017/velikonoce-v-italii.html">Velikonoce v Itálii</a></li></ul></li></ul></li><li><a href="../../trasy/jedeme-na-dovolenou.html">Jedeme na dovolenou</a><ul class="sidemenu"><li><a href="../../trasy/jedeme-na-dovolenou/2022---nemecko-a-sumava-podruhe.html">2022 - Německo a Šumava podruhé</a></li><li><a href="../../trasy/jedeme-na-dovolenou/2021---nemecko-_a-trochu-sumava_.html">2021 - Německo (a trochu Šumava)</a></li><li><a href="../../trasy/jedeme-na-dovolenou/2020---jeseniky-a-cast-moravy.html">2020 - Jeseníky a část Moravy</a></li><li><a href="../../trasy/jedeme-na-dovolenou/2019---jizni-cechy.html">2019 - Jižní Čechy</a></li><li><a href="../../trasy/jedeme-na-dovolenou/2018---litva_-lotyssko_-estonsko.html">2018 - Litva, Lotyšsko, Estonsko</a></li></ul></li></ul></li><li><a href="../../trochu-z-historie.html">Trochu z historie</a><ul class="sidemenu"><li><a href="../../trochu-z-historie/jak-to-vsechno-zacalo.html">Jak to všechno začalo</a></li><li><a href="../../trochu-z-historie/dodo-dnes.html">Dodo dnes</a></li><li><a href="../../trochu-z-historie/historie-znacky-pilote.html">Historie značky PILOTE</a></li></ul></li><li><a href="../../pokec.html">Pokec</a></li></ul>
+		
+		
+	</div>
+
+	<div id="main">
+	
+	
+	<div class="post ">
+	
+	<div class="post_top">
+	<div class="post_title">
+	<h1>31.01.2019 - Měnit bomby nebo napevno?</h1>
+	</div></div>
+	<div class="post_body">
+	<p style="text-align: justify;">V říjnu loňského roku jsem tu zveřejnil článek, vlastně to byla něco jako první, úvodní část úvahy na téma plyn v autě (<strong><a href="26_10_2018---i-tehdy-rekl-buh_-budiz-plyn_.html">I tehdy řekl Bůh: "Budiž plyn"!</a></strong>). Pro mne jako nováčka to byla zcela neprobádaná oblast. Teď máme za sebou první sezónu cestování a na tu příští mohu tedy na základě zkušeností přistoupit k nové úvaze - jestli se pro naše podmínky vyplatí s "plynem" na palubě něco dělat dál.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/3-technika/plyn_teplo/bomb-00.jpg"><img class="roundblock" title="Bomb-00" src="../../userFiles/3-technika/plyn_teplo/bomb-00.jpg" alt="Bomb-00" width="700" /></a></p>
+<p style="text-align: justify;">V minulém článku jsem psal hlavně o samotném médiu - totiž o plynu. Propan-butan a čistý propan, rozdíly, výhody, nevýhody a došel jsem k názoru, že budu zatím používat čistý propan. Důvody jsou v článku popsány také a ani zdaleka to ale neznamená, že je to rada univerzální. Prostě se (zatím) hodí pro náš styl jezdění s Dodíkem. No a teď je čas si trochu rozebrat "hardware", neboli plynový systém v našem obytném autě.</p>
+<h3 style="text-align: justify;"><strong>Co jsme to vlastně koupili v Dodíkovi přímo z výro</strong>by.</h3>
+<p style="text-align: justify;">V otázce plynového systému jsou si všechna obytná auta na trhu nabízená vlastně dost podobná. Mají:</p>
+<p style="text-align: justify;">1) Vnější schránku na dvě plynové bomby, většinou o velikosti 11kg na každou. Pozn.: u vestaveb (tzv. "vanů") je prostor pro bombu/y uvnitř kabiny, vetšinou pod jedním z lůžek.</p>
+<p style="text-align: justify;">2) Ve schránce jsou přípojné hadice a případně nějaký ten regulátor (povíme si dále)</p>
+<p style="text-align: justify;">3) ze schránky jde plyn hadicovým rozvodem a rozdělovači do spotřebičů, což je v drtivé většině aut "svatá trojice": kombo zařízení na topení a ohřev vody, dále plynový vařič a chladnička. Toť vše.</p>
+<p style="text-align: justify;"> </p>
+<p style="text-align: justify;"><span style="color: #0000ff;"><strong>1) PROSTOR (SCHRÁNKA) NA UMÍSTĚNÍ PLYNOVÝCH LAHVÍ</strong></span></p>
+<p style="text-align: justify;">Ani jsem netušil, jak velké rozdíly mohou být ve tvaru, umístění a hlavně velikosti schránky na plynové bomby. Každý výrobce obytňáků a dokonce i každý jednotlivý model má tento prostor řešen trochu jinak. A protože výrobce Dodíka, firma PILOTE, není co se velikosti schránky týče zrovna velkorysá, měl jsem hned po převzetí auta docela nemilé starosti. Jsou popsány v článku (<a href="../../nas-dodo/2018/14_03_2018-trable-s-plynem.html">14.03.2018 - Trable s plynem</a>) a zejména začátečníkům jeho přečtení vřele doporučuji. Každopádně se vyplatí při výběru nového auta zkontrolovat a posoudit i tento docela důležitý aspekt -  jak je ta schránka na bomby velká a jak je prakticky řešena. Málokdo ale má k dispozici dost prostoru. Třeba jako toto, velikostí luxusní řešení:</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/3-technika/plyn_teplo/bomb-01.jpg"><img class="roundblock" title="Bomb-01" src="../../userFiles/3-technika/plyn_teplo/bomb-01.jpg" alt="Bomb-01" width="700" /></a></p>
+<p style="text-align: justify;">Mimochodem zrovna tato fotka ukazuje zřejmě nějaké "samo-domo" provedení. Na jednu stranu je prostor nádherně velký, je hezky vidět i dodatečná izolace lahví proti mrazu, pomocí jedné obětované karimatky. Na druhou stranu je ale stejný materiál použit i na dně skříňky a zakrývá tak otvory, kterými může odcházet případný výron plynu. Takže je tu docela zaděláno na explozi nebo požár. Zbývá jen doufat, že po uzavření krycích dvířek jsou nějaké otvory v nich. Protože jinak by to bylo řešení extrémně nebezpečné. Případně unikající plyn by se ve skříňce hromadil a pak už stačí jen náhodná jiskra a tragédie je na světě.</p>
+<p style="text-align: justify;">Integrovaná auta mají většinou přidělený prostor dostatečně velký, u polointegrovaných modelů a alkoven už může být prostor o něco horší, resp. menší. I když to na fotce není moc viditelné, ve dně skříňky je samozřejmě několik velkých otvorů. Případný unikající plyn (je těžší nežli vzduch) tak může bezpečně uniknout z tohoto prostoru ven do ovzduší.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/3-technika/plyn_teplo/bomb-02.jpg"><img class="roundblock" title="Bomb-02" src="../../userFiles/3-technika/plyn_teplo/bomb-02.jpg" alt="Bomb-02" width="700" /></a></p>
+<p style="text-align: justify;">Fotka z našeho Dodíka ukazuje, jak nízký prostor to je. Čest a chvála zastoupení Pilote, firmě J.M.Trade, která nabízí docela profesionální úpravu. Spodní černou plechovou část nahradí jinou, která má dno asi o 5-6cm níže a pak všechny starosti popsané v<a href="../../nas-dodo/2018/14_03_2018-trable-s-plynem.html"> článku</a> okamžitě zmizí. Bohužel za cenu snížení světlé výšky vozu o stejný počet centimetrů a to je docela citelná ztráta. Takže jsem si výměnu zatím udělat nenechal.</p>
+<p style="text-align: justify;"><strong>Rozvod plynu nejsou jen bomby a hadice.</strong></p>
+<p style="text-align: justify;">Na fotce se zelenými karimatkami je také krásně vidět, co všechno tam zatím chybí. A mimochodem, tady jsou už mezi jednotlivými výrobci docela značné rozdíly ve výbavě přímo z výroby. Někteří tam dají pouze to nejnutnější, lepší výrobci vybaví plynový systém rovnou v základu i dodatečnými komponenty, které jsou u těch levnějších značek za příplatek. Což je další z cest, jak ukázat nízkou "základní" cenu. Co je tedy třeba:</p>
+<p style="text-align: justify;"><span style="text-decoration: underline;">A) Vysokotlaká hadice</span></p>
+<p style="text-align: justify;"><span style="text-decoration: underline;"><a class="thickbox" href="../../userFiles/3-technika/plyn_teplo/bomb-03.jpg"><img class="roundblock" title="Bomb-03" src="../../userFiles/3-technika/plyn_teplo/bomb-03.jpg" alt="Bomb-03" width="700" /></a> </span></p>
+<p style="text-align: justify;">Přímo na ventil plynové láhve se připojuje vysokotlaká hadice. Naše české bomby mají šroubení G8, ale dají se použít i mosazné redukce mezi jednotlivými průměry šroubení. Hadice se dělají v délce buďto 45cm nebo 75cm. Když jsou v autě nebo karavanu bomby dvě, mohou být připojeny buďto obě najednou (viz. dále) nebo je v akci jen jedna. Druhá bomba jen vedle stojí a posádka je musí, po vyprázdnění té první bomby, prostě prohodit. Takže i vysokotlakou hadici potřebuji buďto jen jednu anebo dvě, zvlášť pro každou bombu. Samozřejmě je potřeba podívat se, čím je váš mazlík vybaven při nákupu. Zvláště u individuálních dovozů z jiných zemí. Vysokotlaká připojovací hadice s pojistným ventilem stojí zhruba 1000-1200Kč za kus.</p>
+<p style="text-align: justify;"><span style="text-decoration: underline;"> B) Regulátor tlaku</span></p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/3-technika/plyn_teplo/bomb-04.jpg"><img class="roundblock" title="Bomb-04" src="../../userFiles/3-technika/plyn_teplo/bomb-04.jpg" alt="Bomb-04" width="700" /></a>  </p>
+<p style="text-align: justify;">Nejjednodušší pokračování je napojení hadice do regulátoru tlaku plynu. Ten je nutný, aby plyn šel do rozvodů pod stále stejným tlakem. Běžné jsou regulátory na 30 (obvyklé v ČR) nebo 50 mbarů nebo plynule nastavitelné. Regulátory se nabízejí v cenách několika stokorun. </p>
+<p style="text-align: justify;">No a to je to nejprimitivnější možné řešení plynu: Bomba -  vysokotlaká hadice s pojistkou - tlakový regulátor, a pak už jen rozvod plynu po autě. Výhoda je jedna - nízká cena. Zato nevýhod je hromada. Je připojena jen jedna bomba takže je tu nutnost je při spotřebování plynu prohodit. Druhá nevýhoda je nemožnost používat spotřebiče za jízdy. Z bezpečnostních důvodů. A třetí nevýhodou je nebezpečí při možné havárii auta. Tento jednoduchý systém totiž neumí odpojit bomby a hrozí tak unik plynu, požár nebo exploze. </p>
+<p style="text-align: justify;"> </p>
+<p style="text-align: justify;"><span style="text-decoration: underline;">C) Řešení s použití produktů firmy TRUMA</span></p>
+<p style="text-align: justify;"><span>Na všechna lepší řešení už musíte vydat pár tisíc navíc. A proto je levnější výrobci mnohdy nedávají do základní výbavy vozu, i když jsou nanejvýš důležité a prospěšné. Firma Truma totiž vyrábí řadu sofistikovaných regulátorů s kombinovanou funkcí ochrany. Pojďme si je představit:</span></p>
+<p style="text-align: justify;"><span> </span></p>
+<p style="text-align: justify;"><span><a class="thickbox" href="../../userFiles/3-technika/plyn_teplo/bomb-06.jpg"><img class="roundblock" style="float: left;" title="Bomb-06" src="../../userFiles/3-technika/plyn_teplo/bomb-06.jpg" alt="Bomb-06" width="250" /></a></span><strong>Truma Duo Control </strong>- je plynový regulátor s mechanismem přepínajícím mezi dvěma bombami v případě, že v jedné z nich dojde plyn. Člověku tak odpadá nutnost nepříjemného přehazování bomb v zimě nebo třeba v noci. Takže máte dvě bomby, dvě hadice a regulátor Truma Duo Control. Ten stojí okolo 3500Kč. Stále však u něj platí nařízení o vypnutém plynu za jízdy. Spotřebiče se tedy v pohybu nesmí používat.</p>
+<p style="text-align: justify;"> </p>
+<p style="text-align: justify;"> </p>
+<p style="text-align: justify;"> </p>
+<p style="text-align: justify;"> </p>
+<p style="text-align: justify;">Nejvyšší, nejbezpečnější a tím tedy i nejlepší řešení představují regulátory <strong>TRUMA MONO CONTROL CS</strong> a <strong>TRUMA DUO CONTROL CS</strong>. To "CS" v názvu znamená, že jsou doplněny o Crash Senzor. Pojistku, která v případě nárazu v rychlosti vyšší než 15km/h okamžitě odpojí přívod plynu. Regulátory Truma CS jsou tak vlastně jedinou legální možností, jak za jízdy používat plynové spotřebiče (vytápění, atd.). Navíc je to samozřejmě i daleko vyšší zabezpečení právě v případě havárie. Pro napojení na <span style="text-decoration: underline;">jednu</span> bombu stojí Truma <span style="text-decoration: underline;">Mono</span> Control CS okolo 3500-4000Kč (vyrábí se ve vertikálním i horizontálním provedení), Truma <span style="text-decoration: underline;">Duo</span> Control CS pro <span style="text-decoration: underline;">dvě</span> bomby stojí 4500-5000kč. "Céeskové" regulátory bezpečně poznáte podle zeleného tlačítka nárazové pojistky.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/3-technika/plyn_teplo/bomb-05.jpg"><img class="roundblock" title="Bomb-05" src="../../userFiles/3-technika/plyn_teplo/bomb-05.jpg" alt="Bomb-05" width="700" /></a></p>
+<p style="text-align: justify;">A tak, když jsem v Dodíkovi našel při převzetí vozu jak nejvyšší regulátor Truma Duo Control CS, tak dokonce i obě vysokotlaké hadice, měl jsem vybavení v ceně minimálně 7000Kč už v základní výbavě. I na těchto "drobnostech" se může tvořit rozdíl mezi prodejní cenou u různých výrobců.</p>
+<p style="text-align: justify;"> </p>
+<p style="text-align: justify;"><span style="text-decoration: underline;">D) Plynové filtry</span></p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/3-technika/plyn_teplo/plynovy-filter-truma-2-2.png"><img class="roundblock" title="Plynovy-filter-truma-2-2" src="../../userFiles/3-technika/plyn_teplo/plynovy-filter-truma-2-2.png" alt="Plynovy-filter-truma-2-2" width="600" /></a></p>
+<p style="text-align: justify;">Ti pečlivější majitelé obytných aut a karavanů přidávaní do plynového rozvodu i plynové filtry. Montují se mezi hadici a regulátor a vcelku účinně odstraňují z plynu veškeré nečistoty, zvláště pak olejové složky. A daleko víc se to týká propan-butanu než čistého propanu. Filtry pracují s čistící účinností až 99%, mají ukazatel zašpinění vložené filtrační patrony a stojí 1300-1500kč/ks. Za novou filtrační vložku dáte většinou lehce přes 500kč/ks.</p>
+<p style="text-align: justify;"> </p>
+<p style="text-align: justify;"><span style="color: #0000ff;"><strong>2) Vyměnitelné plynové láhve neboli lidově "plynové bomby".</strong></span></p>
+<p style="text-align: justify;">Pokud chci zůstat u vyměnných plynových bomb, mám vlastně 3 možnosti, které používat. Liší se materiálem, ze kterého jsou udělány, hmotností a cenou.</p>
+<p style="text-align: justify;"><strong><a class="thickbox" href="../../userFiles/3-technika/plyn_teplo/bomb-7.jpg"><img class="roundblock" style="float: left;" title="Bomb-06" src="../../userFiles/3-technika/plyn_teplo/bomb-7.jpg" alt="Bomb-06" width="250" /></a> A) Ocelové bomby. </strong>Představují nejobvyklejší řešení. Všude jsou, všude je můžete vcelku snadno nechat vyměnit (čerpací stanice, různé vesnické prodejny, autoservisy, dokonce některé restaurace, atd. atd.). U velkých a specializovaných prodejců plynu se můžete i rozhodnout, jestli chcete láhev s propan-butanem nebo s čistým propanem. Když si ji někde berete poprvé, zaplatíte (prý) vratnou zálohu okolo 800kč za jednu. Ocelová láhev váží zhruba 11kg, takže při dvou plných lahvích na palubě tu máme 44kg odebraných z donosnosti auta.</p>
+<p style="text-align: justify;">  </p>
+<p style="text-align: justify;"> </p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/3-technika/plyn_teplo/bomb-07.jpg"><img class="roundblock" style="float: left;" title="Bomb-07" src="../../userFiles/3-technika/plyn_teplo/bomb-07.jpg" alt="Bomb-07" width="250" /></a></p>
+<p style="text-align: justify;"><strong>B) Kompozitní láhve.</strong>  Jak už název napovídá, jsou zkonstruovány z kompozitního materiálu, který je odolný ale hlavně lehký. Takže prázdná láhev váží asi 5kg, což představuje úsporu hmotnosti přes 10kg (při dvou lahvích) a to je docela znát. Mají bohužel ale mnohá "ale". Záloha na jednu kompozotní láhev je okolo 2000Kč. Ani zdaleka je nemají všude. Díky masivnímu plastovému límci jsou o zhruba 5cm vyšší než láhve ocelové (takže pro našeho Dodíka jsou bez úpravy schránky nepoužitelné). Škoda. Pokud máte v okolí dobrého prodejce plynu nabízejícího kompozitové láhve, ideálně jak s PB, tak s čistým propanem, a dostatečně velkou schránku na bomby, bylo by toto řešení můj favorit. Vývoj jde ale rychle dopředu a tak se jistě brzy objeví i pro Dodíka dostatečně malá kompozitní láhev na 11kg plynu.</p>
+<p style="text-align: justify;"> </p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/3-technika/plyn_teplo/bomb-08.jpg"><img class="roundblock" style="float: left;" title="Bomb-08" src="../../userFiles/3-technika/plyn_teplo/bomb-08.jpg" alt="Bomb-08" width="250" /></a></p>
+<p style="text-align: justify;"><strong>C) Láhve z hliníku.</strong> V této sekci o vyměnitelných lahvích je tato varianta spíš jen pro doplnění. Mají hmotnost opět jen asi 6kg (na 11kg náplně), nekorodují, jsou poměrně odolné. Prostě samé výhody. Ale prodejci plynu je na výměnu nenabízejí. Proč? Tyto láhve si ale můžete koupit v různých karavanistických shopech. Stejně jako láhve ocelové, a to jak v "českém" provedení (s ochranným límcem), tak s "německým" (jen s ochrannou čepičkou). Předpokládá se tedy, že si je necháte někde naplnit. Otázkou ale je <span style="text-decoration: underline;">kde</span>, <span style="text-decoration: underline;">za jakých podmínek</span> a hlavně: <span style="text-decoration: underline;">jestli se to oficiálně vůbec smí</span>. Jako vždy jde hlavně o bezpečnost.</p>
+<p style="text-align: justify;"> </p>
+<p style="text-align: justify;"> </p>
+<p style="text-align: justify;"> </p>
+<p style="text-align: justify;"><span style="color: #0000ff;"><strong>3) MALÁ ODBOČKA K PLATNÉ LEGISLATIVĚ</strong></span></p>
+<p style="text-align: justify;"><span style="text-decoration: underline;">a) Revize plynových lahví</span>. </p>
+<p style="text-align: justify;">Jako každé jiné plynové zařízení, musí mít i plynová láhev platnou revizi. Ta probíhá vždy ve specializovaném servisu. Každá láhev je při této proceduře zcela vyprázdněna, vymyta, je posouzen stav pláště láhve, odstraněn starý lak a nahrazen novým vypalovaným lakem. Ventil lahve je rozebrán a repasován, popřípadě dojde k nahrazení novým. Takto "opravená" pak musí projí tlakovou zkouškou – naplnění inertním plynem několikanásobně vyšším než provozním tlakem. Prostě docela odborná práce. O tom všem je pak proveden záznam na štítek, který najdete na každé láhvi na jejím límci.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/3-technika/plyn_teplo/bomb-09.jpg"><img class="roundblock" title="Bomb-09" src="../../userFiles/3-technika/plyn_teplo/bomb-09.jpg" alt="Bomb-09" width="600" /></a></p>
+<p style="text-align: justify;">Běžná PB láhev je použitelná maximálně 10 let od poslední platné revize, u organizací splňující nejpřísnější kvalitativní kriteria, tedy u většiny specializovaných prodejců plynu, je doba použitelnosti prodloužena na 15 let od poslední platné revize. <span style="text-decoration: underline;">Jakékoliv</span> lahve s posledním tlakovou zkouškou <span style="text-decoration: underline;">delší než 15 let není možno plnit</span>.</p>
+<p style="text-align: justify;">Bohužel, ne každý prodejce či distributor láhví je zodpovědný. V některých případech můžete v nějakém zapadákově klidně dostat při výměně lahev, která je stará, poničená a která přímo ohrožuje na životě a zdraví. Prodejce chce ušetřit nálady za provádění revizí "svých" lahví a tak distribuuje mezi své zákazníky nebezpečné lahve. Bez revize a klidně i poškozené.</p>
+<p style="text-align: justify;">A naopak - když si já koupím jakoukoliv svoji vlastní láhev, mám automaticky stejnou povinnost. Tedy hlídat si revizi a neničit láhev víc, než je zdrávo. Když pak jako zákazník požaduji naplnění takové poškozené lahve, plnírna mě NESMÍ vyhovět. Bohužel, reálná praxe je samozřejmě mnohdy jiná.  <span style="text-decoration-line: underline;">Oficiálně</span> se smí jakákoliv volně ložená láhev plnit jenom na <span>legálních a certifikovaných plnících stanicích s váhou. Těch zase není až tak moc. Jinde vám jí mohou buďto nenaplnit do možného maxima, takže platíte sice možná nižší cenu za 1kg plynu ale nedostanete deklarovaný a zaplacený počet kilogramů. A daleko větší problém je, když se bomba naplní více, že je kritická hodnota (vetšinou 80% kapacity lahve). To pak hrozí přetlak, únik plynu ... zbytek si domyslíte. </span></p>
+<p style="text-align: justify;"><span>Takže s<span>nížit váhu auta zakoupením hliníkových lahví se vyplatí jen těm<span>, kteří mají dobrou a spolehlivou plnírnu někde v okolí. N<span>avíc se taková láhev nesmí plnit přímo v obytňáku a tak ji musíte z auta vyndat úplně stejně, jako při běžné výměně.</span></span></span></span></p>
+<p style="text-align: justify;">Jsme národ kutilů. Každý si myslí, že je totální odborník ve všech oblastech, v otázkách plynu samozřejmě také. Na různých karavanistických diskuziních fórech čtu "rady" a "běžnou praxi", ze kterých vstávají hrůzou vlasy na hlavě. "Sehnal jsem si ventil a tak si napouštím z nádrže láhve sám". Vidím inzeráty, kde někdo prodává láhve, které vypadají jako že už absovovali jednu-dvě války, atd. atd. Tímto stylem "Pat a Mat" nikdy nepůjdu a opravdu vřele všem doporučuji to nedělat také. Devětsetdevadesátdevětkrát se to vyplatí a já ušetřím pár korun. A potisícáté přijdu o vše.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/3-technika/plyn_teplo/bomb-10.jpg"><img class="roundblock" title="Bomb-10" src="../../userFiles/3-technika/plyn_teplo/bomb-10.jpg" alt="Bomb-10" width="700" /></a></p>
+<p style="text-align: justify;"> </p>
+<p style="text-align: justify;"><span style="color: #0000ff;"><strong>4) Kolik mám v lahvích plynu?</strong></span></p>
+<p style="text-align: justify;">U výměnných bomb nemáme přesnou představu, kolik plynu mi v lahvích zbývá. Vydržím ještě příští víkend? Kolik jsem vypálil minulou sobotu a neděli? Samozřejmě mohu bombu vymontovat, postavit nebo pověsit na váhu, z výsledku odečíst hmotnost obalu a mám množství plynu, které mi zbývá. Asi cítíte, že to není zrovna praktické řešení pro každodenní použití.</p>
+<p style="text-align: justify;"><span style="text-decoration: underline;"> A) Ruční měřiče hladiny plynu</span></p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/3-technika/plyn_teplo/bomb-11.jpg"><img class="roundblock" title="Bomb-11" src="../../userFiles/3-technika/plyn_teplo/bomb-11.jpg" alt="Bomb-11" width="700" /></a></p>
+<p style="text-align: justify;">Nejjednodušší způsob je pořídit si ruční ultrazvukový měřič. Prostě ho přiložíte na bombu (ocelovou nebo hliníkovou) a pokud je v té výšce plyn, rozsvítí se zelená dioda. Pokud je tam už prázdno, svítí červená. Nejprodávanější je tento Truma Level Check. Stojí 1500-2000kč, jede na dvě AAA baterie a má i zabudovanou svítilnu. Používám ho k naprosté spokojenosti. Jediná nevýhoda je, že pro změření musím jít ven a otevřít prostor pro bomby.</p>
+<p style="text-align: justify;"><span style="text-decoration: underline;">B) Podstavce s váhou</span></p>
+<p style="text-align: justify;"><span style="text-decoration: underline;"><a class="thickbox" href="../../userFiles/3-technika/plyn_teplo/bomb-12.jpg"><img class="roundblock" title="Bomb-12" src="../../userFiles/3-technika/plyn_teplo/bomb-12.jpg" alt="Bomb-12" width="700" /></a> </span></p>
+<p style="text-align: justify;">Firma Brunner (ale i jiní výrobci) dodávají podstavec pro bombu (W8 gascontrol), který je vlastně váhou. Takže je vhodný pro všechny druhy bomb. Výsledky vážení pak posílá přes Bluetooth přímo do vašeho telefonu. Jede na 4 tužkové baterie a ty vydrží celou sezónu. Kontrola množství zbývajícího plynu je pak hračkou. Stačí být s telefonem v dosahu Bluetooth signálu, tedy v autě nebo jeho okolí. Nevýhody jsou dvě: cena za jeden podstavec je skoro 2.500kč a hlavně na výšku přidá k bombě dalších 4,5cm. A to je třeba pro mě už moc :-(</p>
+<p style="text-align: justify;"><span style="text-decoration: underline;">C) Ultrazvukové pevné snímače s Bluetooth.</span></p>
+<p style="text-align: justify;"> <a class="thickbox" href="../../userFiles/3-technika/plyn_teplo/bomb-13.jpg"><img class="roundblock" title="Bomb-13" src="../../userFiles/3-technika/plyn_teplo/bomb-13.jpg" alt="Bomb-13" width="700" /></a></p>
+<p style="text-align: justify;">Asi nejluxusnější řešení je součástí sofistikového systému pro obytňáky "Truma iNET". Truma iNET box je krabička (stojí asi 8000Kč), která umožní ovládat většinu nových produktů Truma (topení, ohřev vody, klimatizaci, atd) na dálku, přes Bluetooth nebo dokonce přes SIM kartu na dálku telefonem. Mohu si tedy např. pustit topení přímo ze sjezdovky dřív, než k autu dorazím. No a do tohoto systému lze připojit i magnetický ultrazvukový snímač. Prostě ho jen magneticky nacvaknete na dno ocelové lahve. U hliníkových musíte ještě přikoupit ocelové perko pro uchycení. No a pak si doma vzpomenete, vezmete do ruky telefon a zjistíte stav plynu v autě, které může být na třeba na druhé straně zeměkoule. Snímač stojí jeden zhruba 3500kč a znovu - musíte mít i ten iNet Box. Takže cenově nejdražší. Ale frajeřinka to je tedy hodně velká.</p>
+<p style="text-align: justify;"><iframe width="640" height="480" src="https://www.youtube.com/embed/J_06tWSfPpo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></p>
+<p style="text-align: justify;"> </p>
+<p style="text-align: justify;"><span style="color: #0000ff;"><strong>5) A jdeme na pevné montáže plynových nádrží</strong></span></p>
+<p style="text-align: justify;">Montáží pevné nádrže do obytného auta získáváme možnost natankovat propan-butan v podstatě kdekoliv na čerpací stanici, podle aktuální potřeby. Natankuji naftu a při té příležitosti z vedlejšího stojanu i plyn. Žádné starosti na cestách. Montáž musi provést samozřejmě odborná firma (opět apeluji na Pata a Mata aby neblbnuli a nezkoušeli domácí montáž), něco to stojí a celý systém v autě podléhá budoucím revizím. Existují dva základní typy instalací:</p>
+<p style="text-align: justify;"><span style="text-decoration: underline;">A) Instalace pevných hliníkových nádrží na místo běžných plynových lahví</span></p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/3-technika/plyn_teplo/bomb-14.jpg"><img class="roundblock" title="Bomb-14" src="../../userFiles/3-technika/plyn_teplo/bomb-14.jpg" alt="Bomb-14" width="700" /></a></p>
+<p style="text-align: justify;">Do prostoru pro lahve se namontují dvě hliníkové nádrže (na 2x10kg plynu), dále vnější plnící hrdlo, veškeré rozvody, měřiče hladiny, apod. Vše napevno, bez možnosti bomby vyjmout. Za celou instalaci si specializované firmy řeknou do 20000Kč. Samozřejmě lze instalovat např. jen jednu pevnou nádrž a na místo druhé dávat stále jednu běžně vyměnitelnou bombu. Vidíte, že alternativ pro řešení plynu je mnoho a dá se tedy přesně zvolit podle individuálních potřeb a požadavků.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/3-technika/plyn_teplo/bomb-15.jpg"><img class="roundblock" title="Bomb-15" src="../../userFiles/3-technika/plyn_teplo/bomb-15.jpg" alt="Bomb-15" width="500" /></a></p>
+<p style="text-align: justify;"> </p>
+<p style="text-align: justify;"><span style="text-decoration: underline;">B) Instalace speciální pevné nádrže do podvozku auta.</span></p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/3-technika/plyn_teplo/csm_nadrz_lpg_pro_karavan_254ab60a72.jpg"><img class="roundblock" title="Csm_nadrz_lpg_pro_karavan_254ab60a72" src="../../userFiles/3-technika/plyn_teplo/csm_nadrz_lpg_pro_karavan_254ab60a72.jpg" alt="Csm_nadrz_lpg_pro_karavan_254ab60a72" width="700" /></a></p>
+<p style="text-align: justify;">Tedy ona ta nádrž se může namontovat jak do podvozku, tak i na vhodné místo přímo do nástavby. Nádrží se nabízí mnoho druhů, tvarů a velikostí. Instalací pořádné nádrže se dostaváme na velkou zásobu plynu, co sebou vezeme. Klidně i třeba 200kg. Cena za montáž se nedá jednoduše říct. Záleží na veliikosti nádrže, umístění a náročnosti montáže. Ale pár desítek tisíc to bude. No a aby to bylo ještě pestřejší, všechny tři možnosti (tedy výměnná bomba, pevná bomba a separátní nádrž) lze samozřejmě v jednom autě libovolně kombinovat.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/3-technika/plyn_teplo/bomb-16.jpg"><img class="roundblock" title="Bomb-16" src="../../userFiles/3-technika/plyn_teplo/bomb-16.jpg" alt="Bomb-16" width="700" /></a></p>
+<p style="text-align: justify;">Pozn. čtenáře Tomáše Dědka: Nepříjemnou vlastností a tedy <span>nevýhodou napevno umístěných tlakových lahví, ať stojatých nebo ležatých, patří hromadění zbytkové vody v nádobách a s tím případné možné poruchy při odběru plynu. Tato voda se tam dostává s plynem u stojanu, po odčerpání plynu tam ta voda zůstává protože my čerpáme z lahví pouze plynou část. Po sezoně to může činit i nějaký ten litr. Je dobré na to myslet. </span></p>
+<p style="text-align: justify;">A tím jsme asi vyčerpali všechny možnosti, které se karavanistovi nabízejí a je na čase začít trochu filozofovat o výhodách a nevýhodách všech řešení.</p>
+<p style="text-align: justify;"> </p>
+<h3 style="text-align: justify;"><span style="color: #0000ff;"><strong>6) Jaké je tedy to nejlepší řešení ?</strong></span></h3>
+<p style="text-align: justify;">Jednoznačná odpověď na tuto základní otázku neexistuje.</p>
+<p style="text-align: justify;">1) Každý z nás jezdí <span style="text-decoration: underline;">jiným stylem</span>. Někdo je divočák, někdo jezdí do kempů. Vyjíždí z domova a v neděli se vrací zpět domů. Někdo cestuje stále z místa na místo, má volné zaměstnání nebo je v důchodu (nebo je rentiér).</p>
+<p style="text-align: justify;">2) Každý z nás jezdí <span style="text-decoration: underline;">různě často</span>. Někdo jen párkrát za sezónu na pár dní, někdo v obytném autě žije klidně celý rok non-stop.</p>
+<p style="text-align: justify;">3) Každý z nás jezdí <span style="text-decoration: underline;">v různých obdobích roku</span>.  Někdo jezdí jen v letní sezóně, trochu na jaře a trochu na podzim. Někdo jezdí celoročně, v zimě ale jen párkrát. A někdo je lyžař a zimní měsíce jsou pro něj hlavní sezóna.</p>
+<p style="text-align: justify;">4) Každý z nás jezdí rozdílně <span style="text-decoration: underline;">do různých oblastí</span>.  Někdo jezdí hlavně po České republice, někdo je převážně v zahraničí. </p>
+<p style="text-align: justify;"> </p>
+<p style="text-align: justify;">Nabízím "rozhodovací vývojový diagram" který jsem použil pro naše podmínky. Netvrdím, že musí fungovat na všechny kolegy nomády. Ale jen pro inspiraci:</p>
+<p></p><p><strong><span style="text-decoration: underline;"><a class="thickbox" href="../../userFiles/3-technika/plyn_teplo/bomb-17.jpg"><img class="roundblock" style="float: left;" title="Bomb-17" src="../../userFiles/3-technika/plyn_teplo/bomb-17.jpg" alt="Bomb-17" width="250" /></a> </span>OTÁZKA č.1 - budu pravidelně jezdit tak daleko, nebo v zimě, že mi 2x11kg nebude na takovou jednu cestu stačit?</strong></p>
+<p style="text-align: justify;">22kg plynu ve dvou lahvích může v zimě, kdy je třeba 10st mráz, padnout za jeden víkend. V létě vám stejné množství stačí klidně na měsíční kontinuální cestu. Obecně je topení v autě totiž bezpečně největší žrout plynu. Pokud je odpověď na první otázku "ano", je dobré uvažovat o instalaci velké pevné nádrže. Každopádně budu muset nasadit minimálně pevné lahve, abych mohl v případě vyčerpání plynu dotankovat plyn na nějaké čerpací stanici na cestě. Velmi pravděpodobně pak budete mít propan-butan, se všemi nevýhodami, které při nízkých teplotách přináší (viz. první <a href="26_10_2018---i-tehdy-rekl-buh_-budiz-plyn_.html">článek</a>). Samozřejmě jsou i náhradní řešení: mít výměnné láhve s propanem, vozit v garáži další náhradní láhve (pozor na řádné odvětrání garáže) a vyměňovat je.  Nebo mít instalované přídavné naftové topení, apod.  Každopádně - velká nádrž v podvozku vozu se vyplatí jen opravdu vášnivým cestovatelům, s velkým podílem zimních cest. Pro nás tedy stačí běžné bomby.</p>
+<p style="text-align: justify;"> </p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/3-technika/plyn_teplo/bomb-18.jpg"><img class="roundblock" style="float: left;" title="Bomb-18" src="../../userFiles/3-technika/plyn_teplo/bomb-18.jpg" alt="Bomb-18" width="250" /></a><strong> OTÁZKA č.2 - chci řešit, jaká je v průběhu roku venku teplota a jestli mám ten správný plyn ?</strong></p>
+<p style="text-align: justify;">Je to vlastně otázka používání čistého propanu. Propan je celoroční plyn, nikdy vám samovolně nezkapalní. Tedy pokud nebude v teplotě nižší než <span>-43 °C</span><span>. </span>Je čistší, nebude zanášet hořáky, trysky, reduktory a další součástky. Je ale dražší, dostanete ho ve výměnných lahvích jenom někde a hlavně: v ČR je zatím pouhopouhých sedm čerpacích stanic. Takže nasazení jakékoliv pevné nádrže nebo bomb nemá moc logiku. Pokud ale máte štěstí a bydlíte blízko některé z těchto stanic, je to úplně jiná otázka a vybavit vůz pevnými lahvemi (tedy lehkým hliníkem) a čerpat do nich čistý propan, mi připadá jako skoro ideální řešení. A v nouzi nejvyšší lze natankovat samozřejmě i propan-butan.</p>
+<p style="text-align: justify;">Zatím (co tedy já vím), jsou stanice, které vám natankují čistý propan ve Zlíně, Hradci Králové, Opavě, Brně-Zábrdovicích, v Mimoni u České lípy, a ve vesničce Liptál u Vsetína. Toť vše. Někde se musíte dokonce i předem objednat. Kdo se tedy rozhodl pro propan, velmi pravděpodobně se rozhodl pro běžně vyměnitelné bomby. Což je náš případ. Prodejce bomb s propanem máme za rohem a po většinu roku mi na výlet 2x11kg bohatě stačí.</p>
+<p style="text-align: justify;"> </p>
+<p style="text-align: justify;"> <strong><a class="thickbox" href="../../userFiles/3-technika/plyn_teplo/bomb-19.jpg"><img class="roundblock" style="float: left;" title="Bomb-19" src="../../userFiles/3-technika/plyn_teplo/bomb-19.jpg" alt="Bomb-19" width="250" /></a>OTÁZKA č.3 - kolik mám místa ve schránce na bomby?</strong></p>
+<p style="text-align: justify;">Tato otázka míří na případné použití kompozitních lahví. Ano, při jejich prvotním "nákupu" zaplatíte vyšší zálohu ale ušetříte více než 10kg hmotnosti. Pak už jejich výměna je stejně drahá jako běžná láhev -platíte jen za plyn. Potřebujete ale větší schránku, kompozit je o 5cm vyšší. A pokud byste se chtěli někdy vybavit i vážící podložkou od Brunnerů, potřebujete najednou navíc 10cm výšky ve schránce. No a to my nemáme. Takže nám zbývá řešení pomocí běžných ocelových lahví. </p>
+<p style="text-align: justify;">Mám tedy čistý propan - neřeším roční období. Když pojedu někam v zimě na dlouhou dobu, vezmu si do garáže jednu nebo dvě lahve navíc. Ale to se hned tak nestane. A měřit hladinu budu dál ručním měřákem Truma, v budoucnu uvažuji o iNET boxu a pak bych mohl přejít na magnetická ultrazvuková čidla. </p>
+<p style="text-align: justify;">Obecně lze říct, že primární je rozhodnutí, jestli budu používat čistý propan. Ten kromě nesporných výhod přináší ale i všechna ta omezení, která vás nasměřují k běžným výměnným lahvím. Tedy pokud jako my bydlíte daleko od nejbližší plnírny čistého propanu.</p>
+<p style="text-align: justify;"> </p>
+<p style="text-align: justify;">A s tím tento článek končím. Po prostudování všech možných informací, po poznání všech možností, jsem pro náš styl jezdění dospěl zase zpět na začátek. Základní ocelové láhve, plněné čistým propanem. No, toto tvrzení a rozhodnutí ale platí pro rok 2019, dál ho třeba změníme. A znovu - co karavanista, to jiná odpověď. Tak ať vám to jezdí ! (a topí, a vaří, a chladí).</p>
+</div>
+</div>
+
+	</div>
+
+	<div id="rightbar">
+	
+	    <div class="boxed ">
+
+
+<h2>Co vás zajímá?</h2>
+<div class="content2">
+
+<div id="menu-bott"></div></div></div>
+<div class="boxed ">
+
+
+<h2>Kontakty na nás</h2>
+<div class="content2">
+
+<h3><img style="margin: 10px 0px !important;" src="../../userFiles/system/logo.jpg" alt="" /></h3>
+<h3>Náš parťák obytňák</h3>
+<p>Jirka a Jana<br />Praha</p>
+<p><a href="mailto:jiri.pm@seznam.cz">jiri.pm@seznam.cz</a></p>
+<p></p></div></div>
+<div class="boxed ">
+
+
+<h2>Návštěvy na těchto stránkách...</h2>
+<div class="content2">
+
+<p><a href="https://www.toplist.cz/">
+<script language="JavaScript" type="text/javascript">// <![CDATA[
+document.write('<img src="https://toplist.cz/count.asp?id=1782081&amp;logo=mc&amp;http='+
+escape(document.referrer)+'&amp;t='+escape(document.title)+
+'&amp;wi='+escape(window.screen.width)+'&amp;he='+escape(window.screen.height)+'&amp;cd='+
+escape(window.screen.colorDepth)+'" width="88" height="60" border=0 alt="TOPlist" />');
+// ]]></script>
+</a></p>
+<noscript><img src="https://toplist.cz/count.asp?id=1782081&amp;logo=mc" border="0"
+alt="TOPlist" width="88" height="60" /></noscript></div></div>
+
+	</div>
+
+</div><!-- wrap ends here -->
+
+<!-- footer starts here -->
+	<div id="footer">
+		<div id="footer-content">
+		<div id="footer-right">
+			<p class="paticka" style=""><span id=p1 class=ostravski><a href=http://www.ostravski.cz/?levny-webdesign target=:"_blank" >
+Ostravski Webdesign
+</a>
+ |
+ <a href="http://www.banan.cz/produkty/webove-stranky-zdarma?web-zdarma" title="Webové stránky zdarma" target="_blank">
+ Webové stránky zdarma</a>
+ od <a href="http://www.banan.cz/?webhosting-banan" title="webhosting a domény" target="_blank">BANAN.CZ</a>
+ </span>
+
+<span class="paticka_user"> | <a href="http://www.nas-partak-obytnak.cz/admin/">přihlásit se</a></span>
+
+
+</p>
+
+<!-- banan=rs -->		</div>
+
+		<div id="footer-left">
+            <p>
+						            </p>
+		</div>
+		</div>
+	</div>
+<!-- footer ends here -->
+
+</body>
+
+<!-- Mirrored from www.nas-partak-obytnak.cz/technika/plyn-a-topeni/31_01_2019---menit-bomby-nebo-napevno_ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Sep 2024 12:43:45 GMT -->
+</html>
+<!--SQL: 0 | cas: 0.019802093505859 | pamet: 644056-->

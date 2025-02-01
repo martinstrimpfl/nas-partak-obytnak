@@ -1,0 +1,570 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<!-- Mirrored from www.nas-partak-obytnak.cz/trasy/jedeme-na-dovolenou/2020---jeseniky-a-cast-moravy by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 18 Sep 2024 06:01:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+
+<base  />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="../../userFiles/favicon.ico" rel="shortcut icon" type="image/ico" />
+<meta property="og:image" content="../../userFiles/system/mazlikfcbk.jpg" />
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript" src="../../file3d83.php?f=js/jquery.ui.js.php"></script>
+<script type="text/javascript" src="../../file3ec2.php?f=plugins/thickbox/thickbox.js.php"></script>
+<script type="text/javascript" src="../../js/init.js"></script>
+<link rel="stylesheet" type="text/css" href="../../plugins/datetimepicker/build/jquery.datetimepicker.min.css" media="all" />
+<script type="text/javascript" src="../../plugins/datetimepicker/build/jquery.datetimepicker.full.js"></script>
+<script type="text/javascript" src="../../js/s.js"></script>
+<script type="text/javascript" src="../../js/jquery.roundblock.js"></script>
+<link href="../../plugins/nanogallery2-3.0.5/dist/css/nanogallery2.min.css" rel="stylesheet" type="text/css">
+<script  type="text/javascript" src="../../plugins/nanogallery2-3.0.5/dist/jquery.nanogallery2.min.js"></script>
+<link rel="stylesheet" href="../../plugins/bootstrap_modalonly/css/bootstrap.css">
+<script src="../../plugins/bootstrap_modalonly/js/bootstrap.js"></script>    
+<script type="text/javascript" src="../../js/jquery.cookie.js"></script>
+
+<!--[if lte IE 6]>
+<script type="text/javascript" src="js/jquery.ifixpng.js"></script>
+<script type="text/javascript"> $.ifixpng("admin/transparent.gif"); $(function(){ $("div").ifixpng(); }); </script>
+<![endif]-->
+
+<meta name="basepathlng" content="./" />
+<meta http-equiv="content-language" content="cs" />
+<!-- UH -->
+<link href="https://fonts.googleapis.com/css?family=Rajdhani:300,400,500,600,700" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700&amp;subset=latin-ext" rel="stylesheet">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<script type="text/javascript">
+$(function(){
+
+if (window.isFrontpage)
+  {
+   $('body').addClass('uvod');
+}
+
+if ($(window).width() < 1001) {
+   $('body').addClass('resp');
+}
+
+$("#sidebar>ul>li>ul>li>ul>li>ul>li.current").parent().parent().addClass('current aktivni');
+$("#sidebar>ul>li>ul>li>ul>li.current").parent().parent().addClass('current aktivni');
+$("#sidebar>ul>li>ul>li.current").parent().parent().addClass('current aktivni');
+$("#sidebar>ul>li.current").addClass('aktivni');
+
+$(".uvod .post .fotogalerie").parent().parent().addClass('blok-foto');
+
+$("#menu").appendTo("#header");
+
+$("body").prepend("<div id=max-slide></div>");
+
+$("#header").wrap("<div id=max-header></div>");
+$("#max-header").prependTo("body");
+/*$(".formular").appendTo(".theme-default .nivoSlider");*/
+
+$(".slider-wrapper").appendTo("#max-slide");
+
+$('input.button').val('odeslat');
+
+$("#locales").insertAfter("#slogan");
+
+$("#wrap").append("<hr>");
+
+$("body>#max-slide>.slider-wrapper").parent().parent().addClass('akt-slide');
+$("#sidebar>ul>li.aktivni").parent().parent().parent().addClass('split');
+
+$("#rightbar").prependTo("#footer");
+$("#main>h1").wrap("<p class=post-center></p>");
+
+$(".paticka_banan a:first-child").text("Webové stránky");
+$('.paticka_banan a:first-child').attr('title', 'Webové stránky od BANAN.CZ');
+
+$("body.resp #sidebar").insertAfter("#main");
+
+$("#menu>ul").clone().appendTo("#menu-bott");
+$("#info").appendTo("#wrap");
+
+})
+
+//responzivni menu
+
+$(function() {
+$('#menu').prepend('<div id="pull" onclick="return false;"></div>');
+var $pull = ('#pull');
+var $menu = $('#menu > ul');
+
+$(pull).on('click', function(e) {
+	e.preventDefault();
+	if(!$menu.data('show')){
+           $menu.height('initial').height($(document).height() - $("#menu > ul").offset().top);
+           $menu.stop(true, true).data({show: true}).animate({'margin-left': '0'});
+        }else
+           $menu.stop(true, true).data({show: false}).animate({'margin-left': -$menu.width()}, function(){
+               var height = $(this).height();
+               $(this).removeAttr("style").height(height);
+           });
+
+});
+
+$(document).bind('click', function(e) {
+if($menu.data('show')){
+  if(!$(e.target).is('#menu *')) {
+    $menu.stop(true, true).data({show: false}).animate({'margin-left': -$menu.width()}, function(){
+               var height = $(this).height();
+               $(this).removeAttr("style").height(height);
+           });
+  }
+}
+});
+$(window).resize(function(){
+   CheckMenu($menu);
+});
+CheckMenu($menu);
+
+function CheckMenu($menu){
+   var w = window.innerWidth;
+   if(w > 1000) {
+       $menu.removeAttr('style');
+       $menu.find('.menu_add_row').remove();
+       $menu.height('initial');
+       $menu.data('show', false);
+   } else {
+     $menu.find('.menu_add_row').remove();
+     $menu.find('li').each(function(){
+        var $ull = $(this).find('ul');
+        if($ull.length){
+           $(this).append($('<div class="menu_add_row '+ ($ull.data('active')?'active':'') +'"></div>').data('$ul', $ull).click(function(){
+                   if(!$(this).data('$ul').data('active'))
+                     $(this).addClass('active').data('$ul').data('active', true).addClass('menu_add_show').parents('li:first').addClass('menu_add_active');
+                   else
+                     $(this).removeClass('active').data('$ul').data('active', false).removeClass('menu_add_show').parents('li:first').removeClass('menu_add_active');
+           }));
+
+        }
+      })
+     $menu.height('initial').height($(document).height() - $("#menu > ul").offset().top);
+     }
+   }
+});
+
+</script>
+
+<!--[if gte IE 9]>
+  <style type="text/css">
+    body, .mimg, .rsslink, #menu>ul>li>ul, .more, .button, #menu>ul>li>a:hover, #menu>ul>li.current>a,  #menu>ul>li:hover>a, .button:hover, .more:hover, #menu>ul>li>a {
+       filter: none !important;
+    }
+  </style>
+<![endif]-->
+<!--[if IE ]>
+  <style type="text/css">
+    .addthis_container {
+
+}
+  </style>
+<![endif]-->
+<!-- /UH -->
+<meta name="description" content="Zpropadený koronavirus! Ani tento rok nemůžeme (nebo se spíš i trochu obáváme) uskutečnit naší plánovanou velkou výpravu do..." />
+<meta name="keywords" content="" />
+<title>2020 - Jeseníky a část Moravy | Náš parťák obytňák</title>
+<meta property="og:title"  content= "Náš parťák obytňák" />
+<meta property="og:description"  content= "Zpropadený koronavirus! Ani tento rok nemůžeme (nebo se spíš i trochu obáváme) uskutečnit naší plánovanou velkou výpravu do..." />
+<!-- Page Head -->
+
+<!-- /Page Head -->
+
+<link rel="stylesheet" href="../../css.css" type="text/css" media="screen,print" />
+
+<style> .paticka_vzhled {display:inline!important;  } </style>
+<!--[if IE]> <link rel="stylesheet" type="text/css" href="ie.css" /> <![endif]-->
+<!--[if lte IE 7]> <link rel="stylesheet" type="text/css" href="ie7.css" /> <![endif]-->
+<script type="text/javascript">
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : "486735741442178",
+      channelUrl : "//www.nas-partak-obytnak.cz/file.php?f=plugins/facebook/channel.js.php&l=cs_CZ",
+      status     : true,
+      xfbml      : true
+    });
+  };
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "../../../connect.facebook.net/cs_CZ/all.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, "script", "facebook-jssdk"));
+
+</script>
+
+</head>
+
+<body>
+<div id="wrap"><!-- wrap starts here -->
+
+	<div id="header">
+
+				<h1 id="logo"><a href="../../index.html" title="">Náš parťák obytňák</a></h1>		<h2 id="slogan">Náš parťák obytňák</h2>
+	</div>
+
+	<div id="menu">
+
+		<ul><li><a href="../../index.html">Úvod</a></li><li><a href="../../svet-nomadu.html">Svět nomádů</a><ul><li><a href="../../svet-nomadu/2024.html">2024</a><ul><li><a href="../../svet-nomadu/2024/predstaveni-pilote-atlas-a656d-2024.html">Představení Pilote Atlas A656D 2024</a></li></ul></li><li><a href="../../svet-nomadu/2022.html">2022</a><ul><li><a href="../../svet-nomadu/2022/01_02_2022---clark-cortez---neznama-legenda.html">01.02.2022 - Clark Cortez - neznámá legenda</a></li></ul></li><li><a href="../../svet-nomadu/2021.html">2021</a><ul><li><a href="../../svet-nomadu/2021/17_07_2021---novy-fiat-ducato-uz-oficialne.html">17.07.2021 - Nový Fiat Ducato už oficiálně</a></li><li><a href="../../svet-nomadu/2021/30_05_2021---amik-s-evropskym-srdcem.html">30.05.2021 - Amík s evropským srdcem</a></li><li><a href="../../svet-nomadu/2021/11_04_2021---nejkrasnejsi-osklivky-70_let.html">11.04.2021 - Nejkrásnější ošklivky 70.let</a></li><li><a href="../../svet-nomadu/2021/28_03_2021---kdo-se-prvni-v-obytnaku-sprchoval_.html">28.03.2021 - Kdo se první v obytňáku sprchoval?</a></li><li><a href="../../svet-nomadu/2021/02_03_2021---joo_-holt-ta-cina_.html">02.03.2021 - Jóó, holt ta Čína!</a></li><li><a href="../../svet-nomadu/2021/21_02_2021---facelift-fiatu-ducato-2022.html">21.02.2021 - Facelift Fiatu Ducato 2022</a></li><li><a href="../../svet-nomadu/2021/14_02_2021---obytnak-pro-krizove-obdobi.html">14.02.2021 - Obytňák pro krizové období</a></li><li><a href="../../svet-nomadu/2021/05_01_2021---krasna-silenost_-z-triton.html">05.01.2021 - Krásná šílenost: Z-Triton</a></li><li><a href="../../svet-nomadu/2021/01_01_2021---kraska-ultra-van.html">01.01.2021 - Kráska ULTRA VAN</a></li></ul></li><li><a href="../../svet-nomadu/2019.html">2019</a><ul><li><a href="../../svet-nomadu/2019/11_11_2019---tourne_-prvni-van-do-zimy_.html">11.11.2019 - Tourne. První van do zimy!</a></li><li><a href="../../svet-nomadu/2019/05_07_2018---kral-pop-kultury.html">05.07.2018 - Král pop kultury</a></li><li><a href="../../svet-nomadu/2019/12_03_2019---ktera-znacka-je-nejstarsi-_.html">12.03.2019 - Která značka je nejstarší ?</a></li><li><a href="../../svet-nomadu/2019/09_03_2019---quo-vadis_-ceske-vystavy_.html">09.03.2019 - Quo Vadis, české výstavy?</a></li><li><a href="../../svet-nomadu/2019/28_02_2019---nejrychlejsi-obytne-auto-na-zemi.html">28.02.2019 - Nejrychlejší obytné auto na Zemi</a></li><li><a href="../../svet-nomadu/2019/24_02_2019---ikonicky-obytnak-ze-sedmdesatek_-gmc.html">24.02.2019 - Ikonický obytňák ze sedmdesátek: GMC</a></li><li><a href="../../svet-nomadu/2019/05_02_2019---prvni-ciste-elektricky-obytnak-_.html">05.02.2019 - První čistě elektrický obytňák !</a></li></ul></li><li><a href="../../svet-nomadu/2018.html">2018</a><ul><li><a href="../../svet-nomadu/2018/23_12_2018---vykradli-zdenka-a-bobesku-_.html">23.12.2018 - Vykradli Zdeňka a Bobešku !</a></li><li><a href="../../svet-nomadu/2018/25_11_2018---fiat-ducato-po-australsku.html">25.11.2018 - Fiat Ducato po australsku</a></li><li><a href="../../svet-nomadu/2018/11_11_2018---polointegovany-nebo-intergrovany-model_.html">11.11.2018 - Polointegovaný nebo intergrovaný model?</a></li><li><a href="../../svet-nomadu/2018/09_10_2018---fantomasuv-obytnak.html">09.10.2018 - Fantomasův obytňák</a></li><li><a href="../../svet-nomadu/2018/33_09_2018---obytnak-s-terasou-_.html">33.09.2018 - Obytňák s terasou !</a></li><li><a href="../../svet-nomadu/2018/29_08_2018---modely-pilote-pro-rok-2019.html">29.08.2018 - Modely PILOTE pro rok 2019</a></li><li><a href="../../svet-nomadu/2018/30_06_2018---trocha-karavanistickeho-steampunku.html">30.06.2018 - Trocha karavanistického steampunku</a></li><li><a href="../../svet-nomadu/2018/30_05_2018---evropske-vystavy-2018_19.html">30.05.2018 - Evropské výstavy 2018/19</a></li><li><a href="../../svet-nomadu/2018/23_05_2018---80-let-stary-obytnak-kpt_dunna.html">23.05.2018 - 80 let starý obytňák kpt.Dunna</a></li><li><a href="../../svet-nomadu/2018/15_03_2018-vyrobci-vybavy-a-doplnku.html">15.03.2018 Výrobci výbavy a doplňků</a></li><li><a href="../../svet-nomadu/2018/12_03_2018-for-caravan-2018_-praha.html">12.03.2018 FOR CARAVAN 2018, Praha</a></li><li><a href="../../svet-nomadu/2018/06_02_2018-evropske-znacky-obytnych-vozu.html">06.02.2018 Evropské značky obytných vozů</a></li><li><a href="../../svet-nomadu/2018/01_02_2018-jak-nakupovat-na-italskych-webshopech-_.html">01.02.2018 Jak nakupovat na italských webshopech ?</a></li><li><a href="../../svet-nomadu/2018/21_01_2018-dost-mista-na-vareni-_.html">21.01.2018 Dost místa na vaření ?</a></li></ul></li><li><a href="../../svet-nomadu/2017.html">2017</a><ul><li><a href="../../svet-nomadu/2017/09_11_2017-caravaning-brno-2017.html">09.11.2017 Caravaning Brno 2017</a></li><li><a href="../../svet-nomadu/2017/13_10_2018-retro-stroje_-usvit-obytnych-aut.html">13.10.2018 Retro stroje, úsvit obytných aut</a></li><li><a href="../../svet-nomadu/2017/15_09_2017-evropsky-caravaning-ocima-americanu.html">15.09.2017 Evropský caravaning očima Američanů</a></li><li><a href="../../svet-nomadu/2017/12_09_2017-retro-stroje-brooks-stevens.html">12.09.2017 Retro stroje Brooks Stevens</a></li><li><a href="../../svet-nomadu/2017/09_09_2017-janackovi-a-jejich-flicek.html">09.09.2017 Janáčkovi a jejich Flíček</a></li><li><a href="../../svet-nomadu/2017/03_09_2017-caravan-salon-2017.html">03.09.2017 Caravan Salon 2017</a></li></ul></li><li><a href="../../svet-nomadu/archiv-aktualit-dne.html">Archiv aktualit dne</a></li></ul></li><li><a href="../../technika.html">Technika</a><ul><li><a href="../../technika/motor-a-podvozek.html">Motor a Podvozek</a><ul><li><a href="../../technika/motor-a-podvozek/11_4_2022---na-kolik-vlastne-hustit-mechy_.html">11.4.2022 - Na kolik vlastně hustit měchy?</a></li><li><a href="../../technika/motor-a-podvozek/14_03_2022---nova-pneumatika-michelin-crossclimate-camping.html">14.03.2022 - nová pneumatika Michelin CrossClimate Camping</a></li><li><a href="../../technika/motor-a-podvozek/03_11_2019---dva-roky-z-robotickou-prevodovkou.html">03.11.2019 - Dva roky z robotickou převodovkou</a></li><li><a href="../../technika/motor-a-podvozek/04_08_2019---jak-pomahaji-mechy-s-vyskou_.html">04.08.2019 - Jak pomáhají měchy s výškou?</a></li><li><a href="../../technika/motor-a-podvozek/09_02_2019---spravne-husteni-pneumatik-_.html">09.02.2019 - Správné huštění pneumatik ?</a></li><li><a href="../../technika/motor-a-podvozek/28_10_2017---prevodovka-automatika-nebo-manual-_.html">28.10.2017 - Převodovka automatika nebo manuál ?</a></li></ul></li><li><a href="../../technika/nastavba.html">Nástavba</a><ul><li><a href="../../technika/nastavba/01_06_2021---jak-myjete-sve-auto-vy-_.html">01.06.2021 - Jak myjete své auto vy ?</a></li></ul></li><li><a href="../../technika/elektrina.html">Elektřina</a><ul><li><a href="../../technika/elektrina/20_01_2022---dame-tam-solar-_.html">20.01.2022 - Dáme tam solár !</a></li><li><a href="../../technika/elektrina/26_03_2018---jak-to-delaji-pri-vyrobe-_.html">26.03.2018 - Jak to dělají při výrobě ?</a></li><li><a href="../../technika/elektrina/20_01_2018---moderni-laska-ma-jmeno_-lifepo.html">20.01.2018 - Moderní láska má jméno: LiFePo</a></li><li><a href="../../technika/elektrina/28_12_2017---baterie_-baterie_-baterie.html">28.12.2017 - Baterie, baterie, baterie</a></li></ul></li><li><a href="../../technika/av-a-elektronika.html">AV a elektronika</a><ul><li><a href="../../technika/av-a-elektronika/10_04_2021---zkusenost-s-av-jednotkou-xzent-x-227.html">10.04.2021 - Zkušenost s AV jednotkou XZent X-227</a></li><li><a href="../../technika/av-a-elektronika/02_08_2019---rok-s-navigaci-garmin-camper-770t-d.html">02.08.2019 - Rok s navigací Garmin Camper 770T-D</a></li><li><a href="../../technika/av-a-elektronika/03_02_2019---digitalni-rozhlas-v-cr-pro-rok-2019-a-dal.html">03.02.2019 - Digitální rozhlas v ČR pro rok 2019 a dál</a></li><li><a href="../../technika/av-a-elektronika/04_03_2018---nastava-soumrak-satelitnich-anten-_.html">04.03.2018 - Nastává soumrak satelitních antén ?</a></li><li><a href="../../technika/av-a-elektronika/05_02_2018---360__omnivue_-draha-ale-super-hracka.html">05.02.2018 - 360°Omnivue: drahá ale super hračka</a></li><li><a href="../../technika/av-a-elektronika/26_01_2018---dvb-t_t2-antena-na-strechu.html">26.01.2018 - DVB-T/T2 anténa na střechu</a></li><li><a href="../../technika/av-a-elektronika/07_09_2017---jak-je-to-s-cenou-sw-navigace-sygic-truck-_.html">07.09.2017 - Jak je to s cenou sw navigace Sygic Truck ?</a></li><li><a href="../../technika/av-a-elektronika/04_09_2017---jakou-navigaci-si-vybrat-_.html">04.09.2017 - Jakou navigaci si vybrat ?</a></li></ul></li><li><a href="../../technika/voda-a-to-dalsi.html">Voda a to další</a><ul><li><a href="../../technika/voda-a-to-dalsi/20_02_2021---nas-obytnak-smrdi-_.html">20.02.2021 - Náš obytňák smrdí !</a></li><li><a href="../../technika/voda-a-to-dalsi/29_12_2019-co-je-vlastne-kompostovaci-zachod_.html">29.12.2019 Co je vlastně kompostovací záchod?</a></li><li><a href="../../technika/voda-a-to-dalsi/16_02_2019---udrzba-wc-kazety-dometic-rady-ct.html">16.02.2019 - Údržba WC kazety DOMETIC řady CT</a></li><li><a href="../../technika/voda-a-to-dalsi/chemicke-wc_-a-co-dal_.html">Chemické WC. A co dál?</a></li></ul></li><li><a href="../../technika/plyn-a-topeni.html">Plyn a topení</a><ul><li><a href="../../technika/plyn-a-topeni/27_12_2020---jak-je-to-se-spotrebou-plynu-_.html">27.12.2020 - Jak je to se spotřebou plynu ?</a></li><li><a href="../../technika/plyn-a-topeni/31_01_2019---menit-bomby-nebo-napevno_.html">31.01.2019 - Měnit bomby nebo napevno?</a></li><li><a href="../../technika/plyn-a-topeni/26_10_2018---i-tehdy-rekl-buh_-budiz-plyn_.html">26.10.2018 - I tehdy řekl Bůh: Budiž plyn!</a></li><li><a href="../../technika/plyn-a-topeni/10_6_2018---nastava-propojeni-dvou-svetu_.html">10.6.2018 - nastává propojení dvou světů!</a></li></ul></li><li><a href="../../technika/volna-vybava.html">Volná výbava</a><ul><li><a href="../../technika/volna-vybava/10_10_2018---znate-stul-tailgater_.html">10.10.2018 - Znáte stůl Tailgater?</a></li><li><a href="../../technika/volna-vybava/13_05_2018---caj-a-kava-na-palube-dodika.html">13.05.2018 - Čaj a káva na palubě Dodíka</a></li><li><a href="../../technika/volna-vybava/05_04_2018---what3words_-navigace-budoucnosti_.html">05.04.2018 - What3Words: navigace budoucnosti?</a></li><li><a href="../../technika/volna-vybava/23_09_2017---vybirame-nadobi_.html">23.09.2017 - Vybíráme nádobí.</a></li></ul></li></ul></li><li><a href="../../blog.html">Blog</a><ul><li><a href="../../blog/2022.html">2022</a><ul><li><a href="../../blog/2022/12_08_2022---at-nas-neceka-osud-vodaku-_.html">12.08.2022 - Ať nás nečeká osud vodáků !</a></li><li><a href="../../blog/2022/01_06_2022---kempari-a-divocaci.html">01.06.2022 - Kempaři a divočáci</a></li><li><a href="../../blog/2022/22_01_2022---s-karavanem-po-cesku.html">22.01.2022 - S karavanem po Česku</a></li></ul></li><li><a href="../../blog/2021.html">2021</a><ul><li><a href="../../blog/2021/28_03_2021---odchazeni-_.html">28.03.2021 - Odcházení ?</a></li></ul></li><li><a href="../../blog/2020.html">2020</a><ul><li><a href="../../blog/2020/8_12_2020---krize-psani-aneb-prokleti-trirocaka.html">8.12.2020 - Krize psaní aneb prokletí tříročáka</a></li><li><a href="../../blog/2020/19_04_2020-narod-nomadi-v-dobe-covidove.html">19.04.2020 Národ nomádí v době Covidové</a></li><li><a href="../../blog/2020/22_03_2020---kolik-opravdu-stoji-obytnak_.html">22.03.2020 - Kolik opravdu stojí obytňák?</a></li></ul></li><li><a href="../../blog/2019.html">2019</a><ul><li><a href="../../blog/2019/01_12_2019---pri-vyberu-srovnavejme-srovnatelne-2.html">01.12.2019 - Při výběru srovnávejme srovnatelné 2</a></li><li><a href="../../blog/2019/24_11_2019---pri-vyberu-srovnavejme-srovnatelne-1.html">24.11.2019 - Při výběru srovnávejme srovnatelné 1</a></li><li><a href="../../blog/2019/01_09_2019---jaky-si-vlastne-poridit-obytnak_.html">01.09.2019 - Jaký si vlastně pořídit obytňák?</a></li><li><a href="../../blog/2019/29_03_2019---udrzba-po-zimnim-spanku.html">29.03.2019 - Údržba po zimním spánku</a></li><li><a href="../../blog/2019/13_03_2019---10-pravidel-kempovani-nadivoko.html">13.03.2019 - 10 pravidel kempování nadivoko</a></li></ul></li><li><a href="../../blog/2018.html">2018</a><ul><li><a href="../../blog/2018/05_12_2018---na-vahu-_.html">05.12.2018 - Na váhu !</a></li><li><a href="../../blog/2018/26_9_2018---vychytavame-detaily-v-kabine.html">26.9.2018 - Vychytáváme detaily v kabině</a></li><li><a href="../../blog/2018/20_05_2018---hodnoceni-po-prvnich-5000-km_.html">20.05.2018 - Hodnocení po prvních 5000 km.</a></li><li><a href="../../blog/2018/27_04_2018---kdyz-se-vybira-nazev-aneb-demokracie-v-praxi_.html">27.04.2018 - Když se vybírá název aneb demokracie v praxi.</a></li><li><a href="../../blog/2018/16_04_2018---kdyz-chce-clovek-bezhlave-usetrit_.html">16.04.2018 - Když chce člověk bezhlavě ušetřit.</a></li><li><a href="../../blog/2018/17_03_2018-a-uz-je-uuuplne-nas-_.html">17.03.2018 A už je úúúplně náš !</a></li><li><a href="../../blog/2018/10_03_2018-vystavujeme-na-for-caravan.html">10.03.2018 Vystavujeme na FOR CARAVAN</a></li><li><a href="../../blog/2018/08_02_2018-jste-skveli-ctenari-_.html">08.02.2018 Jste skvělí čtenáři !</a></li><li><a href="../../blog/2018/29_01_2018-financovani-a-pojisteni-mazlika.html">29.01.2018 Financování a pojištění Mazlíka</a></li></ul></li><li><a href="../../blog/2017.html">2017</a><ul><li><a href="../../blog/2017/04_11_2017-co-s-uloznym-prostorem-_.html">04.11.2017 Co s úložným prostorem ?</a></li><li><a href="../../blog/2017/19_09_2017-casopisy-aneb-zaplava-informaci.html">19.09.2017 Časopisy aneb záplava informací</a></li></ul></li><li><a href="../../blog/in-vino-veritas.html">In Vino Veritas</a></li></ul></li><li><a href="../../nas-dodo.html">Náš Dodo</a><ul><li><a href="../../nas-dodo/2023.html">2023</a><ul><li><a href="../../nas-dodo/2023/01_11_2023---nabijecka-trochu-jinak.html">01.11.2023 - Nabíječka trochu jinak</a></li></ul></li><li><a href="../../nas-dodo/2022.html">2022</a><ul><li><a href="../../nas-dodo/2022/20_3_2022---jedna-zasuvka-v-salonu-svepomoci.html">20.3.2022 - Jedna zásuvka v salónu svépomocí</a></li><li><a href="../../nas-dodo/2022/02_03_2023---nova-lifepo4-baterie-je-na-palube_.html">02.03.2023 - Nová LiFePO4 baterie je na palubě!</a></li></ul></li><li><a href="../../nas-dodo/2021.html">2021</a><ul><li><a href="../../nas-dodo/2021/teplota-pod-kontrolou.html">Teplota pod kontrolou</a></li><li><a href="../../nas-dodo/2021/vodovaha-na-ocich.html">Vodováha na očích</a></li><li><a href="../../nas-dodo/2021/poradek-na-nocnim-stolku.html">Pořádek na nočním stolku</a></li></ul></li><li><a href="../../nas-dodo/2019.html">2019</a><ul><li><a href="../../nas-dodo/2019/27_02_2019---nase-palubni-knihovna-hotova_.html">27.02.2019 - Naše palubní knihovna hotova.</a></li><li><a href="../../nas-dodo/2019/22_02_2019---skret-mi-znovu-zautocil-na-alarm-_.html">22.02.2019 - Skřet mi znovu zaútočil na alarm !</a></li><li><a href="../../nas-dodo/2019/13_02_2019---koberec-po-celem-aute.html">13.02.2019 - Koberec po celém autě</a></li><li><a href="../../nas-dodo/2019/04_02_2019---nove-uchyceni-nabytku-v-garazi.html">04.02.2019 - Nové uchycení nábytku v garáži</a></li></ul></li><li><a href="../../nas-dodo/2018.html">2018</a><ul><li><a href="../../nas-dodo/2018/01_09_2018---uprava-botniku.html">01.09.2018 - Úprava botníku</a></li><li><a href="../../nas-dodo/2018/28_08_2018---vymena-sezeni-v-salonu.html">28.08.2018 - Výměna sezení v salónu</a></li><li><a href="../../nas-dodo/2018/07_06_2018---obsiti-volantu-kuzi.html">07.06.2018 - Obšití volantu kůží</a></li><li><a href="../../nas-dodo/2018/12_05_2018---kontrolni-panel-boosteru.html">12.05.2018 - Kontrolní panel boosteru</a></li><li><a href="../../nas-dodo/2018/28_04_2018---mechove-odpruzeni.html">28.04.2018 - Měchové odpružení</a></li><li><a href="../../nas-dodo/2018/04_04_2018---posileni-elektro-systemu.html">04.04.2018 - Posílení elektro systému</a></li><li><a href="../../nas-dodo/2018/28_03_2018---ulozny-system-do-garaze.html">28.03.2018 - Úložný systém do garáže</a></li><li><a href="../../nas-dodo/2018/14_03_2018-trable-s-plynem.html">14.03.2018 Trable s plynem</a></li><li><a href="../../nas-dodo/2018/06_03_2018-odvetravaci-system-sog.html">06.03.2018 Odvětrávací systém SOG</a></li><li><a href="../../nas-dodo/2018/05_03_2018-palubni-televizor-a-dvb-t-antena.html">05.03.2018 Palubní televizor a DVB-T anténa</a></li><li><a href="../../nas-dodo/2018/23_02_2018-koupelnovy-set-ravak.html">23.02.2018 Koupelnový set RAVAK</a></li><li><a href="../../nas-dodo/2018/09_02_2018-prvni-prohlidka-noveho-auta-_.html">09.02.2018 První prohlídka nového auta !</a></li><li><a href="../../nas-dodo/2018/07_02_2018-tak-uz-je-konecne-tady-___.html">07.02.2018 Tak už je konečně tady !!!</a></li><li><a href="../../nas-dodo/2018/06_02_2018-antena-teleco-wing-22.html">06.02.2018 anténa Teleco Wing 22</a></li><li><a href="../../nas-dodo/2018/04_02_2018-on-board-kamera-vybirana-_a-zakoupena_.html">04.02.2018 On-board kamera vybírána (a zakoupena)</a></li><li><a href="../../nas-dodo/2018/30_01_2018-jak-plnit-nadrz-na-vodu-_.html">30.01.2018 Jak plnit nádrž na vodu ?</a></li><li><a href="../../nas-dodo/2018/15_01_2018-trezor-na-palube.html">15.01.2018 Trezor na palubě</a></li><li><a href="../../nas-dodo/2018/06_01_2018-vybirame-venkovni-sezeni.html">06.01.2018 Vybíráme venkovní sezení</a></li></ul></li><li><a href="../../nas-dodo/2017.html">2017</a><ul><li><a href="../../nas-dodo/2017/10_11_2017-ktere-sezeni-v-salonu-je-lepsi_-podruhe.html">10.11.2017 Které sezení v salonu je lepší, PODRUHÉ</a></li><li><a href="../../nas-dodo/2017/04_10_2017-posledni-doobjednavky-prislusenstvi.html">04.10.2017 Poslední doobjednávky příslušenství</a></li><li><a href="../../nas-dodo/2017/10_10_2017-dvojcata-pilote-a-bavaria-746c.html">10.10.2017 Dvojčata Pilote a Bavaria 746C</a></li><li><a href="../../nas-dodo/2017/09_09_2017--ktere-sezeni-v-salonu-je-nejlepsi-_.html">09.09.2017  Které sezení v salonu je nejlepší ?</a></li><li><a href="../../nas-dodo/2017/09_09_2017-nasel-jsem-video-predstaveni-mazlika.html">09.09.2017 Našel jsem video představení Mazlíka</a></li><li><a href="../../nas-dodo/2017/25_08_2017-objednavame-si-nove-auto-___.html">25.08.2017 Objednáváme si nové auto !!!</a></li></ul></li></ul></li><li><a href="../../trasy.html">Trasy</a><ul><li><a href="../vikendove-cesty.html">Víkendové cesty</a><ul><li><a href="../vikendove-cesty/2022.html">2022</a><ul><li><a href="../vikendove-cesty/2022/25_02_2022---plzenskem-bez-proudu.html">25.02.2022 - Plzeňskem bez proudu</a></li></ul></li><li><a href="../vikendove-cesty/2021.html">2021</a><ul><li><a href="../vikendove-cesty/2021/11_-13_06_2021---slavkovsky-les-podruhe.html">11.-13.06.2021 - Slavkovský les podruhé</a></li><li><a href="../vikendove-cesty/2021/8_-9_5_2021---sazava-naslepo.html">8.-9.5.2021 - Sázava naslepo</a></li></ul></li><li><a href="../vikendove-cesty/2019.html">2019</a><ul><li><a href="../vikendove-cesty/2019/12_-13_10_2019---toulovcovy-mastale.html">12.-13.10.2019 - Toulovcovy maštale</a></li><li><a href="../vikendove-cesty/2019/13_-15_9_2019---podel-divoke-orlice.html">13.-15.9.2019 - Podél Divoké Orlice</a></li><li><a href="../vikendove-cesty/2019/28_-30_6_2019---usteckym-krajem.html">28.-30.6.2019 - Ústeckým krajem</a></li><li><a href="../vikendove-cesty/2019/30_-31_3_2019---povodim-ploucnice.html">30.-31.3.2019 - Povodím Ploučnice</a></li><li><a href="../vikendove-cesty/2019/23_-24_3_2019---predjari-v-jiznich-cechach.html">23.-24.3.2019 - Předjaří v Jižních Čechách</a></li></ul></li><li><a href="../vikendove-cesty/2018.html">2018</a><ul><li><a href="../vikendove-cesty/2018/19_-21_10_2018---vylov-tovacovskeho-rybnika.html">19.-21.10.2018 - Výlov Tovačovského rybníka</a></li><li><a href="../vikendove-cesty/2018/7_-9_9_2018---na-jih-od-kutne-hory.html">7.-9.9.2018 - Na jih od Kutné hory</a></li><li><a href="../vikendove-cesty/2018/20_-22_4_2018---okolim-havlickova-brodu.html">20.-22.4.2018 - Okolím Havlíčkova Brodu</a></li><li><a href="../vikendove-cesty/2018/7_-8_3_2018---slavkovsky-les.html">7.-8.3.2018 - Slavkovský les</a></li></ul></li></ul></li><li><a href="../prodlouzene-vikendy.html">Prodloužené víkendy</a><ul><li><a href="../prodlouzene-vikendy/2024.html">2024</a><ul><li><a href="../prodlouzene-vikendy/2024/28_3_-1_4_2024-velikonoce-v-severnich-cechach.html">28.3.-1.4.2024 Velikonoce v Severních Čechách</a></li></ul></li><li><a href="../prodlouzene-vikendy/2023.html">2023</a></li><li><a href="../prodlouzene-vikendy/2022.html">2022</a><ul><li><a href="../prodlouzene-vikendy/2022/6_-12_3_2022---alsaske-predjari.html">6.-12.3.2022 - Alsaské předjaří</a></li></ul></li><li><a href="../prodlouzene-vikendy/2021.html">2021</a><ul><li><a href="../prodlouzene-vikendy/2021/4_-9_7_2021---na-hitlerovo-orli-hnizdo.html">4.-9.7.2021 - Na Hitlerovo Orlí hnízdo</a></li></ul></li><li><a href="../prodlouzene-vikendy/2019.html">2019</a><ul><li><a href="../prodlouzene-vikendy/2019/04_-07_07_2019-za-krasami-sumavy_.html">04.-07.07.2019 Za krásami Šumavy.</a></li></ul></li><li><a href="../prodlouzene-vikendy/2018.html">2018</a><ul><li><a href="../prodlouzene-vikendy/2018/povanocni-bavorsko.html">Povánoční Bavorsko</a></li><li><a href="../prodlouzene-vikendy/2018/sasko-na-konci-zari.html">Sasko na konci září</a></li><li><a href="../prodlouzene-vikendy/2018/na-svatbu-do-ase.html">Na svatbu do Aše</a></li><li><a href="../prodlouzene-vikendy/2018/za-vinem-na-jih-moravy-a-slovenska.html">Za vínem na Jih Moravy a Slovenska</a></li><li><a href="../prodlouzene-vikendy/2018/velikonoce-v-holandsku.html">Velikonoce v Holandsku</a></li></ul></li><li><a href="../prodlouzene-vikendy/2017.html">2017</a><ul><li><a href="../prodlouzene-vikendy/2017/velikonoce-v-italii.html">Velikonoce v Itálii</a></li></ul></li></ul></li><li><a href="../jedeme-na-dovolenou.html">Jedeme na dovolenou</a><ul><li><a href="2022---nemecko-a-sumava-podruhe.html">2022 - Německo a Šumava podruhé</a></li><li><a href="2021---nemecko-_a-trochu-sumava_.html">2021 - Německo (a trochu Šumava)</a></li><li class="current"><a href="2020---jeseniky-a-cast-moravy.html">2020 - Jeseníky a část Moravy</a></li><li><a href="2019---jizni-cechy.html">2019 - Jižní Čechy</a></li><li><a href="2018---litva_-lotyssko_-estonsko.html">2018 - Litva, Lotyšsko, Estonsko</a></li></ul></li></ul></li><li><a href="../../trochu-z-historie.html">Trochu z historie</a><ul><li><a href="../../trochu-z-historie/jak-to-vsechno-zacalo.html">Jak to všechno začalo</a></li><li><a href="../../trochu-z-historie/dodo-dnes.html">Dodo dnes</a></li><li><a href="../../trochu-z-historie/historie-znacky-pilote.html">Historie značky PILOTE</a></li></ul></li><li><a href="../../fotogalerie-.html">Fotogalerie</a><ul><li><a href="../../fotogalerie-/priroda.html">Příroda</a></li><li><a href="../../fotogalerie-/stavby-a-mesta.html">Stavby a města</a></li><li><a href="../../fotogalerie-/nase-auto.html">Naše auto</a></li><li><a href="../../fotogalerie-/pilote-club-v-cr.html">Pilote Club v ČR</a></li></ul></li><li><a href="../../pokec.html">Pokec</a></li></ul>
+	</div>
+
+	<div id="sidebar">
+
+		<input type=hidden name=formularzeleny><div class="boxed ">
+
+
+<h2>uživatelský panel -- vždy jako první článek - NEMAZAT!!!</h2>
+<div class="content2">
+
+<h2>---slider---</h2>
+<p><div id="slider3" class="slider-wrapper theme-default">
+            <div class="nivoSlider">
+                <img src="../../userFiles/system/mazlik01.jpg" data-thumb="userFiles/system/mazlik01.jpg.tn.jpg" alt="slider" title="#slider3x7" />
+<img src="../../userFiles/system/mazlik16.jpg" data-thumb="userFiles/system/mazlik16.jpg.tn.jpg" alt="slider" title="#slider3x11" />
+<img src="../../userFiles/system/mazlik15.jpg" data-thumb="userFiles/system/mazlik15.jpg.tn.jpg" alt="slider" title="#slider3x12" />
+<img src="../../userFiles/system/mazlik12.jpg" data-thumb="userFiles/system/mazlik12.jpg.tn.jpg" alt="slider" title="#slider3x8" />
+<img src="../../userFiles/system/mazlik18.jpg" data-thumb="userFiles/system/mazlik18.jpg.tn.jpg" alt="slider" title="#slider3x13" />
+<img src="../../userFiles/system/mazlik22.jpg" data-thumb="userFiles/system/mazlik22.jpg.tn.jpg" alt="slider" title="#slider3x9" />
+<img src="../../userFiles/system/mazlik17.jpg" data-thumb="userFiles/system/mazlik17.jpg.tn.jpg" alt="slider" title="#slider3x14" />
+<img src="../../userFiles/system/back3.jpg" data-thumb="userFiles/system/back3.jpg.tn.jpg" alt="slider" title="#slider3x10" />
+<img src="../../userFiles/system/mazlik24.jpg" data-thumb="userFiles/system/mazlik24.jpg.tn.jpg" alt="slider" title="#slider3x15" />
+<img src="../../userFiles/system/mazlik05.jpg" data-thumb="userFiles/system/mazlik05.jpg.tn.jpg" alt="slider" title="#slider3x17" />
+<img src="../../userFiles/system/mazlik11a.jpg" data-thumb="userFiles/system/mazlik11a.jpg.tn.jpg" alt="slider" title="#slider3x16" />
+<img src="../../userFiles/system/mazlik37.jpg" data-thumb="userFiles/system/mazlik37.jpg.tn.jpg" alt="slider" title="#slider3x18" />
+<img src="../../userFiles/system/mazlik31.jpg" data-thumb="userFiles/system/mazlik31.jpg.tn.jpg" alt="slider" title="#slider3x19" />
+<img src="../../userFiles/system/mazlik14.jpg" data-thumb="userFiles/system/mazlik14.jpg.tn.jpg" alt="slider" title="#slider3x21" />
+<img src="../../userFiles/system/mazlik13.jpg" data-thumb="userFiles/system/mazlik13.jpg.tn.jpg" alt="slider" title="#slider3x20" />
+<img src="../../userFiles/system/mazlik19a.jpg" data-thumb="userFiles/system/mazlik19a.jpg.tn.jpg" alt="slider" title="#slider3x22" />
+<img src="../../userFiles/system/mazlik20.jpg" data-thumb="userFiles/system/mazlik20.jpg.tn.jpg" alt="slider" title="#slider3x23" />
+<img src="../../userFiles/system/mazlik21.jpg" data-thumb="userFiles/system/mazlik21.jpg.tn.jpg" alt="slider" title="#slider3x24" />
+<img src="../../userFiles/system/mazlik23.jpg" data-thumb="userFiles/system/mazlik23.jpg.tn.jpg" alt="slider" title="#slider3x25" />
+<img src="../../userFiles/system/mazlik25.jpg" data-thumb="userFiles/system/mazlik25.jpg.tn.jpg" alt="slider" title="#slider3x26" />
+<img src="../../userFiles/system/mazlik26.jpg" data-thumb="userFiles/system/mazlik26.jpg.tn.jpg" alt="slider" title="#slider3x27" />
+<img src="../../userFiles/system/mazlik52.jpg" data-thumb="userFiles/system/mazlik52.jpg.tn.jpg" alt="slider" title="#slider3x28" />
+<img src="../../userFiles/system/mazlik28.jpg" data-thumb="userFiles/system/mazlik28.jpg.tn.jpg" alt="slider" title="#slider3x29" />
+<img src="../../userFiles/system/mazlik29.jpg" data-thumb="userFiles/system/mazlik29.jpg.tn.jpg" alt="slider" title="#slider3x30" />
+<img src="../../userFiles/system/mazlik30.jpg" data-thumb="userFiles/system/mazlik30.jpg.tn.jpg" alt="slider" title="#slider3x31" />
+<img src="../../userFiles/system/mazlik32.jpg" data-thumb="userFiles/system/mazlik32.jpg.tn.jpg" alt="slider" title="#slider3x32" />
+<img src="../../userFiles/system/mazlik33.jpg" data-thumb="userFiles/system/mazlik33.jpg.tn.jpg" alt="slider" title="#slider3x33" />
+<img src="../../userFiles/system/mazlik35.jpg" data-thumb="userFiles/system/mazlik35.jpg.tn.jpg" alt="slider" title="#slider3x34" />
+<img src="../../userFiles/system/mazlik34.jpg" data-thumb="userFiles/system/mazlik34.jpg.tn.jpg" alt="slider" title="#slider3x35" />
+<img src="../../userFiles/system/mazlik02a.jpg" data-thumb="userFiles/system/mazlik02a.jpg.tn.jpg" alt="slider" title="#slider3x36" />
+<img src="../../userFiles/system/mazlik03a.jpg" data-thumb="userFiles/system/mazlik03a.jpg.tn.jpg" alt="slider" title="#slider3x37" />
+<img src="../../userFiles/system/mazlik38.jpg" data-thumb="userFiles/system/mazlik38.jpg.tn.jpg" alt="slider" title="#slider3x38" />
+<img src="../../userFiles/system/mazlik50.jpg" data-thumb="userFiles/system/mazlik50.jpg.tn.jpg" alt="slider" title="#slider3x39" />
+<img src="../../userFiles/system/mazlik51.jpg" data-thumb="userFiles/system/mazlik51.jpg.tn.jpg" alt="slider" title="#slider3x40" />
+<img src="../../userFiles/system/mazlik53.jpg" data-thumb="userFiles/system/mazlik53.jpg.tn.jpg" alt="slider" title="#slider3x41" />
+<img src="../../userFiles/system/mazlik54.jpg" data-thumb="userFiles/system/mazlik54.jpg.tn.jpg" alt="slider" title="#slider3x42" />
+<img src="../../userFiles/system/mazlik55.jpg" data-thumb="userFiles/system/mazlik55.jpg.tn.jpg" alt="slider" title="#slider3x43" />
+<img src="../../userFiles/system/mazlik56.jpg" data-thumb="userFiles/system/mazlik56.jpg.tn.jpg" alt="slider" title="#slider3x44" />
+            </div>
+            <div id="slider3x7" class="nivo-html-caption"></div>
+<div id="slider3x11" class="nivo-html-caption"></div>
+<div id="slider3x12" class="nivo-html-caption"></div>
+<div id="slider3x8" class="nivo-html-caption"></div>
+<div id="slider3x13" class="nivo-html-caption"></div>
+<div id="slider3x9" class="nivo-html-caption"></div>
+<div id="slider3x14" class="nivo-html-caption"></div>
+<div id="slider3x10" class="nivo-html-caption"></div>
+<div id="slider3x15" class="nivo-html-caption"></div>
+<div id="slider3x17" class="nivo-html-caption"></div>
+<div id="slider3x16" class="nivo-html-caption"></div>
+<div id="slider3x18" class="nivo-html-caption"></div>
+<div id="slider3x19" class="nivo-html-caption"></div>
+<div id="slider3x21" class="nivo-html-caption"></div>
+<div id="slider3x20" class="nivo-html-caption"></div>
+<div id="slider3x22" class="nivo-html-caption"></div>
+<div id="slider3x23" class="nivo-html-caption"></div>
+<div id="slider3x24" class="nivo-html-caption"></div>
+<div id="slider3x25" class="nivo-html-caption"></div>
+<div id="slider3x26" class="nivo-html-caption"></div>
+<div id="slider3x27" class="nivo-html-caption"></div>
+<div id="slider3x28" class="nivo-html-caption"></div>
+<div id="slider3x29" class="nivo-html-caption"></div>
+<div id="slider3x30" class="nivo-html-caption"></div>
+<div id="slider3x31" class="nivo-html-caption"></div>
+<div id="slider3x32" class="nivo-html-caption"></div>
+<div id="slider3x33" class="nivo-html-caption"></div>
+<div id="slider3x34" class="nivo-html-caption"></div>
+<div id="slider3x35" class="nivo-html-caption"></div>
+<div id="slider3x36" class="nivo-html-caption"></div>
+<div id="slider3x37" class="nivo-html-caption"></div>
+<div id="slider3x38" class="nivo-html-caption"></div>
+<div id="slider3x39" class="nivo-html-caption"></div>
+<div id="slider3x40" class="nivo-html-caption"></div>
+<div id="slider3x41" class="nivo-html-caption"></div>
+<div id="slider3x42" class="nivo-html-caption"></div>
+<div id="slider3x43" class="nivo-html-caption"></div>
+<div id="slider3x44" class="nivo-html-caption"></div>
+        </div>
+		<script type="text/javascript" src="../../plugins/slider/nivo-slider/nivo-slider.js"></script>
+		<script type="text/javascript">
+		$(function(){
+		  $("#slider3>.nivoSlider").nivoSlider({
+	    prevText: "P\u0159edchoz\u00ed",
+	    nextText: "Dal\u0161\u00ed",
+        effect: "fade",
+        pauseOnHover: false,
+        animSpeed: 400,
+        pauseTime: 5000,
+        randomStart: true,
+        directionNav: false,
+        controlNav: false,
+        controlNavThumbs: false,
+        manualAdvance: false,
+        captionOpacity: 1
+	    });
+          });
+		</script>
+		</p>
+<div class="formular">
+<p>
+		<form action="http://www.nas-partak-obytnak.cz/trasy/jedeme-na-dovolenou/2020---jeseniky-a-cast-moravy" method="post" enctype="multipart/form-data">
+		</p>
+<h3>Poptávka náhradních dílů</h3>
+<table style="width: 65%; float: right;" border="0">
+<tbody>
+<tr>
+<td width="40%">Jméno</td>
+<td><input class="query full" type="text" name="jmeno" /></td>
+</tr>
+<tr>
+<td>E-mail a telefon</td>
+<td><input class="query full" type="text" name="jmeno" /></td>
+</tr>
+<tr>
+<td>Číslo/název dílu</td>
+<td><input class="query full" type="text" name="jmeno" /></td>
+</tr>
+</tbody>
+</table>
+<p>
+        <table width="100%" border="0">
+		
+		<tr><td colspan="2" align="center">
+		<br />
+              <input type="hidden" name="formular_zakladni_id" value="">
+	    <input type="submit" class="button" value="OK" />
+		</td></tr></table>
+
+    <script type="text/javascript">
+     document.write('<input type="hidden" name="tajne" value="čž' + 'řůž">');
+    </script>
+		</form>
+		</p>
+</div></div></div>
+
+		<h2></h2>
+
+		<ul class="sidemenu"><li><a href="../../svet-nomadu.html">Svět nomádů</a><ul class="sidemenu"><li><a href="../../svet-nomadu/2024.html">2024</a></li><li><a href="../../svet-nomadu/2022.html">2022</a></li><li><a href="../../svet-nomadu/2021.html">2021</a></li><li><a href="../../svet-nomadu/2019.html">2019</a></li><li><a href="../../svet-nomadu/2018.html">2018</a></li><li><a href="../../svet-nomadu/2017.html">2017</a></li><li><a href="../../svet-nomadu/archiv-aktualit-dne.html">Archiv aktualit dne</a></li></ul></li><li><a href="../../technika.html">Technika</a><ul class="sidemenu"><li><a href="../../technika/motor-a-podvozek.html">Motor a Podvozek</a></li><li><a href="../../technika/nastavba.html">Nástavba</a></li><li><a href="../../technika/elektrina.html">Elektřina</a></li><li><a href="../../technika/av-a-elektronika.html">AV a elektronika</a></li><li><a href="../../technika/voda-a-to-dalsi.html">Voda a to další</a></li><li><a href="../../technika/plyn-a-topeni.html">Plyn a topení</a></li><li><a href="../../technika/volna-vybava.html">Volná výbava</a></li></ul></li><li><a href="../../blog.html">Blog</a><ul class="sidemenu"><li><a href="../../blog/2022.html">2022</a></li><li><a href="../../blog/2021.html">2021</a></li><li><a href="../../blog/2020.html">2020</a></li><li><a href="../../blog/2019.html">2019</a></li><li><a href="../../blog/2018.html">2018</a></li><li><a href="../../blog/2017.html">2017</a></li><li><a href="../../blog/in-vino-veritas.html">In Vino Veritas</a></li></ul></li><li><a href="../../nas-dodo.html">Náš Dodo</a><ul class="sidemenu"><li><a href="../../nas-dodo/2023.html">2023</a></li><li><a href="../../nas-dodo/2022.html">2022</a></li><li><a href="../../nas-dodo/2021.html">2021</a></li><li><a href="../../nas-dodo/2019.html">2019</a></li><li><a href="../../nas-dodo/2018.html">2018</a></li><li><a href="../../nas-dodo/2017.html">2017</a></li></ul></li><li><a href="../../trasy.html">Trasy</a><ul class="sidemenu"><li><a href="../vikendove-cesty.html">Víkendové cesty</a></li><li><a href="../prodlouzene-vikendy.html">Prodloužené víkendy</a><ul class="sidemenu"><li><a href="../prodlouzene-vikendy/2024.html">2024</a><ul class="sidemenu"><li><a href="../prodlouzene-vikendy/2024/28_3_-1_4_2024-velikonoce-v-severnich-cechach.html">28.3.-1.4.2024 Velikonoce v Severních Čechách</a></li></ul></li><li><a href="../prodlouzene-vikendy/2023.html">2023</a><ul class="sidemenu"><li><a href="../prodlouzene-vikendy/2023/2_-5_10_2023---poprve-vylet-samotare.html">2.-5.10.2023 - Poprvé výlet samotáře</a></li></ul></li><li><a href="../prodlouzene-vikendy/2022.html">2022</a><ul class="sidemenu"><li><a href="../prodlouzene-vikendy/2022/6_-12_3_2022---alsaske-predjari.html">6.-12.3.2022 - Alsaské předjaří</a></li></ul></li><li><a href="../prodlouzene-vikendy/2021.html">2021</a><ul class="sidemenu"><li><a href="../prodlouzene-vikendy/2021/4_-9_7_2021---na-hitlerovo-orli-hnizdo.html">4.-9.7.2021 - Na Hitlerovo Orlí hnízdo</a></li></ul></li><li><a href="../prodlouzene-vikendy/2019.html">2019</a><ul class="sidemenu"><li><a href="../prodlouzene-vikendy/2019/04_-07_07_2019-za-krasami-sumavy_.html">04.-07.07.2019 Za krásami Šumavy.</a></li></ul></li><li><a href="../prodlouzene-vikendy/2018.html">2018</a><ul class="sidemenu"><li><a href="../prodlouzene-vikendy/2018/povanocni-bavorsko.html">Povánoční Bavorsko</a></li><li><a href="../prodlouzene-vikendy/2018/sasko-na-konci-zari.html">Sasko na konci září</a></li><li><a href="../prodlouzene-vikendy/2018/na-svatbu-do-ase.html">Na svatbu do Aše</a></li><li><a href="../prodlouzene-vikendy/2018/za-vinem-na-jih-moravy-a-slovenska.html">Za vínem na Jih Moravy a Slovenska</a></li><li><a href="../prodlouzene-vikendy/2018/velikonoce-v-holandsku.html">Velikonoce v Holandsku</a></li></ul></li><li><a href="../prodlouzene-vikendy/2017.html">2017</a><ul class="sidemenu"><li><a href="../prodlouzene-vikendy/2017/velikonoce-v-italii.html">Velikonoce v Itálii</a></li></ul></li></ul></li><li><a href="../jedeme-na-dovolenou.html">Jedeme na dovolenou</a><ul class="sidemenu"><li><a href="2022---nemecko-a-sumava-podruhe.html">2022 - Německo a Šumava podruhé</a></li><li><a href="2021---nemecko-_a-trochu-sumava_.html">2021 - Německo (a trochu Šumava)</a></li><li class="current"><a href="2020---jeseniky-a-cast-moravy.html">2020 - Jeseníky a část Moravy</a></li><li><a href="2019---jizni-cechy.html">2019 - Jižní Čechy</a></li><li><a href="2018---litva_-lotyssko_-estonsko.html">2018 - Litva, Lotyšsko, Estonsko</a></li></ul></li></ul></li><li><a href="../../trochu-z-historie.html">Trochu z historie</a><ul class="sidemenu"><li><a href="../../trochu-z-historie/jak-to-vsechno-zacalo.html">Jak to všechno začalo</a></li><li><a href="../../trochu-z-historie/dodo-dnes.html">Dodo dnes</a></li><li><a href="../../trochu-z-historie/historie-znacky-pilote.html">Historie značky PILOTE</a></li></ul></li><li><a href="../../pokec.html">Pokec</a></li></ul>
+		
+		
+	</div>
+
+	<div id="main">
+	
+	
+	<div class="post ">
+	
+	<div class="post_top">
+	<div class="post_title">
+	<h1>2020 - Jeseníky a část Moravy</h1>
+	</div></div>
+	<div class="post_body">
+	<p style="text-align: justify;">Zpropadený koronavirus! Ani tento rok nemůžeme (nebo se spíš i trochu obáváme) uskutečnit naší plánovanou velkou výpravu do Skotska. Možná, že jsme tedy díky němu propásli poslední dobrou šanci tam jet před tím, než dokončení Brexitu zavede kontroly na hranicích, možná dokonce víza a bůhví co si ještě vymyslí. Nicméně ženě se opravdu do zahraničí moc nechtělo a tak jsme hledali alternativu v tuzemsku. Kam se vydat na cca 14 dní? Čechy známe, Jižní Moravu už máme docela proježděnou také, takže volba byla vlastně už předem dána: jedeme do "Moravsko-Slezského kraje" a hlavně do Jeseníků. Když se teď tak koukám na některé fotky, je tu snad i určitá podobnost s tím Skotskem :-).</p>
+<p><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes001.jpg"><img class="roundblock" title="Jes001" src="../../userFiles/6-trasy/3-dovolena/2020/jes001.jpg" alt="Jes001" width="600" /></a></p>
+<p style="text-align: justify;">Moje drahá žena opět dodala připravený itinerář, opět byl formou zakreslené trasy do aplikace Mapy.cz a opět připomínal spíš složité logistické řešení přesunu několika divizí velké armády. Ale co, hlavně že máme nemálo zajímavých míst před sebou, ne? A tak tu je pátek 31.července 2020, my nakládáme naše auto a přesouváme se na chatu, která leží nedaleko Prahy, na trase naší dovolené. Chci v sobotu Dodíka zvenku i zevnitř <span>trochu </span>opucovat, protože na to jsem během minulých víkendových výjezdů drobátko pozapomínal. Takže: velký úklid na úvod cesty.</p>
+<p><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes002.jpg"><img class="roundblock" title="Jes002" src="../../userFiles/6-trasy/3-dovolena/2020/jes002.jpg" alt="Jes002" width="600" /></a></p>
+<p style="text-align: justify;"><strong>Umytí střechy:</strong> zde si dovolím malou odbočku od cestopisu k technickému tématu a tím je: "<strong>Je střecha obytného auta pochozí?</strong>" Toto téma se mezi karavanisty vášnivě diskutuje, každý tvrdí něco jiného a důvod je jednoduchý: odpověď je ANO i NE. Po některých střechách prostě chodit můžete ale po některých zase ne. A samozřejmě také záleží, kdo po nich chodí. Jestli se na ní vyhoupne padesátikilová slečna nebo se tam vydrápe stotřicetikilový chlap. Každopádně ve hře jsou dva důležité aspekty: za prvé nosnost celé střechy a za druhé, řekněme měkkost vnějšího materiálu, ze kterého je střecha vyrobena. Nosnost je dána jednak konstrukcí auta (má-li pevný hliníkový rám) a jednak rozmístěním příček dole v interiéru, které střechu samozřejmě podpírají a tím zpevňují. Pilote má hliníkový rám, takže střecha je pro normálně hmotného člověka pochozí. Přesto ale neudělá nikdo chybu, když se bude pohybovat převážně po okrajích střechy nebo liniích příček (stěny do koupelny, sprchy, apod.). A pochopitelně, když poleze hlavně po čtyřech, hmotnost těla se lépe rozloží. Jo a  například nad salónem, kde má střecha největší volnou plochu bez vnitřních podpěr a navíc uvnitř na stropě je namontováno těžké sjížděcí lůžko, se pohybuji obzvlášť opatrně. Takže při mytí střechy je dobré myslet na vnitřní uspořádání pod vámi.</p>
+<p style="text-align: justify;">Tím druhým aspektem je pak materiál, který výrobce použil na panel střechy. A tady se už dostáváme do celé plejády možností. Zjednodušeně lze snad ale říct, že pokud má vaše auto tzv. "anti-hail" střechu, tedy odolnou proti kroupám, můžete po ní bez obav i chodit (tedy pokud je první zmíněný aspekt o celkové konstrukci v pořádku). Na střechách je v případě protikroupového řešení použit takový materiál (např. MDF), který zabraňuje kroupám při dopadu vytvořit důlek a proto i dost odolný, abyste povrch nedeformovali chodidly. Protože u levných aut a také u karavanů tomu tak být zdaleka nemusí. Sendvičový panel na střeše je vlastně jen pár centimetrů měkké izolační hmoty (od polystyrému po Styrofoam) a tak celou hmotnost nese jen vnější tenčí deska. A pokud je z nějakého měkčího plastu, mohou být vaše kroky na střeše ihned docela viditelné. Což je samozřejmě moc špatné z hlediska její trvanlivosti a voděodolnosti. U některých, hlavně starších aut, byly "chodníčky", tedy buďto vnější nebo i do střechy integrované hliníkové pásy, které tento problém řešily. Dnes je to ale spíš vyjímkou. Závěr: <span style="text-decoration: underline;">jedinou</span> zodpovědnou odpověď, je-li střecha pochozí, vám může dát výrobce auta nebo jeho autorizovaný distributor/servis. Tedy žádný "dovozce levných Anglánů", žádný bazar, žádný soukromý prodejce. A moc bych ani nespoléhal na "zaručené rady" z diskuzních fór. </p>
+<p style="text-align: justify;"><strong>Konečně startujeme prázdninový Road Trip.</strong> Tak, úklid máme za sebou a vyrážíme. Směr severo-východ, což samozřejmě neznamená, že bychom použili dálnici na Mladou Boleslav nebo na Hradec Králové. Asi jsem se už někdy zmínil, že (až na zcela výjimečné případy) nepoužíváme dálnice. Dodík nemá ani dálniční známku. A má to jeden jediný,  pragmatický důvod: dálnice jsou k uzoufání nudné. Plně se ztotožňujeme s názorem, že s obytným autem začíná dovolená už v momentě, kdy nastoupíte a nastartujete. No a protože když jedeme, se prostě rádi díváme okolo sebe, tak cesta po městečkách a vesnicích, tedy po venkově, je pro nás už součástí zážitku. Navíc - nikdy nevíte, kam vás může taková silnice III.třídy třeba zavést ;-)</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes003.jpg"><img class="roundblock" title="Jes003" src="../../userFiles/6-trasy/3-dovolena/2020/jes003.jpg" alt="Jes003" width="600" /></a></p>
+<p style="text-align: justify;"> </p>
+<p style="text-align: justify;"><strong>Lysá nad Labem.</strong> První zastávkou, ještě ve Středočeském kraji, je Lysá nad Labem. Má vševědoucí žena prohlásila, že tam nedávno dokončili vyhlídkové terasy u zámku a že to musíme jít zkontrolovat. Park je významnou památkou zahradního umění, založen byl už ve druhé polovině 16. století, kdy Lysá byla komorním panstvím Habsburků a zámek jim sloužil jako lovecký. Velký rozvoj parku nastal na přelomu 17. a 18. století za Františka Antonína hraběte Šporka ale hlavní zásluhu na současné velikosti parku i jeho koncepci má jeho adoptivní syn: Rudolf Sweerts-Špork. Na konci 19. století je park naposledy upraven, do tehdy módního anglického stylu a je dílem známého zahradního architekta Eduarda Petzolda. A stále je to moc hezké místo na procházku. V zámku je dnes domov pro seniory. </p>
+<p><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes004.jpg"><img class="roundblock" title="Jes004" src="../../userFiles/6-trasy/3-dovolena/2020/jes004.jpg" alt="Jes004" height="150" /></a>   <a class="thickbox" title="" href="../../userFiles/6-trasy/3-dovolena/2020/jes005.jpg"><img class="roundblock" title="jes005" src="../../userFiles/6-trasy/3-dovolena/2020/jes005.jpg" alt="jes005" height="150" /></a>    <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes006.jpg"><img class="roundblock" title="Jes006" src="../../userFiles/6-trasy/3-dovolena/2020/jes006.jpg" alt="Jes006" height="150" /></a></p>
+<p style="text-align: justify;">Velmi hezká, zajímavá a také rozsáhlá je i sochařská výzdoba parku. Je totiž plná "alegorií". Najdete tu alegorie čtyř živlů (oheň, voda, vzduch a země), alegorie čtyř světadílů (bez Austrálie a Antakrtidy), čtyř ročních období a také 12 soch - alegorií měsíců v roce. Milovníci umění, zastavte se tam. Mimochodem, to na fotce je Léto. O autorovi této krásné kolekce soch se ví jen tolik, že pocházel z Benátek (těch v Itálii). No a co ty nové vyhlídkové terasy? Jsou tam, moc velké nejsou ale rozhled na Lysou i okolní krajinu je docela parádní.</p>
+<p><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes007.jpg"><img class="roundblock" title="Jes007" src="../../userFiles/6-trasy/3-dovolena/2020/jes007.jpg" alt="Jes007" width="600" /></a></p>
+<p><span style="text-align: justify;">Za zmínku ještě stojí kavárna a cukrárna Campiello na Náměstí B.Hrozného a můžeme jet dál. Jo, s parkováním v Lysé problém není, my stáli přímo před cestou vedoucí k zámku a naproti kavárně, na koordinátech </span><span jstcache="175">50.201633, 14.839421.</span></p>
+<p style="text-align: justify;"><strong style="text-align: justify;">Chrudim. </strong><span style="text-align: justify;">Starobylou Chrudim asi není třeba detailněji představovat a tak se zaměřím na pro nás nejsilnější příběh, který se k tomuto městu váže. Příběh vzniku chlouby Chrudimi - morového sloupu na Resselově náměstí. Jestli máte rádi historii, umění a trochu té romantiky s příběhem složité lásky, postupujte takto: zaparkujte někde poblíž. Dobré místo je třeba na nedalekém Tyršově náměstí (</span><span jstcache="175" style="text-align: justify;">49.950899, 15.798531) nebo v okolí, možností je dost. Pak vyražte po hlavní ulici dolů. Asi jen po 100m budete mít po pravé ruce zrekonstruovanou budovu původně kostela sv.Josefa, která se perfektně hodí pro nynější účel: Muzeum barokního sochařství. </span></p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes008.jpg"><img class="roundblock" title="Jes008" src="../../userFiles/6-trasy/3-dovolena/2020/jes008.jpg" alt="Jes008" height="150" /></a>  <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes009.jpg"><img class="roundblock" title="Jes009" src="../../userFiles/6-trasy/3-dovolena/2020/jes009.jpg" alt="Jes009" height="150" /></a></p>
+<p style="text-align: justify;"><span style="text-align: justify;">Samozřejme i stálá expozice, i případné dočasné výstavy stojí za vidění. Vy ale požádejte o shlédnutí filmu "Kamenný příběh" v místním, velmi dobře vybaveném kinosálu. Možná budete film sledovat úplně sami, jako my. Ve 26 minutách vás příběh zavede na začátek 18.stol., kdy se Chrudimi skoro zázračně vyhnula morová epidemie, tehdy v okolí řádící. Vděční měšťané rozhodli o postavení morového sloupu, jehož sláva se musí roznést po celé zemi i Evropě. Díla se ujal mistr Jan Čechpauer a film vás provede celou historií, představí vám o generaci mladšího mistrova nástupce Ignáce Rohrbacha, vylíčí příběh milostného trojúhelníku i opravdového přátelství, .... prostě doják i poučná půlhodinka. No a po shlédnutí filmu a po dalších zhruba 200m stojíte před sloupem (oficiálně je to "Sloup Proměnění Páně") a na celé dílo i na jednotlivé sochy pak hledíte docela jinak. I na hlavní sochu - zlatou Pannu Marii, která opravdu připomíná paní Čechpauerovou....</span></p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes010.jpg"><img class="roundblock" title="Jes010" src="../../userFiles/6-trasy/3-dovolena/2020/jes010.jpg" alt="Jes010" width="600" /></a></p>
+<p style="text-align: justify;">Ten film je opravdu velmi profesionálně a docela nákladně natočený, hlavní roli sochaře Čechpauera hraje vynikající a známý herec Marian Roden a co je zajímavé - film je dílem studentů Filmové akademie Miroslava Ondříčka v Písku. Tedy studentská práce a opravdu dobrá. No, dobře.... pro lenochy, kterým se do Chrudimi nechce...</p>
+<p style="text-align: justify;"><iframe width="640" height="270" src="https://www.youtube.com/embed/qBw54gHbKaQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></p>
+<p style="text-align: justify;">Ale na tom plátně a s prostorým zvukem to vychází daleko líp! No a až půjdete zpět k autu, udělejte si malou odbočku. V Novoměstské ulici uvidíte unikát: půlkruhovou kašnu se sochami... a všechny jsou otočeny od kašny zády. Působí to dost divně.</p>
+<p style="text-align: justify;">Po výjezdu z Chrudimi si udělejte povinnou odbočku do sousední obce Kočí. Velmi zvláštní, částečně dřevěný Kostel sv.Bartoloměje, s dřevěným krytým mostem, založený už roku 1397 Žofií Bavorskou<span>, druhou manželkou </span>Václava IV, za odbočku a zastavení stojí. Třeba na koordinátech <span jstcache="175">49.947154, 15.855530.</span></p>
+<p style="text-align: justify;"><span jstcache="175"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes011.jpg"><img class="roundblock" title="Jes011" src="../../userFiles/6-trasy/3-dovolena/2020/jes011.jpg" alt="Jes011" width="600" /></a></span></p>
+<p style="text-align: justify;">A jedeme dál na východ. O necelých 20km dále je další místo, které stojí za zastavení. </p>
+<p style="text-align: justify;"><strong>Poutní kostel a lázně Vraclav. </strong>Stranou položený, barokní komplex Vraclav tvoří historická budouva lázní, kostel sv.Mikuláše a dřevěná poustevna. Zajímavostí je léčivý pramen, který vyvěrá pod přímo kostelem, voda pak pokračuje dál do kamenné kašny u vstupu do celého areálu. Kdysi prý léčila hlavně otoky, oční a kožní problémy a nemoci ledvin. Dodnes obsahuje síru, draslík, vápník a hořčík. Lázně byly vybudované už v letech 1711 - 1719, kostel, který nahradil menší kapličku, pak 1724 - 1730. Už ale od roku 1692 byla ve stráni nad kaplí vystavěna krásná poustevna s dřevěnou věžičkou nazývaná Fráterka, jejímž prvním obyvatelem byl člen řádu Sv. Františka z Assisi Jiří Rambousek z Litomyšle. Poustevník tu vedl knihu v níž zaznamenával uzdravení a prodával léčivé byliny a další potřeby pro lázeňské hosty. Je napojena přímo na honosné barokní schodiště ke kostelu a jako celek to vypadá docela zvláštně. Kdo se tam chcete taky podívat, dejte do navigace souřadnice <span jstcache="130">49.971184, 16.092624 a připravte se na jízku uzounkými silničkami a uličkami, kde se dvě osobní auta jen těžko vyhýbají. </span></p>
+<p><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes013.jpg"><img class="roundblock" title="Jes013" src="../../userFiles/6-trasy/3-dovolena/2020/jes013.jpg" alt="Jes013" height="150" /></a>  <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes012.jpg"><img class="roundblock" title="Jes012" src="../../userFiles/6-trasy/3-dovolena/2020/jes012.jpg" alt="Jes012" height="150" /></a></p>
+<p style="text-align: justify;">No a pak jsme trochu šlápli Dodíkovi na plyn a ve stále se zhoršujícím počasí a rychle postupujícím odpoledni, jsme se snažili dojet do místa vybraného pro další noc. Tím vybraným místem bylo parkoviště u <strong>Acrobat Parku Aleše Valenty,</strong> ve Štítech, kousek před Šumperkem. Acrobat park stojí pěkne stranou od městečka, parkoviště je skoro rovné a tak je velmi dobrým nocovištěm. V době naší návštěvy byl park, resp. jeho hotel, pro koronavirou situaci uzavřen a tak jsme byli široko daleko sami. K parkovišti vede úzká, dlouhá a klikatá odbočka z hlavní silnice, koordináty jsou <span jstcache="130">49.961070, 16.758797. Už když jsme k areálu přijížděli, vzpomínali jsme na dědu Komárka z filmu Na samotě u lesa: "Chčije a chčije.</span></p>
+<p style="text-align: justify;"><span jstcache="130"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes014.jpg"><img class="roundblock" title="Jes014" src="../../userFiles/6-trasy/3-dovolena/2020/jes014.jpg" alt="Jes014" width="600" /></a></span></p>
+<p style="text-align: justify;">Ani ráno to bohužel nebylo lepší, spíš horší a předpověď říkala něco o silném děšti v širokém a dalekém okolí po celý den. A tak jsme si odhlasovali všeobecný relax a klasické dovolenkové povalování. Celý den jsme si četli, dívali se na filmy, povídali o všem možném, při rychlém výpadu do města přinesli nějaké dobroty, prostě jeden zahálčivý den nám rozhodně moc vrásek nepřidělal. Navíc, okolo poledne dorazila čtveřice aut, z nich vystoupila parta cvoků s lyžemi a v tom děsným slejváku pečlivě trénovali skoky z různě tvarovaných ramp, do bazénu uprostřed areálu. Hodně bizardní pohled. Fotil jsem je jen z okénka Dodíka, kdo by kvůli tomu lezl do toho marastu venku!</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes016.jpg"><img class="roundblock" title="Jes016" src="../../userFiles/6-trasy/3-dovolena/2020/jes016.jpg" alt="Jes016" height="150" /></a>  <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes017.jpg"><img class="roundblock" title="Jes017" src="../../userFiles/6-trasy/3-dovolena/2020/jes017.jpg" alt="Jes017" height="150" /></a></p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes018.jpg"><img class="roundblock" title="Jes018" src="../../userFiles/6-trasy/3-dovolena/2020/jes018.jpg" alt="Jes018" height="150" /></a>  <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes015.jpg"><img class="roundblock" title="Jes015" src="../../userFiles/6-trasy/3-dovolena/2020/jes015.jpg" alt="Jes015" height="150" /></a></p>
+<p style="text-align: justify;">Navečer nám udělal radost manželský pár kolegů bydlíkářů, dokonce "Piloťáků", se kterými jsme kominikovali den předtím přes Facebook a protože byli nedaleko, dorazili na noc k nám. A tak večer plný povídání, mlsání dobrot a pítí speciálních čajů, nám ještě vylepšil den. Děkujeme za návštěvu, ahoj a zase někdy někde!</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes019.jpg"><img class="roundblock" title="Jes019" src="../../userFiles/6-trasy/3-dovolena/2020/jes019.jpg" alt="Jes019" width="600" /></a></p>
+<p style="text-align: justify;">Další dva nebo tři dny jsme se toulali všude možně a asi nemá smysl vypisovat všechna místa, která jsme navštívili. Když náhodou zrovna nepršelo, tak nějaká běžná turistická trasa, nebo tady zase historická zajímavost, atd. Počasí fakt nebylo nic moc a tak jsem ani moc nefotil. Ale (sice bez fotek) navštívili jsme třeba Lázně Bludov a jeden den si dopřáli trochu relaxace při masážích a koupání v termálním bazénu. Docela milé zpestření pošmourného dne. Kdo byste se chtěl taky trochu zrelaxovat, parkoviště mají lázně k dispozici na <span jstcache="175">49.940823, 16.909166. </span>A tak z těch dvou dní snad jen jeden zajímavý plac na noc, a to naše oblíbené - parkoviště u hřbitova. Byl odtud krásný rozhled, večer pěkná procházka a klidná noc. Hřbitov náleží obci Kolšov a souřadnice jsou <span jstcache="741">49.906325, 16.951334.</span></p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes020.jpg"><img class="roundblock" title="Jes020" src="../../userFiles/6-trasy/3-dovolena/2020/jes020.jpg" alt="Jes020" width="600" /></a></p>
+<p style="text-align: justify;">Další den ráno, světe div se: SLUNCE! Konečně je ta děsná siberie pryč a můžeme si užívat léta. A hodí se to, protože dnes máme v plánu <strong>Velké Losiny. </strong>Chceme shlédnout zámek a proslulou papírnu. Začneme tedy zámkem. Ten je v renezančním slohu a stojí na místě bývalé vodní tvrze. Ta tu už byla někdy od 14.stol. ale zámek se z Velkých Losin stal až za dob Jana Jáchyma ze Žerotína, okolo roku 1696. Tento osvícený šlechtic nejenom, že přestavěl právě zámek ale hlavně to byl muž, který učinil přítrž běsnění čarodějnických procesů, které vedl samozvaný inkvizitor a kandidát práva Jindřich František Boblig z Edelstadtu. Jan Jáchym byl jistě hodně vlivný šlechtic, mimo jiné císařský komoří a přísedící nejvyššího soudu pro Moravu. Za jeho působení byl tedy zámek rozšířen o dvoupodlažní barokní křídla s arkádovými ochozy. Nám se z prohlídkového okruhu nejvíce líbila kuchyně, která vypadala, jako že si kuchařky jen na chvilku odskočily.</p>
+<p style="text-align: justify;"><span><span><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes021.jpg"><img class="roundblock" title="Jes021" src="../../userFiles/6-trasy/3-dovolena/2020/jes021.jpg" alt="Jes021" height="150" /></a>  <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes022.jpg"><img class="roundblock" title="Jes022" src="../../userFiles/6-trasy/3-dovolena/2020/jes022.jpg" alt="Jes022" height="150" /></a></span></span></p>
+<p style="text-align: justify;"><span><span><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes023.jpg"><img class="roundblock" title="Jes023" src="../../userFiles/6-trasy/3-dovolena/2020/jes023.jpg" alt="Jes023" height="150" /></a>  <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes024.jpg"><img class="roundblock" title="Jes024" src="../../userFiles/6-trasy/3-dovolena/2020/jes024.jpg" alt="Jes024" height="150" /></a> <br /></span></span></p>
+<p style="text-align: justify;"><span><span>Parkování je docela mizerné, my jsme se naštěstí chytli těsně u vjezdu na zámecké parkoviště (</span></span><span jstcache="130">50.024224, 17.032644). Od zámku k papírně se dá pohodlně dojít, je to jen několik set metrů a v krásném počasí jsme se procházet chtěli. Před papírnou je prý proslulá restaurace U Mrázku, na jejímž dvoře bylo pro návštěvníky velké grilování. A tak jsme se zastavili na oběd. Velká chyba. Drahé a fakt nic moc. Takže papírna. Je tak známá, že ji detailně představovat fakt nemá smysl. Jen základní data: vznikla už koncem 16.stol. a je tedy <span>nejstarší papírenskou manufakturou na území </span>střední Evropy<span>, která navíc stále papír produkuje. Vybudovat ji nechal Jan ml. ze Žerotína<span> (syn Jana Jáchyma) v místech, kde dříve stával mlýn na obilí. Prohlídka je velmi poutavá a jistě zaujme jak dospělé, tak i děti. V podnikové prodejně nemají o nádherné místní produkty nouzi.</span></span></span></p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes025.jpg"><img class="roundblock" title="Jes025" src="../../userFiles/6-trasy/3-dovolena/2020/jes025.jpg" alt="Jes025" width="600" /></a></p>
+<p><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes028.jpg"><img class="roundblock" title="Jes028" src="../../userFiles/6-trasy/3-dovolena/2020/jes028.jpg" alt="Jes028" height="150" /></a>  <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes027.jpg"><img class="roundblock" title="Jes027" src="../../userFiles/6-trasy/3-dovolena/2020/jes027.jpg" alt="Jes027" height="150" /></a>  <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes026.jpg"><img class="roundblock" title="Jes026" src="../../userFiles/6-trasy/3-dovolena/2020/jes026.jpg" alt="Jes026" height="150" /></a></p>
+<p style="text-align: justify;"> </p>
+<p style="text-align: justify;"><strong>Konečně vzhůru do Jeseníků!  </strong>Vstupní branou do Jeseníků byly pro nás Kouty, resp. tamní sky areál. Po vjezdu do Kout jsou po pravé straně od silnice č.44, mezi silnicí a říčkou Desnou, postupně celkem 3 dobrá parkoviště, z nichž na prostředním se scházejí bydlíkáři (<span jstcache="130">50.100497, 17.113636). O kus dál jsou restaurace, toalety a nástup na lanovku na Dlouhé stráně, kam jsme chtěli další den vyrazit. Takže večer je o společenský život v podstatě postaráno.</span></p>
+<p style="text-align: justify;"><span jstcache="130"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes029.jpg"><img class="roundblock" title="Jes029" src="../../userFiles/6-trasy/3-dovolena/2020/jes029.jpg" alt="Jes029" width="600" /></a> </span></p>
+<p style="text-align: justify;">Další celý den jsme strávili na nádherné tůře po hřebenech. Medvědí hora, Mravenečník, Dlouhé stráně... To není až tak úplně o karavaningu a tak jen bez kometáře pár fotek. Jeseníky jsou úžasné!</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes033.jpg"><img class="roundblock" title="Jes033" src="../../userFiles/6-trasy/3-dovolena/2020/jes033.jpg" alt="Jes033" height="150" /></a>  <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes030.jpg"><img class="roundblock" title="Jes030" src="../../userFiles/6-trasy/3-dovolena/2020/jes030.jpg" alt="Jes030" height="150" /></a></p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes031.jpg"><img class="roundblock" title="Jes031" src="../../userFiles/6-trasy/3-dovolena/2020/jes031.jpg" alt="Jes031" height="150" /></a>  <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes032.jpg"><img class="roundblock" title="Jes032" src="../../userFiles/6-trasy/3-dovolena/2020/jes032.jpg" alt="Jes032" height="150" /></a></p>
+<p style="text-align: justify;">Odpoledne se plni zážitků vracíme k Dodíkovi do Koutů ale nechce se nám být až do večera už jenom na místě parkoviště. Chce se nám ještě trochu "rozhlédnout" a dobrým tipem se stal včerejší komentář Tomáše Brabce (<a href="https://www.karavanypro.cz/">KaravanyPRO</a>) u jednoho z mých příspěvků na Facebooku: "Přenocujte na Červenohorském sedle, je to od vás kousek!" A tak jsme se zabalili a během pár kilometrů, mnoha serpentin a docela slušného převýšení se dostali do nadmořské výšky 1013 m.n m., kde se Červenohorské sedlo nachází. Tome, díky, byl to fakt parádní tip! Na rozlehlém a překvapivě volném parkovišti bylo jen pár aut a tak jsme si luxusně mohli dovolit najít nejkrásnější flíček na noční parkování. Tak, aby výhled byl co možná nejlepší. A protože žádný popis nebude dosti názorný, tady je celkový pohled. Jo a koordináty jsou <span jstcache="741">50.124977, 17.152027.</span></p>
+<p style="text-align: justify;"><span jstcache="741"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes034.jpg"><img class="roundblock" title="Jes034" src="../../userFiles/6-trasy/3-dovolena/2020/jes034.jpg" alt="Jes034" width="600" /></a> </span></p>
+<p style="text-align: justify;">V tom místě, kde stojíme, je v zeleni malý asfaltový "balkon", který slouží krytu kanálu. Takže ideální místo pro stolek, dvě křesla, večeři s fantastickým výhledem a taky s trochou reklamy na <a href="http://www.skolicka.cz/">minipivovar Beznoska</a>. Na Moravě mají totiž spoustu nádherných a úžasných věcí a produktů... ale upřímně, pivo mezi ně nepatří. Takže krásná moravská příroda a výborné české pivo mi přineslo prostě naprosto dokonalý večer.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes035.jpg"><img class="roundblock" title="Jes035" src="../../userFiles/6-trasy/3-dovolena/2020/jes035.jpg" alt="Jes035" height="150" /></a>  <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes036.jpg"><img class="roundblock" title="Jes036" src="../../userFiles/6-trasy/3-dovolena/2020/jes036.jpg" alt="Jes036" height="150" /></a></p>
+<p style="text-align: justify;">Stáli jsme dveřmi směrem na jihozápad, večerní západ slunce i ranní východ jak v přímém přenosu. Rozhodně jedna z našich nejhezčích nocí, co jsme na cestách zažili! I ráno stačilo se prostě jen natáhnout na posteli a kouknout z okna...</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes037.jpg"><img class="roundblock" title="Jes037" src="../../userFiles/6-trasy/3-dovolena/2020/jes037.jpg" alt="Jes037" width="600" /></a></p>
+<p style="text-align: justify;">Jen velmi neradi opouštíme krásné Červenohorské sedlo a jedeme dál. Sjeli jsme zpět do Koutů, projeli Loučnou nad Desnou a první cíl dnešního dne byl před námi: <strong>Maršíkov</strong> a známý dřevěný kostel Kostel sv. Michaela Archanděla, který tam stojí již od roku<span> 1609. Dokonce je postavený na místě ještě staršího, původního kostela. Ale i současný má velmi zachovalý původní interiér (tedy 1609) a miniaturní varhany, které jsou ale velmi unikátní a mají obrovskou historickou hodnotu. Kostel je nejstarší roubenou stavbou na severní Moravě. Budova byla sice zavřená ale Jana, jako obvykle, hned navázala rozhovor s pánem, co se objevil ve dveřích a výsledkem byla krásná soukromá prohlídka místním truhlářem panem<span> Lichnerem</span>, který se už skoro 30 let o kostel stará. A mohli jsme si prohlédnout i ty varhany!</span></p>
+<p style="text-align: justify;"><span><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes038.jpg"><img class="roundblock" title="Jes038" src="../../userFiles/6-trasy/3-dovolena/2020/jes038.jpg" alt="Jes038" height="150" /></a>  <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes039.jpg"><img class="roundblock" title="Jes039" src="../../userFiles/6-trasy/3-dovolena/2020/jes039.jpg" alt="Jes039" height="150" /></a>  <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes040.jpg"><img class="roundblock" title="Jes040" src="../../userFiles/6-trasy/3-dovolena/2020/jes040.jpg" alt="Jes040" height="150" /></a></span></p>
+<p style="text-align: justify;">Na oběd jsme zastavili v motorestu Skřítek u Sobotína a ohledně jídla dopadli vcelku velmi dobře. Takže 49.998963, 17.154684 a naše doporučení. Navíc je to případně dobré místo i na noc. Za chatou jsou odlehlá místa, snad bývalá parkoviště, hned u lesa. Od chaty Skřítek je také nástup na vícero pěkných turistických nebo cyklotras. Na Ztracené kameny, na Bílé kameny, Zelené kameny a my vyrazili směrem na Bílé kameny. Štola pod Bílým kamenem je nedaleko a když je teplota vzduchu třeba 30°C, tak ve skalní průrvě se zatopenou štolou bude minimálně o 15°C méně. Zajímavé a v tom vedru taky osvěžující.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes041.jpg"><img class="roundblock" title="Jes041" src="../../userFiles/6-trasy/3-dovolena/2020/jes041.jpg" alt="Jes041" width="250" /></a></p>
+<p class="section-hero-header-title-subtitle" style="text-align: justify;"><span jstcache="741">A zase jedeme o kus dál a dalším cílem je zámek v Rýmařově, v místní části <strong>Janovice</strong>. Původně gotická tvrz z let <span>1520 až 1530 byla o cca 60 let později přestavěna na renesanční zámek. <span>Zámek byl dlouho trvalým sídlem janovické linie Harrachů.</span> Nyní je z</span>ajímavý hlavně tím, že v něm ale vůbec nic není. Veškerý mobiliář vzal během historie za své a tak případným vstupným spíš podporujete nadšence, který památku udržují v činnosti, až do plánované renovace. Snad se jí zámek dočká.</span></p>
+<p class="section-hero-header-title-subtitle"><span jstcache="741"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes042.jpg"><img class="roundblock" title="Jes042" src="../../userFiles/6-trasy/3-dovolena/2020/jes042.jpg" alt="Jes042" height="150" /></a>  <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes043.jpg"><img class="roundblock" title="Jes043" src="../../userFiles/6-trasy/3-dovolena/2020/jes043.jpg" alt="Jes043" height="150" /></a> </span> </p>
+<p class="section-hero-header-title-subtitle" style="text-align: justify;">Další den jsme chtěli na Karlovu studánku a tak jsme si na noc našli na první pohled velmi dobré místo. Vesnička <strong>Dolní Moravice</strong> je na trase na Karlovu studánku, mají tam barokní most přes Moravici, který je kulturní památkou, je tam i památná lípa (zhruba 500let stará) s poetickým názvem Hadí královna a hlavně, mají tam i fotbalové hřiště, s docela dobrým parkovištěm, stranou od hlavní silnice, na břehu říčky Moravice. Konkrétně zde: <span jstcache="175">49.977794, 17.324431. </span>Takže jsme dojeli, zaparkovali, prohlédli si most, prošli se asi 3km i k lípě, kochali se velmi dobře spravovanou obcí a elegancí, kterou vyzařuje a ... zašli i do hospůdky na fotbalovém hřišti. Byli tam jen místní. Fotbalistům zrovna i končil tréning a dva měšťáci z druhé strany republiky byli pro osazenstvo zajímavým zpestřením. Pivo se čepovalo až překvapivě dobré, utopenci k dispozici, no.... zakecali jsme se až do hodně po půlnoci a byl to velmi příjemný večer. Mimochodem, toalety na hřišti jsou samozřejmě otevřené non-stop i v noci. Díky všem Dolno-Moravičákům :-)</p>
+<p class="section-hero-header-title-subtitle"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes044.jpg"><img class="roundblock" title="Jes044" src="../../userFiles/6-trasy/3-dovolena/2020/jes044.jpg" alt="Jes044" height="150" /></a>  <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes045.jpg"><img class="roundblock" title="Jes045" src="../../userFiles/6-trasy/3-dovolena/2020/jes045.jpg" alt="Jes045" height="150" /></a>  <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes046.jpg"><img class="roundblock" title="Jes046" src="../../userFiles/6-trasy/3-dovolena/2020/jes046.jpg" alt="Jes046" height="150" /></a></p>
+<p style="text-align: justify;">A je tu další den naší dovolené, s krásným počasím hned od rána. Vyrážíme směr Karlova studánka a s každým kilometrem roste počet aut, mířících stejným směrem. A pak se objevilo parkoviště Hvězda a my se cítili jak v Disneylandu. Lidí bylo víc nežli stromů okolo. Mraky aut stojící všude možně, křik, hluk a nervozita. Tak to není pro nás, takže otočka, rychlý pohled do itineráře, dalším cílem na naší trase je hrad <strong>Sovinec</strong>. Tedy parkování pro větší obytňák není v sezóně po celé obci Sovinec nic moc. Parkoviště jsou tu malá a přeplněná. A tak pro nomády jedna rada: zadejte do navigace <span jstcache="175">49.700269, 16.890504. Je to volný odstavný pruh u silnice a na hrad jen možná 500m. Super. </span></p>
+<p style="text-align: justify;"><span jstcache="175"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes047.jpg"><img class="roundblock" title="Jes047" src="../../userFiles/6-trasy/3-dovolena/2020/jes047.jpg" alt="Jes047" height="150" /></a>  <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes048.jpg"><img class="roundblock" title="Jes048" src="../../userFiles/6-trasy/3-dovolena/2020/jes048.jpg" alt="Jes048" height="150" /></a> </span></p>
+<p style="text-align: justify;">Sovinec je krásný hrad (tedy vlastně pevnost, už ze 14.stol.), z věže je fantastický výhled do kraje, na nádvořích se pořád pořádají nějaké akce (při naší návštěvě byla v hradním komplexu současně historická hudba, divadlo vč. střílení z mušket a dokonce i děl, výstava historických oděvů, atd.). Nudit se určitě nebudete ani vy, ani vaše děti. Docela dobrý bufet přímo na hradě, s nabídkou teplých jídel a stánky se suvenýry jsou samozřejmostí.</p>
+<p style="text-align: justify;">Jen o asi 3km dál je zase přírodní, resp. botanická zvláštnost. Botanik Ing. Radim Slabý tu před lety koupil zrušenou skládku odpadků, která byla umístěna do bývalého kamenného lomu a během let vytvořil nádherné arboretum. Prudké terasy, jezírka, více než 3.200 druhů rostlin z celého světa a všude stovky motýlů. Jmenuje se to tu "<strong><a href="http://www.arboretumpaseka.cz/">Makču Mikču</a></strong>" a zcela stoprocentně stojí za návštěvu. A jako drobný bonus tu máte parkoviště se skvělým výhledem do okolní krajiny. Jsme tu na posledním úpatí Jeseníků a tak jsou před vámi už jenom nížiny. To parkoviště má koordináty <span jstcache="143">49.816508, 17.221341, fotka je níže. </span></p>
+<p style="text-align: justify;"><span jstcache="143"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes049.jpg"><img class="roundblock" title="Jes049" src="../../userFiles/6-trasy/3-dovolena/2020/jes049.jpg" alt="Jes049" width="250" /></a>   <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes050.jpg"><img class="roundblock" title="Jes050" src="../../userFiles/6-trasy/3-dovolena/2020/jes050.jpg" alt="Jes050" width="250" /></a></span></p>
+<p style="text-align: justify;"><span jstcache="143"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes051.jpg"><img class="roundblock" title="Jes051" src="../../userFiles/6-trasy/3-dovolena/2020/jes051.jpg" alt="Jes051" width="600" /></a></span></p>
+<p style="text-align: justify;">Po návštěvě krásného Makču Pikču už ze dne moc nezbývalo a v plánu byl přesun na další nocoviště. Naštěstí bylo jen o jednu vesnici dál a má také naše doporučení. Projedete obcí <strong>Paseka</strong> až skoro na její východní konec, kde se nachází jejich "přírodní koupací biotop" neboli koupaliště. Má ucházející parkoviště stranou ruchu a navíc se můžete vydat zhruba 1,5km dále do lesa, kde se nachází Pasecký vodopád. Vyrazili jsme tak za soumraku a to jsme neměli dělat. V lese byl evidentně mezinárodní sraz komárů a já, na rozdíl od Jany, zapomněl aplikovat repelent. Takže ona k nim došla, moje maličkost mazala zpět k Dodíkovi. Napravil jsem to ale ráno, takže fotky mám. Stejně bylo po ránu lepší světlo...</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes052.jpg"><img class="roundblock" title="Jes052" src="../../userFiles/6-trasy/3-dovolena/2020/jes052.jpg" alt="Jes052" height="150" /></a>  <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes053.jpg"><img class="roundblock" title="Jes053" src="../../userFiles/6-trasy/3-dovolena/2020/jes053.jpg" alt="Jes053" height="150" /></a>  </p>
+<p style="text-align: justify;">Dopoledne Jana hlásila, že dalším cílem je <strong>Uničov</strong>. Někde v hlavě mám zasunuté spojení "Uničovské strojírny" a tak jsem od prohlídky města moc nečekal. Chyba! Historické centrum Uničova, resp. Masarykovo náměstí a jeho okolí, rozhodně za návštěvu stojí. Zajímavá, původně tržní budova Městského úřadu, samostatně stojící přímo uprostřed náměstí, malé a skvělé "<a href="https://kafenaproti.cz/">Kafe naproti</a>", s prý fantastickou kávou (já kávu nepiji, takže to bylo jen na Janě), ve kterém jsme se dobře zakecali s mladým majitelem. Výsledkem bylo, že nás jeho kamarád vzal do dnes zavřeného "Muzea u vodní branky" a měli jsme tak možnost seznámit se víc s historií Uničova. Třeba to, že osada Uničov byla založena už roku 1213, v roce 1223 jí pak král český Přemysl Otakar povyšuje na město. A tak se dodneška vedou spory, je-li nejstarším městem na Severní Moravě Bruntál (ten má datum založení přesně uprostřed) nebo Uničov. Po návratu na náměstí jsme se opravdu skvěle najedli v restauraci hned naproti "Kafe naproti". V historickém centru se samozřejmě parkovat nedá ale dobré parkoviště je jen kousek od něj, na <span jstcache="175">49.772205, 17.118054. Takže Uničov a palec nahoru.</span></p>
+<p style="text-align: justify;"><span jstcache="175"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes054.jpg"><img class="roundblock" title="Jes054" src="../../userFiles/6-trasy/3-dovolena/2020/jes054.jpg" alt="Jes054" width="250" /></a>  <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes055.jpg"><img class="roundblock" title="Jes055" src="../../userFiles/6-trasy/3-dovolena/2020/jes055.jpg" alt="Jes055" height="150" /></a> </span></p>
+<p style="text-align: justify;">Výsledkem bylo, že jsme v Uničově strávili skoro celý den. A tak již odpolední zastavkou (pro Janu extrémně důležitou), se staly <strong>Troubelice</strong>. Že vám název vesnice mnoho neříká? Asi nemáte rádi čokoládu. Sídlí tam totiž malá, rodinná "<a href="https://www.cokoladovnatroubelice.cz/">Čokoládovna Troubelice</a>" a co vám budu povídat, něco jsme tam snědli, něco vypili a hromadu věcí nakoupili. Ještě teď v prosinci, kdy píši tyto řádky, mám vedle klávesnice hrnek s jejich horkou čokoládou. Parkovat se ná v odstavném pruhu přímo před jejich novou prodejnou.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes057.jpg"><img class="roundblock" title="Jes057" src="../../userFiles/6-trasy/3-dovolena/2020/jes057.jpg" alt="Jes057" width="600" /></a></p>
+<p style="text-align: justify;">Pak už jsme se trochu porozhlíželi, kam umístíme Dodáka na takový klidný zbytek odpoledne a na noc. No a tady přišel jeden z nepříjemných okamžiků naší cesty. Našli jsme si, z našeho pohledu, velmi dobré místo, kousek za obcí Lipinka. Z hlavní silnice tam doprava (do lesa) odbočuje asfaltová silnice třetí třídy, která celým lesem prochází. Je zakreslená na všech mapách, co máme. Na Googlu, na Seznamu, v tištěné automapě...  Použiji náhled z Google maps a vypadá to takto:</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes058.jpg"><img class="roundblock" title="Jes058" src="../../userFiles/6-trasy/3-dovolena/2020/jes058.jpg" alt="Jes058" width="600" /></a></p>
+<p style="text-align: justify;">Kousek za odbočkou je velký, trojúhelníkový a taky asfaltovaný "ostrov", tak o rozměrech 80x50 metrů. No a tam jsme zastavili s tím, že tu přečkáme. Asfalt byl z části pokryt bordelem z těžby, včetně skoro zanesené středové silnice. Evidentně tohle místo (asi staré parkoviště, v lese jsou základy stavby, možná malého motorestu? ) používají lesy pro ukládání pokáceného dřeva před odvozem. Nicméně v době naší návštěvy byl plac prázdný. Jen pár kmenů po stranách. Na odpoledne jsme zastavili ve stínu stromů (bylo vedro), stále však <span style="text-decoration: underline;">před hranou lesa</span>. A v plánu jsem měl na noc dát Dodíka přesně doprostřed trojúhelníku, kde byla největší rovina. Takže jsme tam odpoledne stáli asi takto:</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes056.jpg"><img class="roundblock" title="Jes056" src="../../userFiles/6-trasy/3-dovolena/2020/jes056.jpg" alt="Jes056" width="600" /></a></p>
+<p style="text-align: justify;">Po hodině dorazil jakýsi nesmírně nervozní pán v Ladě Niva a začal se s námi dohadovat o šíleném porušení všech možných předpisů o vjezdu do lesa. Snažil jsem se mu vysvětlit, že nestojíme v lese ale na kraji silnice třetí třídy, před okrajem lesa. No tady tak máte zářný příklad, jak pitomně je lesní zákon koncipován a jak vágně jsou některé termíny stanoveny. Ten moudrý lesák prohlásil, že les je všechno okolo a že tedy ta silnička III.třídy, i s tím starým parkovištěm je přeci už dávno "v lese". A jako důkaz uvedl, že "oni ten plac používají při těžbě dřeva". Takže kolegy karavanisty informuji o tom, že les je asi všude tam, kde to lesáci zaberou. Na moji námitku, že podle stejné logiky je i celá vesnice Lipinka v lese, protože je také obklopena lesy a prochází jí silnice, už odpovědět nedovedl a začal vyhrožovat pokutami. Samozřejmě jsem to nechtěl hnát do krajnosti a tak jsme se zbalili a odjeli. Jsou chvíle, kdy pražská SPZ moc nepomáhá....</p>
+<p style="text-align: justify;">Po této příhodě a při pohledu na mapu, kde nikde nic příhodného na noc nebylo, jsme udělali za poslední tři roky už čtvrtý ústupek a jeli do kempu. Tenhle se jmenoval "Sport Relax Camp Bagr" a je na břehu vytěžované pískovny, která se vznešeně jmenuje "Moravičanské jezero". Kemp najdete na <span jstcache="130">49.781906, 16.954111. Tady to zkrátím. Jediné, co bylo príma, bylo koupání v čisté vodě pískovny. On vlastní kemp byl vcelku úplně normální, personál byl příjemný ale to umístění!  CELOU NOC zněl na jedné straně bagr, těžící písek na druhé straně nádrže a na druhé straně CELOU NOC jezdily kolem kempu náklaďáky, které ten písek odvážely. Přidávám dvě fotky, které bez zvuku působí vlastně idilicky...</span></p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes059.jpg"><img class="roundblock" title="Jes059" src="../../userFiles/6-trasy/3-dovolena/2020/jes059.jpg" alt="Jes059" width="250" /></a>    <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes060.jpg"><img class="roundblock" title="Jes060" src="../../userFiles/6-trasy/3-dovolena/2020/jes060.jpg" alt="Jes060" width="250" /></a></p>
+<p style="text-align: justify;">Takže jsme ráno opět odjížděli s posíleným přesvědčením, že už nikdy více. Z toho dne stojí za zmínku hlavně procházka podél Mlýnského potoka. Je nad obcí <strong>Mladeč</strong>, kam jsme se přesunuli v plánu prohlednout si známe <a href="https://www.caves.cz/jeskyne/mladecske-jeskyne">Mladečské jeskyně</a>. Bohužel ten den zavřené a tak jsme Dodíka zakotvili na velkém (a kvůli zavření prázdném), parkovišti a udělali z něj výchozí tabor pro tento den. Parkoviště je na <span jstcache="130">49.708043, 17.020811 a je až nezdravě blízko, pár set metrů, čtyřproudovky z Olomouce na Mohelnici. Ale hluk tam nebyl takže pohoda. Na stezce kolem Mlýnského potoka jsou zajímavá místa jako je Čertům most, hluboká a přístupná jeskyně Podkova, jejíž názem přesně vystihuje její tvar se dvěma vchody a pak je tu i "Rytířská síň", polorozpadlá kruhová stavba se sloupy z období romantismu. Tak jsme strávili odpoledne a v noci na parkovišti čekali na otevření Mladečských jeskyň. Celé odpoledne bylo takové to vlhké dusno před bouřkou... která nepřišla.</span></p>
+<p style="text-align: justify;"><span jstcache="130"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes061.jpg"><img class="roundblock" title="Jes061" src="../../userFiles/6-trasy/3-dovolena/2020/jes061.jpg" alt="Jes061" width="250" /></a>  <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes062.jpg"><img class="roundblock" title="Jes062" src="../../userFiles/6-trasy/3-dovolena/2020/jes062.jpg" alt="Jes062" width="250" /></a></span></p>
+<p style="text-align: justify;"><span jstcache="130"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes063.jpg"><img class="roundblock" title="Jes063" src="../../userFiles/6-trasy/3-dovolena/2020/jes063.jpg" alt="Jes063" height="150" /></a>  <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes064.jpg"><img class="roundblock" title="Jes064" src="../../userFiles/6-trasy/3-dovolena/2020/jes064.jpg" alt="Jes064" height="150" /></a></span></p>
+<p style="text-align: justify;">Ráno bylo už zase krásně a my vyrazili směrem k jeskyním.  Prošli jsme prohlídkovou trasu a shodli se, že jsou sice docela pěkné ale že jsme asi čekali trochu víc. Nicméně na ochlazení v horkém dni byly úplně super.</p>
+<p style="text-align: justify;"><a class="thickbox" title="" href="../../userFiles/6-trasy/3-dovolena/2020/jes065.jpg"><img class="roundblock" src="../../userFiles/6-trasy/3-dovolena/2020/jes065.jpg" alt="" width="250" /></a>  <a class="thickbox" title="" href="../../userFiles/6-trasy/3-dovolena/2020/jes066.jpg"><img class="roundblock" src="../../userFiles/6-trasy/3-dovolena/2020/jes066.jpg" alt="" width="250" /></a>  <a class="thickbox" title="" href="../../userFiles/6-trasy/3-dovolena/2020/jes067.jpg"><img class="roundblock" src="../../userFiles/6-trasy/3-dovolena/2020/jes067.jpg" alt="" width="250" /></a></p>
+<p style="text-align: justify;">Vracíme se k Dodíkovi a další přesun trvá jen pár minut. O zhruba 2km dál je totiž vesnička <strong>Bílá Lhota</strong>. Z ptačí perspektivy by pozorovatel hned uviděl, že asi čtvrdinu plochy obce zabírá krásné "<a href="https://www.arboretumbilalhota.cz/">Arboretum Bílá Lhota</a>". A že to není arboretum jen tak ledajaké. Rozkládá se v sousedství bývalé tvrze a zmínka o zahradách v tomto místě se v záznamech objevuje už v polovině 15.století! Veřejnosti bylo spřístupněno v roce 1968 a o rok později se stává Národní přírodní památkou. Nikoliv bezdůvodně. V arboretu jsme strávili dost času a díky dobrému světlu jsem udělal i dost fotek. Alespoň o šest z nich se podělím. Parkovali jsme přímo před malou galerií, která je současně pokladnou, na koordinátech <span jstcache="130">49.709730, 16.975145.</span></p>
+<p style="text-align: justify;"><span jstcache="130"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes068.jpg"><img class="roundblock" title="Jes068" src="../../userFiles/6-trasy/3-dovolena/2020/jes068.jpg" alt="Jes068" width="250" /></a>  <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes069.jpg"><img class="roundblock" title="Jes069" src="../../userFiles/6-trasy/3-dovolena/2020/jes069.jpg" alt="Jes069" width="250" /></a>  <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes070.jpg"><img class="roundblock" title="Jes070" src="../../userFiles/6-trasy/3-dovolena/2020/jes070.jpg" alt="Jes070" width="250" /></a></span></p>
+<p style="text-align: justify;"><span jstcache="130"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes071.jpg"><img class="roundblock" title="Jes071" src="../../userFiles/6-trasy/3-dovolena/2020/jes071.jpg" alt="Jes071" width="250" /></a>  <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes072.jpg"><img class="roundblock" title="Jes072" src="../../userFiles/6-trasy/3-dovolena/2020/jes072.jpg" alt="Jes072" height="150" /></a>  <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes073.jpg"><img class="roundblock" title="Jes073" src="../../userFiles/6-trasy/3-dovolena/2020/jes073.jpg" alt="Jes073" width="250" /></a> </span></p>
+<p style="text-align: justify;">Než jsme si celé arboretum prohlédli, bylo po poledni a tak na další zastávku jsme se obzvlášť těšili.<strong> Loštice</strong> a Muzeum slavných <a href="https://www.tvaruzky.cz/muzeum-olomouckych-tvaruzku">Olomouckých tvarůžků</a>. Celou návštěvu Loštic jsme si fakt užili. Prohlídka muzea, nákup v podnikové prodejně, skvělý oběd ve slavné loštické restauraců <a href="https://www.ucoufalu.com/">U Coufalů</a>. Sice jsem se po předkrmu s tvarůžky, polévce s tvarůžky a tvarůžky jako hlavním jídlem mohl jenom odfunět od stolu a přeci jsme ještě navšívili letní dům s ateliérem našeho slavného grafika a malíře Adolfa Kašpara (1877-1934). Jeho ilustrace, zejména k prvním vydáním Babičky Boženy Němcové nebo Jiráskově Filosovské historii, jsou prostě nepřekonatelné. </p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes075.jpg"><img class="roundblock" title="Jes075" src="../../userFiles/6-trasy/3-dovolena/2020/jes075.jpg" alt="Jes075" height="150" /></a>  <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes076.jpg"><img class="roundblock" title="Jes076" src="../../userFiles/6-trasy/3-dovolena/2020/jes076.jpg" alt="Jes076" width="250" /></a>  <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes074.jpg"><img class="roundblock" title="Jes074" src="../../userFiles/6-trasy/3-dovolena/2020/jes074.jpg" alt="Jes074" width="250" /></a></p>
+<p style="text-align: justify;">Jo a v podnikové prodejně našla Jana produkt, který si tehdy jako i jiné koupila jen v jednom balení, a o kterém pak básnila celý zbytek letošního roku, protože u nás v Praze prostě nebyl k sehnání. Naštěstí se vytáhla naše dcera a tak moji ženu čekal pod vánočním stromečkem "balíček" a tak i poslední připomenutí naší letošní dovolené.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes077.jpg"><img class="roundblock" title="Jes077" src="../../userFiles/6-trasy/3-dovolena/2020/jes077.jpg" alt="Jes077" width="600" /></a></p>
+<p style="text-align: justify;">Po Lošticích jsme už hledali místo k přespání. Původní nápad, parkoviště u místního koupaliště, se neukázal jako vhodný (i to se občas stává). Nicméně z improvizace, trochy ježdění po okolí, trochy ptaní se a seznamování s místními obyvateli, bylo nakonec jedno z nejlepších míst na spaní, co jsme měli. Omlouvám se ale tentokrát koordináty neposkytnu. Necháme si ho pro sebe. Krásná louka, okolo les, říčka hned vedle a vydlážděná "terasa", když tam přijedou dobrovolní hasiči na cvičení, se svojí těžkou technikou. Strávili jsme na něm velmi příjemný večer, plný povídání s milou rodinou - brababičkou, babičkou, tátou s mámou a jejich čtyřmi malými syny. Dobří lidé jsou všude. Moc a moc děkujeme za tip, rodino ............ z obce ....................</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes078.jpg"><img class="roundblock" title="Jes078" src="../../userFiles/6-trasy/3-dovolena/2020/jes078.jpg" alt="Jes078" width="600" /></a></p>
+<p style="text-align: justify;">Ráno se nám moc nechtělo opustit krásné místo a tak byla už docela pokročilá doba, když startuji Dodíka a vyrážíme směr <a href="https://www.hrad-bouzov.cz/cs"><strong>Bouzov</strong></a>. Tento hrad asi opravdu nemá smysl nějak podrobněji představovat. Jeho původ sahá už na přelom 13. a 14.stol. ale dnešní podobu získal až v 19.stol. v dobách romantismu. Je to prostě hrad, jak si ho představovala tehdejší šlechta. S hodně věžičkami, s cimbuřím a dalšími artefaktky. A proto ho každý zná minimálně ze spousty pohádek a filmů či seriálů. Je hodně fotogenický. Velké a placené parkoviště počítá i s místy pro obytňáky. <span jstcache="736">49.700301, 16.890474.</span></p>
+<p style="text-align: justify;"><span jstcache="736"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes079.jpg"><img class="roundblock" title="Jes079" src="../../userFiles/6-trasy/3-dovolena/2020/jes079.jpg" alt="Jes079" width="250" /></a>  <a class="thickbox" title="" href="../../userFiles/6-trasy/3-dovolena/2020/jes080.jpg"><img class="roundblock" src="../../userFiles/6-trasy/3-dovolena/2020/jes080.jpg" alt="" width="250" /></a>  <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes081.jpg"><img class="roundblock" title="Jes081" src="../../userFiles/6-trasy/3-dovolena/2020/jes081.jpg" alt="Jes081" width="250" /></a> </span></p>
+<p style="text-align: justify;">Jen příležitostí v obědu na Bouzově moc nebylo. Bylo to takové turistické: klobásy, langoše, trdelník... To asi není úplně ono, takže nasedáme a vyrážíme dál. Naším dalším cílem je už přes 60km vzdálená Litomyšl, blíže a blíže zpět k domovu, a tak jistě najdeme příležitost k obědu cestou. A podařilo se to hned ve vedleší obci Kozov, Tam je docela pěkný penzion <a href="https://www.valaskuvgrunt.eu/">Valáškův grunt</a>, kde jsme docela dobře uspěli. Škoda, že jsme tam nebyli v době nějaké grilovací akce. Gril poháněný vodním kolem bych fakt chtěl vidět v činnosti :-)</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes082.jpg"><img class="roundblock" title="Jes082" src="../../userFiles/6-trasy/3-dovolena/2020/jes082.jpg" alt="Jes082" height="150" /></a>  <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes083.jpg"><img class="roundblock" title="Jes083" src="../../userFiles/6-trasy/3-dovolena/2020/jes083.jpg" alt="Jes083" height="150" /></a></p>
+<p style="text-align: justify;"><strong>Litomyšl</strong>.  Rodné město skladatele Bedřicha Smetany (i když v něm od narození pobyl pouhých sedm let, než se celá rodina i s malých Bedřichem přestěhovala do Jindřichova Hradce) má krásné historické centrum, včetně slavného zámku. Přijíždíme do města v pozdním odpoledni. Velké parkoviště hned vedle můstku do centra je sice volné ale sousední hlavní obtah Litomyšle z něj dělá docela hlučné místo na případné spaní. Naštěstí ho Jana ani neplánovala a naviguje mě úzkou silničkou mezi zelenými ploty na souřadnice <span jstcache="1275">49.869866, 16.302354, což je o cca 400m dále od centra. Což je v pohodě. No a tam nacházíme malé, opuštěné parkoviště, které slouží zahradnické školce, prodejně a Sluneční zahradě. Společnost je to podstatně příjemnější. </span></p>
+<p style="text-align: justify;"><span jstcache="1275"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes084.jpg"><img class="roundblock" title="Jes084" src="../../userFiles/6-trasy/3-dovolena/2020/jes084.jpg" alt="Jes084" width="600" /></a> </span></p>
+<p style="text-align: justify;">Chceme poznat večerní atmosféru města a tak hned vyrážíme do centra. Milujeme stará náměstí, lemovaná podloubím a malými krámky. No a takové Smetanovo náměstí v Litomyšli beze zbytku je. Takže příjemná procházka a pak jsme zakotvili u Smetanova domu (docela dost názvů "Smetana" za pouhých sedm let života, ne?) na večeři. A protože na place vedle domu to rozjela místní a přitom opravdu dobrá kapela, co uměla zahrát úplně všechno, zůstali jsme až do noci. Cesta zpět k Dodíkovi byla sice trochu do kopce....</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes089.jpg"><img class="roundblock" title="Jes089" src="../../userFiles/6-trasy/3-dovolena/2020/jes089.jpg" alt="Jes089" width="250" /></a>  <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes090.jpg"><img class="roundblock" title="Jes090" src="../../userFiles/6-trasy/3-dovolena/2020/jes090.jpg" alt="Jes090" width="250" /></a></p>
+<p style="text-align: justify;">Jako poslední představení navštíveného místa si nechávám dvě hlavní stavby na kopci nad historickým centrem, a to <span jstcache="703">piaristický Chrám Nalezení sv. Kříže a samozřejmě Zámek. Ten chrám je poměrně impresivní stavba, která se mi velmi zalíbila. Proč? No, hodně chodíme do sakrálních staveb - mám je rád z hlediska architektury, historie, uměleckých děl a také dojmu, který mají vyvolat. Ale jako nekřesťanovi mi celý život moc nedává logiku, jaký přístup má církev ke svým "ovečkám". Tedy minimálně v naší zemi obecně. Řečeno současnými slovy, mají prostě  podle mne velmi mizerný marketing. Automaticky vyžadují úctu, poslušnost, dodržování tradičního přístupu a tak jsou prostě odtržení od současných lidí. Nic moc atraktivního pro oslovení nebo chcete-li přilákání nových věřících, se neděje. Jakoby zamrzli někdy před 300 lety, kdy byla víra v Boha jedinou alternativou. Samozřejmě velká čest výjimkám v podobě mladých farářů, různých spolků, apod. A jeden z nich spravuje právě <span>Chrám Nalezení sv. Kříže v Litomyšli. Celý chrám je kompletně otevřený (tedy vstupné se platí ale spíš symbolické), můžete jít kamkoliv a v každé části chrámu vás čeká nějaké překvapení. Tady je výstava obrazů a soch, s možností prohlídky ze všech stran (abyste viděli, jak umělec postupoval), tady je zase interaktivní a moderní technologie používající expozice pro děti o křesťanství, ale je koncipována jako zábavna hra/soutěž (na tabletu si třeba můžete sestavit vlastní vitráže do oken chrámu, je tu kvíz ze života Ježíše Krista na dotykové obrazovce, pojmutý jako komiks, atd. atd.). Taky můžete vystoupat do věží chrámu a z vyhlídky se pokochat pohledem na nedaleký zámek. V interiéru se decentně kombinuje původní barokní provedení s moderními prvky. Prostě je to asi první sakrální stavba u nás, která mi připadala i "zábavná". Takže, kdo budete v Litomyšli, nevynechejte návštěvu.</span></span></p>
+<p style="text-align: justify;"><span jstcache="703"><span><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes091.jpg"><img class="roundblock" title="Jes091" src="../../userFiles/6-trasy/3-dovolena/2020/jes091.jpg" alt="Jes091" height="150" /></a>  <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes096.jpg"><img class="roundblock" title="Jes096" src="../../userFiles/6-trasy/3-dovolena/2020/jes096.jpg" alt="Jes096" height="150" /></a>  <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes093.jpg"><img class="roundblock" title="Jes093" src="../../userFiles/6-trasy/3-dovolena/2020/jes093.jpg" alt="Jes093" height="150" /></a>  <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes092.jpg"><img class="roundblock" title="Jes092" src="../../userFiles/6-trasy/3-dovolena/2020/jes092.jpg" alt="Jes092" height="150" /></a></span></span></p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes095.jpg"><img class="roundblock" title="Jes095" src="../../userFiles/6-trasy/3-dovolena/2020/jes095.jpg" alt="Jes095" height="150" /></a> <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes094.jpg"><img class="roundblock" title="Jes094" src="../../userFiles/6-trasy/3-dovolena/2020/jes094.jpg" alt="Jes094" height="150" /></a></p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes097.jpg"><img class="roundblock" title="Jes097" src="../../userFiles/6-trasy/3-dovolena/2020/jes097.jpg" alt="Jes097" height="150" /></a>  <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes098.jpg"><img class="roundblock" title="Jes098" src="../../userFiles/6-trasy/3-dovolena/2020/jes098.jpg" alt="Jes098" width="250" /></a></p>
+<p style="text-align: justify;">Státní zámek v Litomyšli je samozřejmě velmi známou stavbou. Zbudovat jej nechali Pernštejnové v 16.stol. a je to skvost renesance. od roku 1962 je národní kulturní památkou a od r.1999 je dokonce zapsán i na seznam UNESCO. Kromě krásných interiérů a cenného mobiliáře tu návštěvník najde i městskou obrazárnu, sklepení se sochami Olbrama Zoubka a v přilehlém pivovaru je rodný byt právě Bedřicha Smetany (jeho otec tu totiž byl sládkem). Zajímavostí a unikátem je také zcela zachovalé zámecké divadlo, postavené v letech 1796-1797. Prošli jsem si oba prohlídkové okruhy a nelitujeme.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes099.jpg"><img class="roundblock" title="Jes099" src="../../userFiles/6-trasy/3-dovolena/2020/jes099.jpg" alt="Jes099" height="150" /></a> <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes100.jpg"><img class="roundblock" title="Jes100" src="../../userFiles/6-trasy/3-dovolena/2020/jes100.jpg" alt="Jes100" height="150" /></a></p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes101.jpg"><img class="roundblock" title="Jes101" src="../../userFiles/6-trasy/3-dovolena/2020/jes101.jpg" alt="Jes101" height="150" /></a> <a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes102.jpg"><img class="roundblock" title="Jes102" src="../../userFiles/6-trasy/3-dovolena/2020/jes102.jpg" alt="Jes102" height="150" /></a></p>
+<p style="text-align: justify;">No a po krásné Litomyšli jsme se už vydali směrem k domovu. Dovolená 2020 končí. Za 12 dní jsme ujeli přes 800km a Dodík opět ani nezaváhal. Na začátku srpna, kdy jsme dovolenou měli, bylo naštěstí období korovavirového "klidu" a tak nás opatření omezovala jen minimálně. Přesto bylo docela znát, že chybí turisté a tak jsme byli rádi, že alespoň naší útratou můžeme na všech místech pomáhat ostatním, aby tuto podivnou dobu přečkali. Snad příští rok 2021 už bude výrazně lepší.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../userFiles/6-trasy/3-dovolena/2020/jes103.jpg"><img class="roundblock" title="Jes103" src="../../userFiles/6-trasy/3-dovolena/2020/jes103.jpg" alt="Jes103" width="600" /></a></p>
+</div>
+</div>
+
+	</div>
+
+	<div id="rightbar">
+	
+	    <div class="boxed ">
+
+
+<h2>Co vás zajímá?</h2>
+<div class="content2">
+
+<div id="menu-bott"></div></div></div>
+<div class="boxed ">
+
+
+<h2>Kontakty na nás</h2>
+<div class="content2">
+
+<h3><img style="margin: 10px 0px !important;" src="../../userFiles/system/logo.jpg" alt="" /></h3>
+<h3>Náš parťák obytňák</h3>
+<p>Jirka a Jana<br />Praha</p>
+<p><a href="mailto:jiri.pm@seznam.cz">jiri.pm@seznam.cz</a></p>
+<p></p></div></div>
+<div class="boxed ">
+
+
+<h2>Návštěvy na těchto stránkách...</h2>
+<div class="content2">
+
+<p><a href="https://www.toplist.cz/">
+<script language="JavaScript" type="text/javascript">// <![CDATA[
+document.write('<img src="https://toplist.cz/count.asp?id=1782081&amp;logo=mc&amp;http='+
+escape(document.referrer)+'&amp;t='+escape(document.title)+
+'&amp;wi='+escape(window.screen.width)+'&amp;he='+escape(window.screen.height)+'&amp;cd='+
+escape(window.screen.colorDepth)+'" width="88" height="60" border=0 alt="TOPlist" />');
+// ]]></script>
+</a></p>
+<noscript><img src="https://toplist.cz/count.asp?id=1782081&amp;logo=mc" border="0"
+alt="TOPlist" width="88" height="60" /></noscript></div></div>
+
+	</div>
+
+</div><!-- wrap ends here -->
+
+<!-- footer starts here -->
+	<div id="footer">
+		<div id="footer-content">
+		<div id="footer-right">
+			<p class="paticka" style=""><span id=p1 class=ostravski><a href=http://www.ostravski.cz/?levny-webdesign target=:"_blank" >
+Ostravski Webdesign
+</a>
+ |
+ <a href="http://www.banan.cz/produkty/webove-stranky-zdarma?web-zdarma" title="Webové stránky zdarma" target="_blank">
+ Webové stránky zdarma</a>
+ od <a href="http://www.banan.cz/?webhosting-banan" title="webhosting a domény" target="_blank">BANAN.CZ</a>
+ </span>
+
+<span class="paticka_user"> | <a href="http://www.nas-partak-obytnak.cz/admin/">přihlásit se</a></span>
+
+
+</p>
+
+<!-- banan=rs -->		</div>
+
+		<div id="footer-left">
+            <p>
+						            </p>
+		</div>
+		</div>
+	</div>
+<!-- footer ends here -->
+
+</body>
+
+<!-- Mirrored from www.nas-partak-obytnak.cz/trasy/jedeme-na-dovolenou/2020---jeseniky-a-cast-moravy by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 18 Sep 2024 06:29:18 GMT -->
+</html>
+<!--SQL: 0 | cas: 0.019903898239136 | pamet: 672704-->

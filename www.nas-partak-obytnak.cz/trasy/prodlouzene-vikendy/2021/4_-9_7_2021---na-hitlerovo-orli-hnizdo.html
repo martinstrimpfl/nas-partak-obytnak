@@ -1,0 +1,548 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<!-- Mirrored from www.nas-partak-obytnak.cz/trasy/prodlouzene-vikendy/2021/4_-9_7_2021---na-hitlerovo-orli-hnizdo by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Sep 2024 19:32:27 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+
+<base  />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="../../../userFiles/favicon.ico" rel="shortcut icon" type="image/ico" />
+<meta property="og:image" content="../../../userFiles/system/mazlikfcbk.jpg" />
+<script type="text/javascript" src="../../../js/jquery.js"></script>
+<script type="text/javascript" src="../../../file3d83.php?f=js/jquery.ui.js.php"></script>
+<script type="text/javascript" src="../../../file3ec2.php?f=plugins/thickbox/thickbox.js.php"></script>
+<script type="text/javascript" src="../../../js/init.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../plugins/datetimepicker/build/jquery.datetimepicker.min.css" media="all" />
+<script type="text/javascript" src="../../../plugins/datetimepicker/build/jquery.datetimepicker.full.js"></script>
+<script type="text/javascript" src="../../../js/s.js"></script>
+<script type="text/javascript" src="../../../js/jquery.roundblock.js"></script>
+<link href="../../../plugins/nanogallery2-3.0.5/dist/css/nanogallery2.min.css" rel="stylesheet" type="text/css">
+<script  type="text/javascript" src="../../../plugins/nanogallery2-3.0.5/dist/jquery.nanogallery2.min.js"></script>
+<link rel="stylesheet" href="../../../plugins/bootstrap_modalonly/css/bootstrap.css">
+<script src="../../../plugins/bootstrap_modalonly/js/bootstrap.js"></script>    
+<script type="text/javascript" src="../../../js/jquery.cookie.js"></script>
+
+<!--[if lte IE 6]>
+<script type="text/javascript" src="js/jquery.ifixpng.js"></script>
+<script type="text/javascript"> $.ifixpng("admin/transparent.gif"); $(function(){ $("div").ifixpng(); }); </script>
+<![endif]-->
+
+<meta name="basepathlng" content="./" />
+<meta http-equiv="content-language" content="cs" />
+<!-- UH -->
+<link href="https://fonts.googleapis.com/css?family=Rajdhani:300,400,500,600,700" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700&amp;subset=latin-ext" rel="stylesheet">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<script type="text/javascript">
+$(function(){
+
+if (window.isFrontpage)
+  {
+   $('body').addClass('uvod');
+}
+
+if ($(window).width() < 1001) {
+   $('body').addClass('resp');
+}
+
+$("#sidebar>ul>li>ul>li>ul>li>ul>li.current").parent().parent().addClass('current aktivni');
+$("#sidebar>ul>li>ul>li>ul>li.current").parent().parent().addClass('current aktivni');
+$("#sidebar>ul>li>ul>li.current").parent().parent().addClass('current aktivni');
+$("#sidebar>ul>li.current").addClass('aktivni');
+
+$(".uvod .post .fotogalerie").parent().parent().addClass('blok-foto');
+
+$("#menu").appendTo("#header");
+
+$("body").prepend("<div id=max-slide></div>");
+
+$("#header").wrap("<div id=max-header></div>");
+$("#max-header").prependTo("body");
+/*$(".formular").appendTo(".theme-default .nivoSlider");*/
+
+$(".slider-wrapper").appendTo("#max-slide");
+
+$('input.button').val('odeslat');
+
+$("#locales").insertAfter("#slogan");
+
+$("#wrap").append("<hr>");
+
+$("body>#max-slide>.slider-wrapper").parent().parent().addClass('akt-slide');
+$("#sidebar>ul>li.aktivni").parent().parent().parent().addClass('split');
+
+$("#rightbar").prependTo("#footer");
+$("#main>h1").wrap("<p class=post-center></p>");
+
+$(".paticka_banan a:first-child").text("Webové stránky");
+$('.paticka_banan a:first-child').attr('title', 'Webové stránky od BANAN.CZ');
+
+$("body.resp #sidebar").insertAfter("#main");
+
+$("#menu>ul").clone().appendTo("#menu-bott");
+$("#info").appendTo("#wrap");
+
+})
+
+//responzivni menu
+
+$(function() {
+$('#menu').prepend('<div id="pull" onclick="return false;"></div>');
+var $pull = ('#pull');
+var $menu = $('#menu > ul');
+
+$(pull).on('click', function(e) {
+	e.preventDefault();
+	if(!$menu.data('show')){
+           $menu.height('initial').height($(document).height() - $("#menu > ul").offset().top);
+           $menu.stop(true, true).data({show: true}).animate({'margin-left': '0'});
+        }else
+           $menu.stop(true, true).data({show: false}).animate({'margin-left': -$menu.width()}, function(){
+               var height = $(this).height();
+               $(this).removeAttr("style").height(height);
+           });
+
+});
+
+$(document).bind('click', function(e) {
+if($menu.data('show')){
+  if(!$(e.target).is('#menu *')) {
+    $menu.stop(true, true).data({show: false}).animate({'margin-left': -$menu.width()}, function(){
+               var height = $(this).height();
+               $(this).removeAttr("style").height(height);
+           });
+  }
+}
+});
+$(window).resize(function(){
+   CheckMenu($menu);
+});
+CheckMenu($menu);
+
+function CheckMenu($menu){
+   var w = window.innerWidth;
+   if(w > 1000) {
+       $menu.removeAttr('style');
+       $menu.find('.menu_add_row').remove();
+       $menu.height('initial');
+       $menu.data('show', false);
+   } else {
+     $menu.find('.menu_add_row').remove();
+     $menu.find('li').each(function(){
+        var $ull = $(this).find('ul');
+        if($ull.length){
+           $(this).append($('<div class="menu_add_row '+ ($ull.data('active')?'active':'') +'"></div>').data('$ul', $ull).click(function(){
+                   if(!$(this).data('$ul').data('active'))
+                     $(this).addClass('active').data('$ul').data('active', true).addClass('menu_add_show').parents('li:first').addClass('menu_add_active');
+                   else
+                     $(this).removeClass('active').data('$ul').data('active', false).removeClass('menu_add_show').parents('li:first').removeClass('menu_add_active');
+           }));
+
+        }
+      })
+     $menu.height('initial').height($(document).height() - $("#menu > ul").offset().top);
+     }
+   }
+});
+
+</script>
+
+<!--[if gte IE 9]>
+  <style type="text/css">
+    body, .mimg, .rsslink, #menu>ul>li>ul, .more, .button, #menu>ul>li>a:hover, #menu>ul>li.current>a,  #menu>ul>li:hover>a, .button:hover, .more:hover, #menu>ul>li>a {
+       filter: none !important;
+    }
+  </style>
+<![endif]-->
+<!--[if IE ]>
+  <style type="text/css">
+    .addthis_container {
+
+}
+  </style>
+<![endif]-->
+<!-- /UH -->
+<meta name="description" content="Letos dva červencové svátky vyšly krásně na pondělí a úterý a tak by byla fakt škoda nevzít tři dny dovolené a někam..." />
+<meta name="keywords" content="" />
+<title>4.-9.7.2021 - Na Hitlerovo Orlí hnízdo | Náš parťák obytňák</title>
+<meta property="og:title"  content= "Náš parťák obytňák" />
+<meta property="og:description"  content= "Letos dva červencové svátky vyšly krásně na pondělí a úterý a tak by byla fakt škoda nevzít tři dny dovolené a někam..." />
+<!-- Page Head -->
+
+<!-- /Page Head -->
+
+<link rel="stylesheet" href="../../../css.css" type="text/css" media="screen,print" />
+
+<style> .paticka_vzhled {display:inline!important;  } </style>
+<!--[if IE]> <link rel="stylesheet" type="text/css" href="ie.css" /> <![endif]-->
+<!--[if lte IE 7]> <link rel="stylesheet" type="text/css" href="ie7.css" /> <![endif]-->
+<script type="text/javascript">
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : "486735741442178",
+      channelUrl : "//www.nas-partak-obytnak.cz/file.php?f=plugins/facebook/channel.js.php&l=cs_CZ",
+      status     : true,
+      xfbml      : true
+    });
+  };
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "../../../../connect.facebook.net/cs_CZ/all.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, "script", "facebook-jssdk"));
+
+</script>
+
+</head>
+
+<body>
+<div id="wrap"><!-- wrap starts here -->
+
+	<div id="header">
+
+				<h1 id="logo"><a href="../../../index.html" title="">Náš parťák obytňák</a></h1>		<h2 id="slogan">Náš parťák obytňák</h2>
+	</div>
+
+	<div id="menu">
+
+		<ul><li><a href="../../../index.html">Úvod</a></li><li><a href="../../../svet-nomadu.html">Svět nomádů</a><ul><li><a href="../../../svet-nomadu/2024.html">2024</a><ul><li><a href="../../../svet-nomadu/2024/predstaveni-pilote-atlas-a656d-2024.html">Představení Pilote Atlas A656D 2024</a></li></ul></li><li><a href="../../../svet-nomadu/2022.html">2022</a><ul><li><a href="../../../svet-nomadu/2022/01_02_2022---clark-cortez---neznama-legenda.html">01.02.2022 - Clark Cortez - neznámá legenda</a></li></ul></li><li><a href="../../../svet-nomadu/2021.html">2021</a><ul><li><a href="../../../svet-nomadu/2021/17_07_2021---novy-fiat-ducato-uz-oficialne.html">17.07.2021 - Nový Fiat Ducato už oficiálně</a></li><li><a href="../../../svet-nomadu/2021/30_05_2021---amik-s-evropskym-srdcem.html">30.05.2021 - Amík s evropským srdcem</a></li><li><a href="../../../svet-nomadu/2021/11_04_2021---nejkrasnejsi-osklivky-70_let.html">11.04.2021 - Nejkrásnější ošklivky 70.let</a></li><li><a href="../../../svet-nomadu/2021/28_03_2021---kdo-se-prvni-v-obytnaku-sprchoval_.html">28.03.2021 - Kdo se první v obytňáku sprchoval?</a></li><li><a href="../../../svet-nomadu/2021/02_03_2021---joo_-holt-ta-cina_.html">02.03.2021 - Jóó, holt ta Čína!</a></li><li><a href="../../../svet-nomadu/2021/21_02_2021---facelift-fiatu-ducato-2022.html">21.02.2021 - Facelift Fiatu Ducato 2022</a></li><li><a href="../../../svet-nomadu/2021/14_02_2021---obytnak-pro-krizove-obdobi.html">14.02.2021 - Obytňák pro krizové období</a></li><li><a href="../../../svet-nomadu/2021/05_01_2021---krasna-silenost_-z-triton.html">05.01.2021 - Krásná šílenost: Z-Triton</a></li><li><a href="../../../svet-nomadu/2021/01_01_2021---kraska-ultra-van.html">01.01.2021 - Kráska ULTRA VAN</a></li></ul></li><li><a href="../../../svet-nomadu/2019.html">2019</a><ul><li><a href="../../../svet-nomadu/2019/11_11_2019---tourne_-prvni-van-do-zimy_.html">11.11.2019 - Tourne. První van do zimy!</a></li><li><a href="../../../svet-nomadu/2019/05_07_2018---kral-pop-kultury.html">05.07.2018 - Král pop kultury</a></li><li><a href="../../../svet-nomadu/2019/12_03_2019---ktera-znacka-je-nejstarsi-_.html">12.03.2019 - Která značka je nejstarší ?</a></li><li><a href="../../../svet-nomadu/2019/09_03_2019---quo-vadis_-ceske-vystavy_.html">09.03.2019 - Quo Vadis, české výstavy?</a></li><li><a href="../../../svet-nomadu/2019/28_02_2019---nejrychlejsi-obytne-auto-na-zemi.html">28.02.2019 - Nejrychlejší obytné auto na Zemi</a></li><li><a href="../../../svet-nomadu/2019/24_02_2019---ikonicky-obytnak-ze-sedmdesatek_-gmc.html">24.02.2019 - Ikonický obytňák ze sedmdesátek: GMC</a></li><li><a href="../../../svet-nomadu/2019/05_02_2019---prvni-ciste-elektricky-obytnak-_.html">05.02.2019 - První čistě elektrický obytňák !</a></li></ul></li><li><a href="../../../svet-nomadu/2018.html">2018</a><ul><li><a href="../../../svet-nomadu/2018/23_12_2018---vykradli-zdenka-a-bobesku-_.html">23.12.2018 - Vykradli Zdeňka a Bobešku !</a></li><li><a href="../../../svet-nomadu/2018/25_11_2018---fiat-ducato-po-australsku.html">25.11.2018 - Fiat Ducato po australsku</a></li><li><a href="../../../svet-nomadu/2018/11_11_2018---polointegovany-nebo-intergrovany-model_.html">11.11.2018 - Polointegovaný nebo intergrovaný model?</a></li><li><a href="../../../svet-nomadu/2018/09_10_2018---fantomasuv-obytnak.html">09.10.2018 - Fantomasův obytňák</a></li><li><a href="../../../svet-nomadu/2018/33_09_2018---obytnak-s-terasou-_.html">33.09.2018 - Obytňák s terasou !</a></li><li><a href="../../../svet-nomadu/2018/29_08_2018---modely-pilote-pro-rok-2019.html">29.08.2018 - Modely PILOTE pro rok 2019</a></li><li><a href="../../../svet-nomadu/2018/30_06_2018---trocha-karavanistickeho-steampunku.html">30.06.2018 - Trocha karavanistického steampunku</a></li><li><a href="../../../svet-nomadu/2018/30_05_2018---evropske-vystavy-2018_19.html">30.05.2018 - Evropské výstavy 2018/19</a></li><li><a href="../../../svet-nomadu/2018/23_05_2018---80-let-stary-obytnak-kpt_dunna.html">23.05.2018 - 80 let starý obytňák kpt.Dunna</a></li><li><a href="../../../svet-nomadu/2018/15_03_2018-vyrobci-vybavy-a-doplnku.html">15.03.2018 Výrobci výbavy a doplňků</a></li><li><a href="../../../svet-nomadu/2018/12_03_2018-for-caravan-2018_-praha.html">12.03.2018 FOR CARAVAN 2018, Praha</a></li><li><a href="../../../svet-nomadu/2018/06_02_2018-evropske-znacky-obytnych-vozu.html">06.02.2018 Evropské značky obytných vozů</a></li><li><a href="../../../svet-nomadu/2018/01_02_2018-jak-nakupovat-na-italskych-webshopech-_.html">01.02.2018 Jak nakupovat na italských webshopech ?</a></li><li><a href="../../../svet-nomadu/2018/21_01_2018-dost-mista-na-vareni-_.html">21.01.2018 Dost místa na vaření ?</a></li></ul></li><li><a href="../../../svet-nomadu/2017.html">2017</a><ul><li><a href="../../../svet-nomadu/2017/09_11_2017-caravaning-brno-2017.html">09.11.2017 Caravaning Brno 2017</a></li><li><a href="../../../svet-nomadu/2017/13_10_2018-retro-stroje_-usvit-obytnych-aut.html">13.10.2018 Retro stroje, úsvit obytných aut</a></li><li><a href="../../../svet-nomadu/2017/15_09_2017-evropsky-caravaning-ocima-americanu.html">15.09.2017 Evropský caravaning očima Američanů</a></li><li><a href="../../../svet-nomadu/2017/12_09_2017-retro-stroje-brooks-stevens.html">12.09.2017 Retro stroje Brooks Stevens</a></li><li><a href="../../../svet-nomadu/2017/09_09_2017-janackovi-a-jejich-flicek.html">09.09.2017 Janáčkovi a jejich Flíček</a></li><li><a href="../../../svet-nomadu/2017/03_09_2017-caravan-salon-2017.html">03.09.2017 Caravan Salon 2017</a></li></ul></li><li><a href="../../../svet-nomadu/archiv-aktualit-dne.html">Archiv aktualit dne</a></li></ul></li><li><a href="../../../technika.html">Technika</a><ul><li><a href="../../../technika/motor-a-podvozek.html">Motor a Podvozek</a><ul><li><a href="../../../technika/motor-a-podvozek/11_4_2022---na-kolik-vlastne-hustit-mechy_.html">11.4.2022 - Na kolik vlastně hustit měchy?</a></li><li><a href="../../../technika/motor-a-podvozek/14_03_2022---nova-pneumatika-michelin-crossclimate-camping.html">14.03.2022 - nová pneumatika Michelin CrossClimate Camping</a></li><li><a href="../../../technika/motor-a-podvozek/03_11_2019---dva-roky-z-robotickou-prevodovkou.html">03.11.2019 - Dva roky z robotickou převodovkou</a></li><li><a href="../../../technika/motor-a-podvozek/04_08_2019---jak-pomahaji-mechy-s-vyskou_.html">04.08.2019 - Jak pomáhají měchy s výškou?</a></li><li><a href="../../../technika/motor-a-podvozek/09_02_2019---spravne-husteni-pneumatik-_.html">09.02.2019 - Správné huštění pneumatik ?</a></li><li><a href="../../../technika/motor-a-podvozek/28_10_2017---prevodovka-automatika-nebo-manual-_.html">28.10.2017 - Převodovka automatika nebo manuál ?</a></li></ul></li><li><a href="../../../technika/nastavba.html">Nástavba</a><ul><li><a href="../../../technika/nastavba/01_06_2021---jak-myjete-sve-auto-vy-_.html">01.06.2021 - Jak myjete své auto vy ?</a></li></ul></li><li><a href="../../../technika/elektrina.html">Elektřina</a><ul><li><a href="../../../technika/elektrina/20_01_2022---dame-tam-solar-_.html">20.01.2022 - Dáme tam solár !</a></li><li><a href="../../../technika/elektrina/26_03_2018---jak-to-delaji-pri-vyrobe-_.html">26.03.2018 - Jak to dělají při výrobě ?</a></li><li><a href="../../../technika/elektrina/20_01_2018---moderni-laska-ma-jmeno_-lifepo.html">20.01.2018 - Moderní láska má jméno: LiFePo</a></li><li><a href="../../../technika/elektrina/28_12_2017---baterie_-baterie_-baterie.html">28.12.2017 - Baterie, baterie, baterie</a></li></ul></li><li><a href="../../../technika/av-a-elektronika.html">AV a elektronika</a><ul><li><a href="../../../technika/av-a-elektronika/10_04_2021---zkusenost-s-av-jednotkou-xzent-x-227.html">10.04.2021 - Zkušenost s AV jednotkou XZent X-227</a></li><li><a href="../../../technika/av-a-elektronika/02_08_2019---rok-s-navigaci-garmin-camper-770t-d.html">02.08.2019 - Rok s navigací Garmin Camper 770T-D</a></li><li><a href="../../../technika/av-a-elektronika/03_02_2019---digitalni-rozhlas-v-cr-pro-rok-2019-a-dal.html">03.02.2019 - Digitální rozhlas v ČR pro rok 2019 a dál</a></li><li><a href="../../../technika/av-a-elektronika/04_03_2018---nastava-soumrak-satelitnich-anten-_.html">04.03.2018 - Nastává soumrak satelitních antén ?</a></li><li><a href="../../../technika/av-a-elektronika/05_02_2018---360__omnivue_-draha-ale-super-hracka.html">05.02.2018 - 360°Omnivue: drahá ale super hračka</a></li><li><a href="../../../technika/av-a-elektronika/26_01_2018---dvb-t_t2-antena-na-strechu.html">26.01.2018 - DVB-T/T2 anténa na střechu</a></li><li><a href="../../../technika/av-a-elektronika/07_09_2017---jak-je-to-s-cenou-sw-navigace-sygic-truck-_.html">07.09.2017 - Jak je to s cenou sw navigace Sygic Truck ?</a></li><li><a href="../../../technika/av-a-elektronika/04_09_2017---jakou-navigaci-si-vybrat-_.html">04.09.2017 - Jakou navigaci si vybrat ?</a></li></ul></li><li><a href="../../../technika/voda-a-to-dalsi.html">Voda a to další</a><ul><li><a href="../../../technika/voda-a-to-dalsi/20_02_2021---nas-obytnak-smrdi-_.html">20.02.2021 - Náš obytňák smrdí !</a></li><li><a href="../../../technika/voda-a-to-dalsi/29_12_2019-co-je-vlastne-kompostovaci-zachod_.html">29.12.2019 Co je vlastně kompostovací záchod?</a></li><li><a href="../../../technika/voda-a-to-dalsi/16_02_2019---udrzba-wc-kazety-dometic-rady-ct.html">16.02.2019 - Údržba WC kazety DOMETIC řady CT</a></li><li><a href="../../../technika/voda-a-to-dalsi/chemicke-wc_-a-co-dal_.html">Chemické WC. A co dál?</a></li></ul></li><li><a href="../../../technika/plyn-a-topeni.html">Plyn a topení</a><ul><li><a href="../../../technika/plyn-a-topeni/27_12_2020---jak-je-to-se-spotrebou-plynu-_.html">27.12.2020 - Jak je to se spotřebou plynu ?</a></li><li><a href="../../../technika/plyn-a-topeni/31_01_2019---menit-bomby-nebo-napevno_.html">31.01.2019 - Měnit bomby nebo napevno?</a></li><li><a href="../../../technika/plyn-a-topeni/26_10_2018---i-tehdy-rekl-buh_-budiz-plyn_.html">26.10.2018 - I tehdy řekl Bůh: Budiž plyn!</a></li><li><a href="../../../technika/plyn-a-topeni/10_6_2018---nastava-propojeni-dvou-svetu_.html">10.6.2018 - nastává propojení dvou světů!</a></li></ul></li><li><a href="../../../technika/volna-vybava.html">Volná výbava</a><ul><li><a href="../../../technika/volna-vybava/10_10_2018---znate-stul-tailgater_.html">10.10.2018 - Znáte stůl Tailgater?</a></li><li><a href="../../../technika/volna-vybava/13_05_2018---caj-a-kava-na-palube-dodika.html">13.05.2018 - Čaj a káva na palubě Dodíka</a></li><li><a href="../../../technika/volna-vybava/05_04_2018---what3words_-navigace-budoucnosti_.html">05.04.2018 - What3Words: navigace budoucnosti?</a></li><li><a href="../../../technika/volna-vybava/23_09_2017---vybirame-nadobi_.html">23.09.2017 - Vybíráme nádobí.</a></li></ul></li></ul></li><li><a href="../../../blog.html">Blog</a><ul><li><a href="../../../blog/2022.html">2022</a><ul><li><a href="../../../blog/2022/12_08_2022---at-nas-neceka-osud-vodaku-_.html">12.08.2022 - Ať nás nečeká osud vodáků !</a></li><li><a href="../../../blog/2022/01_06_2022---kempari-a-divocaci.html">01.06.2022 - Kempaři a divočáci</a></li><li><a href="../../../blog/2022/22_01_2022---s-karavanem-po-cesku.html">22.01.2022 - S karavanem po Česku</a></li></ul></li><li><a href="../../../blog/2021.html">2021</a><ul><li><a href="../../../blog/2021/28_03_2021---odchazeni-_.html">28.03.2021 - Odcházení ?</a></li></ul></li><li><a href="../../../blog/2020.html">2020</a><ul><li><a href="../../../blog/2020/8_12_2020---krize-psani-aneb-prokleti-trirocaka.html">8.12.2020 - Krize psaní aneb prokletí tříročáka</a></li><li><a href="../../../blog/2020/19_04_2020-narod-nomadi-v-dobe-covidove.html">19.04.2020 Národ nomádí v době Covidové</a></li><li><a href="../../../blog/2020/22_03_2020---kolik-opravdu-stoji-obytnak_.html">22.03.2020 - Kolik opravdu stojí obytňák?</a></li></ul></li><li><a href="../../../blog/2019.html">2019</a><ul><li><a href="../../../blog/2019/01_12_2019---pri-vyberu-srovnavejme-srovnatelne-2.html">01.12.2019 - Při výběru srovnávejme srovnatelné 2</a></li><li><a href="../../../blog/2019/24_11_2019---pri-vyberu-srovnavejme-srovnatelne-1.html">24.11.2019 - Při výběru srovnávejme srovnatelné 1</a></li><li><a href="../../../blog/2019/01_09_2019---jaky-si-vlastne-poridit-obytnak_.html">01.09.2019 - Jaký si vlastně pořídit obytňák?</a></li><li><a href="../../../blog/2019/29_03_2019---udrzba-po-zimnim-spanku.html">29.03.2019 - Údržba po zimním spánku</a></li><li><a href="../../../blog/2019/13_03_2019---10-pravidel-kempovani-nadivoko.html">13.03.2019 - 10 pravidel kempování nadivoko</a></li></ul></li><li><a href="../../../blog/2018.html">2018</a><ul><li><a href="../../../blog/2018/05_12_2018---na-vahu-_.html">05.12.2018 - Na váhu !</a></li><li><a href="../../../blog/2018/26_9_2018---vychytavame-detaily-v-kabine.html">26.9.2018 - Vychytáváme detaily v kabině</a></li><li><a href="../../../blog/2018/20_05_2018---hodnoceni-po-prvnich-5000-km_.html">20.05.2018 - Hodnocení po prvních 5000 km.</a></li><li><a href="../../../blog/2018/27_04_2018---kdyz-se-vybira-nazev-aneb-demokracie-v-praxi_.html">27.04.2018 - Když se vybírá název aneb demokracie v praxi.</a></li><li><a href="../../../blog/2018/16_04_2018---kdyz-chce-clovek-bezhlave-usetrit_.html">16.04.2018 - Když chce člověk bezhlavě ušetřit.</a></li><li><a href="../../../blog/2018/17_03_2018-a-uz-je-uuuplne-nas-_.html">17.03.2018 A už je úúúplně náš !</a></li><li><a href="../../../blog/2018/10_03_2018-vystavujeme-na-for-caravan.html">10.03.2018 Vystavujeme na FOR CARAVAN</a></li><li><a href="../../../blog/2018/08_02_2018-jste-skveli-ctenari-_.html">08.02.2018 Jste skvělí čtenáři !</a></li><li><a href="../../../blog/2018/29_01_2018-financovani-a-pojisteni-mazlika.html">29.01.2018 Financování a pojištění Mazlíka</a></li></ul></li><li><a href="../../../blog/2017.html">2017</a><ul><li><a href="../../../blog/2017/04_11_2017-co-s-uloznym-prostorem-_.html">04.11.2017 Co s úložným prostorem ?</a></li><li><a href="../../../blog/2017/19_09_2017-casopisy-aneb-zaplava-informaci.html">19.09.2017 Časopisy aneb záplava informací</a></li></ul></li><li><a href="../../../blog/in-vino-veritas.html">In Vino Veritas</a></li></ul></li><li><a href="../../../nas-dodo.html">Náš Dodo</a><ul><li><a href="../../../nas-dodo/2023.html">2023</a><ul><li><a href="../../../nas-dodo/2023/01_11_2023---nabijecka-trochu-jinak.html">01.11.2023 - Nabíječka trochu jinak</a></li></ul></li><li><a href="../../../nas-dodo/2022.html">2022</a><ul><li><a href="../../../nas-dodo/2022/20_3_2022---jedna-zasuvka-v-salonu-svepomoci.html">20.3.2022 - Jedna zásuvka v salónu svépomocí</a></li><li><a href="../../../nas-dodo/2022/02_03_2023---nova-lifepo4-baterie-je-na-palube_.html">02.03.2023 - Nová LiFePO4 baterie je na palubě!</a></li></ul></li><li><a href="../../../nas-dodo/2021.html">2021</a><ul><li><a href="../../../nas-dodo/2021/teplota-pod-kontrolou.html">Teplota pod kontrolou</a></li><li><a href="../../../nas-dodo/2021/vodovaha-na-ocich.html">Vodováha na očích</a></li><li><a href="../../../nas-dodo/2021/poradek-na-nocnim-stolku.html">Pořádek na nočním stolku</a></li></ul></li><li><a href="../../../nas-dodo/2019.html">2019</a><ul><li><a href="../../../nas-dodo/2019/27_02_2019---nase-palubni-knihovna-hotova_.html">27.02.2019 - Naše palubní knihovna hotova.</a></li><li><a href="../../../nas-dodo/2019/22_02_2019---skret-mi-znovu-zautocil-na-alarm-_.html">22.02.2019 - Skřet mi znovu zaútočil na alarm !</a></li><li><a href="../../../nas-dodo/2019/13_02_2019---koberec-po-celem-aute.html">13.02.2019 - Koberec po celém autě</a></li><li><a href="../../../nas-dodo/2019/04_02_2019---nove-uchyceni-nabytku-v-garazi.html">04.02.2019 - Nové uchycení nábytku v garáži</a></li></ul></li><li><a href="../../../nas-dodo/2018.html">2018</a><ul><li><a href="../../../nas-dodo/2018/01_09_2018---uprava-botniku.html">01.09.2018 - Úprava botníku</a></li><li><a href="../../../nas-dodo/2018/28_08_2018---vymena-sezeni-v-salonu.html">28.08.2018 - Výměna sezení v salónu</a></li><li><a href="../../../nas-dodo/2018/07_06_2018---obsiti-volantu-kuzi.html">07.06.2018 - Obšití volantu kůží</a></li><li><a href="../../../nas-dodo/2018/12_05_2018---kontrolni-panel-boosteru.html">12.05.2018 - Kontrolní panel boosteru</a></li><li><a href="../../../nas-dodo/2018/28_04_2018---mechove-odpruzeni.html">28.04.2018 - Měchové odpružení</a></li><li><a href="../../../nas-dodo/2018/04_04_2018---posileni-elektro-systemu.html">04.04.2018 - Posílení elektro systému</a></li><li><a href="../../../nas-dodo/2018/28_03_2018---ulozny-system-do-garaze.html">28.03.2018 - Úložný systém do garáže</a></li><li><a href="../../../nas-dodo/2018/14_03_2018-trable-s-plynem.html">14.03.2018 Trable s plynem</a></li><li><a href="../../../nas-dodo/2018/06_03_2018-odvetravaci-system-sog.html">06.03.2018 Odvětrávací systém SOG</a></li><li><a href="../../../nas-dodo/2018/05_03_2018-palubni-televizor-a-dvb-t-antena.html">05.03.2018 Palubní televizor a DVB-T anténa</a></li><li><a href="../../../nas-dodo/2018/23_02_2018-koupelnovy-set-ravak.html">23.02.2018 Koupelnový set RAVAK</a></li><li><a href="../../../nas-dodo/2018/09_02_2018-prvni-prohlidka-noveho-auta-_.html">09.02.2018 První prohlídka nového auta !</a></li><li><a href="../../../nas-dodo/2018/07_02_2018-tak-uz-je-konecne-tady-___.html">07.02.2018 Tak už je konečně tady !!!</a></li><li><a href="../../../nas-dodo/2018/06_02_2018-antena-teleco-wing-22.html">06.02.2018 anténa Teleco Wing 22</a></li><li><a href="../../../nas-dodo/2018/04_02_2018-on-board-kamera-vybirana-_a-zakoupena_.html">04.02.2018 On-board kamera vybírána (a zakoupena)</a></li><li><a href="../../../nas-dodo/2018/30_01_2018-jak-plnit-nadrz-na-vodu-_.html">30.01.2018 Jak plnit nádrž na vodu ?</a></li><li><a href="../../../nas-dodo/2018/15_01_2018-trezor-na-palube.html">15.01.2018 Trezor na palubě</a></li><li><a href="../../../nas-dodo/2018/06_01_2018-vybirame-venkovni-sezeni.html">06.01.2018 Vybíráme venkovní sezení</a></li></ul></li><li><a href="../../../nas-dodo/2017.html">2017</a><ul><li><a href="../../../nas-dodo/2017/10_11_2017-ktere-sezeni-v-salonu-je-lepsi_-podruhe.html">10.11.2017 Které sezení v salonu je lepší, PODRUHÉ</a></li><li><a href="../../../nas-dodo/2017/04_10_2017-posledni-doobjednavky-prislusenstvi.html">04.10.2017 Poslední doobjednávky příslušenství</a></li><li><a href="../../../nas-dodo/2017/10_10_2017-dvojcata-pilote-a-bavaria-746c.html">10.10.2017 Dvojčata Pilote a Bavaria 746C</a></li><li><a href="../../../nas-dodo/2017/09_09_2017--ktere-sezeni-v-salonu-je-nejlepsi-_.html">09.09.2017  Které sezení v salonu je nejlepší ?</a></li><li><a href="../../../nas-dodo/2017/09_09_2017-nasel-jsem-video-predstaveni-mazlika.html">09.09.2017 Našel jsem video představení Mazlíka</a></li><li><a href="../../../nas-dodo/2017/25_08_2017-objednavame-si-nove-auto-___.html">25.08.2017 Objednáváme si nové auto !!!</a></li></ul></li></ul></li><li><a href="../../../trasy.html">Trasy</a><ul><li><a href="../../vikendove-cesty.html">Víkendové cesty</a><ul><li><a href="../../vikendove-cesty/2022.html">2022</a><ul><li><a href="../../vikendove-cesty/2022/25_02_2022---plzenskem-bez-proudu.html">25.02.2022 - Plzeňskem bez proudu</a></li></ul></li><li><a href="../../vikendove-cesty/2021.html">2021</a><ul><li><a href="../../vikendove-cesty/2021/11_-13_06_2021---slavkovsky-les-podruhe.html">11.-13.06.2021 - Slavkovský les podruhé</a></li><li><a href="../../vikendove-cesty/2021/8_-9_5_2021---sazava-naslepo.html">8.-9.5.2021 - Sázava naslepo</a></li></ul></li><li><a href="../../vikendove-cesty/2019.html">2019</a><ul><li><a href="../../vikendove-cesty/2019/12_-13_10_2019---toulovcovy-mastale.html">12.-13.10.2019 - Toulovcovy maštale</a></li><li><a href="../../vikendove-cesty/2019/13_-15_9_2019---podel-divoke-orlice.html">13.-15.9.2019 - Podél Divoké Orlice</a></li><li><a href="../../vikendove-cesty/2019/28_-30_6_2019---usteckym-krajem.html">28.-30.6.2019 - Ústeckým krajem</a></li><li><a href="../../vikendove-cesty/2019/30_-31_3_2019---povodim-ploucnice.html">30.-31.3.2019 - Povodím Ploučnice</a></li><li><a href="../../vikendove-cesty/2019/23_-24_3_2019---predjari-v-jiznich-cechach.html">23.-24.3.2019 - Předjaří v Jižních Čechách</a></li></ul></li><li><a href="../../vikendove-cesty/2018.html">2018</a><ul><li><a href="../../vikendove-cesty/2018/19_-21_10_2018---vylov-tovacovskeho-rybnika.html">19.-21.10.2018 - Výlov Tovačovského rybníka</a></li><li><a href="../../vikendove-cesty/2018/7_-9_9_2018---na-jih-od-kutne-hory.html">7.-9.9.2018 - Na jih od Kutné hory</a></li><li><a href="../../vikendove-cesty/2018/20_-22_4_2018---okolim-havlickova-brodu.html">20.-22.4.2018 - Okolím Havlíčkova Brodu</a></li><li><a href="../../vikendove-cesty/2018/7_-8_3_2018---slavkovsky-les.html">7.-8.3.2018 - Slavkovský les</a></li></ul></li></ul></li><li><a href="../../prodlouzene-vikendy.html">Prodloužené víkendy</a><ul><li><a href="../2024.html">2024</a><ul><li><a href="../2024/28_3_-1_4_2024-velikonoce-v-severnich-cechach.html">28.3.-1.4.2024 Velikonoce v Severních Čechách</a></li></ul></li><li><a href="../2023.html">2023</a></li><li><a href="../2022.html">2022</a><ul><li><a href="../2022/6_-12_3_2022---alsaske-predjari.html">6.-12.3.2022 - Alsaské předjaří</a></li></ul></li><li><a href="../2021.html">2021</a><ul><li class="current"><a href="4_-9_7_2021---na-hitlerovo-orli-hnizdo.html">4.-9.7.2021 - Na Hitlerovo Orlí hnízdo</a></li></ul></li><li><a href="../2019.html">2019</a><ul><li><a href="../2019/04_-07_07_2019-za-krasami-sumavy_.html">04.-07.07.2019 Za krásami Šumavy.</a></li></ul></li><li><a href="../2018.html">2018</a><ul><li><a href="../2018/povanocni-bavorsko.html">Povánoční Bavorsko</a></li><li><a href="../2018/sasko-na-konci-zari.html">Sasko na konci září</a></li><li><a href="../2018/na-svatbu-do-ase.html">Na svatbu do Aše</a></li><li><a href="../2018/za-vinem-na-jih-moravy-a-slovenska.html">Za vínem na Jih Moravy a Slovenska</a></li><li><a href="../2018/velikonoce-v-holandsku.html">Velikonoce v Holandsku</a></li></ul></li><li><a href="../2017.html">2017</a><ul><li><a href="../2017/velikonoce-v-italii.html">Velikonoce v Itálii</a></li></ul></li></ul></li><li><a href="../../jedeme-na-dovolenou.html">Jedeme na dovolenou</a><ul><li><a href="../../jedeme-na-dovolenou/2022---nemecko-a-sumava-podruhe.html">2022 - Německo a Šumava podruhé</a></li><li><a href="../../jedeme-na-dovolenou/2021---nemecko-_a-trochu-sumava_.html">2021 - Německo (a trochu Šumava)</a></li><li><a href="../../jedeme-na-dovolenou/2020---jeseniky-a-cast-moravy.html">2020 - Jeseníky a část Moravy</a></li><li><a href="../../jedeme-na-dovolenou/2019---jizni-cechy.html">2019 - Jižní Čechy</a></li><li><a href="../../jedeme-na-dovolenou/2018---litva_-lotyssko_-estonsko.html">2018 - Litva, Lotyšsko, Estonsko</a></li></ul></li></ul></li><li><a href="../../../trochu-z-historie.html">Trochu z historie</a><ul><li><a href="../../../trochu-z-historie/jak-to-vsechno-zacalo.html">Jak to všechno začalo</a></li><li><a href="../../../trochu-z-historie/dodo-dnes.html">Dodo dnes</a></li><li><a href="../../../trochu-z-historie/historie-znacky-pilote.html">Historie značky PILOTE</a></li></ul></li><li><a href="../../../fotogalerie-.html">Fotogalerie</a><ul><li><a href="../../../fotogalerie-/priroda.html">Příroda</a></li><li><a href="../../../fotogalerie-/stavby-a-mesta.html">Stavby a města</a></li><li><a href="../../../fotogalerie-/nase-auto.html">Naše auto</a></li><li><a href="../../../fotogalerie-/pilote-club-v-cr.html">Pilote Club v ČR</a></li></ul></li><li><a href="../../../pokec.html">Pokec</a></li></ul>
+	</div>
+
+	<div id="sidebar">
+
+		<input type=hidden name=formularzeleny><div class="boxed ">
+
+
+<h2>uživatelský panel -- vždy jako první článek - NEMAZAT!!!</h2>
+<div class="content2">
+
+<h2>---slider---</h2>
+<p><div id="slider3" class="slider-wrapper theme-default">
+            <div class="nivoSlider">
+                <img src="../../../userFiles/system/mazlik01.jpg" data-thumb="userFiles/system/mazlik01.jpg.tn.jpg" alt="slider" title="#slider3x7" />
+<img src="../../../userFiles/system/mazlik16.jpg" data-thumb="userFiles/system/mazlik16.jpg.tn.jpg" alt="slider" title="#slider3x11" />
+<img src="../../../userFiles/system/mazlik15.jpg" data-thumb="userFiles/system/mazlik15.jpg.tn.jpg" alt="slider" title="#slider3x12" />
+<img src="../../../userFiles/system/mazlik12.jpg" data-thumb="userFiles/system/mazlik12.jpg.tn.jpg" alt="slider" title="#slider3x8" />
+<img src="../../../userFiles/system/mazlik18.jpg" data-thumb="userFiles/system/mazlik18.jpg.tn.jpg" alt="slider" title="#slider3x13" />
+<img src="../../../userFiles/system/mazlik22.jpg" data-thumb="userFiles/system/mazlik22.jpg.tn.jpg" alt="slider" title="#slider3x9" />
+<img src="../../../userFiles/system/mazlik17.jpg" data-thumb="userFiles/system/mazlik17.jpg.tn.jpg" alt="slider" title="#slider3x14" />
+<img src="../../../userFiles/system/back3.jpg" data-thumb="userFiles/system/back3.jpg.tn.jpg" alt="slider" title="#slider3x10" />
+<img src="../../../userFiles/system/mazlik24.jpg" data-thumb="userFiles/system/mazlik24.jpg.tn.jpg" alt="slider" title="#slider3x15" />
+<img src="../../../userFiles/system/mazlik05.jpg" data-thumb="userFiles/system/mazlik05.jpg.tn.jpg" alt="slider" title="#slider3x17" />
+<img src="../../../userFiles/system/mazlik11a.jpg" data-thumb="userFiles/system/mazlik11a.jpg.tn.jpg" alt="slider" title="#slider3x16" />
+<img src="../../../userFiles/system/mazlik37.jpg" data-thumb="userFiles/system/mazlik37.jpg.tn.jpg" alt="slider" title="#slider3x18" />
+<img src="../../../userFiles/system/mazlik31.jpg" data-thumb="userFiles/system/mazlik31.jpg.tn.jpg" alt="slider" title="#slider3x19" />
+<img src="../../../userFiles/system/mazlik14.jpg" data-thumb="userFiles/system/mazlik14.jpg.tn.jpg" alt="slider" title="#slider3x21" />
+<img src="../../../userFiles/system/mazlik13.jpg" data-thumb="userFiles/system/mazlik13.jpg.tn.jpg" alt="slider" title="#slider3x20" />
+<img src="../../../userFiles/system/mazlik19a.jpg" data-thumb="userFiles/system/mazlik19a.jpg.tn.jpg" alt="slider" title="#slider3x22" />
+<img src="../../../userFiles/system/mazlik20.jpg" data-thumb="userFiles/system/mazlik20.jpg.tn.jpg" alt="slider" title="#slider3x23" />
+<img src="../../../userFiles/system/mazlik21.jpg" data-thumb="userFiles/system/mazlik21.jpg.tn.jpg" alt="slider" title="#slider3x24" />
+<img src="../../../userFiles/system/mazlik23.jpg" data-thumb="userFiles/system/mazlik23.jpg.tn.jpg" alt="slider" title="#slider3x25" />
+<img src="../../../userFiles/system/mazlik25.jpg" data-thumb="userFiles/system/mazlik25.jpg.tn.jpg" alt="slider" title="#slider3x26" />
+<img src="../../../userFiles/system/mazlik26.jpg" data-thumb="userFiles/system/mazlik26.jpg.tn.jpg" alt="slider" title="#slider3x27" />
+<img src="../../../userFiles/system/mazlik52.jpg" data-thumb="userFiles/system/mazlik52.jpg.tn.jpg" alt="slider" title="#slider3x28" />
+<img src="../../../userFiles/system/mazlik28.jpg" data-thumb="userFiles/system/mazlik28.jpg.tn.jpg" alt="slider" title="#slider3x29" />
+<img src="../../../userFiles/system/mazlik29.jpg" data-thumb="userFiles/system/mazlik29.jpg.tn.jpg" alt="slider" title="#slider3x30" />
+<img src="../../../userFiles/system/mazlik30.jpg" data-thumb="userFiles/system/mazlik30.jpg.tn.jpg" alt="slider" title="#slider3x31" />
+<img src="../../../userFiles/system/mazlik32.jpg" data-thumb="userFiles/system/mazlik32.jpg.tn.jpg" alt="slider" title="#slider3x32" />
+<img src="../../../userFiles/system/mazlik33.jpg" data-thumb="userFiles/system/mazlik33.jpg.tn.jpg" alt="slider" title="#slider3x33" />
+<img src="../../../userFiles/system/mazlik35.jpg" data-thumb="userFiles/system/mazlik35.jpg.tn.jpg" alt="slider" title="#slider3x34" />
+<img src="../../../userFiles/system/mazlik34.jpg" data-thumb="userFiles/system/mazlik34.jpg.tn.jpg" alt="slider" title="#slider3x35" />
+<img src="../../../userFiles/system/mazlik02a.jpg" data-thumb="userFiles/system/mazlik02a.jpg.tn.jpg" alt="slider" title="#slider3x36" />
+<img src="../../../userFiles/system/mazlik03a.jpg" data-thumb="userFiles/system/mazlik03a.jpg.tn.jpg" alt="slider" title="#slider3x37" />
+<img src="../../../userFiles/system/mazlik38.jpg" data-thumb="userFiles/system/mazlik38.jpg.tn.jpg" alt="slider" title="#slider3x38" />
+<img src="../../../userFiles/system/mazlik50.jpg" data-thumb="userFiles/system/mazlik50.jpg.tn.jpg" alt="slider" title="#slider3x39" />
+<img src="../../../userFiles/system/mazlik51.jpg" data-thumb="userFiles/system/mazlik51.jpg.tn.jpg" alt="slider" title="#slider3x40" />
+<img src="../../../userFiles/system/mazlik53.jpg" data-thumb="userFiles/system/mazlik53.jpg.tn.jpg" alt="slider" title="#slider3x41" />
+<img src="../../../userFiles/system/mazlik54.jpg" data-thumb="userFiles/system/mazlik54.jpg.tn.jpg" alt="slider" title="#slider3x42" />
+<img src="../../../userFiles/system/mazlik55.jpg" data-thumb="userFiles/system/mazlik55.jpg.tn.jpg" alt="slider" title="#slider3x43" />
+<img src="../../../userFiles/system/mazlik56.jpg" data-thumb="userFiles/system/mazlik56.jpg.tn.jpg" alt="slider" title="#slider3x44" />
+            </div>
+            <div id="slider3x7" class="nivo-html-caption"></div>
+<div id="slider3x11" class="nivo-html-caption"></div>
+<div id="slider3x12" class="nivo-html-caption"></div>
+<div id="slider3x8" class="nivo-html-caption"></div>
+<div id="slider3x13" class="nivo-html-caption"></div>
+<div id="slider3x9" class="nivo-html-caption"></div>
+<div id="slider3x14" class="nivo-html-caption"></div>
+<div id="slider3x10" class="nivo-html-caption"></div>
+<div id="slider3x15" class="nivo-html-caption"></div>
+<div id="slider3x17" class="nivo-html-caption"></div>
+<div id="slider3x16" class="nivo-html-caption"></div>
+<div id="slider3x18" class="nivo-html-caption"></div>
+<div id="slider3x19" class="nivo-html-caption"></div>
+<div id="slider3x21" class="nivo-html-caption"></div>
+<div id="slider3x20" class="nivo-html-caption"></div>
+<div id="slider3x22" class="nivo-html-caption"></div>
+<div id="slider3x23" class="nivo-html-caption"></div>
+<div id="slider3x24" class="nivo-html-caption"></div>
+<div id="slider3x25" class="nivo-html-caption"></div>
+<div id="slider3x26" class="nivo-html-caption"></div>
+<div id="slider3x27" class="nivo-html-caption"></div>
+<div id="slider3x28" class="nivo-html-caption"></div>
+<div id="slider3x29" class="nivo-html-caption"></div>
+<div id="slider3x30" class="nivo-html-caption"></div>
+<div id="slider3x31" class="nivo-html-caption"></div>
+<div id="slider3x32" class="nivo-html-caption"></div>
+<div id="slider3x33" class="nivo-html-caption"></div>
+<div id="slider3x34" class="nivo-html-caption"></div>
+<div id="slider3x35" class="nivo-html-caption"></div>
+<div id="slider3x36" class="nivo-html-caption"></div>
+<div id="slider3x37" class="nivo-html-caption"></div>
+<div id="slider3x38" class="nivo-html-caption"></div>
+<div id="slider3x39" class="nivo-html-caption"></div>
+<div id="slider3x40" class="nivo-html-caption"></div>
+<div id="slider3x41" class="nivo-html-caption"></div>
+<div id="slider3x42" class="nivo-html-caption"></div>
+<div id="slider3x43" class="nivo-html-caption"></div>
+<div id="slider3x44" class="nivo-html-caption"></div>
+        </div>
+		<script type="text/javascript" src="../../../plugins/slider/nivo-slider/nivo-slider.js"></script>
+		<script type="text/javascript">
+		$(function(){
+		  $("#slider3>.nivoSlider").nivoSlider({
+	    prevText: "P\u0159edchoz\u00ed",
+	    nextText: "Dal\u0161\u00ed",
+        effect: "fade",
+        pauseOnHover: false,
+        animSpeed: 400,
+        pauseTime: 5000,
+        randomStart: true,
+        directionNav: false,
+        controlNav: false,
+        controlNavThumbs: false,
+        manualAdvance: false,
+        captionOpacity: 1
+	    });
+          });
+		</script>
+		</p>
+<div class="formular">
+<p>
+		<form action="http://www.nas-partak-obytnak.cz/trasy/prodlouzene-vikendy/2021/4_-9_7_2021---na-hitlerovo-orli-hnizdo" method="post" enctype="multipart/form-data">
+		</p>
+<h3>Poptávka náhradních dílů</h3>
+<table style="width: 65%; float: right;" border="0">
+<tbody>
+<tr>
+<td width="40%">Jméno</td>
+<td><input class="query full" type="text" name="jmeno" /></td>
+</tr>
+<tr>
+<td>E-mail a telefon</td>
+<td><input class="query full" type="text" name="jmeno" /></td>
+</tr>
+<tr>
+<td>Číslo/název dílu</td>
+<td><input class="query full" type="text" name="jmeno" /></td>
+</tr>
+</tbody>
+</table>
+<p>
+        <table width="100%" border="0">
+		
+		<tr><td colspan="2" align="center">
+		<br />
+              <input type="hidden" name="formular_zakladni_id" value="">
+	    <input type="submit" class="button" value="OK" />
+		</td></tr></table>
+
+    <script type="text/javascript">
+     document.write('<input type="hidden" name="tajne" value="čž' + 'řůž">');
+    </script>
+		</form>
+		</p>
+</div></div></div>
+
+		<h2></h2>
+
+		<ul class="sidemenu"><li><a href="../../../svet-nomadu.html">Svět nomádů</a><ul class="sidemenu"><li><a href="../../../svet-nomadu/2024.html">2024</a></li><li><a href="../../../svet-nomadu/2022.html">2022</a></li><li><a href="../../../svet-nomadu/2021.html">2021</a></li><li><a href="../../../svet-nomadu/2019.html">2019</a></li><li><a href="../../../svet-nomadu/2018.html">2018</a></li><li><a href="../../../svet-nomadu/2017.html">2017</a></li><li><a href="../../../svet-nomadu/archiv-aktualit-dne.html">Archiv aktualit dne</a></li></ul></li><li><a href="../../../technika.html">Technika</a><ul class="sidemenu"><li><a href="../../../technika/motor-a-podvozek.html">Motor a Podvozek</a></li><li><a href="../../../technika/nastavba.html">Nástavba</a></li><li><a href="../../../technika/elektrina.html">Elektřina</a></li><li><a href="../../../technika/av-a-elektronika.html">AV a elektronika</a></li><li><a href="../../../technika/voda-a-to-dalsi.html">Voda a to další</a></li><li><a href="../../../technika/plyn-a-topeni.html">Plyn a topení</a></li><li><a href="../../../technika/volna-vybava.html">Volná výbava</a></li></ul></li><li><a href="../../../blog.html">Blog</a><ul class="sidemenu"><li><a href="../../../blog/2022.html">2022</a></li><li><a href="../../../blog/2021.html">2021</a></li><li><a href="../../../blog/2020.html">2020</a></li><li><a href="../../../blog/2019.html">2019</a></li><li><a href="../../../blog/2018.html">2018</a></li><li><a href="../../../blog/2017.html">2017</a></li><li><a href="../../../blog/in-vino-veritas.html">In Vino Veritas</a></li></ul></li><li><a href="../../../nas-dodo.html">Náš Dodo</a><ul class="sidemenu"><li><a href="../../../nas-dodo/2023.html">2023</a></li><li><a href="../../../nas-dodo/2022.html">2022</a></li><li><a href="../../../nas-dodo/2021.html">2021</a></li><li><a href="../../../nas-dodo/2019.html">2019</a></li><li><a href="../../../nas-dodo/2018.html">2018</a></li><li><a href="../../../nas-dodo/2017.html">2017</a></li></ul></li><li><a href="../../../trasy.html">Trasy</a><ul class="sidemenu"><li><a href="../../vikendove-cesty.html">Víkendové cesty</a></li><li><a href="../../prodlouzene-vikendy.html">Prodloužené víkendy</a><ul class="sidemenu"><li><a href="../2024.html">2024</a><ul class="sidemenu"><li><a href="../2024/28_3_-1_4_2024-velikonoce-v-severnich-cechach.html">28.3.-1.4.2024 Velikonoce v Severních Čechách</a></li></ul></li><li><a href="../2023.html">2023</a><ul class="sidemenu"><li><a href="../2023/2_-5_10_2023---poprve-vylet-samotare.html">2.-5.10.2023 - Poprvé výlet samotáře</a></li></ul></li><li><a href="../2022.html">2022</a><ul class="sidemenu"><li><a href="../2022/6_-12_3_2022---alsaske-predjari.html">6.-12.3.2022 - Alsaské předjaří</a></li></ul></li><li><a href="../2021.html">2021</a><ul class="sidemenu"><li class="current"><a href="4_-9_7_2021---na-hitlerovo-orli-hnizdo.html">4.-9.7.2021 - Na Hitlerovo Orlí hnízdo</a></li></ul></li><li><a href="../2019.html">2019</a><ul class="sidemenu"><li><a href="../2019/04_-07_07_2019-za-krasami-sumavy_.html">04.-07.07.2019 Za krásami Šumavy.</a></li></ul></li><li><a href="../2018.html">2018</a><ul class="sidemenu"><li><a href="../2018/povanocni-bavorsko.html">Povánoční Bavorsko</a></li><li><a href="../2018/sasko-na-konci-zari.html">Sasko na konci září</a></li><li><a href="../2018/na-svatbu-do-ase.html">Na svatbu do Aše</a></li><li><a href="../2018/za-vinem-na-jih-moravy-a-slovenska.html">Za vínem na Jih Moravy a Slovenska</a></li><li><a href="../2018/velikonoce-v-holandsku.html">Velikonoce v Holandsku</a></li></ul></li><li><a href="../2017.html">2017</a><ul class="sidemenu"><li><a href="../2017/velikonoce-v-italii.html">Velikonoce v Itálii</a></li></ul></li></ul></li><li><a href="../../jedeme-na-dovolenou.html">Jedeme na dovolenou</a><ul class="sidemenu"><li><a href="../../jedeme-na-dovolenou/2022---nemecko-a-sumava-podruhe.html">2022 - Německo a Šumava podruhé</a></li><li><a href="../../jedeme-na-dovolenou/2021---nemecko-_a-trochu-sumava_.html">2021 - Německo (a trochu Šumava)</a></li><li><a href="../../jedeme-na-dovolenou/2020---jeseniky-a-cast-moravy.html">2020 - Jeseníky a část Moravy</a></li><li><a href="../../jedeme-na-dovolenou/2019---jizni-cechy.html">2019 - Jižní Čechy</a></li><li><a href="../../jedeme-na-dovolenou/2018---litva_-lotyssko_-estonsko.html">2018 - Litva, Lotyšsko, Estonsko</a></li></ul></li></ul></li><li><a href="../../../trochu-z-historie.html">Trochu z historie</a><ul class="sidemenu"><li><a href="../../../trochu-z-historie/jak-to-vsechno-zacalo.html">Jak to všechno začalo</a></li><li><a href="../../../trochu-z-historie/dodo-dnes.html">Dodo dnes</a></li><li><a href="../../../trochu-z-historie/historie-znacky-pilote.html">Historie značky PILOTE</a></li></ul></li><li><a href="../../../pokec.html">Pokec</a></li></ul>
+		
+		
+	</div>
+
+	<div id="main">
+	
+	
+	<div class="post ">
+	
+	<div class="post_top">
+	<div class="post_title">
+	<h1>4.-9.7.2021 - Na Hitlerovo Orlí hnízdo</h1>
+	</div></div>
+	<div class="post_body">
+	<p style="text-align: justify;">Letos dva červencové svátky vyšly krásně na pondělí a úterý a tak by byla fakt škoda nevzít tři dny dovolené a někam nevyrazit. Na slavné Orlí hnízdo poblíž německého Berchtesgardenu jsme si mysleli už dlouho, volba byla tedy jasná. Vyjížděli jsme až v neděli 4.7. Předpověď počasí bohužel nebyla zrovna příznivá, občas slunečno ale také déšť a dokonce i bouřky s přívalovými lijáky. No, uvidíme. Ohledně Covidových opatření jsme si docela věřili - máme oba dokončené očkování a vše zaznamenáno v nové aplikaci "Tečka". Takže vyrážíme, před námi nějakých 400-500km.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-01.jpg"><img class="roundblock" style="float: left;" title="Aude-01" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-01.jpg" alt="Aude-01" width="250" /></a> Jedeme jižním směrem, prodíráme se příšernou dopravou, zaviněnou totálním uzavřením dálnice D1 u Hvězdonic. Opravu by mě zajímalo, kterého nemyslícího primitiva napadlo uzavřít kvůli zbourání nadjezdu na dva dny dálnici první červencový víkend, kdy je bezpečně největší provoz. Kamiony měly z Prahy do Brna objíždět až přes Tábor! Považuji se za pacifistu ale mnohokrát jsem si první den cesty představoval, jak toho zodpovědného bezmozka držím pod krkem...  Každopádně, na cestu na jih Čech se budu snažit rychle zapomenout.</p>
+<p style="text-align: justify;">Počasí splnilo předpověď a pravidelně střídalo déšť, zataženo a občas polojasno. První zastávku jsme si udělali u známé <strong>Židovy strouhy</strong>, nedaleko Bechyně. Celkově je dlouhá nějakých 20km a vytváří hezký romantický skalnatý kaňon, s mnoha brody a také jeskyněmi. Na závěr se potok vlévá do Lužnice. My zastavili právě až u toho ústí a trochu se prošli. Zrovna bylo hezky ale bohužel všude i dost mokro. Obytňákům doporučuji zastavit na <span jstcache="874">49.278577, 14.465762. Přímo do strouhy je to už jen kousek.</span></p>
+<p><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-02.jpg"><img class="roundblock" title="Aude-02" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-02.jpg" alt="Aude-02" width="250" /></a> <a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-03.jpg"><img class="roundblock" title="Aude-03" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-03.jpg" alt="Aude-03" width="250" /></a></p>
+<p><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-04.jpg"><img class="roundblock" title="Aude-04" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-04.jpg" alt="Aude-04" width="250" /></a> <a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-05.jpg"><img class="roundblock" title="Aude-05" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-05.jpg" alt="Aude-05" width="250" /></a></p>
+<p style="text-align: justify;">Pro první noc jsme vybrali docela vhodné místo, necelých 20km od hranic s Rakouskem. Kousek za Netřebicemi je asi 200m od silnice na hraně lesa <strong>Památník pochodu smrti</strong>. Je to místo posledního odpočinku <span>46 obětí z transportních vlaků (převážně cizinců - především Poláků, Holanďanů, Belgičanů a Francouzů), které Němci zavraždili na konci II.sv.války. Památník je uzavřen za plotem ale pro nás důležitější věc: má rozhlehlé vlastní parkoviště. Tedy ideální místo pro první přespání, na koordinátech 48.781599, 14.464154.</span></p>
+<p><span><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-06.jpg"><img class="roundblock" title="Aude-06" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-06.jpg" alt="Aude-06" width="600" /></a> </span></p>
+<p style="text-align: justify;">Když jsem večer dal na Facebook (skupina "Obytňákem křížem krážem") tuto fotku s tím, že jsme tu na noc a že dobrý, ozval se nějaký asi místní čtenář, že "t<span>oto místo pro příště nedoporučuje. Sjíždí se tam feťáci a děvky. Ani psa tam nechodí venčit". No... nechci polemizovat ale jak parkoviště, tak okolí bylo naprosto čisté, nikde žádné odpadky či jiná špína, která většinou tyto dvě skupiny návštěvníků doprovází. Ale na asfaltové ploše byly tu a tam nepatrné stopy po pneumatikách, někdo si tu zřejmě v minulosti zkoušel driftovat. Takže docela hezká ukázka, jak rychle u nás může pár mladíků na motorkách a jejich případných zamilovaných slečen získat označení "feťáci a děvky". </span></p>
+<p style="text-align: justify;">Ráno překračujeme v Dolním Dvořišti hranice (ani pes po nás neštěkl, natož kontrola Covidu nebo vážení auta) a vjíždíme do Rakouska. První dojmy z cesty po malých okreskách: většina vesnic je situována mimo silnici, takže ta nevede jako u nás jejich centrem a může být zachována min. 70km maximálka. Cesta je tedy v porovnání s ČR velmi plynulá. Rakouští řidiči jsou velmi uvědomělí a předjíždění nad maximálku jsme vlastně nezažili. Příjemná je i absence naší speciality - bilboardů a hnusných reklamních cedulí všude možně a nikdo také neexperimentuje s nějakými pouťovými barvami fasád domů. Prostě, trochu vyšší kultura se pozná. Po 70km přijíždíme do prvního dnešního cíle, do <strong>Linze</strong>. Přímo v centru, na břehu Dunaje je velké parkoviště (48.312191, 14.287199), stojí jen 2 Eura na dvě hodiny (nebo 5Eur na 6h). Přejdeme most a jsme v centru.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-07.jpg"><img class="roundblock" title="Aude-07" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-07.jpg" alt="Aude-07" width="600" /></a></p>
+<p style="text-align: justify;"><strong>Linec</strong><span> (</span><span class="cizojazycne" lang="de" title="němčina"><em>Linz</em></span><span>) je </span>hlavní město<span> rakouské spolkové země </span>Horní Rakousy<span>. Žije zde </span><span class="wd">přibližně 205 tisíc<sup id="cite_ref-5d8f165b0667c0ef0d2261ab7f52966e2a0da04b_1-1" class="reference"></sup></span><span> obyvatel </span><span>a je tedy </span><span>třetím největším v celém </span>Rakousku<span>. Není to nějaké typicky historické město plné památek a prim tu hraje spíš umění. Hudba, výtvarné umění a také současná architektura, která se na mnoha místech zajímavě propojuje s tou historickou. Největším náměstím centra je </span>Hauptplatz, se starou radnicí a krásným sloupem Nejsvětější trojice z roku 1717.</p>
+<p><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-08.jpg"><img class="roundblock" title="Aude-08" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-08.jpg" alt="Aude-08" width="250" /></a>  <a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-09.jpg"><img class="roundblock" title="Aude-09" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-09.jpg" alt="Aude-09" width="250" /></a></p>
+<p><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-10.jpg"><img class="roundblock" title="Aude-10" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-10.jpg" alt="Aude-10" width="250" /></a>  <a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-11.jpg"><img class="roundblock" title="Aude-11" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-11.jpg" alt="Aude-11" width="250" /></a></p>
+<p style="text-align: justify;">Moje drahá žena (která zastávku v Linzi naplánovala) ale hned po výstupu z auta oznamuje hlavní důvod návštěvy zde: musíme si tady prý dát ten pravý a originální linecký dort, upečený nějakým místním "echt" pekařem. Našli jsme, dali jsme si. Je trochu jiný než naše linecké pečivo, a na mě dost přeslazený. Ale ochutnali jsme ho.</p>
+<p><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-12.jpg"><img class="roundblock" title="Aude-12" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-12.jpg" alt="Aude-12" width="600" /></a></p>
+<p style="text-align: justify;">Jedeme dál a máme v itineráři ještě dvě krátké zastávky. O pouhých 18km dále je městys <strong>Sankt Florian</strong>, s významným augustiánským kláštěrem. Prý je postaven přímo <span>na místě, kde byl pohřben křesťanský mučedník </span>svatý Florián<span>. Florian byl plukovník římské legie v provincii Noricum, který se obrátil na křesťanství a byl utopen v nedaleké řece </span>Enns<span>; proto se později stal patronem hasičů a ochráncem proti požárům a povodním. <span>V kostele s kopulí nad křížením je mohutný hlavní oltář z červeného mramoru, vysoký 20 m. </span><span>Na kruchtě jsou slavné tzv. Brucknerovy varhany podle hudebního skladatele </span>Antona Brucknera<span> (1824-1896), který zde dlouho působil jako varhaník a pod kruchtou je také pohřben. Za malou procházku to rozhodně stojí, parkoviště na 48.206531, 14.375185 je volné a pro obytňák zcela v pohodě.</span></span></p>
+<p><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-13.jpg"><img class="roundblock" title="Aude-13" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-13.jpg" alt="Aude-13" width="250" /></a> <a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-14.jpg"><img class="roundblock" title="Aude-14" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-14.jpg" alt="Aude-14" width="250" /></a> <a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-15.jpg"><img class="roundblock" title="Aude-15" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-15.jpg" alt="Aude-15" width="105" /></a></p>
+<p style="text-align: justify;">Poslední dnešní zastavení je <strong>Kremsmünster</strong> a tamní proslulé opatství, <span>založené roku 777 a jeho historie tedy <span>trvá více než 1200 let. K</span>lášterní kostel<span> sv. Agapéta, v</span><span> pokladnici kostela se uchovává i tzv. </span>Tassilův kalich<span> z 8. století, vzácná památka raně středověkého zlatnictví, v</span></span>elmi rozsáhlý se celý komplex kláštera (délka jen jižního křídla je 290 m) obsahuje mimo jiné refektář, Císařský sál a 65 m dlouhou knihovnu s asi 200 000 svazky. Na západní a severní straně lemují klášterní budovy nádrže pro chov ryb. Součástí komplexu je i Matematická věž, původně astronomická observatoř, což je devítipatrová věž, vysoká 51 m, je jednou z nejstarších výškových staveb a byla postavena po roce 1760. Meteorologické záznamy se zde nepřetržitě vedou po více než 250 let, od roku 1860 je zde i seismografická observatoř a další. Ke klášteru patří i klášterní škola, od roku 1549 veřejné gymnázium. V místní vinotéce jsme koupili pár lahví lokálních vín, abychom poznávali Rakousko opravdu ze všech stran. Parkoviště je nedaleko komplexu, na 48.054600, 14.125815.</p>
+<p><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-16.jpg"><img class="roundblock" title="Aude-16" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-16.jpg" alt="Aude-16" width="250" /></a>  <a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-17.jpg"><img class="roundblock" title="Aude-17" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-17.jpg" alt="Aude-17" width="250" /></a></p>
+<p><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-18.jpg"><img class="roundblock" title="Aude-18" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-18.jpg" alt="Aude-18" width="250" /></a>  <a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-19.jpg"><img class="roundblock" title="Aude-19" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-19.jpg" alt="Aude-19" width="250" /></a></p>
+<p style="text-align: justify;">No a k večeru jsme ještě dali zhruba 100km a dojeli na předměstí Salzburgu, kde jsem si vyhlídl stellplatz na noc. Je na 47.835864, 13.059693 a po příjezdu jsem byl docela nemile překvapen velikostí: vejde se na něj 106 aut a je to spíš kemp, kterým se my s Janou snažíme spíš vyhýbat. Nicméně kvalitní zázemí, cena 22Eur/noc vč. elektřiny. Jedině okolí není nic moc - samé skladové a obchodní komplexy a o kus dál i nějaká dálnice. Zaparkovali jsme mezi dva české obytňáky a vytvořili tak národní "enklávu".</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-20.jpg"><img class="roundblock" title="Aude-20" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-20.jpg" alt="Aude-20" width="600" /></a>  </p>
+<p style="text-align: justify;">Večer jsme se šli alespoň trochu projít do okolních kopců a při pohledu z jednoho z nich si uvědomili, že už jsme vlastně docela blízko tzv. severních vápencových Alp. Blížíme se tedy konečně k hlavnímu cíli naší cesty :-)</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-21.jpg"><img class="roundblock" title="Aude-21" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-21.jpg" alt="Aude-21" width="600" /></a></p>
+<p style="text-align: justify;">Úterní ráno nás překvapilo naprosto čistou, modrou oblohou a rychle stoupající teplotou. Kvapně jsme se tedy nasnídali, vyřídili účet (celé to probíhá "bezkontaktně", tzn. že po příjezdu si vezmete na nástěnce plastikovou obálku, na vložený papír napíšete jméno, SPZ a od kdy-do kdy hodláte zůstat, umístíte za okno a při odjezdu vložíte do stejné PVC obálky odpovídající obnost v hotovosti a vhodíte do schránky u kanceláře), doplnili vodu a vypustili šedivku a vyrazili vstříc Alpám. Hned za městem se objevila první "panoramata".</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-22.jpg"><img class="roundblock" title="Aude-22" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-22.jpg" alt="Aude-22" width="600" /></a></p>
+<p style="text-align: justify;">Necelých 20km jižně od Salzburgu přijíždíme ke známé <strong>Soutěsce Almbach</strong> (Almbach Klamme) a těšíme se na pěkný dopolední výlet. Parkoviště je na 47.670503, 13.031837, my ale zaparkovali již na příjezdové cestě asi 200m před parkovištěm. I tady si obytňák dokáže místo v pohodě najít. Po zkušenosti z minulých dvou dní jsem totiž hledal pozici vhodnou pro řádnou funkci chladničky. Vysvětlím:</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-23.jpg"><img class="roundblock" style="float: left;" title="Aude-23" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-23.jpg" alt="Aude-23" width="250" /></a></p>
+<p style="text-align: justify;"><em><span style="text-decoration: underline;">Teplota v chladničce</span>: Letos na jaře jsem si nainstaloval takouvou blbinku, která měla za cíl mít pod absolutní kontrolou <a href="../../../nas-dodo/2021/teplota-pod-kontrolou.html">teplotu ve voze a chladničce</a>. Tato cesta byla vlastně první příležitostí systematicky sledovat změny teploty v chladničce, samozřejmě hlavně, když jede na plyn. Zjištění č.1: potvrzuje se důležitost správného parkování ze horkých letních dní. Když svítí slunce na stěnu Dodíka, kde jsou větrací mřížky chladničky, stačí dvě hodinky a v mrazáku je místo -5 až -8°C okamžitě nula nebo i víc a v chladničce je místo plus 5-7°C spíš 12-15°C. A když mám tuto pravou stěnu Dodíka ve stínu, chladnička udržet teplotu stíhá. A zjištění č.2: vložil jsem do mrazáku teplou 2litrovou láhev Pepsi, abych ji rychle zchladil. No a po 15 minutách bylo v mrazáku opět na nule. Dva litry teplé tekutiny je prostě na cca 34litrový mrazák jedoucí na plyn moc. Takže proto, když jsem viděl pruh na parkování kde bych byl pravou stranou ve stínu, okamžitě jsem zastavil tam.</em></p>
+<p style="text-align: justify;">Celí natěšení vyrážíme ke vchodu do soutěsky. Ale ouha! Vítá nás dřevěná zábrana a varovně vypadající nápis v němčině, obsahující celkem 4 vykřičníky. Hmmm. Vytahuji telefon a Google Translator vydává znepokojující překlad: "Almbachklamm gesperrt! LEBENSGEFAHR!!! = Soutěska Almbach uzavřena! RIZIKO SMRTI!!!" No těbůh, co se sakra děje? Nyní už víme, že se díky lijavcům z posledních dní dnes brzy ráno uvolnila a sjela dolů celá část svahu, zničila asi 5m stezky a jen těsně minula německou dvojici důchodců. Každopádně máme prostě smůlu.</p>
+<p style="text-align: justify;">Vyrážíme tedy podél nedaleké říčky Berchtesgarderen Ache proti proudu. Pár kilometrů tam a pár kilometrů zpět. Celkem příjemný den, kdyby nebylo tak veliké vedro. Skoro 30°C v horách prostě zabrat dá.</p>
+<p><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-24.jpg"><img class="roundblock" title="Aude-24" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-24.jpg" alt="Aude-24" width="250" /></a>  <a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-25.jpg"><img class="roundblock" title="Aude-25" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-25.jpg" alt="Aude-25" width="250" /></a>  </p>
+<p><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-25a.jpg"><img class="roundblock" title="Aude-25a" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-25a.jpg" alt="Aude-25a" width="600" /></a></p>
+<p style="text-align: justify;">Po návratu jdeme do restaurace u vchodu do soutěsky na pozdní oběd. Dobře se najíme a jen tak na zkoušku jdeme vstup ještě zkontrolovat. A překvapení! Brána je otevřená a soutězka už v provozu. Takže dvakrát 5EUR a jdeme dovnitř. </p>
+<p style="text-align: justify;">Rozhodně se vyplatilo možnost vstoupit do soutěsky odpoledne ověřit, cesta v ní je totiž velmi impozantní. Možná její drobnou nevýhodou je, že nejzajímavější část - větší vodopády, těsně sevřené vysokými skalami, najdete kousek za vstupem a pak, jak soutěskou stoupáte vzhůru, se okolí pomalu mění v takový klidnější romantický kaňon.  Asi po 40 minutách dojdete k vysokému kaskádovitému vodopádu a zde jsme se otočili a šli zpět. Ti namakanější mohou pokračovat dál k vodnímu mlýnu ale cedule ukazovala další 2¼ hodiny chůze navíc. A do toho jsme nešli. Nicméně soutěska Almbach má naše jednoznačné doporučení.</p>
+<p><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-26.jpg"><img class="roundblock" title="Aude-26" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-26.jpg" alt="Aude-26" height="300" /></a> <a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-27.jpg"><img class="roundblock" title="Aude-27" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-27.jpg" alt="Aude-27" height="300" /></a> <a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-28.jpg"><img class="roundblock" title="Aude-28" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-28.jpg" alt="Aude-28" height="300" /></a></p>
+<p><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-29.jpg"><img class="roundblock" title="Aude-29" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-29.jpg" alt="Aude-29" width="250" /></a> <a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-30.jpg"><img class="roundblock" title="Aude-30" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-30.jpg" alt="Aude-30" width="250" /></a> <a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-31.jpg"><img class="roundblock" title="Aude-31" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-31.jpg" alt="Aude-31" width="250" /></a></p>
+<p style="text-align: justify;">I když zpět do Salzburgu to nebylo daleko, chtěli jsme si najít klidnější místo na přespání. A docela příhodné místo jsme našli kousek nad Berchtesgadenem. No, není to vlastně "kousek nad", je to docelo strmě do kopce. Do navigace zadáte 47.650662, 13.070533 a musíte vydržet prudké stoupání, odbočky na první pohled nikam nevedoucí, musíte se smířit s tím, že na každé křižovatce odbočíte na tu nejhorší a nejužší silničku (na závěr nezpevněnou) a když už si myslíte, že po těch kilometrech strmého stoupání prostě nemůže existovat rovina, jste tam. Stellplatz je to velmi skromný. Poskytuje vlastně jen připojení elektřiny, možnost vypustit vodu a napustit pitnou. Záchody byly kvůli Covidu zavřené. Platí se 10EUR za auto a posádku+2EUR za elektřinu. Prostor je takový zcela rovný a plochý "balkón", ovál na nějž se vejde tak 20-25 aut a nabízí úplně parádní výhled do okolí. Je tam naprostý klid, veškeré dopravní komunikace jsou daleko.</p>
+<p><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-32.jpg"><img class="roundblock" title="Aude-32" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-32.jpg" alt="Aude-32" width="260" /></a>  <a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-33.jpg"><img class="roundblock" title="Aude-33" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-33.jpg" alt="Aude-33" width="245" /></a></p>
+<p style="text-align: justify;">To byla báječná noc! Takový klid a ticho jsme už dlouho nezažili. Jen ráno nás moc nepotěšilo - těžké mraky táhnoucí se po šedé obloze. Takhle nějak to vypadá, když se má každou chvilkou spustit déšť. No a my máme dnes v plánu dvě nádherná jezera. Königssee a Obersee. Ale zatím se to drží a tak rychle snídáme a vyrážíme dolů do údolí <span>Berchtesgarden, na jehož jižním konci se obě jezera nacházejí. Mezitím se ale musíme popasovat ze situací, která nás v Německu docela nemile překvapila: nemáme už peníze. Přesněji nemáme hotovost. Opravdu jsem nebyl připraven na zemi, která v 21.století tak nemá ráda bezhotovostní placení. V mnoha restauracích, stellplatzech, prodejnách, apod. prostě karty nebo nedejbůh platbu telefonem vůbec neakceptují. To si ti Němci nevšimli, že už není středověk? A druhé absurdní zjištění - bankomat aby člověk hledal s lucernou. Takže trochu zdržení přímo ve městě <span>Berchtesgarden, lítání od info centra k vlakovému nádraží ale hotovost se nakonec dostavila. Můžeme vyrazit k jezerům.</span></span></p>
+<p style="text-align: justify;"><span><span><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-34.jpg"><img class="roundblock" title="Aude-34" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-34.jpg" alt="Aude-34" width="600" /></a> </span></span></p>
+<p style="text-align: justify;">Jezera <span><strong>Königssee a Obersee</strong>. Obě jezera <span>leží na dně hlubokého </span>údolí, jsou <span>obklopena strmými srázy a vysokými </span>horami. Výrazně větší Königssee<strong> </strong>má na délku hodně přes 6km a šířku přes 1km. Dostat se k němu se dá jen na jeho severní špičce, vše ostatní jsou už jen nepřístupné srázy. No a Obersee je až za ním, k němu se jinak než lodí přes Königssee už nedostanete vůbec.<strong> </strong>A srázy jsou to docela impresivní, minimum je tak 800m a krom jiného se nad <span></span><span>jezerem se vypíná třeba 2 </span>km<span> vysoká východní stěna známého Watzmannu. Jezera byla vytvořeno během poslední doby ledové </span>ledovcovou<span> činností. Zvláštností je, že i když se jedná o třetí nejhlubší jezero v Německu, je plné kvalitní pitné vody! A na její absolutní průzračnosti je to sakra znát. Měli jsme se tedy rozhodně nač těšit.</span></span></p>
+<p style="text-align: justify;"><span><span>Letos poprvé vyhradili tu pro obytňáky speciální parkoviště, což jsme nevěděli a chvilku proto bloudili. Následovníci nechť si rovnou zadají do navigace </span></span><span jstcache="874">47.593234, 12.985820 a je to. Jen si připravte, jsme totiž v Německu, hromadu drobných do parkovacího automatu. Nic jiného nežli mince nebere a parkovné bylo 5EUR. Pohodlnou chůzí jsme pak od Dodíka došli k infocentru (s čistými toaletami a překvapení!: i s bankomatem) a pak uličkou plnou stánků se suvenýry a místními dobrotami se dostanete do přístaviště lodí (elektrických), které jediné návštěvníky na jezero mohou vzít. K dispozici jsou dvě trasy: jedna jen ke kostelu sv.Bartoloměje, který je asi uprostřed jezera a druhá je až na konec, odkud si můžete dojít dvacetiminutovou procházkou k druhému jezeru Obersee. Jinak můžete jednou lodí tam a jakoukoliv jinou zase zpět, jediná podmínka je stihnout to do 18h, kdy jede loď poslední a není vůbec jisté, že pobere všechny opozdilce. A 210EUR by stálo, kdyby pro vás museli vyrazit večer extra. Delší trasa stojí 23EUR na osobu a cesta až na konec jezera trvá zhruba 55minut. Takže vyrážíme.</span></p>
+<p><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-35.jpg"><img class="roundblock" title="Aude-35" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-35.jpg" alt="Aude-35" width="250" /></a> <a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-36.jpg"><img class="roundblock" title="Aude-36" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-36.jpg" alt="Aude-36" width="250" /></a></p>
+<p><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-37.jpg"><img class="roundblock" title="Aude-37" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-37.jpg" alt="Aude-37" width="250" /></a> <a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-38.jpg"><img class="roundblock" title="Aude-38" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-38.jpg" alt="Aude-38" width="250" /></a></p>
+<p style="text-align: justify;"><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-39.jpg"><img class="roundblock" style="float: left;" title="Aude-39" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-39.jpg" alt="Aude-39" width="100" /></a> Plavba po jezeře je naprosto tichá, elektrický motor vydává jen minimální zvuk. Zato místní průvodce nás zasypává prakticky kontinuálními informacemi o okolí. V němčině. V jedné chvíli jsme pochopili, že se blížíme v kolmé skalní stěně mnoho set metrů vysoké, která vytváří pro vydaný zvuk úžasnou ozvěnu. Na důkaz svého tvrzení vytahuje trubku a předvádí drobnou lidovou frázovanou etudu, kterou skutečně pár set metrů vzdálená stěna vrací prakticky v nezměněné podobě. Velmi zajímavé. Samozřejmě sklízí u osazenstva lodě velký úspěch a potlesk. Mějte připraveno pár drobných, po výstupu se bude vybírat do klobouku. Za zhruba 35 minut přistáváme u kostela sv. Bartoloměje a ti s kratší zakoupenou trasou vystupují. My si toto místo necháme až na zpáteční cestu a tak v lodi zůstáváme.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-40.jpg"><img class="roundblock" title="Aude-40" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-40.jpg" alt="Aude-40" width="600" /></a></p>
+<p style="text-align: justify;">I když je ta trasa o něco dražší, rozhodně doporučuji ji využít. Druhá polovina cesty je totiž určitě hezčí, nežli první. Z dálky vidíme něco jako pláž, což je ústí vyschlého koryta, jenž se na jaře plní tajícím sněhem a ledem. O kus dál je mělčina, kde voda dostává neuvěřitelný jasně zelený odstín, následuje velký a mohutný vodopád, valící se do jezera a pak už jen malé přístaviště, my vystupujeme a vyrážíme na krátkou cestu k druhému jezeru - Obersee.</p>
+<p><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-45.jpg"><img class="roundblock" style="float: left;" title="Aude-45" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-45.jpg" alt="Aude-45" width="150" /></a>  <a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-41.jpg"><img class="roundblock" title="Aude-41" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-41.jpg" alt="Aude-41" width="250" /></a>  <a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-42.jpg"><img class="roundblock" title="Aude-42" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-42.jpg" alt="Aude-42" width="250" /></a></p>
+<p>  <a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-43.jpg"><img class="roundblock" title="Aude-43" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-43.jpg" alt="Aude-43" width="250" /></a>  <a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-44.jpg"><img class="roundblock" title="Aude-44" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-44.jpg" alt="Aude-44" width="250" /></a></p>
+<p style="text-align: justify;">Cesta k Obersee má opravdu asi 20 minut a vy se opájíte nádherným okolím a naprosto čistou přírodou. No a po příchodu k Obersee nám padá brada. Tady je to fakt krásný! Udělal jsem mnoho desítek fotek ale sem dám jen jednu:</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2017/aude-46.jpg"><img class="roundblock" title="Aude-46" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2017/aude-46.jpg" alt="Aude-46" width="600" /></a></p>
+<p style="text-align: justify;">Budu muset být asi  trochu stručnější nebo to nebude článek o prodlouženém víkendu ale román na pokračování. Už sem dávám padesátou fotku a hlavní cíl je stále ještě před námi. Takže jen telegraficky: prožili jsme krásné chvíle mezi oběma jezery, procházeli stádem naprosto apatických a naprosto spokojených krav, pak odjeli zpět ke kostelu sv.Bartoloměje, udělali si pěší tůru na tu "pláž", královsky poobědvali v místní restauraci a pak už na jednu z odpoledních lodí a zpět do přístavu. I když bylo celý den zamračeno, nepršelo nám vůbec a tak si na počasí vlastně stěžovat nemůžeme.</p>
+<p><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-47.jpg"><img class="roundblock" title="Aude-47" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-47.jpg" alt="Aude-47" width="250" /></a>  <a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-48.jpg"><img class="roundblock" title="Aude-48" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-48.jpg" alt="Aude-48" width="250" /></a></p>
+<p><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-49.jpg"><img class="roundblock" title="Aude-49" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-49.jpg" alt="Aude-49" width="250" /></a>  <a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-50.jpg"><img class="roundblock" title="Aude-50" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-50.jpg" alt="Aude-50" width="250" /></a></p>
+<p><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-51.jpg"><img class="roundblock" title="Aude-51" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-51.jpg" alt="Aude-51" width="250" /></a>  <a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-52.jpg"><img class="roundblock" title="Aude-52" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-52.jpg" alt="Aude-52" width="250" /></a></p>
+<p><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-53.jpg"><img class="roundblock" title="Aude-53" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-53.jpg" alt="Aude-53" width="600" /></a></p>
+<p style="text-align: justify;">No a zpět do přístavu, na parkoviště k Dodíkovi a jedeme pryč od krásných jezer a nádherného zážitku. Večer máme v jednom kempu rande s naší mladší dcerou. Zítra dáváme právě to <strong>Hitlerovo Orlí hnízdo</strong>, u toho chtěla být a tak dorazí osobním autem z ČR. Mimochodem, kemp Auwirt můžeme také doporučit, leží na druhé straně pohoří, není ale daleko a má opravdu dobré zázemí, hlavně umývárny. Cena za noc,auto a dva lidi byla 33,40EUR, bez elektřiny. Asi kilometr od kempu je místní pivovar s dobrou restaurací a tak jsme hned využili Lenčin osobák pro výlet za večeří. Kemp najdete na 47.703833, 13.069213.</p>
+<p><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-54.jpg"><img class="roundblock" title="Aude-54" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-54.jpg" alt="Aude-54" width="250" /></a> <a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-55.jpg"><img class="roundblock" title="Aude-55" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-55.jpg" alt="Aude-55" width="125" /></a> <a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-56.jpg"><img class="roundblock" title="Aude-56" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-56.jpg" alt="Aude-56" width="250" /></a></p>
+<p style="text-align: justify;">V rozjařené náladě se vracíme do kempu a k Dodíkovi. Předpověď na zítřek slibuje dopoledne polojasno až zataženo ale postupně okolo poledne má začít pršet. Rozhodnutí je tedy jasné, musíme stihnout první autobus na Orlí hnízdo. Startuje na druhé straně horského masivu v 8:30 ráno. Holky trochu úpí ale neprotestují.</p>
+<p><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-57.jpg"><img class="roundblock" title="Aude-57" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-57.jpg" alt="Aude-57" width="600" /></a></p>
+<p style="text-align: justify;">Budíček jsem vyhlásil na sedmou hodinu ranní, a zbytek rodiny po jisté námaze i z postelí dostal. Hodně pomáhá i obloha, slibující nádherný den. Je zatím naprosto vymetená a bez mráčků. Rychle se balíme a vyrážíme směr parkoviště pod Orlím hnízdem, od kterého speciální autobus nahoru odjíždí. Parkoviště je na <span jstcache="874">47.631002, 13.042061 a připravte se opět na parkomaty jen na mince a parkovné 5EUR za auto. Ranní vstávání mělo tu výhodu, že místo bylo poloprázdné a my se v pohodě chytili i s Dodíkem. U pokladen naštěstí karty berou, otevřené jsou od 8h ráno a můžete si vybrat mezi jednosměrnou a obousměrnou cestou. 20EUR nebo 26EUR/os. My zvolili jednocestnou, chceme jít dolů pěšky, je to necelých 10km.</span></p>
+<p><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-58.jpg"><img class="roundblock" title="Aude-58" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-58.jpg" alt="Aude-58" width="290" /></a>  <a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-59.jpg"><img class="roundblock" title="Aude-59" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-59.jpg" alt="Aude-59" width="250" /></a></p>
+<p style="text-align: justify;">Přesně v 8:30 vyrážíme. Silnička je úzká (cca 4m) a běžný provoz na ní nesmí. Dokonce ani chodci, ti mají vyhrazeny turistické chodníky. Řidič je zřejmě nějaký vysloužilý závodník do vrchu, tu zhruba šestikilometrovou trasu, s převýšením okolo 800m, zvládl v jistě rekordním čase. Ale už cestou je při pohledu z autobusu rozhodně co obdivovat.</p>
+<p><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-60.jpg"><img class="roundblock" title="Aude-60" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-60.jpg" alt="Aude-60" width="250" /></a>  <a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-60a.jpg"><img class="roundblock" title="Aude-60a" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-60a.jpg" alt="Aude-60a" width="250" /></a></p>
+<p style="text-align: justify;"><span style="text-align: justify;">Po vystoupení na horní stanici se ti s dvojsměrnou jízdekou musí zaregistrovat na konkrétní čas návratu a již můžeme do tunelu vytesaném ve skalním masívu. Chodba je dlouhá 127m a vede k výtahu, kterým se, podobně jako sám Adolf Hitler a jeho soukmenovci, dostaneme o dalších 124m výše, kde je už ono proslulé Orlí hnízdo. Po výstupu na ochoz musí být každý návštěvník omráčen rozhledem a krásou okolní scenérie. Máme dvojnásobné štěstí. Za prvé počasí je naprosto ideální, i když nás překvapuje, jaké je zde v 1820m.n.m. vedro. A za druhé, první autobus vyvezl jen pár prvních nedočkavců a tak máme minimálně na půl hodiny místo skoro jen pro sebe. Je to naprosto nesrovnatelné s tím, jak pak v průběhu dne nahoru dorážely stále větší a větší davy. Od budovy vede vzhůru pěšina a tak netrvá dlouho a jsme na asi nejfotogeničtějším místě.</span></p>
+<p><span style="text-align: justify;"><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-61.jpg"><img class="roundblock" title="Aude-61" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-61.jpg" alt="Aude-61" width="600" /></a></span></p>
+<p style="text-align: justify;"><span style="text-align: justify;">Nahoře trávíme minimálně dvě hodiny, chodíme po okolí, obdivujeme výhledy, vzácné horské květiny a vychutnáváme slunce a křišťálový vzduch. No a když už jsme u toho vychutnávání, pozdní snídaně na vyhlídce restaurace na Orlím hlízdě vč. místního piva, náš den ještě vylepšila. Btw - z pěti číšníků byli čtyři Češi a Slováci. Těch pár následujících fotek jsou jen trapným pokusem vystihnout toto nádherné místo.</span></p>
+<p><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-62.jpg"><img class="roundblock" title="Aude-62" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-62.jpg" alt="Aude-62" width="250" /></a>  <a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-62a.jpg"><img class="roundblock" title="Aude-62a" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-62a.jpg" alt="Aude-62a" width="250" /></a></p>
+<p><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-63.jpg"><img class="roundblock" title="Aude-63" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-63.jpg" alt="Aude-63" width="250" /></a>  <a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-63a.jpg"><img class="roundblock" title="Aude-63a" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-63a.jpg" alt="Aude-63a" width="250" /></a></p>
+<p><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-64.jpg"><img class="roundblock" title="Aude-64" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-64.jpg" alt="Aude-64" width="250" /></a>  <a class="thickbox" title="" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-72.jpg"><img class="roundblock" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-72.jpg" alt="" width="250" /></a></p>
+<p><a class="thickbox" title="" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-64a.jpg"><img class="roundblock" title="aude-64" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-64a.jpg" alt="aude-64" width="600" /></a></p>
+<p style="text-align: justify;"><span style="text-align: justify;">Cesta dolů k zastávce busu byla také moc hezká. Holky se opět zastavovaly u každé sebemrňavější kytičky, co kde rostla, "panoramat" bylo stále fůra, za sebou jsme zanechávali Orlí hnízdo, které se valem plnilo návštěvníky. Jó, vstát brzy byl fakt dobrý nápad! Během cesty dolů se také už opravdu začaly přibližovat mraky a i když zatím zůstávaly hluboko pod námi, nevěstily na druhou část cesty nic příznivého. </span></p>
+<p><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-66.jpg"><img class="roundblock" title="Aude-66" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-66.jpg" alt="Aude-66" width="600¨" /></a></p>
+<p><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-67.jpg"><img class="roundblock" title="Aude-67" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-67.jpg" alt="Aude-67" width="250" /></a> <a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-67a.jpg"><img class="roundblock" title="Aude-67a" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-67a.jpg" alt="Aude-67a" width="250" /></a></p>
+<p><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-67b.jpg"><img class="roundblock" title="Aude-67b" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-67b.jpg" alt="Aude-67b" width="250" /></a> <a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-67c.jpg"><img class="roundblock" title="Aude-67c" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-67c.jpg" alt="Aude-67c" width="250" /></a></p>
+<p style="text-align: justify;">U autobusu jsme užasli. Tam, kde jsme ráno vystupovali se skupinkou asi 20 lidí, jich byli teď stovky. Dlouhá fronta na registraci cesty zpět, dlouhá fronta do vstupu tunelu, dlouhá fronta u suvenýrů, dlouhá fronta na toalety, ... prostě přivstaňte si. Cesta dolů byla velmi namáhavá, ne nadarmo se říká, že dolů je to těžší nežli nahoru a upřimně, od zastávky jsme se zanořili do lesa, sice pěkného ale normálního a celých těch asi 9km šli v něm. Počasí se také dost zhoršilo, část jsme šli i v dešti. Takže doporučení: vyjeďte nahoru, pokochejte se pohledem, sejděte pěšky na zastávku autobusu a dolů zase jeďte. Nicméně celý den v kostce považujeme za maximálně úžasný :-)</p>
+<p><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-68.jpg"><img class="roundblock" title="Aude-68" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-68.jpg" alt="Aude-68" width="600" /></a></p>
+<p style="text-align: justify;">A protože nám z toho dne zbyl ještě nějaký čas, zajeli jsme do obce Golling (koordináty parkoviště 47.601782, 13.143456), kde mají v lese velmi pěkný vodopád (<strong>Gollinger Wasserfall</strong>). Sice už dost pršelo a tak jsem k němu vyrazil sám (vstupné 5EUR/os.) ale rozhodně nelituji. </p>
+<p style="text-align: justify;"><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-69.jpg"><img class="roundblock" title="Aude-69" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-69.jpg" alt="Aude-69" width="600" /></a></p>
+<p style="text-align: justify;">No a pak už jsme vyrazili na dvoudenní pohodovou cestu domů. Upřímně, nebyla nic moc. Nejprve průjezd Salzburgem. Ten byl za trest. Šílené kolony, nesmyslná omezení, dlouhé stání na místě. I když má toto město nějakých směšných 155.000 obyvatel, evidentně se místní radnice všemožně snaží, aby tu byl provoz jako ve velkoměstě. Předně je zde asi zákaz osazovat auto více než jedním člověkem. To přináší větší počet aut. Pak tu mají velmi rádi semafory, které tu jsou v hustotě asi 36 semaforů na kilometr jízdy. No a do to dejte pár rozkopaných míst, větší množství řidičů (a řidiček), chovajících se více než neobvykle a dostanete skoro dvě ztracené hodiny při průjezdu městem. Ach jo.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-70.jpg"><img class="roundblock" title="Aude-70" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-70.jpg" alt="Aude-70" width="600" /></a></p>
+<p style="text-align: justify;">No po průjezdu se počasí zhoršovalo snad každou hodinou. Jeli jsme domů ve dnech, kdy v Jižních Čechách řádily ty bouře a přívalové deště, takže ani tady to nebylo nic moc. Poslední noc jsme strávili na krásném parkovišti u jednoho poutního kostela poblíž Passau. Zařazujeme si jej i na příště do naší databáze tajných pěkných místeček pro divoké spaní a tak koordináty výjimečně neuvádím.</p>
+<p style="text-align: justify;"><a class="thickbox" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-71.jpg"><img class="roundblock" title="Aude-71" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-71.jpg" alt="Aude-71" width="600" /></a></p>
+<p style="text-align: justify;">V noci jsme toho moc nenaspali, nad námi řádila bouře. Ráno tedy už jen přejezd do Čech, návšteva zámku ve Vimperku, skanzenu v Chamovicích, úžasná večeře (jako vždy) v restauraci Angusfarm v Soběsukách u Nepomuku a v noci za stálého deště a blesků cesta domů do Prahy. </p>
+<p style="text-align: justify;">Až na ten závěr se nám pětidenní výlet do severní části Alp moc podařil a mnoho krásných okamžiků zůstane ve vzpomínkách už napořád.</p>
+<p style="text-align: justify;"><a class="thickbox" title="" href="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-65.jpg"><img class="roundblock" title="aude-65" src="../../../userFiles/6-trasy/2-prodlouzeny-vikend/2021/aude-65.jpg" alt="aude-65" width="600" /></a></p>
+<p style="text-align: justify;"> </p>
+<p style="text-align: justify;"> </p>
+</div>
+</div>
+
+	</div>
+
+	<div id="rightbar">
+	
+	    <div class="boxed ">
+
+
+<h2>Co vás zajímá?</h2>
+<div class="content2">
+
+<div id="menu-bott"></div></div></div>
+<div class="boxed ">
+
+
+<h2>Kontakty na nás</h2>
+<div class="content2">
+
+<h3><img style="margin: 10px 0px !important;" src="../../../userFiles/system/logo.jpg" alt="" /></h3>
+<h3>Náš parťák obytňák</h3>
+<p>Jirka a Jana<br />Praha</p>
+<p><a href="mailto:jiri.pm@seznam.cz">jiri.pm@seznam.cz</a></p>
+<p></p></div></div>
+<div class="boxed ">
+
+
+<h2>Návštěvy na těchto stránkách...</h2>
+<div class="content2">
+
+<p><a href="https://www.toplist.cz/">
+<script language="JavaScript" type="text/javascript">// <![CDATA[
+document.write('<img src="https://toplist.cz/count.asp?id=1782081&amp;logo=mc&amp;http='+
+escape(document.referrer)+'&amp;t='+escape(document.title)+
+'&amp;wi='+escape(window.screen.width)+'&amp;he='+escape(window.screen.height)+'&amp;cd='+
+escape(window.screen.colorDepth)+'" width="88" height="60" border=0 alt="TOPlist" />');
+// ]]></script>
+</a></p>
+<noscript><img src="https://toplist.cz/count.asp?id=1782081&amp;logo=mc" border="0"
+alt="TOPlist" width="88" height="60" /></noscript></div></div>
+
+	</div>
+
+</div><!-- wrap ends here -->
+
+<!-- footer starts here -->
+	<div id="footer">
+		<div id="footer-content">
+		<div id="footer-right">
+			<p class="paticka" style=""><span id=p1 class=ostravski><a href=http://www.ostravski.cz/?levny-webdesign target=:"_blank" >
+Ostravski Webdesign
+</a>
+ |
+ <a href="http://www.banan.cz/produkty/webove-stranky-zdarma?web-zdarma" title="Webové stránky zdarma" target="_blank">
+ Webové stránky zdarma</a>
+ od <a href="http://www.banan.cz/?webhosting-banan" title="webhosting a domény" target="_blank">BANAN.CZ</a>
+ </span>
+
+<span class="paticka_user"> | <a href="http://www.nas-partak-obytnak.cz/admin/">přihlásit se</a></span>
+
+
+</p>
+
+<!-- banan=rs -->		</div>
+
+		<div id="footer-left">
+            <p>
+						            </p>
+		</div>
+		</div>
+	</div>
+<!-- footer ends here -->
+
+</body>
+
+<!-- Mirrored from www.nas-partak-obytnak.cz/trasy/prodlouzene-vikendy/2021/4_-9_7_2021---na-hitlerovo-orli-hnizdo by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Sep 2024 19:58:08 GMT -->
+</html>
+<!--SQL: 0 | cas: 0.023322820663452 | pamet: 657184-->
