@@ -1,4 +1,0 @@
-# HTTrack Website Copier Cookie File
-# This file format is compatible with Netscape cookies
-www.nas-partak-obytnak.cz	TRUE	/	FALSE	1999999999	PHPSESSID	vi7l69n7buu9e3obn4pb20mbo5
-
